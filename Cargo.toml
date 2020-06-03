@@ -7,7 +7,7 @@ edition = "2018"
 [dependencies]
 bare-metal = "0.2.5"
 vcell = "0.1.2"
-cortex-m = "0.6.2"
+cortex-m = "0.5.10"
 
 [dependencies.cortex-m-rt]
 optional = true
