@@ -1,17 +1,53 @@
-#[doc = "Reader of register FSTAT"]
-pub type R = crate::R<u8, super::FSTAT>;
-#[doc = "Writer for register FSTAT"]
-pub type W = crate::W<u8, super::FSTAT>;
-#[doc = "Register FSTAT `reset()`'s with value 0"]
-impl crate::ResetValue for super::FSTAT {
-    type Type = u8;
+#[doc = "Register `FSTAT` reader"]
+pub struct R(crate::R<FSTAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FSTAT_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `MGSTAT0`"]
-pub type MGSTAT0_R = crate::R<bool, bool>;
+impl From<crate::R<FSTAT_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<FSTAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FSTAT` writer"]
+pub struct W(crate::W<FSTAT_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FSTAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<FSTAT_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<FSTAT_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `MGSTAT0` reader - Memory Controller Command Completion Status Flag"]
+pub struct MGSTAT0_R(crate::FieldReader<bool, bool>);
+impl MGSTAT0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MGSTAT0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MGSTAT0_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 #[doc = "Flash Protection Violation Flag\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum FPVIOL_A {
@@ -26,9 +62,12 @@ impl From<FPVIOL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FPVIOL`"]
-pub type FPVIOL_R = crate::R<bool, FPVIOL_A>;
+#[doc = "Field `FPVIOL` reader - Flash Protection Violation Flag"]
+pub struct FPVIOL_R(crate::FieldReader<bool, FPVIOL_A>);
 impl FPVIOL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FPVIOL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FPVIOL_A {
@@ -40,15 +79,22 @@ impl FPVIOL_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == FPVIOL_A::_0
+        **self == FPVIOL_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == FPVIOL_A::_1
+        **self == FPVIOL_A::_1
     }
 }
-#[doc = "Write proxy for field `FPVIOL`"]
+impl core::ops::Deref for FPVIOL_R {
+    type Target = crate::FieldReader<bool, FPVIOL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FPVIOL` writer - Flash Protection Violation Flag"]
 pub struct FPVIOL_W<'a> {
     w: &'a mut W,
 }
@@ -56,9 +102,7 @@ impl<'a> FPVIOL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FPVIOL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No protection violation detected"]
     #[inline(always)]
@@ -83,7 +127,7 @@ impl<'a> FPVIOL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u8) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u8 & 0x01) << 4);
         self.w
     }
 }
@@ -101,9 +145,12 @@ impl From<ACCERR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ACCERR`"]
-pub type ACCERR_R = crate::R<bool, ACCERR_A>;
+#[doc = "Field `ACCERR` reader - Flash Access Error Flag"]
+pub struct ACCERR_R(crate::FieldReader<bool, ACCERR_A>);
 impl ACCERR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ACCERR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ACCERR_A {
@@ -115,15 +162,22 @@ impl ACCERR_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == ACCERR_A::_0
+        **self == ACCERR_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == ACCERR_A::_1
+        **self == ACCERR_A::_1
     }
 }
-#[doc = "Write proxy for field `ACCERR`"]
+impl core::ops::Deref for ACCERR_R {
+    type Target = crate::FieldReader<bool, ACCERR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ACCERR` writer - Flash Access Error Flag"]
 pub struct ACCERR_W<'a> {
     w: &'a mut W,
 }
@@ -131,9 +185,7 @@ impl<'a> ACCERR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ACCERR_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No access error detected"]
     #[inline(always)]
@@ -158,7 +210,7 @@ impl<'a> ACCERR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -176,9 +228,12 @@ impl From<RDCOLERR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RDCOLERR`"]
-pub type RDCOLERR_R = crate::R<bool, RDCOLERR_A>;
+#[doc = "Field `RDCOLERR` reader - Flash Read Collision Error Flag"]
+pub struct RDCOLERR_R(crate::FieldReader<bool, RDCOLERR_A>);
 impl RDCOLERR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RDCOLERR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RDCOLERR_A {
@@ -190,15 +245,22 @@ impl RDCOLERR_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RDCOLERR_A::_0
+        **self == RDCOLERR_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RDCOLERR_A::_1
+        **self == RDCOLERR_A::_1
     }
 }
-#[doc = "Write proxy for field `RDCOLERR`"]
+impl core::ops::Deref for RDCOLERR_R {
+    type Target = crate::FieldReader<bool, RDCOLERR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RDCOLERR` writer - Flash Read Collision Error Flag"]
 pub struct RDCOLERR_W<'a> {
     w: &'a mut W,
 }
@@ -206,9 +268,7 @@ impl<'a> RDCOLERR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RDCOLERR_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No collision error detected"]
     #[inline(always)]
@@ -233,7 +293,7 @@ impl<'a> RDCOLERR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -251,9 +311,12 @@ impl From<CCIF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CCIF`"]
-pub type CCIF_R = crate::R<bool, CCIF_A>;
+#[doc = "Field `CCIF` reader - Command Complete Interrupt Flag"]
+pub struct CCIF_R(crate::FieldReader<bool, CCIF_A>);
 impl CCIF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CCIF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CCIF_A {
@@ -265,15 +328,22 @@ impl CCIF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == CCIF_A::_0
+        **self == CCIF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == CCIF_A::_1
+        **self == CCIF_A::_1
     }
 }
-#[doc = "Write proxy for field `CCIF`"]
+impl core::ops::Deref for CCIF_R {
+    type Target = crate::FieldReader<bool, CCIF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CCIF` writer - Command Complete Interrupt Flag"]
 pub struct CCIF_W<'a> {
     w: &'a mut W,
 }
@@ -281,9 +351,7 @@ impl<'a> CCIF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CCIF_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Flash command in progress"]
     #[inline(always)]
@@ -308,7 +376,7 @@ impl<'a> CCIF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -359,5 +427,31 @@ impl W {
     #[inline(always)]
     pub fn ccif(&mut self) -> CCIF_W {
         CCIF_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Flash Status Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fstat](index.html) module"]
+pub struct FSTAT_SPEC;
+impl crate::RegisterSpec for FSTAT_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [fstat::R](R) reader structure"]
+impl crate::Readable for FSTAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [fstat::W](W) writer structure"]
+impl crate::Writable for FSTAT_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FSTAT to value 0"]
+impl crate::Resettable for FSTAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

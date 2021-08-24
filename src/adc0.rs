@@ -2,320 +2,154 @@
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - ADC Status and Control Registers 1"]
-    pub sc1a: SC1,
+    pub sc1a: crate::Reg<sc1::SC1_SPEC>,
     #[doc = "0x04 - ADC Status and Control Registers 1"]
-    pub sc1b: SC1,
+    pub sc1b: crate::Reg<sc1::SC1_SPEC>,
     #[doc = "0x08 - ADC Configuration Register 1"]
-    pub cfg1: CFG1,
+    pub cfg1: crate::Reg<cfg1::CFG1_SPEC>,
     #[doc = "0x0c - ADC Configuration Register 2"]
-    pub cfg2: CFG2,
+    pub cfg2: crate::Reg<cfg2::CFG2_SPEC>,
     #[doc = "0x10 - ADC Data Result Register"]
-    pub ra: R,
+    pub ra: crate::Reg<r::R_SPEC>,
     #[doc = "0x14 - ADC Data Result Register"]
-    pub rb: R,
+    pub rb: crate::Reg<r::R_SPEC>,
     #[doc = "0x18 - Compare Value Registers"]
-    pub cv1: CV,
+    pub cv1: crate::Reg<cv::CV_SPEC>,
     #[doc = "0x1c - Compare Value Registers"]
-    pub cv2: CV,
+    pub cv2: crate::Reg<cv::CV_SPEC>,
     #[doc = "0x20 - Status and Control Register 2"]
-    pub sc2: SC2,
+    pub sc2: crate::Reg<sc2::SC2_SPEC>,
     #[doc = "0x24 - Status and Control Register 3"]
-    pub sc3: SC3,
+    pub sc3: crate::Reg<sc3::SC3_SPEC>,
     #[doc = "0x28 - ADC Offset Correction Register"]
-    pub ofs: OFS,
+    pub ofs: crate::Reg<ofs::OFS_SPEC>,
     #[doc = "0x2c - ADC Plus-Side Gain Register"]
-    pub pg: PG,
+    pub pg: crate::Reg<pg::PG_SPEC>,
     #[doc = "0x30 - ADC Minus-Side Gain Register"]
-    pub mg: MG,
+    pub mg: crate::Reg<mg::MG_SPEC>,
     #[doc = "0x34 - ADC Plus-Side General Calibration Value Register"]
-    pub clpd: CLPD,
+    pub clpd: crate::Reg<clpd::CLPD_SPEC>,
     #[doc = "0x38 - ADC Plus-Side General Calibration Value Register"]
-    pub clps: CLPS,
+    pub clps: crate::Reg<clps::CLPS_SPEC>,
     #[doc = "0x3c - ADC Plus-Side General Calibration Value Register"]
-    pub clp4: CLP4,
+    pub clp4: crate::Reg<clp4::CLP4_SPEC>,
     #[doc = "0x40 - ADC Plus-Side General Calibration Value Register"]
-    pub clp3: CLP3,
+    pub clp3: crate::Reg<clp3::CLP3_SPEC>,
     #[doc = "0x44 - ADC Plus-Side General Calibration Value Register"]
-    pub clp2: CLP2,
+    pub clp2: crate::Reg<clp2::CLP2_SPEC>,
     #[doc = "0x48 - ADC Plus-Side General Calibration Value Register"]
-    pub clp1: CLP1,
+    pub clp1: crate::Reg<clp1::CLP1_SPEC>,
     #[doc = "0x4c - ADC Plus-Side General Calibration Value Register"]
-    pub clp0: CLP0,
-    _reserved20: [u8; 4usize],
+    pub clp0: crate::Reg<clp0::CLP0_SPEC>,
+    _reserved20: [u8; 0x04],
     #[doc = "0x54 - ADC Minus-Side General Calibration Value Register"]
-    pub clmd: CLMD,
+    pub clmd: crate::Reg<clmd::CLMD_SPEC>,
     #[doc = "0x58 - ADC Minus-Side General Calibration Value Register"]
-    pub clms: CLMS,
+    pub clms: crate::Reg<clms::CLMS_SPEC>,
     #[doc = "0x5c - ADC Minus-Side General Calibration Value Register"]
-    pub clm4: CLM4,
+    pub clm4: crate::Reg<clm4::CLM4_SPEC>,
     #[doc = "0x60 - ADC Minus-Side General Calibration Value Register"]
-    pub clm3: CLM3,
+    pub clm3: crate::Reg<clm3::CLM3_SPEC>,
     #[doc = "0x64 - ADC Minus-Side General Calibration Value Register"]
-    pub clm2: CLM2,
+    pub clm2: crate::Reg<clm2::CLM2_SPEC>,
     #[doc = "0x68 - ADC Minus-Side General Calibration Value Register"]
-    pub clm1: CLM1,
+    pub clm1: crate::Reg<clm1::CLM1_SPEC>,
     #[doc = "0x6c - ADC Minus-Side General Calibration Value Register"]
-    pub clm0: CLM0,
+    pub clm0: crate::Reg<clm0::CLM0_SPEC>,
 }
-#[doc = "ADC Status and Control Registers 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sc1](sc1) module"]
-pub type SC1 = crate::Reg<u32, _SC1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SC1;
-#[doc = "`read()` method returns [sc1::R](sc1::R) reader structure"]
-impl crate::Readable for SC1 {}
-#[doc = "`write(|w| ..)` method takes [sc1::W](sc1::W) writer structure"]
-impl crate::Writable for SC1 {}
+#[doc = "SC1 register accessor: an alias for `Reg<SC1_SPEC>`"]
+pub type SC1 = crate::Reg<sc1::SC1_SPEC>;
 #[doc = "ADC Status and Control Registers 1"]
 pub mod sc1;
-#[doc = "ADC Configuration Register 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cfg1](cfg1) module"]
-pub type CFG1 = crate::Reg<u32, _CFG1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CFG1;
-#[doc = "`read()` method returns [cfg1::R](cfg1::R) reader structure"]
-impl crate::Readable for CFG1 {}
-#[doc = "`write(|w| ..)` method takes [cfg1::W](cfg1::W) writer structure"]
-impl crate::Writable for CFG1 {}
+#[doc = "CFG1 register accessor: an alias for `Reg<CFG1_SPEC>`"]
+pub type CFG1 = crate::Reg<cfg1::CFG1_SPEC>;
 #[doc = "ADC Configuration Register 1"]
 pub mod cfg1;
-#[doc = "ADC Configuration Register 2\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cfg2](cfg2) module"]
-pub type CFG2 = crate::Reg<u32, _CFG2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CFG2;
-#[doc = "`read()` method returns [cfg2::R](cfg2::R) reader structure"]
-impl crate::Readable for CFG2 {}
-#[doc = "`write(|w| ..)` method takes [cfg2::W](cfg2::W) writer structure"]
-impl crate::Writable for CFG2 {}
+#[doc = "CFG2 register accessor: an alias for `Reg<CFG2_SPEC>`"]
+pub type CFG2 = crate::Reg<cfg2::CFG2_SPEC>;
 #[doc = "ADC Configuration Register 2"]
 pub mod cfg2;
-#[doc = "ADC Data Result Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [r](r) module"]
-pub type R = crate::Reg<u32, _R>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _R;
-#[doc = "`read()` method returns [r::R](r::R) reader structure"]
-impl crate::Readable for R {}
+#[doc = "R register accessor: an alias for `Reg<R_SPEC>`"]
+pub type R = crate::Reg<r::R_SPEC>;
 #[doc = "ADC Data Result Register"]
 pub mod r;
-#[doc = "Compare Value Registers\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cv](cv) module"]
-pub type CV = crate::Reg<u32, _CV>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CV;
-#[doc = "`read()` method returns [cv::R](cv::R) reader structure"]
-impl crate::Readable for CV {}
-#[doc = "`write(|w| ..)` method takes [cv::W](cv::W) writer structure"]
-impl crate::Writable for CV {}
+#[doc = "CV register accessor: an alias for `Reg<CV_SPEC>`"]
+pub type CV = crate::Reg<cv::CV_SPEC>;
 #[doc = "Compare Value Registers"]
 pub mod cv;
-#[doc = "Status and Control Register 2\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sc2](sc2) module"]
-pub type SC2 = crate::Reg<u32, _SC2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SC2;
-#[doc = "`read()` method returns [sc2::R](sc2::R) reader structure"]
-impl crate::Readable for SC2 {}
-#[doc = "`write(|w| ..)` method takes [sc2::W](sc2::W) writer structure"]
-impl crate::Writable for SC2 {}
+#[doc = "SC2 register accessor: an alias for `Reg<SC2_SPEC>`"]
+pub type SC2 = crate::Reg<sc2::SC2_SPEC>;
 #[doc = "Status and Control Register 2"]
 pub mod sc2;
-#[doc = "Status and Control Register 3\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sc3](sc3) module"]
-pub type SC3 = crate::Reg<u32, _SC3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SC3;
-#[doc = "`read()` method returns [sc3::R](sc3::R) reader structure"]
-impl crate::Readable for SC3 {}
-#[doc = "`write(|w| ..)` method takes [sc3::W](sc3::W) writer structure"]
-impl crate::Writable for SC3 {}
+#[doc = "SC3 register accessor: an alias for `Reg<SC3_SPEC>`"]
+pub type SC3 = crate::Reg<sc3::SC3_SPEC>;
 #[doc = "Status and Control Register 3"]
 pub mod sc3;
-#[doc = "ADC Offset Correction Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ofs](ofs) module"]
-pub type OFS = crate::Reg<u32, _OFS>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _OFS;
-#[doc = "`read()` method returns [ofs::R](ofs::R) reader structure"]
-impl crate::Readable for OFS {}
-#[doc = "`write(|w| ..)` method takes [ofs::W](ofs::W) writer structure"]
-impl crate::Writable for OFS {}
+#[doc = "OFS register accessor: an alias for `Reg<OFS_SPEC>`"]
+pub type OFS = crate::Reg<ofs::OFS_SPEC>;
 #[doc = "ADC Offset Correction Register"]
 pub mod ofs;
-#[doc = "ADC Plus-Side Gain Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pg](pg) module"]
-pub type PG = crate::Reg<u32, _PG>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _PG;
-#[doc = "`read()` method returns [pg::R](pg::R) reader structure"]
-impl crate::Readable for PG {}
-#[doc = "`write(|w| ..)` method takes [pg::W](pg::W) writer structure"]
-impl crate::Writable for PG {}
+#[doc = "PG register accessor: an alias for `Reg<PG_SPEC>`"]
+pub type PG = crate::Reg<pg::PG_SPEC>;
 #[doc = "ADC Plus-Side Gain Register"]
 pub mod pg;
-#[doc = "ADC Minus-Side Gain Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mg](mg) module"]
-pub type MG = crate::Reg<u32, _MG>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _MG;
-#[doc = "`read()` method returns [mg::R](mg::R) reader structure"]
-impl crate::Readable for MG {}
-#[doc = "`write(|w| ..)` method takes [mg::W](mg::W) writer structure"]
-impl crate::Writable for MG {}
+#[doc = "MG register accessor: an alias for `Reg<MG_SPEC>`"]
+pub type MG = crate::Reg<mg::MG_SPEC>;
 #[doc = "ADC Minus-Side Gain Register"]
 pub mod mg;
-#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clpd](clpd) module"]
-pub type CLPD = crate::Reg<u32, _CLPD>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLPD;
-#[doc = "`read()` method returns [clpd::R](clpd::R) reader structure"]
-impl crate::Readable for CLPD {}
-#[doc = "`write(|w| ..)` method takes [clpd::W](clpd::W) writer structure"]
-impl crate::Writable for CLPD {}
+#[doc = "CLPD register accessor: an alias for `Reg<CLPD_SPEC>`"]
+pub type CLPD = crate::Reg<clpd::CLPD_SPEC>;
 #[doc = "ADC Plus-Side General Calibration Value Register"]
 pub mod clpd;
-#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clps](clps) module"]
-pub type CLPS = crate::Reg<u32, _CLPS>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLPS;
-#[doc = "`read()` method returns [clps::R](clps::R) reader structure"]
-impl crate::Readable for CLPS {}
-#[doc = "`write(|w| ..)` method takes [clps::W](clps::W) writer structure"]
-impl crate::Writable for CLPS {}
+#[doc = "CLPS register accessor: an alias for `Reg<CLPS_SPEC>`"]
+pub type CLPS = crate::Reg<clps::CLPS_SPEC>;
 #[doc = "ADC Plus-Side General Calibration Value Register"]
 pub mod clps;
-#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clp4](clp4) module"]
-pub type CLP4 = crate::Reg<u32, _CLP4>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLP4;
-#[doc = "`read()` method returns [clp4::R](clp4::R) reader structure"]
-impl crate::Readable for CLP4 {}
-#[doc = "`write(|w| ..)` method takes [clp4::W](clp4::W) writer structure"]
-impl crate::Writable for CLP4 {}
+#[doc = "CLP4 register accessor: an alias for `Reg<CLP4_SPEC>`"]
+pub type CLP4 = crate::Reg<clp4::CLP4_SPEC>;
 #[doc = "ADC Plus-Side General Calibration Value Register"]
 pub mod clp4;
-#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clp3](clp3) module"]
-pub type CLP3 = crate::Reg<u32, _CLP3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLP3;
-#[doc = "`read()` method returns [clp3::R](clp3::R) reader structure"]
-impl crate::Readable for CLP3 {}
-#[doc = "`write(|w| ..)` method takes [clp3::W](clp3::W) writer structure"]
-impl crate::Writable for CLP3 {}
+#[doc = "CLP3 register accessor: an alias for `Reg<CLP3_SPEC>`"]
+pub type CLP3 = crate::Reg<clp3::CLP3_SPEC>;
 #[doc = "ADC Plus-Side General Calibration Value Register"]
 pub mod clp3;
-#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clp2](clp2) module"]
-pub type CLP2 = crate::Reg<u32, _CLP2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLP2;
-#[doc = "`read()` method returns [clp2::R](clp2::R) reader structure"]
-impl crate::Readable for CLP2 {}
-#[doc = "`write(|w| ..)` method takes [clp2::W](clp2::W) writer structure"]
-impl crate::Writable for CLP2 {}
+#[doc = "CLP2 register accessor: an alias for `Reg<CLP2_SPEC>`"]
+pub type CLP2 = crate::Reg<clp2::CLP2_SPEC>;
 #[doc = "ADC Plus-Side General Calibration Value Register"]
 pub mod clp2;
-#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clp1](clp1) module"]
-pub type CLP1 = crate::Reg<u32, _CLP1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLP1;
-#[doc = "`read()` method returns [clp1::R](clp1::R) reader structure"]
-impl crate::Readable for CLP1 {}
-#[doc = "`write(|w| ..)` method takes [clp1::W](clp1::W) writer structure"]
-impl crate::Writable for CLP1 {}
+#[doc = "CLP1 register accessor: an alias for `Reg<CLP1_SPEC>`"]
+pub type CLP1 = crate::Reg<clp1::CLP1_SPEC>;
 #[doc = "ADC Plus-Side General Calibration Value Register"]
 pub mod clp1;
-#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clp0](clp0) module"]
-pub type CLP0 = crate::Reg<u32, _CLP0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLP0;
-#[doc = "`read()` method returns [clp0::R](clp0::R) reader structure"]
-impl crate::Readable for CLP0 {}
-#[doc = "`write(|w| ..)` method takes [clp0::W](clp0::W) writer structure"]
-impl crate::Writable for CLP0 {}
+#[doc = "CLP0 register accessor: an alias for `Reg<CLP0_SPEC>`"]
+pub type CLP0 = crate::Reg<clp0::CLP0_SPEC>;
 #[doc = "ADC Plus-Side General Calibration Value Register"]
 pub mod clp0;
-#[doc = "ADC Minus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clmd](clmd) module"]
-pub type CLMD = crate::Reg<u32, _CLMD>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLMD;
-#[doc = "`read()` method returns [clmd::R](clmd::R) reader structure"]
-impl crate::Readable for CLMD {}
-#[doc = "`write(|w| ..)` method takes [clmd::W](clmd::W) writer structure"]
-impl crate::Writable for CLMD {}
+#[doc = "CLMD register accessor: an alias for `Reg<CLMD_SPEC>`"]
+pub type CLMD = crate::Reg<clmd::CLMD_SPEC>;
 #[doc = "ADC Minus-Side General Calibration Value Register"]
 pub mod clmd;
-#[doc = "ADC Minus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clms](clms) module"]
-pub type CLMS = crate::Reg<u32, _CLMS>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLMS;
-#[doc = "`read()` method returns [clms::R](clms::R) reader structure"]
-impl crate::Readable for CLMS {}
-#[doc = "`write(|w| ..)` method takes [clms::W](clms::W) writer structure"]
-impl crate::Writable for CLMS {}
+#[doc = "CLMS register accessor: an alias for `Reg<CLMS_SPEC>`"]
+pub type CLMS = crate::Reg<clms::CLMS_SPEC>;
 #[doc = "ADC Minus-Side General Calibration Value Register"]
 pub mod clms;
-#[doc = "ADC Minus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clm4](clm4) module"]
-pub type CLM4 = crate::Reg<u32, _CLM4>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLM4;
-#[doc = "`read()` method returns [clm4::R](clm4::R) reader structure"]
-impl crate::Readable for CLM4 {}
-#[doc = "`write(|w| ..)` method takes [clm4::W](clm4::W) writer structure"]
-impl crate::Writable for CLM4 {}
+#[doc = "CLM4 register accessor: an alias for `Reg<CLM4_SPEC>`"]
+pub type CLM4 = crate::Reg<clm4::CLM4_SPEC>;
 #[doc = "ADC Minus-Side General Calibration Value Register"]
 pub mod clm4;
-#[doc = "ADC Minus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clm3](clm3) module"]
-pub type CLM3 = crate::Reg<u32, _CLM3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLM3;
-#[doc = "`read()` method returns [clm3::R](clm3::R) reader structure"]
-impl crate::Readable for CLM3 {}
-#[doc = "`write(|w| ..)` method takes [clm3::W](clm3::W) writer structure"]
-impl crate::Writable for CLM3 {}
+#[doc = "CLM3 register accessor: an alias for `Reg<CLM3_SPEC>`"]
+pub type CLM3 = crate::Reg<clm3::CLM3_SPEC>;
 #[doc = "ADC Minus-Side General Calibration Value Register"]
 pub mod clm3;
-#[doc = "ADC Minus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clm2](clm2) module"]
-pub type CLM2 = crate::Reg<u32, _CLM2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLM2;
-#[doc = "`read()` method returns [clm2::R](clm2::R) reader structure"]
-impl crate::Readable for CLM2 {}
-#[doc = "`write(|w| ..)` method takes [clm2::W](clm2::W) writer structure"]
-impl crate::Writable for CLM2 {}
+#[doc = "CLM2 register accessor: an alias for `Reg<CLM2_SPEC>`"]
+pub type CLM2 = crate::Reg<clm2::CLM2_SPEC>;
 #[doc = "ADC Minus-Side General Calibration Value Register"]
 pub mod clm2;
-#[doc = "ADC Minus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clm1](clm1) module"]
-pub type CLM1 = crate::Reg<u32, _CLM1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLM1;
-#[doc = "`read()` method returns [clm1::R](clm1::R) reader structure"]
-impl crate::Readable for CLM1 {}
-#[doc = "`write(|w| ..)` method takes [clm1::W](clm1::W) writer structure"]
-impl crate::Writable for CLM1 {}
+#[doc = "CLM1 register accessor: an alias for `Reg<CLM1_SPEC>`"]
+pub type CLM1 = crate::Reg<clm1::CLM1_SPEC>;
 #[doc = "ADC Minus-Side General Calibration Value Register"]
 pub mod clm1;
-#[doc = "ADC Minus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clm0](clm0) module"]
-pub type CLM0 = crate::Reg<u32, _CLM0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CLM0;
-#[doc = "`read()` method returns [clm0::R](clm0::R) reader structure"]
-impl crate::Readable for CLM0 {}
-#[doc = "`write(|w| ..)` method takes [clm0::W](clm0::W) writer structure"]
-impl crate::Writable for CLM0 {}
+#[doc = "CLM0 register accessor: an alias for `Reg<CLM0_SPEC>`"]
+pub type CLM0 = crate::Reg<clm0::CLM0_SPEC>;
 #[doc = "ADC Minus-Side General Calibration Value Register"]
 pub mod clm0;

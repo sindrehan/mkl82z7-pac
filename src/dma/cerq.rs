@@ -1,14 +1,25 @@
-#[doc = "Writer for register CERQ"]
-pub type W = crate::W<u8, super::CERQ>;
-#[doc = "Register CERQ `reset()`'s with value 0"]
-impl crate::ResetValue for super::CERQ {
-    type Type = u8;
+#[doc = "Register `CERQ` writer"]
+pub struct W(crate::W<CERQ_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CERQ_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Write proxy for field `CERQ`"]
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CERQ_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CERQ_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CERQ` writer - Clear Enable Request"]
 pub struct CERQ_W<'a> {
     w: &'a mut W,
 }
@@ -16,7 +27,7 @@ impl<'a> CERQ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u8) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u8 & 0x07);
         self.w
     }
 }
@@ -34,7 +45,7 @@ impl From<CAER_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `CAER`"]
+#[doc = "Field `CAER` writer - Clear All Enable Requests"]
 pub struct CAER_W<'a> {
     w: &'a mut W,
 }
@@ -42,9 +53,7 @@ impl<'a> CAER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CAER_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Clear only the ERQ bit specified in the CERQ field"]
     #[inline(always)]
@@ -69,7 +78,7 @@ impl<'a> CAER_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -87,7 +96,7 @@ impl From<NOP_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `NOP`"]
+#[doc = "Field `NOP` writer - No Op enable"]
 pub struct NOP_W<'a> {
     w: &'a mut W,
 }
@@ -95,9 +104,7 @@ impl<'a> NOP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: NOP_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Normal operation"]
     #[inline(always)]
@@ -122,7 +129,7 @@ impl<'a> NOP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -141,5 +148,27 @@ impl W {
     #[inline(always)]
     pub fn nop(&mut self) -> NOP_W {
         NOP_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Clear Enable Request Register\n\nThis register you can [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cerq](index.html) module"]
+pub struct CERQ_SPEC;
+impl crate::RegisterSpec for CERQ_SPEC {
+    type Ux = u8;
+}
+#[doc = "`write(|w| ..)` method takes [cerq::W](W) writer structure"]
+impl crate::Writable for CERQ_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CERQ to value 0"]
+impl crate::Resettable for CERQ_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

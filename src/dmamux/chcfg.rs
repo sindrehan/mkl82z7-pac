@@ -1,13 +1,37 @@
-#[doc = "Reader of register CHCFG%s"]
-pub type R = crate::R<u8, super::CHCFG>;
-#[doc = "Writer for register CHCFG%s"]
-pub type W = crate::W<u8, super::CHCFG>;
-#[doc = "Register CHCFG%s `reset()`'s with value 0"]
-impl crate::ResetValue for super::CHCFG {
-    type Type = u8;
+#[doc = "Register `CHCFG%s` reader"]
+pub struct R(crate::R<CHCFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CHCFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<CHCFG_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<CHCFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CHCFG%s` writer"]
+pub struct W(crate::W<CHCFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CHCFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CHCFG_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CHCFG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "DMA Channel Source (Slot)\n\nValue on reset: 0"]
@@ -133,355 +157,364 @@ impl From<SOURCE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SOURCE`"]
-pub type SOURCE_R = crate::R<u8, SOURCE_A>;
+#[doc = "Field `SOURCE` reader - DMA Channel Source (Slot)"]
+pub struct SOURCE_R(crate::FieldReader<u8, SOURCE_A>);
 impl SOURCE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SOURCE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SOURCE_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SOURCE_A> {
         match self.bits {
-            0 => Val(SOURCE_A::_0),
-            1 => Val(SOURCE_A::_1),
-            2 => Val(SOURCE_A::_2),
-            3 => Val(SOURCE_A::_3),
-            4 => Val(SOURCE_A::_4),
-            5 => Val(SOURCE_A::_5),
-            6 => Val(SOURCE_A::_6),
-            7 => Val(SOURCE_A::_7),
-            8 => Val(SOURCE_A::_8),
-            9 => Val(SOURCE_A::_9),
-            10 => Val(SOURCE_A::_10),
-            15 => Val(SOURCE_A::_15),
-            16 => Val(SOURCE_A::_16),
-            17 => Val(SOURCE_A::_17),
-            18 => Val(SOURCE_A::_18),
-            19 => Val(SOURCE_A::_19),
-            20 => Val(SOURCE_A::_20),
-            21 => Val(SOURCE_A::_21),
-            22 => Val(SOURCE_A::_22),
-            23 => Val(SOURCE_A::_23),
-            24 => Val(SOURCE_A::_24),
-            25 => Val(SOURCE_A::_25),
-            26 => Val(SOURCE_A::_26),
-            27 => Val(SOURCE_A::_27),
-            28 => Val(SOURCE_A::_28),
-            29 => Val(SOURCE_A::_29),
-            30 => Val(SOURCE_A::_30),
-            31 => Val(SOURCE_A::_31),
-            32 => Val(SOURCE_A::_32),
-            35 => Val(SOURCE_A::_35),
-            36 => Val(SOURCE_A::_36),
-            37 => Val(SOURCE_A::_37),
-            38 => Val(SOURCE_A::_38),
-            39 => Val(SOURCE_A::_39),
-            40 => Val(SOURCE_A::_40),
-            41 => Val(SOURCE_A::_41),
-            42 => Val(SOURCE_A::_42),
-            43 => Val(SOURCE_A::_43),
-            44 => Val(SOURCE_A::_44),
-            45 => Val(SOURCE_A::_45),
-            46 => Val(SOURCE_A::_46),
-            47 => Val(SOURCE_A::_47),
-            48 => Val(SOURCE_A::_48),
-            49 => Val(SOURCE_A::_49),
-            50 => Val(SOURCE_A::_50),
-            51 => Val(SOURCE_A::_51),
-            52 => Val(SOURCE_A::_52),
-            54 => Val(SOURCE_A::_54),
-            55 => Val(SOURCE_A::_55),
-            56 => Val(SOURCE_A::_56),
-            58 => Val(SOURCE_A::_58),
-            59 => Val(SOURCE_A::_59),
-            60 => Val(SOURCE_A::_60),
-            61 => Val(SOURCE_A::_61),
-            62 => Val(SOURCE_A::_62),
-            63 => Val(SOURCE_A::_63),
-            i => Res(i),
+            0 => Some(SOURCE_A::_0),
+            1 => Some(SOURCE_A::_1),
+            2 => Some(SOURCE_A::_2),
+            3 => Some(SOURCE_A::_3),
+            4 => Some(SOURCE_A::_4),
+            5 => Some(SOURCE_A::_5),
+            6 => Some(SOURCE_A::_6),
+            7 => Some(SOURCE_A::_7),
+            8 => Some(SOURCE_A::_8),
+            9 => Some(SOURCE_A::_9),
+            10 => Some(SOURCE_A::_10),
+            15 => Some(SOURCE_A::_15),
+            16 => Some(SOURCE_A::_16),
+            17 => Some(SOURCE_A::_17),
+            18 => Some(SOURCE_A::_18),
+            19 => Some(SOURCE_A::_19),
+            20 => Some(SOURCE_A::_20),
+            21 => Some(SOURCE_A::_21),
+            22 => Some(SOURCE_A::_22),
+            23 => Some(SOURCE_A::_23),
+            24 => Some(SOURCE_A::_24),
+            25 => Some(SOURCE_A::_25),
+            26 => Some(SOURCE_A::_26),
+            27 => Some(SOURCE_A::_27),
+            28 => Some(SOURCE_A::_28),
+            29 => Some(SOURCE_A::_29),
+            30 => Some(SOURCE_A::_30),
+            31 => Some(SOURCE_A::_31),
+            32 => Some(SOURCE_A::_32),
+            35 => Some(SOURCE_A::_35),
+            36 => Some(SOURCE_A::_36),
+            37 => Some(SOURCE_A::_37),
+            38 => Some(SOURCE_A::_38),
+            39 => Some(SOURCE_A::_39),
+            40 => Some(SOURCE_A::_40),
+            41 => Some(SOURCE_A::_41),
+            42 => Some(SOURCE_A::_42),
+            43 => Some(SOURCE_A::_43),
+            44 => Some(SOURCE_A::_44),
+            45 => Some(SOURCE_A::_45),
+            46 => Some(SOURCE_A::_46),
+            47 => Some(SOURCE_A::_47),
+            48 => Some(SOURCE_A::_48),
+            49 => Some(SOURCE_A::_49),
+            50 => Some(SOURCE_A::_50),
+            51 => Some(SOURCE_A::_51),
+            52 => Some(SOURCE_A::_52),
+            54 => Some(SOURCE_A::_54),
+            55 => Some(SOURCE_A::_55),
+            56 => Some(SOURCE_A::_56),
+            58 => Some(SOURCE_A::_58),
+            59 => Some(SOURCE_A::_59),
+            60 => Some(SOURCE_A::_60),
+            61 => Some(SOURCE_A::_61),
+            62 => Some(SOURCE_A::_62),
+            63 => Some(SOURCE_A::_63),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SOURCE_A::_0
+        **self == SOURCE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SOURCE_A::_1
+        **self == SOURCE_A::_1
     }
     #[doc = "Checks if the value of the field is `_2`"]
     #[inline(always)]
     pub fn is_2(&self) -> bool {
-        *self == SOURCE_A::_2
+        **self == SOURCE_A::_2
     }
     #[doc = "Checks if the value of the field is `_3`"]
     #[inline(always)]
     pub fn is_3(&self) -> bool {
-        *self == SOURCE_A::_3
+        **self == SOURCE_A::_3
     }
     #[doc = "Checks if the value of the field is `_4`"]
     #[inline(always)]
     pub fn is_4(&self) -> bool {
-        *self == SOURCE_A::_4
+        **self == SOURCE_A::_4
     }
     #[doc = "Checks if the value of the field is `_5`"]
     #[inline(always)]
     pub fn is_5(&self) -> bool {
-        *self == SOURCE_A::_5
+        **self == SOURCE_A::_5
     }
     #[doc = "Checks if the value of the field is `_6`"]
     #[inline(always)]
     pub fn is_6(&self) -> bool {
-        *self == SOURCE_A::_6
+        **self == SOURCE_A::_6
     }
     #[doc = "Checks if the value of the field is `_7`"]
     #[inline(always)]
     pub fn is_7(&self) -> bool {
-        *self == SOURCE_A::_7
+        **self == SOURCE_A::_7
     }
     #[doc = "Checks if the value of the field is `_8`"]
     #[inline(always)]
     pub fn is_8(&self) -> bool {
-        *self == SOURCE_A::_8
+        **self == SOURCE_A::_8
     }
     #[doc = "Checks if the value of the field is `_9`"]
     #[inline(always)]
     pub fn is_9(&self) -> bool {
-        *self == SOURCE_A::_9
+        **self == SOURCE_A::_9
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == SOURCE_A::_10
+        **self == SOURCE_A::_10
     }
     #[doc = "Checks if the value of the field is `_15`"]
     #[inline(always)]
     pub fn is_15(&self) -> bool {
-        *self == SOURCE_A::_15
+        **self == SOURCE_A::_15
     }
     #[doc = "Checks if the value of the field is `_16`"]
     #[inline(always)]
     pub fn is_16(&self) -> bool {
-        *self == SOURCE_A::_16
+        **self == SOURCE_A::_16
     }
     #[doc = "Checks if the value of the field is `_17`"]
     #[inline(always)]
     pub fn is_17(&self) -> bool {
-        *self == SOURCE_A::_17
+        **self == SOURCE_A::_17
     }
     #[doc = "Checks if the value of the field is `_18`"]
     #[inline(always)]
     pub fn is_18(&self) -> bool {
-        *self == SOURCE_A::_18
+        **self == SOURCE_A::_18
     }
     #[doc = "Checks if the value of the field is `_19`"]
     #[inline(always)]
     pub fn is_19(&self) -> bool {
-        *self == SOURCE_A::_19
+        **self == SOURCE_A::_19
     }
     #[doc = "Checks if the value of the field is `_20`"]
     #[inline(always)]
     pub fn is_20(&self) -> bool {
-        *self == SOURCE_A::_20
+        **self == SOURCE_A::_20
     }
     #[doc = "Checks if the value of the field is `_21`"]
     #[inline(always)]
     pub fn is_21(&self) -> bool {
-        *self == SOURCE_A::_21
+        **self == SOURCE_A::_21
     }
     #[doc = "Checks if the value of the field is `_22`"]
     #[inline(always)]
     pub fn is_22(&self) -> bool {
-        *self == SOURCE_A::_22
+        **self == SOURCE_A::_22
     }
     #[doc = "Checks if the value of the field is `_23`"]
     #[inline(always)]
     pub fn is_23(&self) -> bool {
-        *self == SOURCE_A::_23
+        **self == SOURCE_A::_23
     }
     #[doc = "Checks if the value of the field is `_24`"]
     #[inline(always)]
     pub fn is_24(&self) -> bool {
-        *self == SOURCE_A::_24
+        **self == SOURCE_A::_24
     }
     #[doc = "Checks if the value of the field is `_25`"]
     #[inline(always)]
     pub fn is_25(&self) -> bool {
-        *self == SOURCE_A::_25
+        **self == SOURCE_A::_25
     }
     #[doc = "Checks if the value of the field is `_26`"]
     #[inline(always)]
     pub fn is_26(&self) -> bool {
-        *self == SOURCE_A::_26
+        **self == SOURCE_A::_26
     }
     #[doc = "Checks if the value of the field is `_27`"]
     #[inline(always)]
     pub fn is_27(&self) -> bool {
-        *self == SOURCE_A::_27
+        **self == SOURCE_A::_27
     }
     #[doc = "Checks if the value of the field is `_28`"]
     #[inline(always)]
     pub fn is_28(&self) -> bool {
-        *self == SOURCE_A::_28
+        **self == SOURCE_A::_28
     }
     #[doc = "Checks if the value of the field is `_29`"]
     #[inline(always)]
     pub fn is_29(&self) -> bool {
-        *self == SOURCE_A::_29
+        **self == SOURCE_A::_29
     }
     #[doc = "Checks if the value of the field is `_30`"]
     #[inline(always)]
     pub fn is_30(&self) -> bool {
-        *self == SOURCE_A::_30
+        **self == SOURCE_A::_30
     }
     #[doc = "Checks if the value of the field is `_31`"]
     #[inline(always)]
     pub fn is_31(&self) -> bool {
-        *self == SOURCE_A::_31
+        **self == SOURCE_A::_31
     }
     #[doc = "Checks if the value of the field is `_32`"]
     #[inline(always)]
     pub fn is_32(&self) -> bool {
-        *self == SOURCE_A::_32
+        **self == SOURCE_A::_32
     }
     #[doc = "Checks if the value of the field is `_35`"]
     #[inline(always)]
     pub fn is_35(&self) -> bool {
-        *self == SOURCE_A::_35
+        **self == SOURCE_A::_35
     }
     #[doc = "Checks if the value of the field is `_36`"]
     #[inline(always)]
     pub fn is_36(&self) -> bool {
-        *self == SOURCE_A::_36
+        **self == SOURCE_A::_36
     }
     #[doc = "Checks if the value of the field is `_37`"]
     #[inline(always)]
     pub fn is_37(&self) -> bool {
-        *self == SOURCE_A::_37
+        **self == SOURCE_A::_37
     }
     #[doc = "Checks if the value of the field is `_38`"]
     #[inline(always)]
     pub fn is_38(&self) -> bool {
-        *self == SOURCE_A::_38
+        **self == SOURCE_A::_38
     }
     #[doc = "Checks if the value of the field is `_39`"]
     #[inline(always)]
     pub fn is_39(&self) -> bool {
-        *self == SOURCE_A::_39
+        **self == SOURCE_A::_39
     }
     #[doc = "Checks if the value of the field is `_40`"]
     #[inline(always)]
     pub fn is_40(&self) -> bool {
-        *self == SOURCE_A::_40
+        **self == SOURCE_A::_40
     }
     #[doc = "Checks if the value of the field is `_41`"]
     #[inline(always)]
     pub fn is_41(&self) -> bool {
-        *self == SOURCE_A::_41
+        **self == SOURCE_A::_41
     }
     #[doc = "Checks if the value of the field is `_42`"]
     #[inline(always)]
     pub fn is_42(&self) -> bool {
-        *self == SOURCE_A::_42
+        **self == SOURCE_A::_42
     }
     #[doc = "Checks if the value of the field is `_43`"]
     #[inline(always)]
     pub fn is_43(&self) -> bool {
-        *self == SOURCE_A::_43
+        **self == SOURCE_A::_43
     }
     #[doc = "Checks if the value of the field is `_44`"]
     #[inline(always)]
     pub fn is_44(&self) -> bool {
-        *self == SOURCE_A::_44
+        **self == SOURCE_A::_44
     }
     #[doc = "Checks if the value of the field is `_45`"]
     #[inline(always)]
     pub fn is_45(&self) -> bool {
-        *self == SOURCE_A::_45
+        **self == SOURCE_A::_45
     }
     #[doc = "Checks if the value of the field is `_46`"]
     #[inline(always)]
     pub fn is_46(&self) -> bool {
-        *self == SOURCE_A::_46
+        **self == SOURCE_A::_46
     }
     #[doc = "Checks if the value of the field is `_47`"]
     #[inline(always)]
     pub fn is_47(&self) -> bool {
-        *self == SOURCE_A::_47
+        **self == SOURCE_A::_47
     }
     #[doc = "Checks if the value of the field is `_48`"]
     #[inline(always)]
     pub fn is_48(&self) -> bool {
-        *self == SOURCE_A::_48
+        **self == SOURCE_A::_48
     }
     #[doc = "Checks if the value of the field is `_49`"]
     #[inline(always)]
     pub fn is_49(&self) -> bool {
-        *self == SOURCE_A::_49
+        **self == SOURCE_A::_49
     }
     #[doc = "Checks if the value of the field is `_50`"]
     #[inline(always)]
     pub fn is_50(&self) -> bool {
-        *self == SOURCE_A::_50
+        **self == SOURCE_A::_50
     }
     #[doc = "Checks if the value of the field is `_51`"]
     #[inline(always)]
     pub fn is_51(&self) -> bool {
-        *self == SOURCE_A::_51
+        **self == SOURCE_A::_51
     }
     #[doc = "Checks if the value of the field is `_52`"]
     #[inline(always)]
     pub fn is_52(&self) -> bool {
-        *self == SOURCE_A::_52
+        **self == SOURCE_A::_52
     }
     #[doc = "Checks if the value of the field is `_54`"]
     #[inline(always)]
     pub fn is_54(&self) -> bool {
-        *self == SOURCE_A::_54
+        **self == SOURCE_A::_54
     }
     #[doc = "Checks if the value of the field is `_55`"]
     #[inline(always)]
     pub fn is_55(&self) -> bool {
-        *self == SOURCE_A::_55
+        **self == SOURCE_A::_55
     }
     #[doc = "Checks if the value of the field is `_56`"]
     #[inline(always)]
     pub fn is_56(&self) -> bool {
-        *self == SOURCE_A::_56
+        **self == SOURCE_A::_56
     }
     #[doc = "Checks if the value of the field is `_58`"]
     #[inline(always)]
     pub fn is_58(&self) -> bool {
-        *self == SOURCE_A::_58
+        **self == SOURCE_A::_58
     }
     #[doc = "Checks if the value of the field is `_59`"]
     #[inline(always)]
     pub fn is_59(&self) -> bool {
-        *self == SOURCE_A::_59
+        **self == SOURCE_A::_59
     }
     #[doc = "Checks if the value of the field is `_60`"]
     #[inline(always)]
     pub fn is_60(&self) -> bool {
-        *self == SOURCE_A::_60
+        **self == SOURCE_A::_60
     }
     #[doc = "Checks if the value of the field is `_61`"]
     #[inline(always)]
     pub fn is_61(&self) -> bool {
-        *self == SOURCE_A::_61
+        **self == SOURCE_A::_61
     }
     #[doc = "Checks if the value of the field is `_62`"]
     #[inline(always)]
     pub fn is_62(&self) -> bool {
-        *self == SOURCE_A::_62
+        **self == SOURCE_A::_62
     }
     #[doc = "Checks if the value of the field is `_63`"]
     #[inline(always)]
     pub fn is_63(&self) -> bool {
-        *self == SOURCE_A::_63
+        **self == SOURCE_A::_63
     }
 }
-#[doc = "Write proxy for field `SOURCE`"]
+impl core::ops::Deref for SOURCE_R {
+    type Target = crate::FieldReader<u8, SOURCE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SOURCE` writer - DMA Channel Source (Slot)"]
 pub struct SOURCE_W<'a> {
     w: &'a mut W,
 }
@@ -774,7 +807,7 @@ impl<'a> SOURCE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x3f) | ((value as u8) & 0x3f);
+        self.w.bits = (self.w.bits & !0x3f) | (value as u8 & 0x3f);
         self.w
     }
 }
@@ -792,9 +825,12 @@ impl From<TRIG_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TRIG`"]
-pub type TRIG_R = crate::R<bool, TRIG_A>;
+#[doc = "Field `TRIG` reader - DMA Channel Trigger Enable"]
+pub struct TRIG_R(crate::FieldReader<bool, TRIG_A>);
 impl TRIG_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TRIG_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TRIG_A {
@@ -806,15 +842,22 @@ impl TRIG_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TRIG_A::_0
+        **self == TRIG_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TRIG_A::_1
+        **self == TRIG_A::_1
     }
 }
-#[doc = "Write proxy for field `TRIG`"]
+impl core::ops::Deref for TRIG_R {
+    type Target = crate::FieldReader<bool, TRIG_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TRIG` writer - DMA Channel Trigger Enable"]
 pub struct TRIG_W<'a> {
     w: &'a mut W,
 }
@@ -822,9 +865,7 @@ impl<'a> TRIG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRIG_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)"]
     #[inline(always)]
@@ -849,7 +890,7 @@ impl<'a> TRIG_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -867,9 +908,12 @@ impl From<ENBL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ENBL`"]
-pub type ENBL_R = crate::R<bool, ENBL_A>;
+#[doc = "Field `ENBL` reader - DMA Channel Enable"]
+pub struct ENBL_R(crate::FieldReader<bool, ENBL_A>);
 impl ENBL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ENBL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ENBL_A {
@@ -881,15 +925,22 @@ impl ENBL_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == ENBL_A::_0
+        **self == ENBL_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == ENBL_A::_1
+        **self == ENBL_A::_1
     }
 }
-#[doc = "Write proxy for field `ENBL`"]
+impl core::ops::Deref for ENBL_R {
+    type Target = crate::FieldReader<bool, ENBL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ENBL` writer - DMA Channel Enable"]
 pub struct ENBL_W<'a> {
     w: &'a mut W,
 }
@@ -897,9 +948,7 @@ impl<'a> ENBL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ENBL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel."]
     #[inline(always)]
@@ -924,7 +973,7 @@ impl<'a> ENBL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -960,5 +1009,31 @@ impl W {
     #[inline(always)]
     pub fn enbl(&mut self) -> ENBL_W {
         ENBL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Channel Configuration register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [chcfg](index.html) module"]
+pub struct CHCFG_SPEC;
+impl crate::RegisterSpec for CHCFG_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [chcfg::R](R) reader structure"]
+impl crate::Readable for CHCFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [chcfg::W](W) writer structure"]
+impl crate::Writable for CHCFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CHCFG%s to value 0"]
+impl crate::Resettable for CHCFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

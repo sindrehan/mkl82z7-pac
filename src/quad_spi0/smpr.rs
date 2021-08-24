@@ -1,13 +1,37 @@
-#[doc = "Reader of register SMPR"]
-pub type R = crate::R<u32, super::SMPR>;
-#[doc = "Writer for register SMPR"]
-pub type W = crate::W<u32, super::SMPR>;
-#[doc = "Register SMPR `reset()`'s with value 0"]
-impl crate::ResetValue for super::SMPR {
-    type Type = u32;
+#[doc = "Register `SMPR` reader"]
+pub struct R(crate::R<SMPR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SMPR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SMPR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SMPR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SMPR` writer"]
+pub struct W(crate::W<SMPR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SMPR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<SMPR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<SMPR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Half Speed serial flash clock Enable\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<HSENA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HSENA`"]
-pub type HSENA_R = crate::R<bool, HSENA_A>;
+#[doc = "Field `HSENA` reader - Half Speed serial flash clock Enable"]
+pub struct HSENA_R(crate::FieldReader<bool, HSENA_A>);
 impl HSENA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HSENA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HSENA_A {
@@ -38,15 +65,22 @@ impl HSENA_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HSENA_A::_0
+        **self == HSENA_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HSENA_A::_1
+        **self == HSENA_A::_1
     }
 }
-#[doc = "Write proxy for field `HSENA`"]
+impl core::ops::Deref for HSENA_R {
+    type Target = crate::FieldReader<bool, HSENA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HSENA` writer - Half Speed serial flash clock Enable"]
 pub struct HSENA_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> HSENA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HSENA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable divide by 2 of serial flash clock for half speed commands"]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> HSENA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<HSPHS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HSPHS`"]
-pub type HSPHS_R = crate::R<bool, HSPHS_A>;
+#[doc = "Field `HSPHS` reader - Half Speed Phase selection for SDR instructions."]
+pub struct HSPHS_R(crate::FieldReader<bool, HSPHS_A>);
 impl HSPHS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HSPHS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HSPHS_A {
@@ -113,15 +148,22 @@ impl HSPHS_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HSPHS_A::_0
+        **self == HSPHS_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HSPHS_A::_1
+        **self == HSPHS_A::_1
     }
 }
-#[doc = "Write proxy for field `HSPHS`"]
+impl core::ops::Deref for HSPHS_R {
+    type Target = crate::FieldReader<bool, HSPHS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HSPHS` writer - Half Speed Phase selection for SDR instructions."]
 pub struct HSPHS_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> HSPHS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HSPHS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Select sampling at non-inverted clock"]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> HSPHS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<HSDLY_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HSDLY`"]
-pub type HSDLY_R = crate::R<bool, HSDLY_A>;
+#[doc = "Field `HSDLY` reader - Half Speed Delay selection for SDR instructions."]
+pub struct HSDLY_R(crate::FieldReader<bool, HSDLY_A>);
 impl HSDLY_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HSDLY_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HSDLY_A {
@@ -188,15 +231,22 @@ impl HSDLY_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HSDLY_A::_0
+        **self == HSDLY_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HSDLY_A::_1
+        **self == HSDLY_A::_1
     }
 }
-#[doc = "Write proxy for field `HSDLY`"]
+impl core::ops::Deref for HSDLY_R {
+    type Target = crate::FieldReader<bool, HSDLY_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HSDLY` writer - Half Speed Delay selection for SDR instructions."]
 pub struct HSDLY_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> HSDLY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HSDLY_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "One clock cycle delay"]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> HSDLY_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<FSPHS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FSPHS`"]
-pub type FSPHS_R = crate::R<bool, FSPHS_A>;
+#[doc = "Field `FSPHS` reader - Full Speed Phase selection for SDR instructions."]
+pub struct FSPHS_R(crate::FieldReader<bool, FSPHS_A>);
 impl FSPHS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FSPHS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FSPHS_A {
@@ -263,15 +314,22 @@ impl FSPHS_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == FSPHS_A::_0
+        **self == FSPHS_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == FSPHS_A::_1
+        **self == FSPHS_A::_1
     }
 }
-#[doc = "Write proxy for field `FSPHS`"]
+impl core::ops::Deref for FSPHS_R {
+    type Target = crate::FieldReader<bool, FSPHS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FSPHS` writer - Full Speed Phase selection for SDR instructions."]
 pub struct FSPHS_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> FSPHS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FSPHS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Select sampling at non-inverted clock"]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> FSPHS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<FSDLY_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FSDLY`"]
-pub type FSDLY_R = crate::R<bool, FSDLY_A>;
+#[doc = "Field `FSDLY` reader - Full Speed Delay selection for SDR instructions. Select the delay with respect to the reference edge for the sample point valid for full speed commands."]
+pub struct FSDLY_R(crate::FieldReader<bool, FSDLY_A>);
 impl FSDLY_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FSDLY_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FSDLY_A {
@@ -338,15 +397,22 @@ impl FSDLY_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == FSDLY_A::_0
+        **self == FSDLY_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == FSDLY_A::_1
+        **self == FSDLY_A::_1
     }
 }
-#[doc = "Write proxy for field `FSDLY`"]
+impl core::ops::Deref for FSDLY_R {
+    type Target = crate::FieldReader<bool, FSDLY_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FSDLY` writer - Full Speed Delay selection for SDR instructions. Select the delay with respect to the reference edge for the sample point valid for full speed commands."]
 pub struct FSDLY_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> FSDLY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FSDLY_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "One clock cycle delay"]
     #[inline(always)]
@@ -381,13 +445,25 @@ impl<'a> FSDLY_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
-#[doc = "Reader of field `DDRSMP`"]
-pub type DDRSMP_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DDRSMP`"]
+#[doc = "Field `DDRSMP` reader - DDR Sampling point"]
+pub struct DDRSMP_R(crate::FieldReader<u8, u8>);
+impl DDRSMP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DDRSMP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DDRSMP_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DDRSMP` writer - DDR Sampling point"]
 pub struct DDRSMP_W<'a> {
     w: &'a mut W,
 }
@@ -395,7 +471,7 @@ impl<'a> DDRSMP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 16)) | (((value as u32) & 0x07) << 16);
+        self.w.bits = (self.w.bits & !(0x07 << 16)) | ((value as u32 & 0x07) << 16);
         self.w
     }
 }
@@ -461,5 +537,31 @@ impl W {
     #[inline(always)]
     pub fn ddrsmp(&mut self) -> DDRSMP_W {
         DDRSMP_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Sampling Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [smpr](index.html) module"]
+pub struct SMPR_SPEC;
+impl crate::RegisterSpec for SMPR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [smpr::R](R) reader structure"]
+impl crate::Readable for SMPR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [smpr::W](W) writer structure"]
+impl crate::Writable for SMPR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SMPR to value 0"]
+impl crate::Resettable for SMPR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

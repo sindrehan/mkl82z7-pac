@@ -1,13 +1,37 @@
-#[doc = "Reader of register C8"]
-pub type R = crate::R<u8, super::C8>;
-#[doc = "Writer for register C8"]
-pub type W = crate::W<u8, super::C8>;
-#[doc = "Register C8 `reset()`'s with value 0x80"]
-impl crate::ResetValue for super::C8 {
-    type Type = u8;
+#[doc = "Register `C8` reader"]
+pub struct R(crate::R<C8_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<C8_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x80
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<C8_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<C8_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `C8` writer"]
+pub struct W(crate::W<C8_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<C8_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<C8_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<C8_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "RTC Loss of Clock Status\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<LOCS1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LOCS1`"]
-pub type LOCS1_R = crate::R<bool, LOCS1_A>;
+#[doc = "Field `LOCS1` reader - RTC Loss of Clock Status"]
+pub struct LOCS1_R(crate::FieldReader<bool, LOCS1_A>);
 impl LOCS1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOCS1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LOCS1_A {
@@ -38,15 +65,22 @@ impl LOCS1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == LOCS1_A::_0
+        **self == LOCS1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == LOCS1_A::_1
+        **self == LOCS1_A::_1
     }
 }
-#[doc = "Write proxy for field `LOCS1`"]
+impl core::ops::Deref for LOCS1_R {
+    type Target = crate::FieldReader<bool, LOCS1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LOCS1` writer - RTC Loss of Clock Status"]
 pub struct LOCS1_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> LOCS1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LOCS1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Loss of RTC has not occur."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> LOCS1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u8) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u8 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<CME1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CME1`"]
-pub type CME1_R = crate::R<bool, CME1_A>;
+#[doc = "Field `CME1` reader - Clock Monitor Enable1"]
+pub struct CME1_R(crate::FieldReader<bool, CME1_A>);
 impl CME1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CME1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CME1_A {
@@ -113,15 +148,22 @@ impl CME1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == CME1_A::_0
+        **self == CME1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == CME1_A::_1
+        **self == CME1_A::_1
     }
 }
-#[doc = "Write proxy for field `CME1`"]
+impl core::ops::Deref for CME1_R {
+    type Target = crate::FieldReader<bool, CME1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CME1` writer - Clock Monitor Enable1"]
 pub struct CME1_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> CME1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CME1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "External clock monitor is disabled for RTC clock."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> CME1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<LOLRE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LOLRE`"]
-pub type LOLRE_R = crate::R<bool, LOLRE_A>;
+#[doc = "Field `LOLRE` reader - PLL Loss of Lock Reset Enable"]
+pub struct LOLRE_R(crate::FieldReader<bool, LOLRE_A>);
 impl LOLRE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOLRE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LOLRE_A {
@@ -188,15 +231,22 @@ impl LOLRE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == LOLRE_A::_0
+        **self == LOLRE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == LOLRE_A::_1
+        **self == LOLRE_A::_1
     }
 }
-#[doc = "Write proxy for field `LOLRE`"]
+impl core::ops::Deref for LOLRE_R {
+    type Target = crate::FieldReader<bool, LOLRE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LOLRE` writer - PLL Loss of Lock Reset Enable"]
 pub struct LOLRE_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> LOLRE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LOLRE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Interrupt request is generated on a PLL loss of lock indication. The PLL loss of lock interrupt enable bit must also be set to generate the interrupt request."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> LOLRE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<LOCRE1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LOCRE1`"]
-pub type LOCRE1_R = crate::R<bool, LOCRE1_A>;
+#[doc = "Field `LOCRE1` reader - Loss of Clock Reset Enable"]
+pub struct LOCRE1_R(crate::FieldReader<bool, LOCRE1_A>);
 impl LOCRE1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LOCRE1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LOCRE1_A {
@@ -263,15 +314,22 @@ impl LOCRE1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == LOCRE1_A::_0
+        **self == LOCRE1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == LOCRE1_A::_1
+        **self == LOCRE1_A::_1
     }
 }
-#[doc = "Write proxy for field `LOCRE1`"]
+impl core::ops::Deref for LOCRE1_R {
+    type Target = crate::FieldReader<bool, LOCRE1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LOCRE1` writer - Loss of Clock Reset Enable"]
 pub struct LOCRE1_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> LOCRE1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LOCRE1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Interrupt request is generated on a loss of RTC external reference clock."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> LOCRE1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -352,5 +408,31 @@ impl W {
     #[inline(always)]
     pub fn locre1(&mut self) -> LOCRE1_W {
         LOCRE1_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MCG Control 8 Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [c8](index.html) module"]
+pub struct C8_SPEC;
+impl crate::RegisterSpec for C8_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [c8::R](R) reader structure"]
+impl crate::Readable for C8_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [c8::W](W) writer structure"]
+impl crate::Writable for C8_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets C8 to value 0x80"]
+impl crate::Resettable for C8_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x80
     }
 }

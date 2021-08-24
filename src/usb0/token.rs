@@ -1,18 +1,54 @@
-#[doc = "Reader of register TOKEN"]
-pub type R = crate::R<u8, super::TOKEN>;
-#[doc = "Writer for register TOKEN"]
-pub type W = crate::W<u8, super::TOKEN>;
-#[doc = "Register TOKEN `reset()`'s with value 0"]
-impl crate::ResetValue for super::TOKEN {
-    type Type = u8;
+#[doc = "Register `TOKEN` reader"]
+pub struct R(crate::R<TOKEN_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<TOKEN_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `TOKENENDPT`"]
-pub type TOKENENDPT_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `TOKENENDPT`"]
+impl From<crate::R<TOKEN_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<TOKEN_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `TOKEN` writer"]
+pub struct W(crate::W<TOKEN_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<TOKEN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<TOKEN_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<TOKEN_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `TOKENENDPT` reader - Holds the Endpoint address for the token command"]
+pub struct TOKENENDPT_R(crate::FieldReader<u8, u8>);
+impl TOKENENDPT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TOKENENDPT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TOKENENDPT_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TOKENENDPT` writer - Holds the Endpoint address for the token command"]
 pub struct TOKENENDPT_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +56,7 @@ impl<'a> TOKENENDPT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u8) & 0x0f);
+        self.w.bits = (self.w.bits & !0x0f) | (value as u8 & 0x0f);
         self.w
     }
 }
@@ -41,37 +77,46 @@ impl From<TOKENPID_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `TOKENPID`"]
-pub type TOKENPID_R = crate::R<u8, TOKENPID_A>;
+#[doc = "Field `TOKENPID` reader - Contains the token type executed by the USB module."]
+pub struct TOKENPID_R(crate::FieldReader<u8, TOKENPID_A>);
 impl TOKENPID_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TOKENPID_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, TOKENPID_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<TOKENPID_A> {
         match self.bits {
-            1 => Val(TOKENPID_A::_0001),
-            9 => Val(TOKENPID_A::_1001),
-            13 => Val(TOKENPID_A::_1101),
-            i => Res(i),
+            1 => Some(TOKENPID_A::_0001),
+            9 => Some(TOKENPID_A::_1001),
+            13 => Some(TOKENPID_A::_1101),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0001`"]
     #[inline(always)]
     pub fn is_0001(&self) -> bool {
-        *self == TOKENPID_A::_0001
+        **self == TOKENPID_A::_0001
     }
     #[doc = "Checks if the value of the field is `_1001`"]
     #[inline(always)]
     pub fn is_1001(&self) -> bool {
-        *self == TOKENPID_A::_1001
+        **self == TOKENPID_A::_1001
     }
     #[doc = "Checks if the value of the field is `_1101`"]
     #[inline(always)]
     pub fn is_1101(&self) -> bool {
-        *self == TOKENPID_A::_1101
+        **self == TOKENPID_A::_1101
     }
 }
-#[doc = "Write proxy for field `TOKENPID`"]
+impl core::ops::Deref for TOKENPID_R {
+    type Target = crate::FieldReader<u8, TOKENPID_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TOKENPID` writer - Contains the token type executed by the USB module."]
 pub struct TOKENPID_W<'a> {
     w: &'a mut W,
 }
@@ -99,7 +144,7 @@ impl<'a> TOKENPID_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u8) & 0x0f) << 4);
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | ((value as u8 & 0x0f) << 4);
         self.w
     }
 }
@@ -125,5 +170,31 @@ impl W {
     #[inline(always)]
     pub fn tokenpid(&mut self) -> TOKENPID_W {
         TOKENPID_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Token register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [token](index.html) module"]
+pub struct TOKEN_SPEC;
+impl crate::RegisterSpec for TOKEN_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [token::R](R) reader structure"]
+impl crate::Readable for TOKEN_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [token::W](W) writer structure"]
+impl crate::Writable for TOKEN_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets TOKEN to value 0"]
+impl crate::Resettable for TOKEN_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

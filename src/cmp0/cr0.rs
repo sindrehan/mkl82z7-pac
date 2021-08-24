@@ -1,13 +1,37 @@
-#[doc = "Reader of register CR0"]
-pub type R = crate::R<u8, super::CR0>;
-#[doc = "Writer for register CR0"]
-pub type W = crate::W<u8, super::CR0>;
-#[doc = "Register CR0 `reset()`'s with value 0"]
-impl crate::ResetValue for super::CR0 {
-    type Type = u8;
+#[doc = "Register `CR0` reader"]
+pub struct R(crate::R<CR0_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CR0_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<CR0_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<CR0_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CR0` writer"]
+pub struct W(crate::W<CR0_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CR0_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CR0_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CR0_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Comparator hard block hysteresis control\n\nValue on reset: 0"]
@@ -29,9 +53,12 @@ impl From<HYSTCTR_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `HYSTCTR`"]
-pub type HYSTCTR_R = crate::R<u8, HYSTCTR_A>;
+#[doc = "Field `HYSTCTR` reader - Comparator hard block hysteresis control"]
+pub struct HYSTCTR_R(crate::FieldReader<u8, HYSTCTR_A>);
 impl HYSTCTR_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        HYSTCTR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HYSTCTR_A {
@@ -46,25 +73,32 @@ impl HYSTCTR_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == HYSTCTR_A::_00
+        **self == HYSTCTR_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == HYSTCTR_A::_01
+        **self == HYSTCTR_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == HYSTCTR_A::_10
+        **self == HYSTCTR_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == HYSTCTR_A::_11
+        **self == HYSTCTR_A::_11
     }
 }
-#[doc = "Write proxy for field `HYSTCTR`"]
+impl core::ops::Deref for HYSTCTR_R {
+    type Target = crate::FieldReader<u8, HYSTCTR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HYSTCTR` writer - Comparator hard block hysteresis control"]
 pub struct HYSTCTR_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +106,7 @@ impl<'a> HYSTCTR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HYSTCTR_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Level 0"]
     #[inline(always)]
@@ -99,7 +131,7 @@ impl<'a> HYSTCTR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u8) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u8 & 0x03);
         self.w
     }
 }
@@ -130,9 +162,12 @@ impl From<FILTER_CNT_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `FILTER_CNT`"]
-pub type FILTER_CNT_R = crate::R<u8, FILTER_CNT_A>;
+#[doc = "Field `FILTER_CNT` reader - Filter Sample Count"]
+pub struct FILTER_CNT_R(crate::FieldReader<u8, FILTER_CNT_A>);
 impl FILTER_CNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FILTER_CNT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FILTER_CNT_A {
@@ -151,45 +186,52 @@ impl FILTER_CNT_R {
     #[doc = "Checks if the value of the field is `_000`"]
     #[inline(always)]
     pub fn is_000(&self) -> bool {
-        *self == FILTER_CNT_A::_000
+        **self == FILTER_CNT_A::_000
     }
     #[doc = "Checks if the value of the field is `_001`"]
     #[inline(always)]
     pub fn is_001(&self) -> bool {
-        *self == FILTER_CNT_A::_001
+        **self == FILTER_CNT_A::_001
     }
     #[doc = "Checks if the value of the field is `_010`"]
     #[inline(always)]
     pub fn is_010(&self) -> bool {
-        *self == FILTER_CNT_A::_010
+        **self == FILTER_CNT_A::_010
     }
     #[doc = "Checks if the value of the field is `_011`"]
     #[inline(always)]
     pub fn is_011(&self) -> bool {
-        *self == FILTER_CNT_A::_011
+        **self == FILTER_CNT_A::_011
     }
     #[doc = "Checks if the value of the field is `_100`"]
     #[inline(always)]
     pub fn is_100(&self) -> bool {
-        *self == FILTER_CNT_A::_100
+        **self == FILTER_CNT_A::_100
     }
     #[doc = "Checks if the value of the field is `_101`"]
     #[inline(always)]
     pub fn is_101(&self) -> bool {
-        *self == FILTER_CNT_A::_101
+        **self == FILTER_CNT_A::_101
     }
     #[doc = "Checks if the value of the field is `_110`"]
     #[inline(always)]
     pub fn is_110(&self) -> bool {
-        *self == FILTER_CNT_A::_110
+        **self == FILTER_CNT_A::_110
     }
     #[doc = "Checks if the value of the field is `_111`"]
     #[inline(always)]
     pub fn is_111(&self) -> bool {
-        *self == FILTER_CNT_A::_111
+        **self == FILTER_CNT_A::_111
     }
 }
-#[doc = "Write proxy for field `FILTER_CNT`"]
+impl core::ops::Deref for FILTER_CNT_R {
+    type Target = crate::FieldReader<u8, FILTER_CNT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FILTER_CNT` writer - Filter Sample Count"]
 pub struct FILTER_CNT_W<'a> {
     w: &'a mut W,
 }
@@ -197,9 +239,7 @@ impl<'a> FILTER_CNT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FILTER_CNT_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Filter is disabled. If SE = 1, then COUT is a logic 0. This is not a legal state, and is not recommended. If SE = 0, COUT = COUTA."]
     #[inline(always)]
@@ -244,7 +284,7 @@ impl<'a> FILTER_CNT_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 4)) | (((value as u8) & 0x07) << 4);
+        self.w.bits = (self.w.bits & !(0x07 << 4)) | ((value as u8 & 0x07) << 4);
         self.w
     }
 }
@@ -270,5 +310,31 @@ impl W {
     #[inline(always)]
     pub fn filter_cnt(&mut self) -> FILTER_CNT_W {
         FILTER_CNT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "CMP Control Register 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cr0](index.html) module"]
+pub struct CR0_SPEC;
+impl crate::RegisterSpec for CR0_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [cr0::R](R) reader structure"]
+impl crate::Readable for CR0_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [cr0::W](W) writer structure"]
+impl crate::Writable for CR0_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CR0 to value 0"]
+impl crate::Resettable for CR0_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

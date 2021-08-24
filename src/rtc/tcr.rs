@@ -1,13 +1,37 @@
-#[doc = "Reader of register TCR"]
-pub type R = crate::R<u32, super::TCR>;
-#[doc = "Writer for register TCR"]
-pub type W = crate::W<u32, super::TCR>;
-#[doc = "Register TCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::TCR {
-    type Type = u32;
+#[doc = "Register `TCR` reader"]
+pub struct R(crate::R<TCR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<TCR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<TCR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<TCR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `TCR` writer"]
+pub struct W(crate::W<TCR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<TCR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<TCR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<TCR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Time Compensation Register\n\nValue on reset: 0"]
@@ -31,49 +55,58 @@ impl From<TCR_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `TCR`"]
-pub type TCR_R = crate::R<u8, TCR_A>;
+#[doc = "Field `TCR` reader - Time Compensation Register"]
+pub struct TCR_R(crate::FieldReader<u8, TCR_A>);
 impl TCR_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TCR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, TCR_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<TCR_A> {
         match self.bits {
-            128 => Val(TCR_A::_10000000),
-            255 => Val(TCR_A::_11111111),
-            0 => Val(TCR_A::_0),
-            1 => Val(TCR_A::_1),
-            127 => Val(TCR_A::_1111111),
-            i => Res(i),
+            128 => Some(TCR_A::_10000000),
+            255 => Some(TCR_A::_11111111),
+            0 => Some(TCR_A::_0),
+            1 => Some(TCR_A::_1),
+            127 => Some(TCR_A::_1111111),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_10000000`"]
     #[inline(always)]
     pub fn is_10000000(&self) -> bool {
-        *self == TCR_A::_10000000
+        **self == TCR_A::_10000000
     }
     #[doc = "Checks if the value of the field is `_11111111`"]
     #[inline(always)]
     pub fn is_11111111(&self) -> bool {
-        *self == TCR_A::_11111111
+        **self == TCR_A::_11111111
     }
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TCR_A::_0
+        **self == TCR_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TCR_A::_1
+        **self == TCR_A::_1
     }
     #[doc = "Checks if the value of the field is `_1111111`"]
     #[inline(always)]
     pub fn is_1111111(&self) -> bool {
-        *self == TCR_A::_1111111
+        **self == TCR_A::_1111111
     }
 }
-#[doc = "Write proxy for field `TCR`"]
+impl core::ops::Deref for TCR_R {
+    type Target = crate::FieldReader<u8, TCR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TCR` writer - Time Compensation Register"]
 pub struct TCR_W<'a> {
     w: &'a mut W,
 }
@@ -111,13 +144,25 @@ impl<'a> TCR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
-#[doc = "Reader of field `CIR`"]
-pub type CIR_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CIR`"]
+#[doc = "Field `CIR` reader - Compensation Interval Register"]
+pub struct CIR_R(crate::FieldReader<u8, u8>);
+impl CIR_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CIR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CIR_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CIR` writer - Compensation Interval Register"]
 pub struct CIR_W<'a> {
     w: &'a mut W,
 }
@@ -125,14 +170,38 @@ impl<'a> CIR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
+        self.w.bits = (self.w.bits & !(0xff << 8)) | ((value as u32 & 0xff) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `TCV`"]
-pub type TCV_R = crate::R<u8, u8>;
-#[doc = "Reader of field `CIC`"]
-pub type CIC_R = crate::R<u8, u8>;
+#[doc = "Field `TCV` reader - Time Compensation Value"]
+pub struct TCV_R(crate::FieldReader<u8, u8>);
+impl TCV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TCV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TCV_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CIC` reader - Compensation Interval Counter"]
+pub struct CIC_R(crate::FieldReader<u8, u8>);
+impl CIC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CIC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CIC_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bits 0:7 - Time Compensation Register"]
     #[inline(always)]
@@ -165,5 +234,31 @@ impl W {
     #[inline(always)]
     pub fn cir(&mut self) -> CIR_W {
         CIR_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "RTC Time Compensation Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tcr](index.html) module"]
+pub struct TCR_SPEC;
+impl crate::RegisterSpec for TCR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [tcr::R](R) reader structure"]
+impl crate::Readable for TCR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [tcr::W](W) writer structure"]
+impl crate::Writable for TCR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets TCR to value 0"]
+impl crate::Resettable for TCR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

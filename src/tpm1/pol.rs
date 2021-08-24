@@ -1,13 +1,37 @@
-#[doc = "Reader of register POL"]
-pub type R = crate::R<u32, super::POL>;
-#[doc = "Writer for register POL"]
-pub type W = crate::W<u32, super::POL>;
-#[doc = "Register POL `reset()`'s with value 0"]
-impl crate::ResetValue for super::POL {
-    type Type = u32;
+#[doc = "Register `POL` reader"]
+pub struct R(crate::R<POL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<POL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<POL_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<POL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `POL` writer"]
+pub struct W(crate::W<POL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<POL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<POL_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<POL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Channel 0 Polarity\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<POL0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `POL0`"]
-pub type POL0_R = crate::R<bool, POL0_A>;
+#[doc = "Field `POL0` reader - Channel 0 Polarity"]
+pub struct POL0_R(crate::FieldReader<bool, POL0_A>);
 impl POL0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POL0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POL0_A {
@@ -38,15 +65,22 @@ impl POL0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == POL0_A::_0
+        **self == POL0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == POL0_A::_1
+        **self == POL0_A::_1
     }
 }
-#[doc = "Write proxy for field `POL0`"]
+impl core::ops::Deref for POL0_R {
+    type Target = crate::FieldReader<bool, POL0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POL0` writer - Channel 0 Polarity"]
 pub struct POL0_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> POL0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POL0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The channel polarity is active high."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> POL0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<POL1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `POL1`"]
-pub type POL1_R = crate::R<bool, POL1_A>;
+#[doc = "Field `POL1` reader - Channel 1 Polarity"]
+pub struct POL1_R(crate::FieldReader<bool, POL1_A>);
 impl POL1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POL1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POL1_A {
@@ -113,15 +148,22 @@ impl POL1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == POL1_A::_0
+        **self == POL1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == POL1_A::_1
+        **self == POL1_A::_1
     }
 }
-#[doc = "Write proxy for field `POL1`"]
+impl core::ops::Deref for POL1_R {
+    type Target = crate::FieldReader<bool, POL1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POL1` writer - Channel 1 Polarity"]
 pub struct POL1_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> POL1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POL1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The channel polarity is active high."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> POL1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<POL2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `POL2`"]
-pub type POL2_R = crate::R<bool, POL2_A>;
+#[doc = "Field `POL2` reader - Channel 2 Polarity"]
+pub struct POL2_R(crate::FieldReader<bool, POL2_A>);
 impl POL2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POL2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POL2_A {
@@ -188,15 +231,22 @@ impl POL2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == POL2_A::_0
+        **self == POL2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == POL2_A::_1
+        **self == POL2_A::_1
     }
 }
-#[doc = "Write proxy for field `POL2`"]
+impl core::ops::Deref for POL2_R {
+    type Target = crate::FieldReader<bool, POL2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POL2` writer - Channel 2 Polarity"]
 pub struct POL2_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> POL2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POL2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The channel polarity is active high."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> POL2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<POL3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `POL3`"]
-pub type POL3_R = crate::R<bool, POL3_A>;
+#[doc = "Field `POL3` reader - Channel 3 Polarity"]
+pub struct POL3_R(crate::FieldReader<bool, POL3_A>);
 impl POL3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POL3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POL3_A {
@@ -263,15 +314,22 @@ impl POL3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == POL3_A::_0
+        **self == POL3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == POL3_A::_1
+        **self == POL3_A::_1
     }
 }
-#[doc = "Write proxy for field `POL3`"]
+impl core::ops::Deref for POL3_R {
+    type Target = crate::FieldReader<bool, POL3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POL3` writer - Channel 3 Polarity"]
 pub struct POL3_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> POL3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POL3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The channel polarity is active high."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> POL3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<POL4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `POL4`"]
-pub type POL4_R = crate::R<bool, POL4_A>;
+#[doc = "Field `POL4` reader - Channel 4 Polarity"]
+pub struct POL4_R(crate::FieldReader<bool, POL4_A>);
 impl POL4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POL4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POL4_A {
@@ -338,15 +397,22 @@ impl POL4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == POL4_A::_0
+        **self == POL4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == POL4_A::_1
+        **self == POL4_A::_1
     }
 }
-#[doc = "Write proxy for field `POL4`"]
+impl core::ops::Deref for POL4_R {
+    type Target = crate::FieldReader<bool, POL4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POL4` writer - Channel 4 Polarity"]
 pub struct POL4_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> POL4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POL4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The channel polarity is active high"]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> POL4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -399,9 +463,12 @@ impl From<POL5_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `POL5`"]
-pub type POL5_R = crate::R<bool, POL5_A>;
+#[doc = "Field `POL5` reader - Channel 5 Polarity"]
+pub struct POL5_R(crate::FieldReader<bool, POL5_A>);
 impl POL5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        POL5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> POL5_A {
@@ -413,15 +480,22 @@ impl POL5_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == POL5_A::_0
+        **self == POL5_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == POL5_A::_1
+        **self == POL5_A::_1
     }
 }
-#[doc = "Write proxy for field `POL5`"]
+impl core::ops::Deref for POL5_R {
+    type Target = crate::FieldReader<bool, POL5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `POL5` writer - Channel 5 Polarity"]
 pub struct POL5_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +503,7 @@ impl<'a> POL5_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: POL5_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "The channel polarity is active high."]
     #[inline(always)]
@@ -456,7 +528,7 @@ impl<'a> POL5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -522,5 +594,31 @@ impl W {
     #[inline(always)]
     pub fn pol5(&mut self) -> POL5_W {
         POL5_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Channel Polarity\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pol](index.html) module"]
+pub struct POL_SPEC;
+impl crate::RegisterSpec for POL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pol::R](R) reader structure"]
+impl crate::Readable for POL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pol::W](W) writer structure"]
+impl crate::Writable for POL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets POL to value 0"]
+impl crate::Resettable for POL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

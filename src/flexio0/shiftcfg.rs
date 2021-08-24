@@ -1,13 +1,37 @@
-#[doc = "Reader of register SHIFTCFG%s"]
-pub type R = crate::R<u32, super::SHIFTCFG>;
-#[doc = "Writer for register SHIFTCFG%s"]
-pub type W = crate::W<u32, super::SHIFTCFG>;
-#[doc = "Register SHIFTCFG%s `reset()`'s with value 0"]
-impl crate::ResetValue for super::SHIFTCFG {
-    type Type = u32;
+#[doc = "Register `SHIFTCFG%s` reader"]
+pub struct R(crate::R<SHIFTCFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SHIFTCFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SHIFTCFG_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SHIFTCFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SHIFTCFG%s` writer"]
+pub struct W(crate::W<SHIFTCFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SHIFTCFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<SHIFTCFG_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<SHIFTCFG_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Shifter Start bit\n\nValue on reset: 0"]
@@ -29,9 +53,12 @@ impl From<SSTART_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SSTART`"]
-pub type SSTART_R = crate::R<u8, SSTART_A>;
+#[doc = "Field `SSTART` reader - Shifter Start bit"]
+pub struct SSTART_R(crate::FieldReader<u8, SSTART_A>);
 impl SSTART_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SSTART_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SSTART_A {
@@ -46,25 +73,32 @@ impl SSTART_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == SSTART_A::_00
+        **self == SSTART_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == SSTART_A::_01
+        **self == SSTART_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == SSTART_A::_10
+        **self == SSTART_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == SSTART_A::_11
+        **self == SSTART_A::_11
     }
 }
-#[doc = "Write proxy for field `SSTART`"]
+impl core::ops::Deref for SSTART_R {
+    type Target = crate::FieldReader<u8, SSTART_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSTART` writer - Shifter Start bit"]
 pub struct SSTART_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +106,7 @@ impl<'a> SSTART_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SSTART_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable"]
     #[inline(always)]
@@ -99,7 +131,7 @@ impl<'a> SSTART_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -122,9 +154,12 @@ impl From<SSTOP_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SSTOP`"]
-pub type SSTOP_R = crate::R<u8, SSTOP_A>;
+#[doc = "Field `SSTOP` reader - Shifter Stop bit"]
+pub struct SSTOP_R(crate::FieldReader<u8, SSTOP_A>);
 impl SSTOP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SSTOP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SSTOP_A {
@@ -139,25 +174,32 @@ impl SSTOP_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == SSTOP_A::_00
+        **self == SSTOP_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == SSTOP_A::_01
+        **self == SSTOP_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == SSTOP_A::_10
+        **self == SSTOP_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == SSTOP_A::_11
+        **self == SSTOP_A::_11
     }
 }
-#[doc = "Write proxy for field `SSTOP`"]
+impl core::ops::Deref for SSTOP_R {
+    type Target = crate::FieldReader<u8, SSTOP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSTOP` writer - Shifter Stop bit"]
 pub struct SSTOP_W<'a> {
     w: &'a mut W,
 }
@@ -165,9 +207,7 @@ impl<'a> SSTOP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SSTOP_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Stop bit disabled for transmitter/receiver/match store"]
     #[inline(always)]
@@ -192,7 +232,7 @@ impl<'a> SSTOP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 4)) | (((value as u32) & 0x03) << 4);
+        self.w.bits = (self.w.bits & !(0x03 << 4)) | ((value as u32 & 0x03) << 4);
         self.w
     }
 }
@@ -210,9 +250,12 @@ impl From<INSRC_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `INSRC`"]
-pub type INSRC_R = crate::R<bool, INSRC_A>;
+#[doc = "Field `INSRC` reader - Input Source"]
+pub struct INSRC_R(crate::FieldReader<bool, INSRC_A>);
 impl INSRC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        INSRC_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> INSRC_A {
@@ -224,15 +267,22 @@ impl INSRC_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == INSRC_A::_0
+        **self == INSRC_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == INSRC_A::_1
+        **self == INSRC_A::_1
     }
 }
-#[doc = "Write proxy for field `INSRC`"]
+impl core::ops::Deref for INSRC_R {
+    type Target = crate::FieldReader<bool, INSRC_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `INSRC` writer - Input Source"]
 pub struct INSRC_W<'a> {
     w: &'a mut W,
 }
@@ -240,9 +290,7 @@ impl<'a> INSRC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: INSRC_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Pin"]
     #[inline(always)]
@@ -267,13 +315,25 @@ impl<'a> INSRC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `PWIDTH`"]
-pub type PWIDTH_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `PWIDTH`"]
+#[doc = "Field `PWIDTH` reader - Parallel Width"]
+pub struct PWIDTH_R(crate::FieldReader<u8, u8>);
+impl PWIDTH_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PWIDTH_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PWIDTH_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PWIDTH` writer - Parallel Width"]
 pub struct PWIDTH_W<'a> {
     w: &'a mut W,
 }
@@ -281,7 +341,7 @@ impl<'a> PWIDTH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 16)) | (((value as u32) & 0x1f) << 16);
+        self.w.bits = (self.w.bits & !(0x1f << 16)) | ((value as u32 & 0x1f) << 16);
         self.w
     }
 }
@@ -327,5 +387,31 @@ impl W {
     #[inline(always)]
     pub fn pwidth(&mut self) -> PWIDTH_W {
         PWIDTH_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Shifter Configuration N Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [shiftcfg](index.html) module"]
+pub struct SHIFTCFG_SPEC;
+impl crate::RegisterSpec for SHIFTCFG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [shiftcfg::R](R) reader structure"]
+impl crate::Readable for SHIFTCFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [shiftcfg::W](W) writer structure"]
+impl crate::Writable for SHIFTCFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SHIFTCFG%s to value 0"]
+impl crate::Resettable for SHIFTCFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

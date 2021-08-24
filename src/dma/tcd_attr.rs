@@ -1,18 +1,54 @@
-#[doc = "Reader of register TCD%s_ATTR"]
-pub type R = crate::R<u16, super::TCD_ATTR>;
-#[doc = "Writer for register TCD%s_ATTR"]
-pub type W = crate::W<u16, super::TCD_ATTR>;
-#[doc = "Register TCD%s_ATTR `reset()`'s with value 0"]
-impl crate::ResetValue for super::TCD_ATTR {
-    type Type = u16;
+#[doc = "Register `TCD%s_ATTR` reader"]
+pub struct R(crate::R<TCD_ATTR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<TCD_ATTR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `DSIZE`"]
-pub type DSIZE_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DSIZE`"]
+impl From<crate::R<TCD_ATTR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<TCD_ATTR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `TCD%s_ATTR` writer"]
+pub struct W(crate::W<TCD_ATTR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<TCD_ATTR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<TCD_ATTR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<TCD_ATTR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `DSIZE` reader - Destination data transfer size"]
+pub struct DSIZE_R(crate::FieldReader<u8, u8>);
+impl DSIZE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DSIZE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DSIZE_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DSIZE` writer - Destination data transfer size"]
 pub struct DSIZE_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +56,25 @@ impl<'a> DSIZE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u16) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u16 & 0x07);
         self.w
     }
 }
-#[doc = "Reader of field `DMOD`"]
-pub type DMOD_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `DMOD`"]
+#[doc = "Field `DMOD` reader - Destination Address Modulo"]
+pub struct DMOD_R(crate::FieldReader<u8, u8>);
+impl DMOD_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DMOD_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DMOD_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMOD` writer - Destination Address Modulo"]
 pub struct DMOD_W<'a> {
     w: &'a mut W,
 }
@@ -34,7 +82,7 @@ impl<'a> DMOD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 3)) | (((value as u16) & 0x1f) << 3);
+        self.w.bits = (self.w.bits & !(0x1f << 3)) | ((value as u16 & 0x1f) << 3);
         self.w
     }
 }
@@ -59,49 +107,58 @@ impl From<SSIZE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SSIZE`"]
-pub type SSIZE_R = crate::R<u8, SSIZE_A>;
+#[doc = "Field `SSIZE` reader - Source data transfer size"]
+pub struct SSIZE_R(crate::FieldReader<u8, SSIZE_A>);
 impl SSIZE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SSIZE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SSIZE_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SSIZE_A> {
         match self.bits {
-            0 => Val(SSIZE_A::_000),
-            1 => Val(SSIZE_A::_001),
-            2 => Val(SSIZE_A::_010),
-            4 => Val(SSIZE_A::_100),
-            5 => Val(SSIZE_A::_101),
-            i => Res(i),
+            0 => Some(SSIZE_A::_000),
+            1 => Some(SSIZE_A::_001),
+            2 => Some(SSIZE_A::_010),
+            4 => Some(SSIZE_A::_100),
+            5 => Some(SSIZE_A::_101),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_000`"]
     #[inline(always)]
     pub fn is_000(&self) -> bool {
-        *self == SSIZE_A::_000
+        **self == SSIZE_A::_000
     }
     #[doc = "Checks if the value of the field is `_001`"]
     #[inline(always)]
     pub fn is_001(&self) -> bool {
-        *self == SSIZE_A::_001
+        **self == SSIZE_A::_001
     }
     #[doc = "Checks if the value of the field is `_010`"]
     #[inline(always)]
     pub fn is_010(&self) -> bool {
-        *self == SSIZE_A::_010
+        **self == SSIZE_A::_010
     }
     #[doc = "Checks if the value of the field is `_100`"]
     #[inline(always)]
     pub fn is_100(&self) -> bool {
-        *self == SSIZE_A::_100
+        **self == SSIZE_A::_100
     }
     #[doc = "Checks if the value of the field is `_101`"]
     #[inline(always)]
     pub fn is_101(&self) -> bool {
-        *self == SSIZE_A::_101
+        **self == SSIZE_A::_101
     }
 }
-#[doc = "Write proxy for field `SSIZE`"]
+impl core::ops::Deref for SSIZE_R {
+    type Target = crate::FieldReader<u8, SSIZE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSIZE` writer - Source data transfer size"]
 pub struct SSIZE_W<'a> {
     w: &'a mut W,
 }
@@ -139,7 +196,7 @@ impl<'a> SSIZE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 8)) | (((value as u16) & 0x07) << 8);
+        self.w.bits = (self.w.bits & !(0x07 << 8)) | ((value as u16 & 0x07) << 8);
         self.w
     }
 }
@@ -156,25 +213,34 @@ impl From<SMOD_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SMOD`"]
-pub type SMOD_R = crate::R<u8, SMOD_A>;
+#[doc = "Field `SMOD` reader - Source Address Modulo"]
+pub struct SMOD_R(crate::FieldReader<u8, SMOD_A>);
 impl SMOD_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SMOD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SMOD_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SMOD_A> {
         match self.bits {
-            0 => Val(SMOD_A::_0),
-            i => Res(i),
+            0 => Some(SMOD_A::_0),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SMOD_A::_0
+        **self == SMOD_A::_0
     }
 }
-#[doc = "Write proxy for field `SMOD`"]
+impl core::ops::Deref for SMOD_R {
+    type Target = crate::FieldReader<u8, SMOD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SMOD` writer - Source Address Modulo"]
 pub struct SMOD_W<'a> {
     w: &'a mut W,
 }
@@ -192,7 +258,7 @@ impl<'a> SMOD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x1f << 11)) | (((value as u16) & 0x1f) << 11);
+        self.w.bits = (self.w.bits & !(0x1f << 11)) | ((value as u16 & 0x1f) << 11);
         self.w
     }
 }
@@ -238,5 +304,31 @@ impl W {
     #[inline(always)]
     pub fn smod(&mut self) -> SMOD_W {
         SMOD_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u16) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "TCD Transfer Attributes\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tcd_attr](index.html) module"]
+pub struct TCD_ATTR_SPEC;
+impl crate::RegisterSpec for TCD_ATTR_SPEC {
+    type Ux = u16;
+}
+#[doc = "`read()` method returns [tcd_attr::R](R) reader structure"]
+impl crate::Readable for TCD_ATTR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [tcd_attr::W](W) writer structure"]
+impl crate::Writable for TCD_ATTR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets TCD%s_ATTR to value 0"]
+impl crate::Resettable for TCD_ATTR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

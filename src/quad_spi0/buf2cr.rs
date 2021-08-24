@@ -1,18 +1,54 @@
-#[doc = "Reader of register BUF2CR"]
-pub type R = crate::R<u32, super::BUF2CR>;
-#[doc = "Writer for register BUF2CR"]
-pub type W = crate::W<u32, super::BUF2CR>;
-#[doc = "Register BUF2CR `reset()`'s with value 0x04"]
-impl crate::ResetValue for super::BUF2CR {
-    type Type = u32;
+#[doc = "Register `BUF2CR` reader"]
+pub struct R(crate::R<BUF2CR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<BUF2CR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x04
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `MSTRID`"]
-pub type MSTRID_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `MSTRID`"]
+impl From<crate::R<BUF2CR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<BUF2CR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `BUF2CR` writer"]
+pub struct W(crate::W<BUF2CR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<BUF2CR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<BUF2CR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<BUF2CR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `MSTRID` reader - Master ID"]
+pub struct MSTRID_R(crate::FieldReader<u8, u8>);
+impl MSTRID_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MSTRID_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MSTRID_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSTRID` writer - Master ID"]
 pub struct MSTRID_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +56,25 @@ impl<'a> MSTRID_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
+        self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
         self.w
     }
 }
-#[doc = "Reader of field `ADATSZ`"]
-pub type ADATSZ_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `ADATSZ`"]
+#[doc = "Field `ADATSZ` reader - AHB data transfer size"]
+pub struct ADATSZ_R(crate::FieldReader<u8, u8>);
+impl ADATSZ_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADATSZ_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for ADATSZ_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADATSZ` writer - AHB data transfer size"]
 pub struct ADATSZ_W<'a> {
     w: &'a mut W,
 }
@@ -34,7 +82,7 @@ impl<'a> ADATSZ_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x7f << 8)) | (((value as u32) & 0x7f) << 8);
+        self.w.bits = (self.w.bits & !(0x7f << 8)) | ((value as u32 & 0x7f) << 8);
         self.w
     }
 }
@@ -60,5 +108,31 @@ impl W {
     #[inline(always)]
     pub fn adatsz(&mut self) -> ADATSZ_W {
         ADATSZ_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Buffer2 Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [buf2cr](index.html) module"]
+pub struct BUF2CR_SPEC;
+impl crate::RegisterSpec for BUF2CR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [buf2cr::R](R) reader structure"]
+impl crate::Readable for BUF2CR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [buf2cr::W](W) writer structure"]
+impl crate::Writable for BUF2CR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets BUF2CR to value 0x04"]
+impl crate::Resettable for BUF2CR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x04
     }
 }

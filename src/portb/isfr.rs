@@ -1,13 +1,37 @@
-#[doc = "Reader of register ISFR"]
-pub type R = crate::R<u32, super::ISFR>;
-#[doc = "Writer for register ISFR"]
-pub type W = crate::W<u32, super::ISFR>;
-#[doc = "Register ISFR `reset()`'s with value 0"]
-impl crate::ResetValue for super::ISFR {
-    type Type = u32;
+#[doc = "Register `ISFR` reader"]
+pub struct R(crate::R<ISFR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<ISFR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<ISFR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<ISFR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `ISFR` writer"]
+pub struct W(crate::W<ISFR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<ISFR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<ISFR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<ISFR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Interrupt Status Flag\n\nValue on reset: 0"]
@@ -25,31 +49,40 @@ impl From<ISF_A> for u32 {
         variant as _
     }
 }
-#[doc = "Reader of field `ISF`"]
-pub type ISF_R = crate::R<u32, ISF_A>;
+#[doc = "Field `ISF` reader - Interrupt Status Flag"]
+pub struct ISF_R(crate::FieldReader<u32, ISF_A>);
 impl ISF_R {
+    pub(crate) fn new(bits: u32) -> Self {
+        ISF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u32, ISF_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ISF_A> {
         match self.bits {
-            0 => Val(ISF_A::_0),
-            1 => Val(ISF_A::_1),
-            i => Res(i),
+            0 => Some(ISF_A::_0),
+            1 => Some(ISF_A::_1),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == ISF_A::_0
+        **self == ISF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == ISF_A::_1
+        **self == ISF_A::_1
     }
 }
-#[doc = "Write proxy for field `ISF`"]
+impl core::ops::Deref for ISF_R {
+    type Target = crate::FieldReader<u32, ISF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ISF` writer - Interrupt Status Flag"]
 pub struct ISF_W<'a> {
     w: &'a mut W,
 }
@@ -72,7 +105,7 @@ impl<'a> ISF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u32) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xffff_ffff) | ((value as u32) & 0xffff_ffff);
+        self.w.bits = (self.w.bits & !0xffff_ffff) | (value as u32 & 0xffff_ffff);
         self.w
     }
 }
@@ -88,5 +121,31 @@ impl W {
     #[inline(always)]
     pub fn isf(&mut self) -> ISF_W {
         ISF_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Interrupt Status Flag Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [isfr](index.html) module"]
+pub struct ISFR_SPEC;
+impl crate::RegisterSpec for ISFR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [isfr::R](R) reader structure"]
+impl crate::Readable for ISFR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [isfr::W](W) writer structure"]
+impl crate::Writable for ISFR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets ISFR to value 0"]
+impl crate::Resettable for ISFR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

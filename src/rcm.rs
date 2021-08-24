@@ -2,104 +2,52 @@
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - System Reset Status Register 0"]
-    pub srs0: SRS0,
+    pub srs0: crate::Reg<srs0::SRS0_SPEC>,
     #[doc = "0x01 - System Reset Status Register 1"]
-    pub srs1: SRS1,
-    _reserved2: [u8; 2usize],
+    pub srs1: crate::Reg<srs1::SRS1_SPEC>,
+    _reserved2: [u8; 0x02],
     #[doc = "0x04 - Reset Pin Filter Control register"]
-    pub rpfc: RPFC,
+    pub rpfc: crate::Reg<rpfc::RPFC_SPEC>,
     #[doc = "0x05 - Reset Pin Filter Width register"]
-    pub rpfw: RPFW,
+    pub rpfw: crate::Reg<rpfw::RPFW_SPEC>,
     #[doc = "0x06 - Force Mode Register"]
-    pub fm: FM,
+    pub fm: crate::Reg<fm::FM_SPEC>,
     #[doc = "0x07 - Mode Register"]
-    pub mr: MR,
+    pub mr: crate::Reg<mr::MR_SPEC>,
     #[doc = "0x08 - Sticky System Reset Status Register 0"]
-    pub ssrs0: SSRS0,
+    pub ssrs0: crate::Reg<ssrs0::SSRS0_SPEC>,
     #[doc = "0x09 - Sticky System Reset Status Register 1"]
-    pub ssrs1: SSRS1,
+    pub ssrs1: crate::Reg<ssrs1::SSRS1_SPEC>,
 }
-#[doc = "System Reset Status Register 0\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [srs0](srs0) module"]
-pub type SRS0 = crate::Reg<u8, _SRS0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SRS0;
-#[doc = "`read()` method returns [srs0::R](srs0::R) reader structure"]
-impl crate::Readable for SRS0 {}
+#[doc = "SRS0 register accessor: an alias for `Reg<SRS0_SPEC>`"]
+pub type SRS0 = crate::Reg<srs0::SRS0_SPEC>;
 #[doc = "System Reset Status Register 0"]
 pub mod srs0;
-#[doc = "System Reset Status Register 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [srs1](srs1) module"]
-pub type SRS1 = crate::Reg<u8, _SRS1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SRS1;
-#[doc = "`read()` method returns [srs1::R](srs1::R) reader structure"]
-impl crate::Readable for SRS1 {}
+#[doc = "SRS1 register accessor: an alias for `Reg<SRS1_SPEC>`"]
+pub type SRS1 = crate::Reg<srs1::SRS1_SPEC>;
 #[doc = "System Reset Status Register 1"]
 pub mod srs1;
-#[doc = "Reset Pin Filter Control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rpfc](rpfc) module"]
-pub type RPFC = crate::Reg<u8, _RPFC>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _RPFC;
-#[doc = "`read()` method returns [rpfc::R](rpfc::R) reader structure"]
-impl crate::Readable for RPFC {}
-#[doc = "`write(|w| ..)` method takes [rpfc::W](rpfc::W) writer structure"]
-impl crate::Writable for RPFC {}
+#[doc = "RPFC register accessor: an alias for `Reg<RPFC_SPEC>`"]
+pub type RPFC = crate::Reg<rpfc::RPFC_SPEC>;
 #[doc = "Reset Pin Filter Control register"]
 pub mod rpfc;
-#[doc = "Reset Pin Filter Width register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rpfw](rpfw) module"]
-pub type RPFW = crate::Reg<u8, _RPFW>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _RPFW;
-#[doc = "`read()` method returns [rpfw::R](rpfw::R) reader structure"]
-impl crate::Readable for RPFW {}
-#[doc = "`write(|w| ..)` method takes [rpfw::W](rpfw::W) writer structure"]
-impl crate::Writable for RPFW {}
+#[doc = "RPFW register accessor: an alias for `Reg<RPFW_SPEC>`"]
+pub type RPFW = crate::Reg<rpfw::RPFW_SPEC>;
 #[doc = "Reset Pin Filter Width register"]
 pub mod rpfw;
-#[doc = "Force Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fm](fm) module"]
-pub type FM = crate::Reg<u8, _FM>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _FM;
-#[doc = "`read()` method returns [fm::R](fm::R) reader structure"]
-impl crate::Readable for FM {}
-#[doc = "`write(|w| ..)` method takes [fm::W](fm::W) writer structure"]
-impl crate::Writable for FM {}
+#[doc = "FM register accessor: an alias for `Reg<FM_SPEC>`"]
+pub type FM = crate::Reg<fm::FM_SPEC>;
 #[doc = "Force Mode Register"]
 pub mod fm;
-#[doc = "Mode Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mr](mr) module"]
-pub type MR = crate::Reg<u8, _MR>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _MR;
-#[doc = "`read()` method returns [mr::R](mr::R) reader structure"]
-impl crate::Readable for MR {}
-#[doc = "`write(|w| ..)` method takes [mr::W](mr::W) writer structure"]
-impl crate::Writable for MR {}
+#[doc = "MR register accessor: an alias for `Reg<MR_SPEC>`"]
+pub type MR = crate::Reg<mr::MR_SPEC>;
 #[doc = "Mode Register"]
 pub mod mr;
-#[doc = "Sticky System Reset Status Register 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ssrs0](ssrs0) module"]
-pub type SSRS0 = crate::Reg<u8, _SSRS0>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SSRS0;
-#[doc = "`read()` method returns [ssrs0::R](ssrs0::R) reader structure"]
-impl crate::Readable for SSRS0 {}
-#[doc = "`write(|w| ..)` method takes [ssrs0::W](ssrs0::W) writer structure"]
-impl crate::Writable for SSRS0 {}
+#[doc = "SSRS0 register accessor: an alias for `Reg<SSRS0_SPEC>`"]
+pub type SSRS0 = crate::Reg<ssrs0::SSRS0_SPEC>;
 #[doc = "Sticky System Reset Status Register 0"]
 pub mod ssrs0;
-#[doc = "Sticky System Reset Status Register 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ssrs1](ssrs1) module"]
-pub type SSRS1 = crate::Reg<u8, _SSRS1>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _SSRS1;
-#[doc = "`read()` method returns [ssrs1::R](ssrs1::R) reader structure"]
-impl crate::Readable for SSRS1 {}
-#[doc = "`write(|w| ..)` method takes [ssrs1::W](ssrs1::W) writer structure"]
-impl crate::Writable for SSRS1 {}
+#[doc = "SSRS1 register accessor: an alias for `Reg<SSRS1_SPEC>`"]
+pub type SSRS1 = crate::Reg<ssrs1::SSRS1_SPEC>;
 #[doc = "Sticky System Reset Status Register 1"]
 pub mod ssrs1;

@@ -1,18 +1,54 @@
-#[doc = "Reader of register DACCR"]
-pub type R = crate::R<u8, super::DACCR>;
-#[doc = "Writer for register DACCR"]
-pub type W = crate::W<u8, super::DACCR>;
-#[doc = "Register DACCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::DACCR {
-    type Type = u8;
+#[doc = "Register `DACCR` reader"]
+pub struct R(crate::R<DACCR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DACCR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `VOSEL`"]
-pub type VOSEL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `VOSEL`"]
+impl From<crate::R<DACCR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<DACCR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DACCR` writer"]
+pub struct W(crate::W<DACCR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DACCR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<DACCR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<DACCR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `VOSEL` reader - DAC Output Voltage Select"]
+pub struct VOSEL_R(crate::FieldReader<u8, u8>);
+impl VOSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        VOSEL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for VOSEL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VOSEL` writer - DAC Output Voltage Select"]
 pub struct VOSEL_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +56,7 @@ impl<'a> VOSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x3f) | ((value as u8) & 0x3f);
+        self.w.bits = (self.w.bits & !0x3f) | (value as u8 & 0x3f);
         self.w
     }
 }
@@ -38,9 +74,12 @@ impl From<VRSEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `VRSEL`"]
-pub type VRSEL_R = crate::R<bool, VRSEL_A>;
+#[doc = "Field `VRSEL` reader - Supply Voltage Reference Source Select"]
+pub struct VRSEL_R(crate::FieldReader<bool, VRSEL_A>);
 impl VRSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        VRSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> VRSEL_A {
@@ -52,15 +91,22 @@ impl VRSEL_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == VRSEL_A::_0
+        **self == VRSEL_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == VRSEL_A::_1
+        **self == VRSEL_A::_1
     }
 }
-#[doc = "Write proxy for field `VRSEL`"]
+impl core::ops::Deref for VRSEL_R {
+    type Target = crate::FieldReader<bool, VRSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `VRSEL` writer - Supply Voltage Reference Source Select"]
 pub struct VRSEL_W<'a> {
     w: &'a mut W,
 }
@@ -68,9 +114,7 @@ impl<'a> VRSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: VRSEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Vin1 is selected as resistor ladder network supply reference."]
     #[inline(always)]
@@ -95,7 +139,7 @@ impl<'a> VRSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -113,9 +157,12 @@ impl From<DACEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DACEN`"]
-pub type DACEN_R = crate::R<bool, DACEN_A>;
+#[doc = "Field `DACEN` reader - DAC Enable"]
+pub struct DACEN_R(crate::FieldReader<bool, DACEN_A>);
 impl DACEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DACEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DACEN_A {
@@ -127,15 +174,22 @@ impl DACEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DACEN_A::_0
+        **self == DACEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DACEN_A::_1
+        **self == DACEN_A::_1
     }
 }
-#[doc = "Write proxy for field `DACEN`"]
+impl core::ops::Deref for DACEN_R {
+    type Target = crate::FieldReader<bool, DACEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DACEN` writer - DAC Enable"]
 pub struct DACEN_W<'a> {
     w: &'a mut W,
 }
@@ -143,9 +197,7 @@ impl<'a> DACEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DACEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DAC is disabled."]
     #[inline(always)]
@@ -170,7 +222,7 @@ impl<'a> DACEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -206,5 +258,31 @@ impl W {
     #[inline(always)]
     pub fn dacen(&mut self) -> DACEN_W {
         DACEN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "DAC Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [daccr](index.html) module"]
+pub struct DACCR_SPEC;
+impl crate::RegisterSpec for DACCR_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [daccr::R](R) reader structure"]
+impl crate::Readable for DACCR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [daccr::W](W) writer structure"]
+impl crate::Writable for DACCR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DACCR to value 0"]
+impl crate::Resettable for DACCR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

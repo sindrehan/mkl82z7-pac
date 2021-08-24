@@ -1,13 +1,37 @@
-#[doc = "Reader of register RPFW"]
-pub type R = crate::R<u8, super::RPFW>;
-#[doc = "Writer for register RPFW"]
-pub type W = crate::W<u8, super::RPFW>;
-#[doc = "Register RPFW `reset()`'s with value 0"]
-impl crate::ResetValue for super::RPFW {
-    type Type = u8;
+#[doc = "Register `RPFW` reader"]
+pub struct R(crate::R<RPFW_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<RPFW_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<RPFW_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<RPFW_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `RPFW` writer"]
+pub struct W(crate::W<RPFW_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<RPFW_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<RPFW_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<RPFW_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Reset Pin Filter Bus Clock Select\n\nValue on reset: 0"]
@@ -85,9 +109,12 @@ impl From<RSTFLTSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `RSTFLTSEL`"]
-pub type RSTFLTSEL_R = crate::R<u8, RSTFLTSEL_A>;
+#[doc = "Field `RSTFLTSEL` reader - Reset Pin Filter Bus Clock Select"]
+pub struct RSTFLTSEL_R(crate::FieldReader<u8, RSTFLTSEL_A>);
 impl RSTFLTSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        RSTFLTSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RSTFLTSEL_A {
@@ -130,165 +157,172 @@ impl RSTFLTSEL_R {
     #[doc = "Checks if the value of the field is `_00000`"]
     #[inline(always)]
     pub fn is_00000(&self) -> bool {
-        *self == RSTFLTSEL_A::_00000
+        **self == RSTFLTSEL_A::_00000
     }
     #[doc = "Checks if the value of the field is `_00001`"]
     #[inline(always)]
     pub fn is_00001(&self) -> bool {
-        *self == RSTFLTSEL_A::_00001
+        **self == RSTFLTSEL_A::_00001
     }
     #[doc = "Checks if the value of the field is `_00010`"]
     #[inline(always)]
     pub fn is_00010(&self) -> bool {
-        *self == RSTFLTSEL_A::_00010
+        **self == RSTFLTSEL_A::_00010
     }
     #[doc = "Checks if the value of the field is `_00011`"]
     #[inline(always)]
     pub fn is_00011(&self) -> bool {
-        *self == RSTFLTSEL_A::_00011
+        **self == RSTFLTSEL_A::_00011
     }
     #[doc = "Checks if the value of the field is `_00100`"]
     #[inline(always)]
     pub fn is_00100(&self) -> bool {
-        *self == RSTFLTSEL_A::_00100
+        **self == RSTFLTSEL_A::_00100
     }
     #[doc = "Checks if the value of the field is `_00101`"]
     #[inline(always)]
     pub fn is_00101(&self) -> bool {
-        *self == RSTFLTSEL_A::_00101
+        **self == RSTFLTSEL_A::_00101
     }
     #[doc = "Checks if the value of the field is `_00110`"]
     #[inline(always)]
     pub fn is_00110(&self) -> bool {
-        *self == RSTFLTSEL_A::_00110
+        **self == RSTFLTSEL_A::_00110
     }
     #[doc = "Checks if the value of the field is `_00111`"]
     #[inline(always)]
     pub fn is_00111(&self) -> bool {
-        *self == RSTFLTSEL_A::_00111
+        **self == RSTFLTSEL_A::_00111
     }
     #[doc = "Checks if the value of the field is `_01000`"]
     #[inline(always)]
     pub fn is_01000(&self) -> bool {
-        *self == RSTFLTSEL_A::_01000
+        **self == RSTFLTSEL_A::_01000
     }
     #[doc = "Checks if the value of the field is `_01001`"]
     #[inline(always)]
     pub fn is_01001(&self) -> bool {
-        *self == RSTFLTSEL_A::_01001
+        **self == RSTFLTSEL_A::_01001
     }
     #[doc = "Checks if the value of the field is `_01010`"]
     #[inline(always)]
     pub fn is_01010(&self) -> bool {
-        *self == RSTFLTSEL_A::_01010
+        **self == RSTFLTSEL_A::_01010
     }
     #[doc = "Checks if the value of the field is `_01011`"]
     #[inline(always)]
     pub fn is_01011(&self) -> bool {
-        *self == RSTFLTSEL_A::_01011
+        **self == RSTFLTSEL_A::_01011
     }
     #[doc = "Checks if the value of the field is `_01100`"]
     #[inline(always)]
     pub fn is_01100(&self) -> bool {
-        *self == RSTFLTSEL_A::_01100
+        **self == RSTFLTSEL_A::_01100
     }
     #[doc = "Checks if the value of the field is `_01101`"]
     #[inline(always)]
     pub fn is_01101(&self) -> bool {
-        *self == RSTFLTSEL_A::_01101
+        **self == RSTFLTSEL_A::_01101
     }
     #[doc = "Checks if the value of the field is `_01110`"]
     #[inline(always)]
     pub fn is_01110(&self) -> bool {
-        *self == RSTFLTSEL_A::_01110
+        **self == RSTFLTSEL_A::_01110
     }
     #[doc = "Checks if the value of the field is `_01111`"]
     #[inline(always)]
     pub fn is_01111(&self) -> bool {
-        *self == RSTFLTSEL_A::_01111
+        **self == RSTFLTSEL_A::_01111
     }
     #[doc = "Checks if the value of the field is `_10000`"]
     #[inline(always)]
     pub fn is_10000(&self) -> bool {
-        *self == RSTFLTSEL_A::_10000
+        **self == RSTFLTSEL_A::_10000
     }
     #[doc = "Checks if the value of the field is `_10001`"]
     #[inline(always)]
     pub fn is_10001(&self) -> bool {
-        *self == RSTFLTSEL_A::_10001
+        **self == RSTFLTSEL_A::_10001
     }
     #[doc = "Checks if the value of the field is `_10010`"]
     #[inline(always)]
     pub fn is_10010(&self) -> bool {
-        *self == RSTFLTSEL_A::_10010
+        **self == RSTFLTSEL_A::_10010
     }
     #[doc = "Checks if the value of the field is `_10011`"]
     #[inline(always)]
     pub fn is_10011(&self) -> bool {
-        *self == RSTFLTSEL_A::_10011
+        **self == RSTFLTSEL_A::_10011
     }
     #[doc = "Checks if the value of the field is `_10100`"]
     #[inline(always)]
     pub fn is_10100(&self) -> bool {
-        *self == RSTFLTSEL_A::_10100
+        **self == RSTFLTSEL_A::_10100
     }
     #[doc = "Checks if the value of the field is `_10101`"]
     #[inline(always)]
     pub fn is_10101(&self) -> bool {
-        *self == RSTFLTSEL_A::_10101
+        **self == RSTFLTSEL_A::_10101
     }
     #[doc = "Checks if the value of the field is `_10110`"]
     #[inline(always)]
     pub fn is_10110(&self) -> bool {
-        *self == RSTFLTSEL_A::_10110
+        **self == RSTFLTSEL_A::_10110
     }
     #[doc = "Checks if the value of the field is `_10111`"]
     #[inline(always)]
     pub fn is_10111(&self) -> bool {
-        *self == RSTFLTSEL_A::_10111
+        **self == RSTFLTSEL_A::_10111
     }
     #[doc = "Checks if the value of the field is `_11000`"]
     #[inline(always)]
     pub fn is_11000(&self) -> bool {
-        *self == RSTFLTSEL_A::_11000
+        **self == RSTFLTSEL_A::_11000
     }
     #[doc = "Checks if the value of the field is `_11001`"]
     #[inline(always)]
     pub fn is_11001(&self) -> bool {
-        *self == RSTFLTSEL_A::_11001
+        **self == RSTFLTSEL_A::_11001
     }
     #[doc = "Checks if the value of the field is `_11010`"]
     #[inline(always)]
     pub fn is_11010(&self) -> bool {
-        *self == RSTFLTSEL_A::_11010
+        **self == RSTFLTSEL_A::_11010
     }
     #[doc = "Checks if the value of the field is `_11011`"]
     #[inline(always)]
     pub fn is_11011(&self) -> bool {
-        *self == RSTFLTSEL_A::_11011
+        **self == RSTFLTSEL_A::_11011
     }
     #[doc = "Checks if the value of the field is `_11100`"]
     #[inline(always)]
     pub fn is_11100(&self) -> bool {
-        *self == RSTFLTSEL_A::_11100
+        **self == RSTFLTSEL_A::_11100
     }
     #[doc = "Checks if the value of the field is `_11101`"]
     #[inline(always)]
     pub fn is_11101(&self) -> bool {
-        *self == RSTFLTSEL_A::_11101
+        **self == RSTFLTSEL_A::_11101
     }
     #[doc = "Checks if the value of the field is `_11110`"]
     #[inline(always)]
     pub fn is_11110(&self) -> bool {
-        *self == RSTFLTSEL_A::_11110
+        **self == RSTFLTSEL_A::_11110
     }
     #[doc = "Checks if the value of the field is `_11111`"]
     #[inline(always)]
     pub fn is_11111(&self) -> bool {
-        *self == RSTFLTSEL_A::_11111
+        **self == RSTFLTSEL_A::_11111
     }
 }
-#[doc = "Write proxy for field `RSTFLTSEL`"]
+impl core::ops::Deref for RSTFLTSEL_R {
+    type Target = crate::FieldReader<u8, RSTFLTSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RSTFLTSEL` writer - Reset Pin Filter Bus Clock Select"]
 pub struct RSTFLTSEL_W<'a> {
     w: &'a mut W,
 }
@@ -296,9 +330,7 @@ impl<'a> RSTFLTSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RSTFLTSEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Bus clock filter count is 1"]
     #[inline(always)]
@@ -463,7 +495,7 @@ impl<'a> RSTFLTSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x1f) | ((value as u8) & 0x1f);
+        self.w.bits = (self.w.bits & !0x1f) | (value as u8 & 0x1f);
         self.w
     }
 }
@@ -479,5 +511,31 @@ impl W {
     #[inline(always)]
     pub fn rstfltsel(&mut self) -> RSTFLTSEL_W {
         RSTFLTSEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Reset Pin Filter Width register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rpfw](index.html) module"]
+pub struct RPFW_SPEC;
+impl crate::RegisterSpec for RPFW_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [rpfw::R](R) reader structure"]
+impl crate::Readable for RPFW_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [rpfw::W](W) writer structure"]
+impl crate::Writable for RPFW_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets RPFW to value 0"]
+impl crate::Resettable for RPFW_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

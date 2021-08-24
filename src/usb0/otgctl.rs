@@ -1,13 +1,37 @@
-#[doc = "Reader of register OTGCTL"]
-pub type R = crate::R<u8, super::OTGCTL>;
-#[doc = "Writer for register OTGCTL"]
-pub type W = crate::W<u8, super::OTGCTL>;
-#[doc = "Register OTGCTL `reset()`'s with value 0"]
-impl crate::ResetValue for super::OTGCTL {
-    type Type = u8;
+#[doc = "Register `OTGCTL` reader"]
+pub struct R(crate::R<OTGCTL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<OTGCTL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<OTGCTL_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<OTGCTL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `OTGCTL` writer"]
+pub struct W(crate::W<OTGCTL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<OTGCTL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<OTGCTL_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<OTGCTL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "On-The-Go pullup/pulldown resistor enable\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<OTGEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `OTGEN`"]
-pub type OTGEN_R = crate::R<bool, OTGEN_A>;
+#[doc = "Field `OTGEN` reader - On-The-Go pullup/pulldown resistor enable"]
+pub struct OTGEN_R(crate::FieldReader<bool, OTGEN_A>);
 impl OTGEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OTGEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> OTGEN_A {
@@ -38,15 +65,22 @@ impl OTGEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == OTGEN_A::_0
+        **self == OTGEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == OTGEN_A::_1
+        **self == OTGEN_A::_1
     }
 }
-#[doc = "Write proxy for field `OTGEN`"]
+impl core::ops::Deref for OTGEN_R {
+    type Target = crate::FieldReader<bool, OTGEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OTGEN` writer - On-The-Go pullup/pulldown resistor enable"]
 pub struct OTGEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> OTGEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: OTGEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "If USB_EN is 1 and HOST_MODE is 0 in the Control Register (CTL), then the D+ Data Line pull-up resistors are enabled. If HOST_MODE is 1 the D+ and D- Data Line pull-down resistors are engaged."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> OTGEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u8) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u8 & 0x01) << 2);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<DMLOW_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMLOW`"]
-pub type DMLOW_R = crate::R<bool, DMLOW_A>;
+#[doc = "Field `DMLOW` reader - D- Data Line pull-down resistor enable"]
+pub struct DMLOW_R(crate::FieldReader<bool, DMLOW_A>);
 impl DMLOW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMLOW_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMLOW_A {
@@ -113,15 +148,22 @@ impl DMLOW_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMLOW_A::_0
+        **self == DMLOW_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMLOW_A::_1
+        **self == DMLOW_A::_1
     }
 }
-#[doc = "Write proxy for field `DMLOW`"]
+impl core::ops::Deref for DMLOW_R {
+    type Target = crate::FieldReader<bool, DMLOW_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMLOW` writer - D- Data Line pull-down resistor enable"]
 pub struct DMLOW_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> DMLOW_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMLOW_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "D- pulldown resistor is not enabled."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> DMLOW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u8) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u8 & 0x01) << 4);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<DPLOW_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DPLOW`"]
-pub type DPLOW_R = crate::R<bool, DPLOW_A>;
+#[doc = "Field `DPLOW` reader - D+ Data Line pull-down resistor enable"]
+pub struct DPLOW_R(crate::FieldReader<bool, DPLOW_A>);
 impl DPLOW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DPLOW_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DPLOW_A {
@@ -188,15 +231,22 @@ impl DPLOW_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DPLOW_A::_0
+        **self == DPLOW_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DPLOW_A::_1
+        **self == DPLOW_A::_1
     }
 }
-#[doc = "Write proxy for field `DPLOW`"]
+impl core::ops::Deref for DPLOW_R {
+    type Target = crate::FieldReader<bool, DPLOW_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DPLOW` writer - D+ Data Line pull-down resistor enable"]
 pub struct DPLOW_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> DPLOW_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DPLOW_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "D+ pulldown resistor is not enabled."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> DPLOW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<DPHIGH_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DPHIGH`"]
-pub type DPHIGH_R = crate::R<bool, DPHIGH_A>;
+#[doc = "Field `DPHIGH` reader - D+ Data Line pullup resistor enable"]
+pub struct DPHIGH_R(crate::FieldReader<bool, DPHIGH_A>);
 impl DPHIGH_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DPHIGH_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DPHIGH_A {
@@ -263,15 +314,22 @@ impl DPHIGH_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DPHIGH_A::_0
+        **self == DPHIGH_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DPHIGH_A::_1
+        **self == DPHIGH_A::_1
     }
 }
-#[doc = "Write proxy for field `DPHIGH`"]
+impl core::ops::Deref for DPHIGH_R {
+    type Target = crate::FieldReader<bool, DPHIGH_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DPHIGH` writer - D+ Data Line pullup resistor enable"]
 pub struct DPHIGH_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> DPHIGH_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DPHIGH_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "D+ pullup resistor is not enabled"]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> DPHIGH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -352,5 +408,31 @@ impl W {
     #[inline(always)]
     pub fn dphigh(&mut self) -> DPHIGH_W {
         DPHIGH_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "OTG Control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [otgctl](index.html) module"]
+pub struct OTGCTL_SPEC;
+impl crate::RegisterSpec for OTGCTL_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [otgctl::R](R) reader structure"]
+impl crate::Readable for OTGCTL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [otgctl::W](W) writer structure"]
+impl crate::Writable for OTGCTL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets OTGCTL to value 0"]
+impl crate::Resettable for OTGCTL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

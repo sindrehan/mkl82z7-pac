@@ -1,13 +1,37 @@
-#[doc = "Reader of register ME"]
-pub type R = crate::R<u8, super::ME>;
-#[doc = "Writer for register ME"]
-pub type W = crate::W<u8, super::ME>;
-#[doc = "Register ME `reset()`'s with value 0"]
-impl crate::ResetValue for super::ME {
-    type Type = u8;
+#[doc = "Register `ME` reader"]
+pub struct R(crate::R<ME_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<ME_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<ME_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<ME_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `ME` writer"]
+pub struct W(crate::W<ME_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<ME_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<ME_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<ME_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Wakeup Module Enable For Module 0\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<WUME0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME0`"]
-pub type WUME0_R = crate::R<bool, WUME0_A>;
+#[doc = "Field `WUME0` reader - Wakeup Module Enable For Module 0"]
+pub struct WUME0_R(crate::FieldReader<bool, WUME0_A>);
 impl WUME0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME0_A {
@@ -38,15 +65,22 @@ impl WUME0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME0_A::_0
+        **self == WUME0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME0_A::_1
+        **self == WUME0_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME0`"]
+impl core::ops::Deref for WUME0_R {
+    type Target = crate::FieldReader<bool, WUME0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME0` writer - Wakeup Module Enable For Module 0"]
 pub struct WUME0_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> WUME0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> WUME0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u8) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u8 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<WUME1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME1`"]
-pub type WUME1_R = crate::R<bool, WUME1_A>;
+#[doc = "Field `WUME1` reader - Wakeup Module Enable for Module 1"]
+pub struct WUME1_R(crate::FieldReader<bool, WUME1_A>);
 impl WUME1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME1_A {
@@ -113,15 +148,22 @@ impl WUME1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME1_A::_0
+        **self == WUME1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME1_A::_1
+        **self == WUME1_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME1`"]
+impl core::ops::Deref for WUME1_R {
+    type Target = crate::FieldReader<bool, WUME1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME1` writer - Wakeup Module Enable for Module 1"]
 pub struct WUME1_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> WUME1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> WUME1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u8) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u8 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<WUME2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME2`"]
-pub type WUME2_R = crate::R<bool, WUME2_A>;
+#[doc = "Field `WUME2` reader - Wakeup Module Enable For Module 2"]
+pub struct WUME2_R(crate::FieldReader<bool, WUME2_A>);
 impl WUME2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME2_A {
@@ -188,15 +231,22 @@ impl WUME2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME2_A::_0
+        **self == WUME2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME2_A::_1
+        **self == WUME2_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME2`"]
+impl core::ops::Deref for WUME2_R {
+    type Target = crate::FieldReader<bool, WUME2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME2` writer - Wakeup Module Enable For Module 2"]
 pub struct WUME2_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> WUME2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> WUME2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u8) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u8 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<WUME3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME3`"]
-pub type WUME3_R = crate::R<bool, WUME3_A>;
+#[doc = "Field `WUME3` reader - Wakeup Module Enable For Module 3"]
+pub struct WUME3_R(crate::FieldReader<bool, WUME3_A>);
 impl WUME3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME3_A {
@@ -263,15 +314,22 @@ impl WUME3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME3_A::_0
+        **self == WUME3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME3_A::_1
+        **self == WUME3_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME3`"]
+impl core::ops::Deref for WUME3_R {
+    type Target = crate::FieldReader<bool, WUME3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME3` writer - Wakeup Module Enable For Module 3"]
 pub struct WUME3_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> WUME3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> WUME3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u8) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u8 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<WUME4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME4`"]
-pub type WUME4_R = crate::R<bool, WUME4_A>;
+#[doc = "Field `WUME4` reader - Wakeup Module Enable For Module 4"]
+pub struct WUME4_R(crate::FieldReader<bool, WUME4_A>);
 impl WUME4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME4_A {
@@ -338,15 +397,22 @@ impl WUME4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME4_A::_0
+        **self == WUME4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME4_A::_1
+        **self == WUME4_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME4`"]
+impl core::ops::Deref for WUME4_R {
+    type Target = crate::FieldReader<bool, WUME4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME4` writer - Wakeup Module Enable For Module 4"]
 pub struct WUME4_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> WUME4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> WUME4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u8) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u8 & 0x01) << 4);
         self.w
     }
 }
@@ -399,9 +463,12 @@ impl From<WUME5_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME5`"]
-pub type WUME5_R = crate::R<bool, WUME5_A>;
+#[doc = "Field `WUME5` reader - Wakeup Module Enable For Module 5"]
+pub struct WUME5_R(crate::FieldReader<bool, WUME5_A>);
 impl WUME5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME5_A {
@@ -413,15 +480,22 @@ impl WUME5_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME5_A::_0
+        **self == WUME5_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME5_A::_1
+        **self == WUME5_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME5`"]
+impl core::ops::Deref for WUME5_R {
+    type Target = crate::FieldReader<bool, WUME5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME5` writer - Wakeup Module Enable For Module 5"]
 pub struct WUME5_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +503,7 @@ impl<'a> WUME5_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME5_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -456,7 +528,7 @@ impl<'a> WUME5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -474,9 +546,12 @@ impl From<WUME6_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME6`"]
-pub type WUME6_R = crate::R<bool, WUME6_A>;
+#[doc = "Field `WUME6` reader - Wakeup Module Enable For Module 6"]
+pub struct WUME6_R(crate::FieldReader<bool, WUME6_A>);
 impl WUME6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME6_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME6_A {
@@ -488,15 +563,22 @@ impl WUME6_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME6_A::_0
+        **self == WUME6_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME6_A::_1
+        **self == WUME6_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME6`"]
+impl core::ops::Deref for WUME6_R {
+    type Target = crate::FieldReader<bool, WUME6_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME6` writer - Wakeup Module Enable For Module 6"]
 pub struct WUME6_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +586,7 @@ impl<'a> WUME6_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME6_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -531,7 +611,7 @@ impl<'a> WUME6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -549,9 +629,12 @@ impl From<WUME7_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WUME7`"]
-pub type WUME7_R = crate::R<bool, WUME7_A>;
+#[doc = "Field `WUME7` reader - Wakeup Module Enable For Module 7"]
+pub struct WUME7_R(crate::FieldReader<bool, WUME7_A>);
 impl WUME7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WUME7_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WUME7_A {
@@ -563,15 +646,22 @@ impl WUME7_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WUME7_A::_0
+        **self == WUME7_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WUME7_A::_1
+        **self == WUME7_A::_1
     }
 }
-#[doc = "Write proxy for field `WUME7`"]
+impl core::ops::Deref for WUME7_R {
+    type Target = crate::FieldReader<bool, WUME7_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WUME7` writer - Wakeup Module Enable For Module 7"]
 pub struct WUME7_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +669,7 @@ impl<'a> WUME7_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WUME7_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Internal module flag not used as wakeup source"]
     #[inline(always)]
@@ -606,7 +694,7 @@ impl<'a> WUME7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -692,5 +780,31 @@ impl W {
     #[inline(always)]
     pub fn wume7(&mut self) -> WUME7_W {
         WUME7_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "LLWU Module Enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [me](index.html) module"]
+pub struct ME_SPEC;
+impl crate::RegisterSpec for ME_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [me::R](R) reader structure"]
+impl crate::Readable for ME_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [me::W](W) writer structure"]
+impl crate::Writable for ME_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets ME to value 0"]
+impl crate::Resettable for ME_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

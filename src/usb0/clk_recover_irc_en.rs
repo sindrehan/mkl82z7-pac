@@ -1,13 +1,37 @@
-#[doc = "Reader of register CLK_RECOVER_IRC_EN"]
-pub type R = crate::R<u8, super::CLK_RECOVER_IRC_EN>;
-#[doc = "Writer for register CLK_RECOVER_IRC_EN"]
-pub type W = crate::W<u8, super::CLK_RECOVER_IRC_EN>;
-#[doc = "Register CLK_RECOVER_IRC_EN `reset()`'s with value 0x01"]
-impl crate::ResetValue for super::CLK_RECOVER_IRC_EN {
-    type Type = u8;
+#[doc = "Register `CLK_RECOVER_IRC_EN` reader"]
+pub struct R(crate::R<CLK_RECOVER_IRC_EN_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CLK_RECOVER_IRC_EN_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x01
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<CLK_RECOVER_IRC_EN_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<CLK_RECOVER_IRC_EN_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CLK_RECOVER_IRC_EN` writer"]
+pub struct W(crate::W<CLK_RECOVER_IRC_EN_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CLK_RECOVER_IRC_EN_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CLK_RECOVER_IRC_EN_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CLK_RECOVER_IRC_EN_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "IRC48M regulator enable This bit is used to enable the local analog regulator for IRC48M module\n\nValue on reset: 1"]
@@ -24,9 +48,12 @@ impl From<REG_EN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `REG_EN`"]
-pub type REG_EN_R = crate::R<bool, REG_EN_A>;
+#[doc = "Field `REG_EN` reader - IRC48M regulator enable This bit is used to enable the local analog regulator for IRC48M module"]
+pub struct REG_EN_R(crate::FieldReader<bool, REG_EN_A>);
 impl REG_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        REG_EN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> REG_EN_A {
@@ -38,15 +65,22 @@ impl REG_EN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == REG_EN_A::_0
+        **self == REG_EN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == REG_EN_A::_1
+        **self == REG_EN_A::_1
     }
 }
-#[doc = "Write proxy for field `REG_EN`"]
+impl core::ops::Deref for REG_EN_R {
+    type Target = crate::FieldReader<bool, REG_EN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `REG_EN` writer - IRC48M regulator enable This bit is used to enable the local analog regulator for IRC48M module"]
 pub struct REG_EN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> REG_EN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: REG_EN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "IRC48M local regulator is disabled"]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> REG_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u8) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u8 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<IRC_EN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `IRC_EN`"]
-pub type IRC_EN_R = crate::R<bool, IRC_EN_A>;
+#[doc = "Field `IRC_EN` reader - IRC48M enable This bit is used to enable the on-chip IRC48M module to generate clocks for crystal-less USB"]
+pub struct IRC_EN_R(crate::FieldReader<bool, IRC_EN_A>);
 impl IRC_EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        IRC_EN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> IRC_EN_A {
@@ -113,15 +148,22 @@ impl IRC_EN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == IRC_EN_A::_0
+        **self == IRC_EN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == IRC_EN_A::_1
+        **self == IRC_EN_A::_1
     }
 }
-#[doc = "Write proxy for field `IRC_EN`"]
+impl core::ops::Deref for IRC_EN_R {
+    type Target = crate::FieldReader<bool, IRC_EN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IRC_EN` writer - IRC48M enable This bit is used to enable the on-chip IRC48M module to generate clocks for crystal-less USB"]
 pub struct IRC_EN_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> IRC_EN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: IRC_EN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Disable the IRC48M module (default)"]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> IRC_EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u8) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u8 & 0x01) << 1);
         self.w
     }
 }
@@ -182,5 +222,31 @@ impl W {
     #[inline(always)]
     pub fn irc_en(&mut self) -> IRC_EN_W {
         IRC_EN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "IRC48M oscillator enable register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clk_recover_irc_en](index.html) module"]
+pub struct CLK_RECOVER_IRC_EN_SPEC;
+impl crate::RegisterSpec for CLK_RECOVER_IRC_EN_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [clk_recover_irc_en::R](R) reader structure"]
+impl crate::Readable for CLK_RECOVER_IRC_EN_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [clk_recover_irc_en::W](W) writer structure"]
+impl crate::Writable for CLK_RECOVER_IRC_EN_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CLK_RECOVER_IRC_EN to value 0x01"]
+impl crate::Resettable for CLK_RECOVER_IRC_EN_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x01
     }
 }

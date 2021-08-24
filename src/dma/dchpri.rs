@@ -1,18 +1,54 @@
-#[doc = "Reader of register DCHPRI%s"]
-pub type R = crate::R<u8, super::DCHPRI>;
-#[doc = "Writer for register DCHPRI%s"]
-pub type W = crate::W<u8, super::DCHPRI>;
-#[doc = "Register DCHPRI%s `reset()`'s with value 0"]
-impl crate::ResetValue for super::DCHPRI {
-    type Type = u8;
+#[doc = "Register `DCHPRI%s` reader"]
+pub struct R(crate::R<DCHPRI_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DCHPRI_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CHPRI`"]
-pub type CHPRI_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CHPRI`"]
+impl From<crate::R<DCHPRI_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<DCHPRI_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DCHPRI%s` writer"]
+pub struct W(crate::W<DCHPRI_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DCHPRI_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<DCHPRI_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<DCHPRI_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CHPRI` reader - Channel n Arbitration Priority"]
+pub struct CHPRI_R(crate::FieldReader<u8, u8>);
+impl CHPRI_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CHPRI_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CHPRI_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CHPRI` writer - Channel n Arbitration Priority"]
 pub struct CHPRI_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +56,7 @@ impl<'a> CHPRI_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u8) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u8 & 0x07);
         self.w
     }
 }
@@ -38,9 +74,12 @@ impl From<DPA_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DPA`"]
-pub type DPA_R = crate::R<bool, DPA_A>;
+#[doc = "Field `DPA` reader - Disable Preempt Ability."]
+pub struct DPA_R(crate::FieldReader<bool, DPA_A>);
 impl DPA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DPA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DPA_A {
@@ -52,15 +91,22 @@ impl DPA_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DPA_A::_0
+        **self == DPA_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DPA_A::_1
+        **self == DPA_A::_1
     }
 }
-#[doc = "Write proxy for field `DPA`"]
+impl core::ops::Deref for DPA_R {
+    type Target = crate::FieldReader<bool, DPA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DPA` writer - Disable Preempt Ability."]
 pub struct DPA_W<'a> {
     w: &'a mut W,
 }
@@ -68,9 +114,7 @@ impl<'a> DPA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DPA_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Channel n can suspend a lower priority channel."]
     #[inline(always)]
@@ -95,7 +139,7 @@ impl<'a> DPA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -113,9 +157,12 @@ impl From<ECP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ECP`"]
-pub type ECP_R = crate::R<bool, ECP_A>;
+#[doc = "Field `ECP` reader - Enable Channel Preemption."]
+pub struct ECP_R(crate::FieldReader<bool, ECP_A>);
 impl ECP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ECP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ECP_A {
@@ -127,15 +174,22 @@ impl ECP_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == ECP_A::_0
+        **self == ECP_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == ECP_A::_1
+        **self == ECP_A::_1
     }
 }
-#[doc = "Write proxy for field `ECP`"]
+impl core::ops::Deref for ECP_R {
+    type Target = crate::FieldReader<bool, ECP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ECP` writer - Enable Channel Preemption."]
 pub struct ECP_W<'a> {
     w: &'a mut W,
 }
@@ -143,9 +197,7 @@ impl<'a> ECP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ECP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Channel n cannot be suspended by a higher priority channel's service request."]
     #[inline(always)]
@@ -170,7 +222,7 @@ impl<'a> ECP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -206,5 +258,31 @@ impl W {
     #[inline(always)]
     pub fn ecp(&mut self) -> ECP_W {
         ECP_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Channel n Priority Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dchpri](index.html) module"]
+pub struct DCHPRI_SPEC;
+impl crate::RegisterSpec for DCHPRI_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [dchpri::R](R) reader structure"]
+impl crate::Readable for DCHPRI_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [dchpri::W](W) writer structure"]
+impl crate::Writable for DCHPRI_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DCHPRI%s to value 0"]
+impl crate::Resettable for DCHPRI_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

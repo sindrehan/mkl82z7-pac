@@ -1,13 +1,37 @@
-#[doc = "Reader of register PSR"]
-pub type R = crate::R<u32, super::PSR>;
-#[doc = "Writer for register PSR"]
-pub type W = crate::W<u32, super::PSR>;
-#[doc = "Register PSR `reset()`'s with value 0"]
-impl crate::ResetValue for super::PSR {
-    type Type = u32;
+#[doc = "Register `PSR` reader"]
+pub struct R(crate::R<PSR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PSR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<PSR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<PSR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PSR` writer"]
+pub struct W(crate::W<PSR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PSR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<PSR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<PSR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Prescaler Clock Select\n\nValue on reset: 0"]
@@ -29,9 +53,12 @@ impl From<PCS_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `PCS`"]
-pub type PCS_R = crate::R<u8, PCS_A>;
+#[doc = "Field `PCS` reader - Prescaler Clock Select"]
+pub struct PCS_R(crate::FieldReader<u8, PCS_A>);
 impl PCS_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PCS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PCS_A {
@@ -46,25 +73,32 @@ impl PCS_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == PCS_A::_00
+        **self == PCS_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == PCS_A::_01
+        **self == PCS_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == PCS_A::_10
+        **self == PCS_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == PCS_A::_11
+        **self == PCS_A::_11
     }
 }
-#[doc = "Write proxy for field `PCS`"]
+impl core::ops::Deref for PCS_R {
+    type Target = crate::FieldReader<u8, PCS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PCS` writer - Prescaler Clock Select"]
 pub struct PCS_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +106,7 @@ impl<'a> PCS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PCS_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Prescaler/glitch filter clock 0 selected."]
     #[inline(always)]
@@ -99,7 +131,7 @@ impl<'a> PCS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u32 & 0x03);
         self.w
     }
 }
@@ -117,9 +149,12 @@ impl From<PBYP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PBYP`"]
-pub type PBYP_R = crate::R<bool, PBYP_A>;
+#[doc = "Field `PBYP` reader - Prescaler Bypass"]
+pub struct PBYP_R(crate::FieldReader<bool, PBYP_A>);
 impl PBYP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PBYP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PBYP_A {
@@ -131,15 +166,22 @@ impl PBYP_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == PBYP_A::_0
+        **self == PBYP_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == PBYP_A::_1
+        **self == PBYP_A::_1
     }
 }
-#[doc = "Write proxy for field `PBYP`"]
+impl core::ops::Deref for PBYP_R {
+    type Target = crate::FieldReader<bool, PBYP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PBYP` writer - Prescaler Bypass"]
 pub struct PBYP_W<'a> {
     w: &'a mut W,
 }
@@ -147,9 +189,7 @@ impl<'a> PBYP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PBYP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Prescaler/glitch filter is enabled."]
     #[inline(always)]
@@ -174,7 +214,7 @@ impl<'a> PBYP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -221,9 +261,12 @@ impl From<PRESCALE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `PRESCALE`"]
-pub type PRESCALE_R = crate::R<u8, PRESCALE_A>;
+#[doc = "Field `PRESCALE` reader - Prescale Value"]
+pub struct PRESCALE_R(crate::FieldReader<u8, PRESCALE_A>);
 impl PRESCALE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PRESCALE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PRESCALE_A {
@@ -250,85 +293,92 @@ impl PRESCALE_R {
     #[doc = "Checks if the value of the field is `_0000`"]
     #[inline(always)]
     pub fn is_0000(&self) -> bool {
-        *self == PRESCALE_A::_0000
+        **self == PRESCALE_A::_0000
     }
     #[doc = "Checks if the value of the field is `_0001`"]
     #[inline(always)]
     pub fn is_0001(&self) -> bool {
-        *self == PRESCALE_A::_0001
+        **self == PRESCALE_A::_0001
     }
     #[doc = "Checks if the value of the field is `_0010`"]
     #[inline(always)]
     pub fn is_0010(&self) -> bool {
-        *self == PRESCALE_A::_0010
+        **self == PRESCALE_A::_0010
     }
     #[doc = "Checks if the value of the field is `_0011`"]
     #[inline(always)]
     pub fn is_0011(&self) -> bool {
-        *self == PRESCALE_A::_0011
+        **self == PRESCALE_A::_0011
     }
     #[doc = "Checks if the value of the field is `_0100`"]
     #[inline(always)]
     pub fn is_0100(&self) -> bool {
-        *self == PRESCALE_A::_0100
+        **self == PRESCALE_A::_0100
     }
     #[doc = "Checks if the value of the field is `_0101`"]
     #[inline(always)]
     pub fn is_0101(&self) -> bool {
-        *self == PRESCALE_A::_0101
+        **self == PRESCALE_A::_0101
     }
     #[doc = "Checks if the value of the field is `_0110`"]
     #[inline(always)]
     pub fn is_0110(&self) -> bool {
-        *self == PRESCALE_A::_0110
+        **self == PRESCALE_A::_0110
     }
     #[doc = "Checks if the value of the field is `_0111`"]
     #[inline(always)]
     pub fn is_0111(&self) -> bool {
-        *self == PRESCALE_A::_0111
+        **self == PRESCALE_A::_0111
     }
     #[doc = "Checks if the value of the field is `_1000`"]
     #[inline(always)]
     pub fn is_1000(&self) -> bool {
-        *self == PRESCALE_A::_1000
+        **self == PRESCALE_A::_1000
     }
     #[doc = "Checks if the value of the field is `_1001`"]
     #[inline(always)]
     pub fn is_1001(&self) -> bool {
-        *self == PRESCALE_A::_1001
+        **self == PRESCALE_A::_1001
     }
     #[doc = "Checks if the value of the field is `_1010`"]
     #[inline(always)]
     pub fn is_1010(&self) -> bool {
-        *self == PRESCALE_A::_1010
+        **self == PRESCALE_A::_1010
     }
     #[doc = "Checks if the value of the field is `_1011`"]
     #[inline(always)]
     pub fn is_1011(&self) -> bool {
-        *self == PRESCALE_A::_1011
+        **self == PRESCALE_A::_1011
     }
     #[doc = "Checks if the value of the field is `_1100`"]
     #[inline(always)]
     pub fn is_1100(&self) -> bool {
-        *self == PRESCALE_A::_1100
+        **self == PRESCALE_A::_1100
     }
     #[doc = "Checks if the value of the field is `_1101`"]
     #[inline(always)]
     pub fn is_1101(&self) -> bool {
-        *self == PRESCALE_A::_1101
+        **self == PRESCALE_A::_1101
     }
     #[doc = "Checks if the value of the field is `_1110`"]
     #[inline(always)]
     pub fn is_1110(&self) -> bool {
-        *self == PRESCALE_A::_1110
+        **self == PRESCALE_A::_1110
     }
     #[doc = "Checks if the value of the field is `_1111`"]
     #[inline(always)]
     pub fn is_1111(&self) -> bool {
-        *self == PRESCALE_A::_1111
+        **self == PRESCALE_A::_1111
     }
 }
-#[doc = "Write proxy for field `PRESCALE`"]
+impl core::ops::Deref for PRESCALE_R {
+    type Target = crate::FieldReader<u8, PRESCALE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PRESCALE` writer - Prescale Value"]
 pub struct PRESCALE_W<'a> {
     w: &'a mut W,
 }
@@ -336,9 +386,7 @@ impl<'a> PRESCALE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PRESCALE_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Prescaler divides the prescaler clock by 2; glitch filter does not support this configuration."]
     #[inline(always)]
@@ -423,7 +471,7 @@ impl<'a> PRESCALE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 3)) | (((value as u32) & 0x0f) << 3);
+        self.w.bits = (self.w.bits & !(0x0f << 3)) | ((value as u32 & 0x0f) << 3);
         self.w
     }
 }
@@ -459,5 +507,31 @@ impl W {
     #[inline(always)]
     pub fn prescale(&mut self) -> PRESCALE_W {
         PRESCALE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Low Power Timer Prescale Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [psr](index.html) module"]
+pub struct PSR_SPEC;
+impl crate::RegisterSpec for PSR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [psr::R](R) reader structure"]
+impl crate::Readable for PSR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [psr::W](W) writer structure"]
+impl crate::Writable for PSR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PSR to value 0"]
+impl crate::Resettable for PSR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

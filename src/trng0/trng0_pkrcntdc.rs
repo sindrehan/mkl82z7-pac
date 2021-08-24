@@ -1,9 +1,46 @@
-#[doc = "Reader of register TRNG0_PKRCNTDC"]
-pub type R = crate::R<u32, super::TRNG0_PKRCNTDC>;
-#[doc = "Reader of field `PKR_C_CT`"]
-pub type PKR_C_CT_R = crate::R<u16, u16>;
-#[doc = "Reader of field `PKR_D_CT`"]
-pub type PKR_D_CT_R = crate::R<u16, u16>;
+#[doc = "Register `TRNG0_PKRCNTDC` reader"]
+pub struct R(crate::R<TRNG0_PKRCNTDC_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<TRNG0_PKRCNTDC_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<TRNG0_PKRCNTDC_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<TRNG0_PKRCNTDC_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `PKR_C_CT` reader - Poker Ch Count"]
+pub struct PKR_C_CT_R(crate::FieldReader<u16, u16>);
+impl PKR_C_CT_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        PKR_C_CT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PKR_C_CT_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PKR_D_CT` reader - Poker Dh Count"]
+pub struct PKR_D_CT_R(crate::FieldReader<u16, u16>);
+impl PKR_D_CT_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        PKR_D_CT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for PKR_D_CT_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bits 0:15 - Poker Ch Count"]
     #[inline(always)]
@@ -14,5 +51,21 @@ impl R {
     #[inline(always)]
     pub fn pkr_d_ct(&self) -> PKR_D_CT_R {
         PKR_D_CT_R::new(((self.bits >> 16) & 0xffff) as u16)
+    }
+}
+#[doc = "TRNG0 Statistical Check Poker Count D and C Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [trng0_pkrcntdc](index.html) module"]
+pub struct TRNG0_PKRCNTDC_SPEC;
+impl crate::RegisterSpec for TRNG0_PKRCNTDC_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [trng0_pkrcntdc::R](R) reader structure"]
+impl crate::Readable for TRNG0_PKRCNTDC_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets TRNG0_PKRCNTDC to value 0"]
+impl crate::Resettable for TRNG0_PKRCNTDC_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

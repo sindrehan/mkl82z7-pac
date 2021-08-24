@@ -1,13 +1,37 @@
-#[doc = "Reader of register SC1%s"]
-pub type R = crate::R<u32, super::SC1>;
-#[doc = "Writer for register SC1%s"]
-pub type W = crate::W<u32, super::SC1>;
-#[doc = "Register SC1%s `reset()`'s with value 0x1f"]
-impl crate::ResetValue for super::SC1 {
-    type Type = u32;
+#[doc = "Register `SC1%s` reader"]
+pub struct R(crate::R<SC1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SC1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x1f
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SC1_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SC1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SC1%s` writer"]
+pub struct W(crate::W<SC1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SC1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<SC1_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<SC1_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Input channel select\n\nValue on reset: 31"]
@@ -79,193 +103,202 @@ impl From<ADCH_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADCH`"]
-pub type ADCH_R = crate::R<u8, ADCH_A>;
+#[doc = "Field `ADCH` reader - Input channel select"]
+pub struct ADCH_R(crate::FieldReader<u8, ADCH_A>);
 impl ADCH_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADCH_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADCH_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADCH_A> {
         match self.bits {
-            0 => Val(ADCH_A::_00000),
-            1 => Val(ADCH_A::_00001),
-            2 => Val(ADCH_A::_00010),
-            3 => Val(ADCH_A::_00011),
-            4 => Val(ADCH_A::_00100),
-            5 => Val(ADCH_A::_00101),
-            6 => Val(ADCH_A::_00110),
-            7 => Val(ADCH_A::_00111),
-            8 => Val(ADCH_A::_01000),
-            9 => Val(ADCH_A::_01001),
-            10 => Val(ADCH_A::_01010),
-            11 => Val(ADCH_A::_01011),
-            12 => Val(ADCH_A::_01100),
-            13 => Val(ADCH_A::_01101),
-            14 => Val(ADCH_A::_01110),
-            15 => Val(ADCH_A::_01111),
-            16 => Val(ADCH_A::_10000),
-            17 => Val(ADCH_A::_10001),
-            18 => Val(ADCH_A::_10010),
-            19 => Val(ADCH_A::_10011),
-            20 => Val(ADCH_A::_10100),
-            21 => Val(ADCH_A::_10101),
-            22 => Val(ADCH_A::_10110),
-            23 => Val(ADCH_A::_10111),
-            26 => Val(ADCH_A::_11010),
-            27 => Val(ADCH_A::_11011),
-            29 => Val(ADCH_A::_11101),
-            30 => Val(ADCH_A::_11110),
-            31 => Val(ADCH_A::_11111),
-            i => Res(i),
+            0 => Some(ADCH_A::_00000),
+            1 => Some(ADCH_A::_00001),
+            2 => Some(ADCH_A::_00010),
+            3 => Some(ADCH_A::_00011),
+            4 => Some(ADCH_A::_00100),
+            5 => Some(ADCH_A::_00101),
+            6 => Some(ADCH_A::_00110),
+            7 => Some(ADCH_A::_00111),
+            8 => Some(ADCH_A::_01000),
+            9 => Some(ADCH_A::_01001),
+            10 => Some(ADCH_A::_01010),
+            11 => Some(ADCH_A::_01011),
+            12 => Some(ADCH_A::_01100),
+            13 => Some(ADCH_A::_01101),
+            14 => Some(ADCH_A::_01110),
+            15 => Some(ADCH_A::_01111),
+            16 => Some(ADCH_A::_10000),
+            17 => Some(ADCH_A::_10001),
+            18 => Some(ADCH_A::_10010),
+            19 => Some(ADCH_A::_10011),
+            20 => Some(ADCH_A::_10100),
+            21 => Some(ADCH_A::_10101),
+            22 => Some(ADCH_A::_10110),
+            23 => Some(ADCH_A::_10111),
+            26 => Some(ADCH_A::_11010),
+            27 => Some(ADCH_A::_11011),
+            29 => Some(ADCH_A::_11101),
+            30 => Some(ADCH_A::_11110),
+            31 => Some(ADCH_A::_11111),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_00000`"]
     #[inline(always)]
     pub fn is_00000(&self) -> bool {
-        *self == ADCH_A::_00000
+        **self == ADCH_A::_00000
     }
     #[doc = "Checks if the value of the field is `_00001`"]
     #[inline(always)]
     pub fn is_00001(&self) -> bool {
-        *self == ADCH_A::_00001
+        **self == ADCH_A::_00001
     }
     #[doc = "Checks if the value of the field is `_00010`"]
     #[inline(always)]
     pub fn is_00010(&self) -> bool {
-        *self == ADCH_A::_00010
+        **self == ADCH_A::_00010
     }
     #[doc = "Checks if the value of the field is `_00011`"]
     #[inline(always)]
     pub fn is_00011(&self) -> bool {
-        *self == ADCH_A::_00011
+        **self == ADCH_A::_00011
     }
     #[doc = "Checks if the value of the field is `_00100`"]
     #[inline(always)]
     pub fn is_00100(&self) -> bool {
-        *self == ADCH_A::_00100
+        **self == ADCH_A::_00100
     }
     #[doc = "Checks if the value of the field is `_00101`"]
     #[inline(always)]
     pub fn is_00101(&self) -> bool {
-        *self == ADCH_A::_00101
+        **self == ADCH_A::_00101
     }
     #[doc = "Checks if the value of the field is `_00110`"]
     #[inline(always)]
     pub fn is_00110(&self) -> bool {
-        *self == ADCH_A::_00110
+        **self == ADCH_A::_00110
     }
     #[doc = "Checks if the value of the field is `_00111`"]
     #[inline(always)]
     pub fn is_00111(&self) -> bool {
-        *self == ADCH_A::_00111
+        **self == ADCH_A::_00111
     }
     #[doc = "Checks if the value of the field is `_01000`"]
     #[inline(always)]
     pub fn is_01000(&self) -> bool {
-        *self == ADCH_A::_01000
+        **self == ADCH_A::_01000
     }
     #[doc = "Checks if the value of the field is `_01001`"]
     #[inline(always)]
     pub fn is_01001(&self) -> bool {
-        *self == ADCH_A::_01001
+        **self == ADCH_A::_01001
     }
     #[doc = "Checks if the value of the field is `_01010`"]
     #[inline(always)]
     pub fn is_01010(&self) -> bool {
-        *self == ADCH_A::_01010
+        **self == ADCH_A::_01010
     }
     #[doc = "Checks if the value of the field is `_01011`"]
     #[inline(always)]
     pub fn is_01011(&self) -> bool {
-        *self == ADCH_A::_01011
+        **self == ADCH_A::_01011
     }
     #[doc = "Checks if the value of the field is `_01100`"]
     #[inline(always)]
     pub fn is_01100(&self) -> bool {
-        *self == ADCH_A::_01100
+        **self == ADCH_A::_01100
     }
     #[doc = "Checks if the value of the field is `_01101`"]
     #[inline(always)]
     pub fn is_01101(&self) -> bool {
-        *self == ADCH_A::_01101
+        **self == ADCH_A::_01101
     }
     #[doc = "Checks if the value of the field is `_01110`"]
     #[inline(always)]
     pub fn is_01110(&self) -> bool {
-        *self == ADCH_A::_01110
+        **self == ADCH_A::_01110
     }
     #[doc = "Checks if the value of the field is `_01111`"]
     #[inline(always)]
     pub fn is_01111(&self) -> bool {
-        *self == ADCH_A::_01111
+        **self == ADCH_A::_01111
     }
     #[doc = "Checks if the value of the field is `_10000`"]
     #[inline(always)]
     pub fn is_10000(&self) -> bool {
-        *self == ADCH_A::_10000
+        **self == ADCH_A::_10000
     }
     #[doc = "Checks if the value of the field is `_10001`"]
     #[inline(always)]
     pub fn is_10001(&self) -> bool {
-        *self == ADCH_A::_10001
+        **self == ADCH_A::_10001
     }
     #[doc = "Checks if the value of the field is `_10010`"]
     #[inline(always)]
     pub fn is_10010(&self) -> bool {
-        *self == ADCH_A::_10010
+        **self == ADCH_A::_10010
     }
     #[doc = "Checks if the value of the field is `_10011`"]
     #[inline(always)]
     pub fn is_10011(&self) -> bool {
-        *self == ADCH_A::_10011
+        **self == ADCH_A::_10011
     }
     #[doc = "Checks if the value of the field is `_10100`"]
     #[inline(always)]
     pub fn is_10100(&self) -> bool {
-        *self == ADCH_A::_10100
+        **self == ADCH_A::_10100
     }
     #[doc = "Checks if the value of the field is `_10101`"]
     #[inline(always)]
     pub fn is_10101(&self) -> bool {
-        *self == ADCH_A::_10101
+        **self == ADCH_A::_10101
     }
     #[doc = "Checks if the value of the field is `_10110`"]
     #[inline(always)]
     pub fn is_10110(&self) -> bool {
-        *self == ADCH_A::_10110
+        **self == ADCH_A::_10110
     }
     #[doc = "Checks if the value of the field is `_10111`"]
     #[inline(always)]
     pub fn is_10111(&self) -> bool {
-        *self == ADCH_A::_10111
+        **self == ADCH_A::_10111
     }
     #[doc = "Checks if the value of the field is `_11010`"]
     #[inline(always)]
     pub fn is_11010(&self) -> bool {
-        *self == ADCH_A::_11010
+        **self == ADCH_A::_11010
     }
     #[doc = "Checks if the value of the field is `_11011`"]
     #[inline(always)]
     pub fn is_11011(&self) -> bool {
-        *self == ADCH_A::_11011
+        **self == ADCH_A::_11011
     }
     #[doc = "Checks if the value of the field is `_11101`"]
     #[inline(always)]
     pub fn is_11101(&self) -> bool {
-        *self == ADCH_A::_11101
+        **self == ADCH_A::_11101
     }
     #[doc = "Checks if the value of the field is `_11110`"]
     #[inline(always)]
     pub fn is_11110(&self) -> bool {
-        *self == ADCH_A::_11110
+        **self == ADCH_A::_11110
     }
     #[doc = "Checks if the value of the field is `_11111`"]
     #[inline(always)]
     pub fn is_11111(&self) -> bool {
-        *self == ADCH_A::_11111
+        **self == ADCH_A::_11111
     }
 }
-#[doc = "Write proxy for field `ADCH`"]
+impl core::ops::Deref for ADCH_R {
+    type Target = crate::FieldReader<u8, ADCH_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADCH` writer - Input channel select"]
 pub struct ADCH_W<'a> {
     w: &'a mut W,
 }
@@ -423,7 +456,7 @@ impl<'a> ADCH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x1f) | ((value as u32) & 0x1f);
+        self.w.bits = (self.w.bits & !0x1f) | (value as u32 & 0x1f);
         self.w
     }
 }
@@ -441,9 +474,12 @@ impl From<DIFF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DIFF`"]
-pub type DIFF_R = crate::R<bool, DIFF_A>;
+#[doc = "Field `DIFF` reader - Differential Mode Enable"]
+pub struct DIFF_R(crate::FieldReader<bool, DIFF_A>);
 impl DIFF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIFF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DIFF_A {
@@ -455,15 +491,22 @@ impl DIFF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DIFF_A::_0
+        **self == DIFF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DIFF_A::_1
+        **self == DIFF_A::_1
     }
 }
-#[doc = "Write proxy for field `DIFF`"]
+impl core::ops::Deref for DIFF_R {
+    type Target = crate::FieldReader<bool, DIFF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIFF` writer - Differential Mode Enable"]
 pub struct DIFF_W<'a> {
     w: &'a mut W,
 }
@@ -471,9 +514,7 @@ impl<'a> DIFF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DIFF_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Single-ended conversions and input channels are selected."]
     #[inline(always)]
@@ -498,7 +539,7 @@ impl<'a> DIFF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -516,9 +557,12 @@ impl From<AIEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `AIEN`"]
-pub type AIEN_R = crate::R<bool, AIEN_A>;
+#[doc = "Field `AIEN` reader - Interrupt Enable"]
+pub struct AIEN_R(crate::FieldReader<bool, AIEN_A>);
 impl AIEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AIEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> AIEN_A {
@@ -530,15 +574,22 @@ impl AIEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == AIEN_A::_0
+        **self == AIEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == AIEN_A::_1
+        **self == AIEN_A::_1
     }
 }
-#[doc = "Write proxy for field `AIEN`"]
+impl core::ops::Deref for AIEN_R {
+    type Target = crate::FieldReader<bool, AIEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AIEN` writer - Interrupt Enable"]
 pub struct AIEN_W<'a> {
     w: &'a mut W,
 }
@@ -546,9 +597,7 @@ impl<'a> AIEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: AIEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Conversion complete interrupt is disabled."]
     #[inline(always)]
@@ -573,7 +622,7 @@ impl<'a> AIEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -591,9 +640,12 @@ impl From<COCO_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `COCO`"]
-pub type COCO_R = crate::R<bool, COCO_A>;
+#[doc = "Field `COCO` reader - Conversion Complete Flag"]
+pub struct COCO_R(crate::FieldReader<bool, COCO_A>);
 impl COCO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        COCO_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> COCO_A {
@@ -605,12 +657,19 @@ impl COCO_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == COCO_A::_0
+        **self == COCO_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == COCO_A::_1
+        **self == COCO_A::_1
+    }
+}
+impl core::ops::Deref for COCO_R {
+    type Target = crate::FieldReader<bool, COCO_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -650,5 +709,31 @@ impl W {
     #[inline(always)]
     pub fn aien(&mut self) -> AIEN_W {
         AIEN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "ADC Status and Control Registers 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sc1](index.html) module"]
+pub struct SC1_SPEC;
+impl crate::RegisterSpec for SC1_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [sc1::R](R) reader structure"]
+impl crate::Readable for SC1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [sc1::W](W) writer structure"]
+impl crate::Writable for SC1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SC1%s to value 0x1f"]
+impl crate::Resettable for SC1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x1f
     }
 }

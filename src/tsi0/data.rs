@@ -1,17 +1,53 @@
-#[doc = "Reader of register DATA"]
-pub type R = crate::R<u32, super::DATA>;
-#[doc = "Writer for register DATA"]
-pub type W = crate::W<u32, super::DATA>;
-#[doc = "Register DATA `reset()`'s with value 0"]
-impl crate::ResetValue for super::DATA {
-    type Type = u32;
+#[doc = "Register `DATA` reader"]
+pub struct R(crate::R<DATA_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DATA_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `TSICNT`"]
-pub type TSICNT_R = crate::R<u16, u16>;
+impl From<crate::R<DATA_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<DATA_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `DATA` writer"]
+pub struct W(crate::W<DATA_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<DATA_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<DATA_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<DATA_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `TSICNT` reader - TSI Conversion Counter Value"]
+pub struct TSICNT_R(crate::FieldReader<u16, u16>);
+impl TSICNT_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        TSICNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TSICNT_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 #[doc = "Software Trigger Start\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SWTS_AW {
@@ -26,7 +62,7 @@ impl From<SWTS_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `SWTS`"]
+#[doc = "Field `SWTS` writer - Software Trigger Start"]
 pub struct SWTS_W<'a> {
     w: &'a mut W,
 }
@@ -34,9 +70,7 @@ impl<'a> SWTS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SWTS_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "No effect."]
     #[inline(always)]
@@ -61,7 +95,7 @@ impl<'a> SWTS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
@@ -79,9 +113,12 @@ impl From<DMAEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMAEN`"]
-pub type DMAEN_R = crate::R<bool, DMAEN_A>;
+#[doc = "Field `DMAEN` reader - DMA Transfer Enabled"]
+pub struct DMAEN_R(crate::FieldReader<bool, DMAEN_A>);
 impl DMAEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMAEN_A {
@@ -93,15 +130,22 @@ impl DMAEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMAEN_A::_0
+        **self == DMAEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMAEN_A::_1
+        **self == DMAEN_A::_1
     }
 }
-#[doc = "Write proxy for field `DMAEN`"]
+impl core::ops::Deref for DMAEN_R {
+    type Target = crate::FieldReader<bool, DMAEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAEN` writer - DMA Transfer Enabled"]
 pub struct DMAEN_W<'a> {
     w: &'a mut W,
 }
@@ -109,9 +153,7 @@ impl<'a> DMAEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMAEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Interrupt is selected when the interrupt enable bit is set and the corresponding TSI events assert."]
     #[inline(always)]
@@ -136,7 +178,7 @@ impl<'a> DMAEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | ((value as u32 & 0x01) << 23);
         self.w
     }
 }
@@ -183,9 +225,12 @@ impl From<TSICH_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `TSICH`"]
-pub type TSICH_R = crate::R<u8, TSICH_A>;
+#[doc = "Field `TSICH` reader - TSICH"]
+pub struct TSICH_R(crate::FieldReader<u8, TSICH_A>);
 impl TSICH_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TSICH_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TSICH_A {
@@ -212,85 +257,92 @@ impl TSICH_R {
     #[doc = "Checks if the value of the field is `_0000`"]
     #[inline(always)]
     pub fn is_0000(&self) -> bool {
-        *self == TSICH_A::_0000
+        **self == TSICH_A::_0000
     }
     #[doc = "Checks if the value of the field is `_0001`"]
     #[inline(always)]
     pub fn is_0001(&self) -> bool {
-        *self == TSICH_A::_0001
+        **self == TSICH_A::_0001
     }
     #[doc = "Checks if the value of the field is `_0010`"]
     #[inline(always)]
     pub fn is_0010(&self) -> bool {
-        *self == TSICH_A::_0010
+        **self == TSICH_A::_0010
     }
     #[doc = "Checks if the value of the field is `_0011`"]
     #[inline(always)]
     pub fn is_0011(&self) -> bool {
-        *self == TSICH_A::_0011
+        **self == TSICH_A::_0011
     }
     #[doc = "Checks if the value of the field is `_0100`"]
     #[inline(always)]
     pub fn is_0100(&self) -> bool {
-        *self == TSICH_A::_0100
+        **self == TSICH_A::_0100
     }
     #[doc = "Checks if the value of the field is `_0101`"]
     #[inline(always)]
     pub fn is_0101(&self) -> bool {
-        *self == TSICH_A::_0101
+        **self == TSICH_A::_0101
     }
     #[doc = "Checks if the value of the field is `_0110`"]
     #[inline(always)]
     pub fn is_0110(&self) -> bool {
-        *self == TSICH_A::_0110
+        **self == TSICH_A::_0110
     }
     #[doc = "Checks if the value of the field is `_0111`"]
     #[inline(always)]
     pub fn is_0111(&self) -> bool {
-        *self == TSICH_A::_0111
+        **self == TSICH_A::_0111
     }
     #[doc = "Checks if the value of the field is `_1000`"]
     #[inline(always)]
     pub fn is_1000(&self) -> bool {
-        *self == TSICH_A::_1000
+        **self == TSICH_A::_1000
     }
     #[doc = "Checks if the value of the field is `_1001`"]
     #[inline(always)]
     pub fn is_1001(&self) -> bool {
-        *self == TSICH_A::_1001
+        **self == TSICH_A::_1001
     }
     #[doc = "Checks if the value of the field is `_1010`"]
     #[inline(always)]
     pub fn is_1010(&self) -> bool {
-        *self == TSICH_A::_1010
+        **self == TSICH_A::_1010
     }
     #[doc = "Checks if the value of the field is `_1011`"]
     #[inline(always)]
     pub fn is_1011(&self) -> bool {
-        *self == TSICH_A::_1011
+        **self == TSICH_A::_1011
     }
     #[doc = "Checks if the value of the field is `_1100`"]
     #[inline(always)]
     pub fn is_1100(&self) -> bool {
-        *self == TSICH_A::_1100
+        **self == TSICH_A::_1100
     }
     #[doc = "Checks if the value of the field is `_1101`"]
     #[inline(always)]
     pub fn is_1101(&self) -> bool {
-        *self == TSICH_A::_1101
+        **self == TSICH_A::_1101
     }
     #[doc = "Checks if the value of the field is `_1110`"]
     #[inline(always)]
     pub fn is_1110(&self) -> bool {
-        *self == TSICH_A::_1110
+        **self == TSICH_A::_1110
     }
     #[doc = "Checks if the value of the field is `_1111`"]
     #[inline(always)]
     pub fn is_1111(&self) -> bool {
-        *self == TSICH_A::_1111
+        **self == TSICH_A::_1111
     }
 }
-#[doc = "Write proxy for field `TSICH`"]
+impl core::ops::Deref for TSICH_R {
+    type Target = crate::FieldReader<u8, TSICH_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TSICH` writer - TSICH"]
 pub struct TSICH_W<'a> {
     w: &'a mut W,
 }
@@ -298,9 +350,7 @@ impl<'a> TSICH_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TSICH_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Channel 0."]
     #[inline(always)]
@@ -385,7 +435,7 @@ impl<'a> TSICH_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 28)) | (((value as u32) & 0x0f) << 28);
+        self.w.bits = (self.w.bits & !(0x0f << 28)) | ((value as u32 & 0x0f) << 28);
         self.w
     }
 }
@@ -421,5 +471,31 @@ impl W {
     #[inline(always)]
     pub fn tsich(&mut self) -> TSICH_W {
         TSICH_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "TSI DATA Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [data](index.html) module"]
+pub struct DATA_SPEC;
+impl crate::RegisterSpec for DATA_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [data::R](R) reader structure"]
+impl crate::Readable for DATA_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [data::W](W) writer structure"]
+impl crate::Writable for DATA_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets DATA to value 0"]
+impl crate::Resettable for DATA_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

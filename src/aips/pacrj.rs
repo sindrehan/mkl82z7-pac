@@ -1,13 +1,37 @@
-#[doc = "Reader of register PACRJ"]
-pub type R = crate::R<u32, super::PACRJ>;
-#[doc = "Writer for register PACRJ"]
-pub type W = crate::W<u32, super::PACRJ>;
-#[doc = "Register PACRJ `reset()`'s with value 0"]
-impl crate::ResetValue for super::PACRJ {
-    type Type = u32;
+#[doc = "Register `PACRJ` reader"]
+pub struct R(crate::R<PACRJ_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<PACRJ_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<PACRJ_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<PACRJ_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `PACRJ` writer"]
+pub struct W(crate::W<PACRJ_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<PACRJ_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<PACRJ_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<PACRJ_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Trusted Protect\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<TP7_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP7`"]
-pub type TP7_R = crate::R<bool, TP7_A>;
+#[doc = "Field `TP7` reader - Trusted Protect"]
+pub struct TP7_R(crate::FieldReader<bool, TP7_A>);
 impl TP7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP7_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP7_A {
@@ -38,15 +65,22 @@ impl TP7_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP7_A::_0
+        **self == TP7_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP7_A::_1
+        **self == TP7_A::_1
     }
 }
-#[doc = "Write proxy for field `TP7`"]
+impl core::ops::Deref for TP7_R {
+    type Target = crate::FieldReader<bool, TP7_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP7` writer - Trusted Protect"]
 pub struct TP7_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> TP7_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP7_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> TP7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<WP7_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP7`"]
-pub type WP7_R = crate::R<bool, WP7_A>;
+#[doc = "Field `WP7` reader - Write Protect"]
+pub struct WP7_R(crate::FieldReader<bool, WP7_A>);
 impl WP7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP7_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP7_A {
@@ -113,15 +148,22 @@ impl WP7_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP7_A::_0
+        **self == WP7_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP7_A::_1
+        **self == WP7_A::_1
     }
 }
-#[doc = "Write proxy for field `WP7`"]
+impl core::ops::Deref for WP7_R {
+    type Target = crate::FieldReader<bool, WP7_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP7` writer - Write Protect"]
 pub struct WP7_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> WP7_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP7_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> WP7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<SP7_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP7`"]
-pub type SP7_R = crate::R<bool, SP7_A>;
+#[doc = "Field `SP7` reader - Supervisor Protect"]
+pub struct SP7_R(crate::FieldReader<bool, SP7_A>);
 impl SP7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP7_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP7_A {
@@ -188,15 +231,22 @@ impl SP7_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP7_A::_0
+        **self == SP7_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP7_A::_1
+        **self == SP7_A::_1
     }
 }
-#[doc = "Write proxy for field `SP7`"]
+impl core::ops::Deref for SP7_R {
+    type Target = crate::FieldReader<bool, SP7_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP7` writer - Supervisor Protect"]
 pub struct SP7_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> SP7_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP7_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> SP7_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<TP6_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP6`"]
-pub type TP6_R = crate::R<bool, TP6_A>;
+#[doc = "Field `TP6` reader - Trusted Protect"]
+pub struct TP6_R(crate::FieldReader<bool, TP6_A>);
 impl TP6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP6_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP6_A {
@@ -263,15 +314,22 @@ impl TP6_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP6_A::_0
+        **self == TP6_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP6_A::_1
+        **self == TP6_A::_1
     }
 }
-#[doc = "Write proxy for field `TP6`"]
+impl core::ops::Deref for TP6_R {
+    type Target = crate::FieldReader<bool, TP6_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP6` writer - Trusted Protect"]
 pub struct TP6_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> TP6_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP6_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> TP6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<WP6_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP6`"]
-pub type WP6_R = crate::R<bool, WP6_A>;
+#[doc = "Field `WP6` reader - Write Protect"]
+pub struct WP6_R(crate::FieldReader<bool, WP6_A>);
 impl WP6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP6_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP6_A {
@@ -338,15 +397,22 @@ impl WP6_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP6_A::_0
+        **self == WP6_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP6_A::_1
+        **self == WP6_A::_1
     }
 }
-#[doc = "Write proxy for field `WP6`"]
+impl core::ops::Deref for WP6_R {
+    type Target = crate::FieldReader<bool, WP6_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP6` writer - Write Protect"]
 pub struct WP6_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> WP6_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP6_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> WP6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -399,9 +463,12 @@ impl From<SP6_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP6`"]
-pub type SP6_R = crate::R<bool, SP6_A>;
+#[doc = "Field `SP6` reader - Supervisor Protect"]
+pub struct SP6_R(crate::FieldReader<bool, SP6_A>);
 impl SP6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP6_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP6_A {
@@ -413,15 +480,22 @@ impl SP6_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP6_A::_0
+        **self == SP6_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP6_A::_1
+        **self == SP6_A::_1
     }
 }
-#[doc = "Write proxy for field `SP6`"]
+impl core::ops::Deref for SP6_R {
+    type Target = crate::FieldReader<bool, SP6_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP6` writer - Supervisor Protect"]
 pub struct SP6_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +503,7 @@ impl<'a> SP6_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP6_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -456,7 +528,7 @@ impl<'a> SP6_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -474,9 +546,12 @@ impl From<TP5_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP5`"]
-pub type TP5_R = crate::R<bool, TP5_A>;
+#[doc = "Field `TP5` reader - Trusted Protect"]
+pub struct TP5_R(crate::FieldReader<bool, TP5_A>);
 impl TP5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP5_A {
@@ -488,15 +563,22 @@ impl TP5_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP5_A::_0
+        **self == TP5_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP5_A::_1
+        **self == TP5_A::_1
     }
 }
-#[doc = "Write proxy for field `TP5`"]
+impl core::ops::Deref for TP5_R {
+    type Target = crate::FieldReader<bool, TP5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP5` writer - Trusted Protect"]
 pub struct TP5_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +586,7 @@ impl<'a> TP5_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP5_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -531,7 +611,7 @@ impl<'a> TP5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -549,9 +629,12 @@ impl From<WP5_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP5`"]
-pub type WP5_R = crate::R<bool, WP5_A>;
+#[doc = "Field `WP5` reader - Write Protect"]
+pub struct WP5_R(crate::FieldReader<bool, WP5_A>);
 impl WP5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP5_A {
@@ -563,15 +646,22 @@ impl WP5_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP5_A::_0
+        **self == WP5_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP5_A::_1
+        **self == WP5_A::_1
     }
 }
-#[doc = "Write proxy for field `WP5`"]
+impl core::ops::Deref for WP5_R {
+    type Target = crate::FieldReader<bool, WP5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP5` writer - Write Protect"]
 pub struct WP5_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +669,7 @@ impl<'a> WP5_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP5_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -606,7 +694,7 @@ impl<'a> WP5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
@@ -624,9 +712,12 @@ impl From<SP5_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP5`"]
-pub type SP5_R = crate::R<bool, SP5_A>;
+#[doc = "Field `SP5` reader - Supervisor Protect"]
+pub struct SP5_R(crate::FieldReader<bool, SP5_A>);
 impl SP5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP5_A {
@@ -638,15 +729,22 @@ impl SP5_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP5_A::_0
+        **self == SP5_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP5_A::_1
+        **self == SP5_A::_1
     }
 }
-#[doc = "Write proxy for field `SP5`"]
+impl core::ops::Deref for SP5_R {
+    type Target = crate::FieldReader<bool, SP5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP5` writer - Supervisor Protect"]
 pub struct SP5_W<'a> {
     w: &'a mut W,
 }
@@ -654,9 +752,7 @@ impl<'a> SP5_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP5_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -681,7 +777,7 @@ impl<'a> SP5_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
@@ -699,9 +795,12 @@ impl From<TP4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP4`"]
-pub type TP4_R = crate::R<bool, TP4_A>;
+#[doc = "Field `TP4` reader - Trusted Protect"]
+pub struct TP4_R(crate::FieldReader<bool, TP4_A>);
 impl TP4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP4_A {
@@ -713,15 +812,22 @@ impl TP4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP4_A::_0
+        **self == TP4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP4_A::_1
+        **self == TP4_A::_1
     }
 }
-#[doc = "Write proxy for field `TP4`"]
+impl core::ops::Deref for TP4_R {
+    type Target = crate::FieldReader<bool, TP4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP4` writer - Trusted Protect"]
 pub struct TP4_W<'a> {
     w: &'a mut W,
 }
@@ -729,9 +835,7 @@ impl<'a> TP4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -756,7 +860,7 @@ impl<'a> TP4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
@@ -774,9 +878,12 @@ impl From<WP4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP4`"]
-pub type WP4_R = crate::R<bool, WP4_A>;
+#[doc = "Field `WP4` reader - Write Protect"]
+pub struct WP4_R(crate::FieldReader<bool, WP4_A>);
 impl WP4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP4_A {
@@ -788,15 +895,22 @@ impl WP4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP4_A::_0
+        **self == WP4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP4_A::_1
+        **self == WP4_A::_1
     }
 }
-#[doc = "Write proxy for field `WP4`"]
+impl core::ops::Deref for WP4_R {
+    type Target = crate::FieldReader<bool, WP4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP4` writer - Write Protect"]
 pub struct WP4_W<'a> {
     w: &'a mut W,
 }
@@ -804,9 +918,7 @@ impl<'a> WP4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -831,7 +943,7 @@ impl<'a> WP4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
@@ -849,9 +961,12 @@ impl From<SP4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP4`"]
-pub type SP4_R = crate::R<bool, SP4_A>;
+#[doc = "Field `SP4` reader - Supervisor Protect"]
+pub struct SP4_R(crate::FieldReader<bool, SP4_A>);
 impl SP4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP4_A {
@@ -863,15 +978,22 @@ impl SP4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP4_A::_0
+        **self == SP4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP4_A::_1
+        **self == SP4_A::_1
     }
 }
-#[doc = "Write proxy for field `SP4`"]
+impl core::ops::Deref for SP4_R {
+    type Target = crate::FieldReader<bool, SP4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP4` writer - Supervisor Protect"]
 pub struct SP4_W<'a> {
     w: &'a mut W,
 }
@@ -879,9 +1001,7 @@ impl<'a> SP4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -906,7 +1026,7 @@ impl<'a> SP4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
@@ -924,9 +1044,12 @@ impl From<TP3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP3`"]
-pub type TP3_R = crate::R<bool, TP3_A>;
+#[doc = "Field `TP3` reader - Trusted Protect"]
+pub struct TP3_R(crate::FieldReader<bool, TP3_A>);
 impl TP3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP3_A {
@@ -938,15 +1061,22 @@ impl TP3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP3_A::_0
+        **self == TP3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP3_A::_1
+        **self == TP3_A::_1
     }
 }
-#[doc = "Write proxy for field `TP3`"]
+impl core::ops::Deref for TP3_R {
+    type Target = crate::FieldReader<bool, TP3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP3` writer - Trusted Protect"]
 pub struct TP3_W<'a> {
     w: &'a mut W,
 }
@@ -954,9 +1084,7 @@ impl<'a> TP3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -981,7 +1109,7 @@ impl<'a> TP3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
@@ -999,9 +1127,12 @@ impl From<WP3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP3`"]
-pub type WP3_R = crate::R<bool, WP3_A>;
+#[doc = "Field `WP3` reader - Write Protect"]
+pub struct WP3_R(crate::FieldReader<bool, WP3_A>);
 impl WP3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP3_A {
@@ -1013,15 +1144,22 @@ impl WP3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP3_A::_0
+        **self == WP3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP3_A::_1
+        **self == WP3_A::_1
     }
 }
-#[doc = "Write proxy for field `WP3`"]
+impl core::ops::Deref for WP3_R {
+    type Target = crate::FieldReader<bool, WP3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP3` writer - Write Protect"]
 pub struct WP3_W<'a> {
     w: &'a mut W,
 }
@@ -1029,9 +1167,7 @@ impl<'a> WP3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -1056,7 +1192,7 @@ impl<'a> WP3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
@@ -1074,9 +1210,12 @@ impl From<SP3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP3`"]
-pub type SP3_R = crate::R<bool, SP3_A>;
+#[doc = "Field `SP3` reader - Supervisor Protect"]
+pub struct SP3_R(crate::FieldReader<bool, SP3_A>);
 impl SP3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP3_A {
@@ -1088,15 +1227,22 @@ impl SP3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP3_A::_0
+        **self == SP3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP3_A::_1
+        **self == SP3_A::_1
     }
 }
-#[doc = "Write proxy for field `SP3`"]
+impl core::ops::Deref for SP3_R {
+    type Target = crate::FieldReader<bool, SP3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP3` writer - Supervisor Protect"]
 pub struct SP3_W<'a> {
     w: &'a mut W,
 }
@@ -1104,9 +1250,7 @@ impl<'a> SP3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -1131,7 +1275,7 @@ impl<'a> SP3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
@@ -1149,9 +1293,12 @@ impl From<TP2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP2`"]
-pub type TP2_R = crate::R<bool, TP2_A>;
+#[doc = "Field `TP2` reader - Trusted Protect"]
+pub struct TP2_R(crate::FieldReader<bool, TP2_A>);
 impl TP2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP2_A {
@@ -1163,15 +1310,22 @@ impl TP2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP2_A::_0
+        **self == TP2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP2_A::_1
+        **self == TP2_A::_1
     }
 }
-#[doc = "Write proxy for field `TP2`"]
+impl core::ops::Deref for TP2_R {
+    type Target = crate::FieldReader<bool, TP2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP2` writer - Trusted Protect"]
 pub struct TP2_W<'a> {
     w: &'a mut W,
 }
@@ -1179,9 +1333,7 @@ impl<'a> TP2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -1206,7 +1358,7 @@ impl<'a> TP2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
@@ -1224,9 +1376,12 @@ impl From<WP2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP2`"]
-pub type WP2_R = crate::R<bool, WP2_A>;
+#[doc = "Field `WP2` reader - Write Protect"]
+pub struct WP2_R(crate::FieldReader<bool, WP2_A>);
 impl WP2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP2_A {
@@ -1238,15 +1393,22 @@ impl WP2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP2_A::_0
+        **self == WP2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP2_A::_1
+        **self == WP2_A::_1
     }
 }
-#[doc = "Write proxy for field `WP2`"]
+impl core::ops::Deref for WP2_R {
+    type Target = crate::FieldReader<bool, WP2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP2` writer - Write Protect"]
 pub struct WP2_W<'a> {
     w: &'a mut W,
 }
@@ -1254,9 +1416,7 @@ impl<'a> WP2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -1281,7 +1441,7 @@ impl<'a> WP2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
@@ -1299,9 +1459,12 @@ impl From<SP2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP2`"]
-pub type SP2_R = crate::R<bool, SP2_A>;
+#[doc = "Field `SP2` reader - Supervisor Protect"]
+pub struct SP2_R(crate::FieldReader<bool, SP2_A>);
 impl SP2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP2_A {
@@ -1313,15 +1476,22 @@ impl SP2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP2_A::_0
+        **self == SP2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP2_A::_1
+        **self == SP2_A::_1
     }
 }
-#[doc = "Write proxy for field `SP2`"]
+impl core::ops::Deref for SP2_R {
+    type Target = crate::FieldReader<bool, SP2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP2` writer - Supervisor Protect"]
 pub struct SP2_W<'a> {
     w: &'a mut W,
 }
@@ -1329,9 +1499,7 @@ impl<'a> SP2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -1356,7 +1524,7 @@ impl<'a> SP2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
@@ -1374,9 +1542,12 @@ impl From<TP1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP1`"]
-pub type TP1_R = crate::R<bool, TP1_A>;
+#[doc = "Field `TP1` reader - Trusted Protect"]
+pub struct TP1_R(crate::FieldReader<bool, TP1_A>);
 impl TP1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP1_A {
@@ -1388,15 +1559,22 @@ impl TP1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP1_A::_0
+        **self == TP1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP1_A::_1
+        **self == TP1_A::_1
     }
 }
-#[doc = "Write proxy for field `TP1`"]
+impl core::ops::Deref for TP1_R {
+    type Target = crate::FieldReader<bool, TP1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP1` writer - Trusted Protect"]
 pub struct TP1_W<'a> {
     w: &'a mut W,
 }
@@ -1404,9 +1582,7 @@ impl<'a> TP1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -1431,7 +1607,7 @@ impl<'a> TP1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
@@ -1449,9 +1625,12 @@ impl From<WP1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP1`"]
-pub type WP1_R = crate::R<bool, WP1_A>;
+#[doc = "Field `WP1` reader - Write Protect"]
+pub struct WP1_R(crate::FieldReader<bool, WP1_A>);
 impl WP1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP1_A {
@@ -1463,15 +1642,22 @@ impl WP1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP1_A::_0
+        **self == WP1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP1_A::_1
+        **self == WP1_A::_1
     }
 }
-#[doc = "Write proxy for field `WP1`"]
+impl core::ops::Deref for WP1_R {
+    type Target = crate::FieldReader<bool, WP1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP1` writer - Write Protect"]
 pub struct WP1_W<'a> {
     w: &'a mut W,
 }
@@ -1479,9 +1665,7 @@ impl<'a> WP1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -1506,7 +1690,7 @@ impl<'a> WP1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
@@ -1524,9 +1708,12 @@ impl From<SP1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP1`"]
-pub type SP1_R = crate::R<bool, SP1_A>;
+#[doc = "Field `SP1` reader - Supervisor Protect"]
+pub struct SP1_R(crate::FieldReader<bool, SP1_A>);
 impl SP1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP1_A {
@@ -1538,15 +1725,22 @@ impl SP1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP1_A::_0
+        **self == SP1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP1_A::_1
+        **self == SP1_A::_1
     }
 }
-#[doc = "Write proxy for field `SP1`"]
+impl core::ops::Deref for SP1_R {
+    type Target = crate::FieldReader<bool, SP1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP1` writer - Supervisor Protect"]
 pub struct SP1_W<'a> {
     w: &'a mut W,
 }
@@ -1554,9 +1748,7 @@ impl<'a> SP1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -1581,7 +1773,7 @@ impl<'a> SP1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
@@ -1599,9 +1791,12 @@ impl From<TP0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TP0`"]
-pub type TP0_R = crate::R<bool, TP0_A>;
+#[doc = "Field `TP0` reader - Trusted Protect"]
+pub struct TP0_R(crate::FieldReader<bool, TP0_A>);
 impl TP0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TP0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TP0_A {
@@ -1613,15 +1808,22 @@ impl TP0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TP0_A::_0
+        **self == TP0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TP0_A::_1
+        **self == TP0_A::_1
     }
 }
-#[doc = "Write proxy for field `TP0`"]
+impl core::ops::Deref for TP0_R {
+    type Target = crate::FieldReader<bool, TP0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TP0` writer - Trusted Protect"]
 pub struct TP0_W<'a> {
     w: &'a mut W,
 }
@@ -1629,9 +1831,7 @@ impl<'a> TP0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TP0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from an untrusted master are allowed."]
     #[inline(always)]
@@ -1656,7 +1856,7 @@ impl<'a> TP0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
@@ -1674,9 +1874,12 @@ impl From<WP0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `WP0`"]
-pub type WP0_R = crate::R<bool, WP0_A>;
+#[doc = "Field `WP0` reader - Write Protect"]
+pub struct WP0_R(crate::FieldReader<bool, WP0_A>);
 impl WP0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        WP0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> WP0_A {
@@ -1688,15 +1891,22 @@ impl WP0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == WP0_A::_0
+        **self == WP0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == WP0_A::_1
+        **self == WP0_A::_1
     }
 }
-#[doc = "Write proxy for field `WP0`"]
+impl core::ops::Deref for WP0_R {
+    type Target = crate::FieldReader<bool, WP0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `WP0` writer - Write Protect"]
 pub struct WP0_W<'a> {
     w: &'a mut W,
 }
@@ -1704,9 +1914,7 @@ impl<'a> WP0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WP0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral allows write accesses."]
     #[inline(always)]
@@ -1731,7 +1939,7 @@ impl<'a> WP0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
@@ -1749,9 +1957,12 @@ impl From<SP0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SP0`"]
-pub type SP0_R = crate::R<bool, SP0_A>;
+#[doc = "Field `SP0` reader - Supervisor Protect"]
+pub struct SP0_R(crate::FieldReader<bool, SP0_A>);
 impl SP0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SP0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SP0_A {
@@ -1763,15 +1974,22 @@ impl SP0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SP0_A::_0
+        **self == SP0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SP0_A::_1
+        **self == SP0_A::_1
     }
 }
-#[doc = "Write proxy for field `SP0`"]
+impl core::ops::Deref for SP0_R {
+    type Target = crate::FieldReader<bool, SP0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SP0` writer - Supervisor Protect"]
 pub struct SP0_W<'a> {
     w: &'a mut W,
 }
@@ -1779,9 +1997,7 @@ impl<'a> SP0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SP0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This peripheral does not require supervisor privilege level for accesses."]
     #[inline(always)]
@@ -1806,7 +2022,7 @@ impl<'a> SP0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | ((value as u32 & 0x01) << 30);
         self.w
     }
 }
@@ -2052,5 +2268,31 @@ impl W {
     #[inline(always)]
     pub fn sp0(&mut self) -> SP0_W {
         SP0_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Peripheral Access Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pacrj](index.html) module"]
+pub struct PACRJ_SPEC;
+impl crate::RegisterSpec for PACRJ_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [pacrj::R](R) reader structure"]
+impl crate::Readable for PACRJ_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [pacrj::W](W) writer structure"]
+impl crate::Writable for PACRJ_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets PACRJ to value 0"]
+impl crate::Resettable for PACRJ_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

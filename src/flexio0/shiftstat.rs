@@ -1,13 +1,37 @@
-#[doc = "Reader of register SHIFTSTAT"]
-pub type R = crate::R<u32, super::SHIFTSTAT>;
-#[doc = "Writer for register SHIFTSTAT"]
-pub type W = crate::W<u32, super::SHIFTSTAT>;
-#[doc = "Register SHIFTSTAT `reset()`'s with value 0"]
-impl crate::ResetValue for super::SHIFTSTAT {
-    type Type = u32;
+#[doc = "Register `SHIFTSTAT` reader"]
+pub struct R(crate::R<SHIFTSTAT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SHIFTSTAT_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SHIFTSTAT_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SHIFTSTAT_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SHIFTSTAT` writer"]
+pub struct W(crate::W<SHIFTSTAT_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SHIFTSTAT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<SHIFTSTAT_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<SHIFTSTAT_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Shifter Status Flag\n\nValue on reset: 0"]
@@ -25,31 +49,40 @@ impl From<SSF_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SSF`"]
-pub type SSF_R = crate::R<u8, SSF_A>;
+#[doc = "Field `SSF` reader - Shifter Status Flag"]
+pub struct SSF_R(crate::FieldReader<u8, SSF_A>);
 impl SSF_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SSF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SSF_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SSF_A> {
         match self.bits {
-            0 => Val(SSF_A::_0),
-            1 => Val(SSF_A::_1),
-            i => Res(i),
+            0 => Some(SSF_A::_0),
+            1 => Some(SSF_A::_1),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SSF_A::_0
+        **self == SSF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SSF_A::_1
+        **self == SSF_A::_1
     }
 }
-#[doc = "Write proxy for field `SSF`"]
+impl core::ops::Deref for SSF_R {
+    type Target = crate::FieldReader<u8, SSF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSF` writer - Shifter Status Flag"]
 pub struct SSF_W<'a> {
     w: &'a mut W,
 }
@@ -72,7 +105,7 @@ impl<'a> SSF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
@@ -88,5 +121,31 @@ impl W {
     #[inline(always)]
     pub fn ssf(&mut self) -> SSF_W {
         SSF_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Shifter Status Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [shiftstat](index.html) module"]
+pub struct SHIFTSTAT_SPEC;
+impl crate::RegisterSpec for SHIFTSTAT_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [shiftstat::R](R) reader structure"]
+impl crate::Readable for SHIFTSTAT_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [shiftstat::W](W) writer structure"]
+impl crate::Writable for SHIFTSTAT_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SHIFTSTAT to value 0"]
+impl crate::Resettable for SHIFTSTAT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

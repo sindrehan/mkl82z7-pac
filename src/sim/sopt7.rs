@@ -1,13 +1,37 @@
-#[doc = "Reader of register SOPT7"]
-pub type R = crate::R<u32, super::SOPT7>;
-#[doc = "Writer for register SOPT7"]
-pub type W = crate::W<u32, super::SOPT7>;
-#[doc = "Register SOPT7 `reset()`'s with value 0"]
-impl crate::ResetValue for super::SOPT7 {
-    type Type = u32;
+#[doc = "Register `SOPT7` reader"]
+pub struct R(crate::R<SOPT7_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SOPT7_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SOPT7_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SOPT7_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SOPT7` writer"]
+pub struct W(crate::W<SOPT7_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SOPT7_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<SOPT7_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<SOPT7_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "ADC0 trigger select\n\nValue on reset: 0"]
@@ -49,103 +73,112 @@ impl From<ADC0TRGSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `ADC0TRGSEL`"]
-pub type ADC0TRGSEL_R = crate::R<u8, ADC0TRGSEL_A>;
+#[doc = "Field `ADC0TRGSEL` reader - ADC0 trigger select"]
+pub struct ADC0TRGSEL_R(crate::FieldReader<u8, ADC0TRGSEL_A>);
 impl ADC0TRGSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        ADC0TRGSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, ADC0TRGSEL_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<ADC0TRGSEL_A> {
         match self.bits {
-            0 => Val(ADC0TRGSEL_A::_0000),
-            1 => Val(ADC0TRGSEL_A::_0001),
-            4 => Val(ADC0TRGSEL_A::_0100),
-            5 => Val(ADC0TRGSEL_A::_0101),
-            6 => Val(ADC0TRGSEL_A::_0110),
-            7 => Val(ADC0TRGSEL_A::_0111),
-            8 => Val(ADC0TRGSEL_A::_1000),
-            9 => Val(ADC0TRGSEL_A::_1001),
-            10 => Val(ADC0TRGSEL_A::_1010),
-            11 => Val(ADC0TRGSEL_A::_1011),
-            12 => Val(ADC0TRGSEL_A::_1100),
-            13 => Val(ADC0TRGSEL_A::_1101),
-            14 => Val(ADC0TRGSEL_A::_1110),
-            15 => Val(ADC0TRGSEL_A::_1111),
-            i => Res(i),
+            0 => Some(ADC0TRGSEL_A::_0000),
+            1 => Some(ADC0TRGSEL_A::_0001),
+            4 => Some(ADC0TRGSEL_A::_0100),
+            5 => Some(ADC0TRGSEL_A::_0101),
+            6 => Some(ADC0TRGSEL_A::_0110),
+            7 => Some(ADC0TRGSEL_A::_0111),
+            8 => Some(ADC0TRGSEL_A::_1000),
+            9 => Some(ADC0TRGSEL_A::_1001),
+            10 => Some(ADC0TRGSEL_A::_1010),
+            11 => Some(ADC0TRGSEL_A::_1011),
+            12 => Some(ADC0TRGSEL_A::_1100),
+            13 => Some(ADC0TRGSEL_A::_1101),
+            14 => Some(ADC0TRGSEL_A::_1110),
+            15 => Some(ADC0TRGSEL_A::_1111),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0000`"]
     #[inline(always)]
     pub fn is_0000(&self) -> bool {
-        *self == ADC0TRGSEL_A::_0000
+        **self == ADC0TRGSEL_A::_0000
     }
     #[doc = "Checks if the value of the field is `_0001`"]
     #[inline(always)]
     pub fn is_0001(&self) -> bool {
-        *self == ADC0TRGSEL_A::_0001
+        **self == ADC0TRGSEL_A::_0001
     }
     #[doc = "Checks if the value of the field is `_0100`"]
     #[inline(always)]
     pub fn is_0100(&self) -> bool {
-        *self == ADC0TRGSEL_A::_0100
+        **self == ADC0TRGSEL_A::_0100
     }
     #[doc = "Checks if the value of the field is `_0101`"]
     #[inline(always)]
     pub fn is_0101(&self) -> bool {
-        *self == ADC0TRGSEL_A::_0101
+        **self == ADC0TRGSEL_A::_0101
     }
     #[doc = "Checks if the value of the field is `_0110`"]
     #[inline(always)]
     pub fn is_0110(&self) -> bool {
-        *self == ADC0TRGSEL_A::_0110
+        **self == ADC0TRGSEL_A::_0110
     }
     #[doc = "Checks if the value of the field is `_0111`"]
     #[inline(always)]
     pub fn is_0111(&self) -> bool {
-        *self == ADC0TRGSEL_A::_0111
+        **self == ADC0TRGSEL_A::_0111
     }
     #[doc = "Checks if the value of the field is `_1000`"]
     #[inline(always)]
     pub fn is_1000(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1000
+        **self == ADC0TRGSEL_A::_1000
     }
     #[doc = "Checks if the value of the field is `_1001`"]
     #[inline(always)]
     pub fn is_1001(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1001
+        **self == ADC0TRGSEL_A::_1001
     }
     #[doc = "Checks if the value of the field is `_1010`"]
     #[inline(always)]
     pub fn is_1010(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1010
+        **self == ADC0TRGSEL_A::_1010
     }
     #[doc = "Checks if the value of the field is `_1011`"]
     #[inline(always)]
     pub fn is_1011(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1011
+        **self == ADC0TRGSEL_A::_1011
     }
     #[doc = "Checks if the value of the field is `_1100`"]
     #[inline(always)]
     pub fn is_1100(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1100
+        **self == ADC0TRGSEL_A::_1100
     }
     #[doc = "Checks if the value of the field is `_1101`"]
     #[inline(always)]
     pub fn is_1101(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1101
+        **self == ADC0TRGSEL_A::_1101
     }
     #[doc = "Checks if the value of the field is `_1110`"]
     #[inline(always)]
     pub fn is_1110(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1110
+        **self == ADC0TRGSEL_A::_1110
     }
     #[doc = "Checks if the value of the field is `_1111`"]
     #[inline(always)]
     pub fn is_1111(&self) -> bool {
-        *self == ADC0TRGSEL_A::_1111
+        **self == ADC0TRGSEL_A::_1111
     }
 }
-#[doc = "Write proxy for field `ADC0TRGSEL`"]
+impl core::ops::Deref for ADC0TRGSEL_R {
+    type Target = crate::FieldReader<u8, ADC0TRGSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADC0TRGSEL` writer - ADC0 trigger select"]
 pub struct ADC0TRGSEL_W<'a> {
     w: &'a mut W,
 }
@@ -228,7 +261,7 @@ impl<'a> ADC0TRGSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
+        self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
         self.w
     }
 }
@@ -246,9 +279,12 @@ impl From<ADC0PRETRGSEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ADC0PRETRGSEL`"]
-pub type ADC0PRETRGSEL_R = crate::R<bool, ADC0PRETRGSEL_A>;
+#[doc = "Field `ADC0PRETRGSEL` reader - ADC0 pretrigger select"]
+pub struct ADC0PRETRGSEL_R(crate::FieldReader<bool, ADC0PRETRGSEL_A>);
 impl ADC0PRETRGSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ADC0PRETRGSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ADC0PRETRGSEL_A {
@@ -260,15 +296,22 @@ impl ADC0PRETRGSEL_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == ADC0PRETRGSEL_A::_0
+        **self == ADC0PRETRGSEL_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == ADC0PRETRGSEL_A::_1
+        **self == ADC0PRETRGSEL_A::_1
     }
 }
-#[doc = "Write proxy for field `ADC0PRETRGSEL`"]
+impl core::ops::Deref for ADC0PRETRGSEL_R {
+    type Target = crate::FieldReader<bool, ADC0PRETRGSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ADC0PRETRGSEL` writer - ADC0 pretrigger select"]
 pub struct ADC0PRETRGSEL_W<'a> {
     w: &'a mut W,
 }
@@ -276,9 +319,7 @@ impl<'a> ADC0PRETRGSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ADC0PRETRGSEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Pre-trigger A"]
     #[inline(always)]
@@ -303,7 +344,7 @@ impl<'a> ADC0PRETRGSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -329,5 +370,31 @@ impl W {
     #[inline(always)]
     pub fn adc0pretrgsel(&mut self) -> ADC0PRETRGSEL_W {
         ADC0PRETRGSEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "System Options Register 7\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sopt7](index.html) module"]
+pub struct SOPT7_SPEC;
+impl crate::RegisterSpec for SOPT7_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [sopt7::R](R) reader structure"]
+impl crate::Readable for SOPT7_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [sopt7::W](W) writer structure"]
+impl crate::Writable for SOPT7_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SOPT7 to value 0"]
+impl crate::Resettable for SOPT7_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

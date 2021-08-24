@@ -1,13 +1,37 @@
-#[doc = "Reader of register MPRA"]
-pub type R = crate::R<u32, super::MPRA>;
-#[doc = "Writer for register MPRA"]
-pub type W = crate::W<u32, super::MPRA>;
-#[doc = "Register MPRA `reset()`'s with value 0x7770_0000"]
-impl crate::ResetValue for super::MPRA {
-    type Type = u32;
+#[doc = "Register `MPRA` reader"]
+pub struct R(crate::R<MPRA_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MPRA_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x7770_0000
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<MPRA_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<MPRA_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MPRA` writer"]
+pub struct W(crate::W<MPRA_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MPRA_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<MPRA_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<MPRA_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Master 4 Privilege Level\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<MPL4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MPL4`"]
-pub type MPL4_R = crate::R<bool, MPL4_A>;
+#[doc = "Field `MPL4` reader - Master 4 Privilege Level"]
+pub struct MPL4_R(crate::FieldReader<bool, MPL4_A>);
 impl MPL4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPL4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MPL4_A {
@@ -38,15 +65,22 @@ impl MPL4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MPL4_A::_0
+        **self == MPL4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MPL4_A::_1
+        **self == MPL4_A::_1
     }
 }
-#[doc = "Write proxy for field `MPL4`"]
+impl core::ops::Deref for MPL4_R {
+    type Target = crate::FieldReader<bool, MPL4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPL4` writer - Master 4 Privilege Level"]
 pub struct MPL4_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> MPL4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MPL4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from this master are forced to user-mode."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> MPL4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<MTW4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTW4`"]
-pub type MTW4_R = crate::R<bool, MTW4_A>;
+#[doc = "Field `MTW4` reader - Master 4 Trusted For Writes"]
+pub struct MTW4_R(crate::FieldReader<bool, MTW4_A>);
 impl MTW4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTW4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTW4_A {
@@ -113,15 +148,22 @@ impl MTW4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTW4_A::_0
+        **self == MTW4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTW4_A::_1
+        **self == MTW4_A::_1
     }
 }
-#[doc = "Write proxy for field `MTW4`"]
+impl core::ops::Deref for MTW4_R {
+    type Target = crate::FieldReader<bool, MTW4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTW4` writer - Master 4 Trusted For Writes"]
 pub struct MTW4_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> MTW4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTW4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for write accesses."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> MTW4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<MTR4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTR4`"]
-pub type MTR4_R = crate::R<bool, MTR4_A>;
+#[doc = "Field `MTR4` reader - Master 4 Trusted For Read"]
+pub struct MTR4_R(crate::FieldReader<bool, MTR4_A>);
 impl MTR4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTR4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTR4_A {
@@ -188,15 +231,22 @@ impl MTR4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTR4_A::_0
+        **self == MTR4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTR4_A::_1
+        **self == MTR4_A::_1
     }
 }
-#[doc = "Write proxy for field `MTR4`"]
+impl core::ops::Deref for MTR4_R {
+    type Target = crate::FieldReader<bool, MTR4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTR4` writer - Master 4 Trusted For Read"]
 pub struct MTR4_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> MTR4_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTR4_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for read accesses."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> MTR4_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<MPL3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MPL3`"]
-pub type MPL3_R = crate::R<bool, MPL3_A>;
+#[doc = "Field `MPL3` reader - Master 3 Privilege Level"]
+pub struct MPL3_R(crate::FieldReader<bool, MPL3_A>);
 impl MPL3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPL3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MPL3_A {
@@ -263,15 +314,22 @@ impl MPL3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MPL3_A::_0
+        **self == MPL3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MPL3_A::_1
+        **self == MPL3_A::_1
     }
 }
-#[doc = "Write proxy for field `MPL3`"]
+impl core::ops::Deref for MPL3_R {
+    type Target = crate::FieldReader<bool, MPL3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPL3` writer - Master 3 Privilege Level"]
 pub struct MPL3_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> MPL3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MPL3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from this master are forced to user-mode."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> MPL3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<MTW3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTW3`"]
-pub type MTW3_R = crate::R<bool, MTW3_A>;
+#[doc = "Field `MTW3` reader - Master 3 Trusted For Writes"]
+pub struct MTW3_R(crate::FieldReader<bool, MTW3_A>);
 impl MTW3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTW3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTW3_A {
@@ -338,15 +397,22 @@ impl MTW3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTW3_A::_0
+        **self == MTW3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTW3_A::_1
+        **self == MTW3_A::_1
     }
 }
-#[doc = "Write proxy for field `MTW3`"]
+impl core::ops::Deref for MTW3_R {
+    type Target = crate::FieldReader<bool, MTW3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTW3` writer - Master 3 Trusted For Writes"]
 pub struct MTW3_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> MTW3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTW3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for write accesses."]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> MTW3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
@@ -399,9 +463,12 @@ impl From<MTR3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTR3`"]
-pub type MTR3_R = crate::R<bool, MTR3_A>;
+#[doc = "Field `MTR3` reader - Master 3 Trusted For Read"]
+pub struct MTR3_R(crate::FieldReader<bool, MTR3_A>);
 impl MTR3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTR3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTR3_A {
@@ -413,15 +480,22 @@ impl MTR3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTR3_A::_0
+        **self == MTR3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTR3_A::_1
+        **self == MTR3_A::_1
     }
 }
-#[doc = "Write proxy for field `MTR3`"]
+impl core::ops::Deref for MTR3_R {
+    type Target = crate::FieldReader<bool, MTR3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTR3` writer - Master 3 Trusted For Read"]
 pub struct MTR3_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +503,7 @@ impl<'a> MTR3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTR3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for read accesses."]
     #[inline(always)]
@@ -456,7 +528,7 @@ impl<'a> MTR3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | ((value as u32 & 0x01) << 18);
         self.w
     }
 }
@@ -474,9 +546,12 @@ impl From<MPL2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MPL2`"]
-pub type MPL2_R = crate::R<bool, MPL2_A>;
+#[doc = "Field `MPL2` reader - Master 2 Privilege Level"]
+pub struct MPL2_R(crate::FieldReader<bool, MPL2_A>);
 impl MPL2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPL2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MPL2_A {
@@ -488,15 +563,22 @@ impl MPL2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MPL2_A::_0
+        **self == MPL2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MPL2_A::_1
+        **self == MPL2_A::_1
     }
 }
-#[doc = "Write proxy for field `MPL2`"]
+impl core::ops::Deref for MPL2_R {
+    type Target = crate::FieldReader<bool, MPL2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPL2` writer - Master 2 Privilege Level"]
 pub struct MPL2_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +586,7 @@ impl<'a> MPL2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MPL2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from this master are forced to user-mode."]
     #[inline(always)]
@@ -531,7 +611,7 @@ impl<'a> MPL2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | ((value as u32 & 0x01) << 20);
         self.w
     }
 }
@@ -549,9 +629,12 @@ impl From<MTW2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTW2`"]
-pub type MTW2_R = crate::R<bool, MTW2_A>;
+#[doc = "Field `MTW2` reader - Master 2 Trusted For Writes"]
+pub struct MTW2_R(crate::FieldReader<bool, MTW2_A>);
 impl MTW2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTW2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTW2_A {
@@ -563,15 +646,22 @@ impl MTW2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTW2_A::_0
+        **self == MTW2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTW2_A::_1
+        **self == MTW2_A::_1
     }
 }
-#[doc = "Write proxy for field `MTW2`"]
+impl core::ops::Deref for MTW2_R {
+    type Target = crate::FieldReader<bool, MTW2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTW2` writer - Master 2 Trusted For Writes"]
 pub struct MTW2_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +669,7 @@ impl<'a> MTW2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTW2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for write accesses."]
     #[inline(always)]
@@ -606,7 +694,7 @@ impl<'a> MTW2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | ((value as u32 & 0x01) << 21);
         self.w
     }
 }
@@ -624,9 +712,12 @@ impl From<MTR2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTR2`"]
-pub type MTR2_R = crate::R<bool, MTR2_A>;
+#[doc = "Field `MTR2` reader - Master 2 Trusted For Read"]
+pub struct MTR2_R(crate::FieldReader<bool, MTR2_A>);
 impl MTR2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTR2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTR2_A {
@@ -638,15 +729,22 @@ impl MTR2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTR2_A::_0
+        **self == MTR2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTR2_A::_1
+        **self == MTR2_A::_1
     }
 }
-#[doc = "Write proxy for field `MTR2`"]
+impl core::ops::Deref for MTR2_R {
+    type Target = crate::FieldReader<bool, MTR2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTR2` writer - Master 2 Trusted For Read"]
 pub struct MTR2_W<'a> {
     w: &'a mut W,
 }
@@ -654,9 +752,7 @@ impl<'a> MTR2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTR2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for read accesses."]
     #[inline(always)]
@@ -681,7 +777,7 @@ impl<'a> MTR2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | ((value as u32 & 0x01) << 22);
         self.w
     }
 }
@@ -699,9 +795,12 @@ impl From<MPL1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MPL1`"]
-pub type MPL1_R = crate::R<bool, MPL1_A>;
+#[doc = "Field `MPL1` reader - Master 1 Privilege Level"]
+pub struct MPL1_R(crate::FieldReader<bool, MPL1_A>);
 impl MPL1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPL1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MPL1_A {
@@ -713,15 +812,22 @@ impl MPL1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MPL1_A::_0
+        **self == MPL1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MPL1_A::_1
+        **self == MPL1_A::_1
     }
 }
-#[doc = "Write proxy for field `MPL1`"]
+impl core::ops::Deref for MPL1_R {
+    type Target = crate::FieldReader<bool, MPL1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPL1` writer - Master 1 Privilege Level"]
 pub struct MPL1_W<'a> {
     w: &'a mut W,
 }
@@ -729,9 +835,7 @@ impl<'a> MPL1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MPL1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from this master are forced to user-mode."]
     #[inline(always)]
@@ -756,7 +860,7 @@ impl<'a> MPL1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
@@ -774,9 +878,12 @@ impl From<MTW1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTW1`"]
-pub type MTW1_R = crate::R<bool, MTW1_A>;
+#[doc = "Field `MTW1` reader - Master 1 Trusted for Writes"]
+pub struct MTW1_R(crate::FieldReader<bool, MTW1_A>);
 impl MTW1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTW1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTW1_A {
@@ -788,15 +895,22 @@ impl MTW1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTW1_A::_0
+        **self == MTW1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTW1_A::_1
+        **self == MTW1_A::_1
     }
 }
-#[doc = "Write proxy for field `MTW1`"]
+impl core::ops::Deref for MTW1_R {
+    type Target = crate::FieldReader<bool, MTW1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTW1` writer - Master 1 Trusted for Writes"]
 pub struct MTW1_W<'a> {
     w: &'a mut W,
 }
@@ -804,9 +918,7 @@ impl<'a> MTW1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTW1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for write accesses."]
     #[inline(always)]
@@ -831,7 +943,7 @@ impl<'a> MTW1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
@@ -849,9 +961,12 @@ impl From<MTR1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTR1`"]
-pub type MTR1_R = crate::R<bool, MTR1_A>;
+#[doc = "Field `MTR1` reader - Master 1 Trusted for Read"]
+pub struct MTR1_R(crate::FieldReader<bool, MTR1_A>);
 impl MTR1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTR1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTR1_A {
@@ -863,15 +978,22 @@ impl MTR1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTR1_A::_0
+        **self == MTR1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTR1_A::_1
+        **self == MTR1_A::_1
     }
 }
-#[doc = "Write proxy for field `MTR1`"]
+impl core::ops::Deref for MTR1_R {
+    type Target = crate::FieldReader<bool, MTR1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTR1` writer - Master 1 Trusted for Read"]
 pub struct MTR1_W<'a> {
     w: &'a mut W,
 }
@@ -879,9 +1001,7 @@ impl<'a> MTR1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTR1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for read accesses."]
     #[inline(always)]
@@ -906,7 +1026,7 @@ impl<'a> MTR1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 26)) | (((value as u32) & 0x01) << 26);
+        self.w.bits = (self.w.bits & !(0x01 << 26)) | ((value as u32 & 0x01) << 26);
         self.w
     }
 }
@@ -924,9 +1044,12 @@ impl From<MPL0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MPL0`"]
-pub type MPL0_R = crate::R<bool, MPL0_A>;
+#[doc = "Field `MPL0` reader - Master 0 Privilege Level"]
+pub struct MPL0_R(crate::FieldReader<bool, MPL0_A>);
 impl MPL0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MPL0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MPL0_A {
@@ -938,15 +1061,22 @@ impl MPL0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MPL0_A::_0
+        **self == MPL0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MPL0_A::_1
+        **self == MPL0_A::_1
     }
 }
-#[doc = "Write proxy for field `MPL0`"]
+impl core::ops::Deref for MPL0_R {
+    type Target = crate::FieldReader<bool, MPL0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MPL0` writer - Master 0 Privilege Level"]
 pub struct MPL0_W<'a> {
     w: &'a mut W,
 }
@@ -954,9 +1084,7 @@ impl<'a> MPL0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MPL0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Accesses from this master are forced to user-mode."]
     #[inline(always)]
@@ -981,7 +1109,7 @@ impl<'a> MPL0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
@@ -999,9 +1127,12 @@ impl From<MTW0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTW0`"]
-pub type MTW0_R = crate::R<bool, MTW0_A>;
+#[doc = "Field `MTW0` reader - Master 0 Trusted For Writes"]
+pub struct MTW0_R(crate::FieldReader<bool, MTW0_A>);
 impl MTW0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTW0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTW0_A {
@@ -1013,15 +1144,22 @@ impl MTW0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTW0_A::_0
+        **self == MTW0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTW0_A::_1
+        **self == MTW0_A::_1
     }
 }
-#[doc = "Write proxy for field `MTW0`"]
+impl core::ops::Deref for MTW0_R {
+    type Target = crate::FieldReader<bool, MTW0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTW0` writer - Master 0 Trusted For Writes"]
 pub struct MTW0_W<'a> {
     w: &'a mut W,
 }
@@ -1029,9 +1167,7 @@ impl<'a> MTW0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTW0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for write accesses."]
     #[inline(always)]
@@ -1056,7 +1192,7 @@ impl<'a> MTW0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 29)) | (((value as u32) & 0x01) << 29);
+        self.w.bits = (self.w.bits & !(0x01 << 29)) | ((value as u32 & 0x01) << 29);
         self.w
     }
 }
@@ -1074,9 +1210,12 @@ impl From<MTR0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `MTR0`"]
-pub type MTR0_R = crate::R<bool, MTR0_A>;
+#[doc = "Field `MTR0` reader - Master 0 Trusted For Read"]
+pub struct MTR0_R(crate::FieldReader<bool, MTR0_A>);
 impl MTR0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        MTR0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MTR0_A {
@@ -1088,15 +1227,22 @@ impl MTR0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == MTR0_A::_0
+        **self == MTR0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == MTR0_A::_1
+        **self == MTR0_A::_1
     }
 }
-#[doc = "Write proxy for field `MTR0`"]
+impl core::ops::Deref for MTR0_R {
+    type Target = crate::FieldReader<bool, MTR0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MTR0` writer - Master 0 Trusted For Read"]
 pub struct MTR0_W<'a> {
     w: &'a mut W,
 }
@@ -1104,9 +1250,7 @@ impl<'a> MTR0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MTR0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "This master is not trusted for read accesses."]
     #[inline(always)]
@@ -1131,7 +1275,7 @@ impl<'a> MTR0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 30)) | (((value as u32) & 0x01) << 30);
+        self.w.bits = (self.w.bits & !(0x01 << 30)) | ((value as u32 & 0x01) << 30);
         self.w
     }
 }
@@ -1287,5 +1431,31 @@ impl W {
     #[inline(always)]
     pub fn mtr0(&mut self) -> MTR0_W {
         MTR0_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Master Privilege Register A\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mpra](index.html) module"]
+pub struct MPRA_SPEC;
+impl crate::RegisterSpec for MPRA_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [mpra::R](R) reader structure"]
+impl crate::Readable for MPRA_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [mpra::W](W) writer structure"]
+impl crate::Writable for MPRA_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MPRA to value 0x7770_0000"]
+impl crate::Resettable for MPRA_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x7770_0000
     }
 }

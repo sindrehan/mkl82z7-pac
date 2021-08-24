@@ -1,13 +1,37 @@
-#[doc = "Reader of register USBCTRL"]
-pub type R = crate::R<u8, super::USBCTRL>;
-#[doc = "Writer for register USBCTRL"]
-pub type W = crate::W<u8, super::USBCTRL>;
-#[doc = "Register USBCTRL `reset()`'s with value 0xc0"]
-impl crate::ResetValue for super::USBCTRL {
-    type Type = u8;
+#[doc = "Register `USBCTRL` reader"]
+pub struct R(crate::R<USBCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<USBCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0xc0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<USBCTRL_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<USBCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `USBCTRL` writer"]
+pub struct W(crate::W<USBCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<USBCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<USBCTRL_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<USBCTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Selects USB signals to be used as UART signals.\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<UARTSEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `UARTSEL`"]
-pub type UARTSEL_R = crate::R<bool, UARTSEL_A>;
+#[doc = "Field `UARTSEL` reader - Selects USB signals to be used as UART signals."]
+pub struct UARTSEL_R(crate::FieldReader<bool, UARTSEL_A>);
 impl UARTSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        UARTSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> UARTSEL_A {
@@ -38,15 +65,22 @@ impl UARTSEL_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == UARTSEL_A::_0
+        **self == UARTSEL_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == UARTSEL_A::_1
+        **self == UARTSEL_A::_1
     }
 }
-#[doc = "Write proxy for field `UARTSEL`"]
+impl core::ops::Deref for UARTSEL_R {
+    type Target = crate::FieldReader<bool, UARTSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `UARTSEL` writer - Selects USB signals to be used as UART signals."]
 pub struct UARTSEL_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> UARTSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: UARTSEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "USB signals not used as UART signals."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> UARTSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u8) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u8 & 0x01) << 4);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<UARTCHLS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `UARTCHLS`"]
-pub type UARTCHLS_R = crate::R<bool, UARTCHLS_A>;
+#[doc = "Field `UARTCHLS` reader - UART Signal Channel Select"]
+pub struct UARTCHLS_R(crate::FieldReader<bool, UARTCHLS_A>);
 impl UARTCHLS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        UARTCHLS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> UARTCHLS_A {
@@ -113,15 +148,22 @@ impl UARTCHLS_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == UARTCHLS_A::_0
+        **self == UARTCHLS_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == UARTCHLS_A::_1
+        **self == UARTCHLS_A::_1
     }
 }
-#[doc = "Write proxy for field `UARTCHLS`"]
+impl core::ops::Deref for UARTCHLS_R {
+    type Target = crate::FieldReader<bool, UARTCHLS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `UARTCHLS` writer - UART Signal Channel Select"]
 pub struct UARTCHLS_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> UARTCHLS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: UARTCHLS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "USB DP/DM signals used as UART TX/RX."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> UARTCHLS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<PDE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PDE`"]
-pub type PDE_R = crate::R<bool, PDE_A>;
+#[doc = "Field `PDE` reader - Enables the weak pulldowns on the USB transceiver."]
+pub struct PDE_R(crate::FieldReader<bool, PDE_A>);
 impl PDE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PDE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PDE_A {
@@ -188,15 +231,22 @@ impl PDE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == PDE_A::_0
+        **self == PDE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == PDE_A::_1
+        **self == PDE_A::_1
     }
 }
-#[doc = "Write proxy for field `PDE`"]
+impl core::ops::Deref for PDE_R {
+    type Target = crate::FieldReader<bool, PDE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PDE` writer - Enables the weak pulldowns on the USB transceiver."]
 pub struct PDE_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> PDE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PDE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Weak pulldowns are disabled on D+ and D-."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> PDE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<SUSP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SUSP`"]
-pub type SUSP_R = crate::R<bool, SUSP_A>;
+#[doc = "Field `SUSP` reader - Places the USB transceiver into the suspend state."]
+pub struct SUSP_R(crate::FieldReader<bool, SUSP_A>);
 impl SUSP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SUSP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SUSP_A {
@@ -263,15 +314,22 @@ impl SUSP_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SUSP_A::_0
+        **self == SUSP_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SUSP_A::_1
+        **self == SUSP_A::_1
     }
 }
-#[doc = "Write proxy for field `SUSP`"]
+impl core::ops::Deref for SUSP_R {
+    type Target = crate::FieldReader<bool, SUSP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SUSP` writer - Places the USB transceiver into the suspend state."]
 pub struct SUSP_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> SUSP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SUSP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "USB transceiver is not in suspend state."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> SUSP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -352,5 +408,31 @@ impl W {
     #[inline(always)]
     pub fn susp(&mut self) -> SUSP_W {
         SUSP_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "USB Control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [usbctrl](index.html) module"]
+pub struct USBCTRL_SPEC;
+impl crate::RegisterSpec for USBCTRL_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [usbctrl::R](R) reader structure"]
+impl crate::Readable for USBCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [usbctrl::W](W) writer structure"]
+impl crate::Writable for USBCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets USBCTRL to value 0xc0"]
+impl crate::Resettable for USBCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0xc0
     }
 }

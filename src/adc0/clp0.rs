@@ -1,18 +1,54 @@
-#[doc = "Reader of register CLP0"]
-pub type R = crate::R<u32, super::CLP0>;
-#[doc = "Writer for register CLP0"]
-pub type W = crate::W<u32, super::CLP0>;
-#[doc = "Register CLP0 `reset()`'s with value 0x20"]
-impl crate::ResetValue for super::CLP0 {
-    type Type = u32;
+#[doc = "Register `CLP0` reader"]
+pub struct R(crate::R<CLP0_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CLP0_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x20
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CLP0`"]
-pub type CLP0_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CLP0`"]
+impl From<crate::R<CLP0_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<CLP0_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CLP0` writer"]
+pub struct W(crate::W<CLP0_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CLP0_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CLP0_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CLP0_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CLP0` reader - Calibration Value"]
+pub struct CLP0_R(crate::FieldReader<u8, u8>);
+impl CLP0_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CLP0_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CLP0_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLP0` writer - Calibration Value"]
 pub struct CLP0_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +56,7 @@ impl<'a> CLP0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x3f) | ((value as u32) & 0x3f);
+        self.w.bits = (self.w.bits & !0x3f) | (value as u32 & 0x3f);
         self.w
     }
 }
@@ -36,5 +72,31 @@ impl W {
     #[inline(always)]
     pub fn clp0(&mut self) -> CLP0_W {
         CLP0_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "ADC Plus-Side General Calibration Value Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clp0](index.html) module"]
+pub struct CLP0_SPEC;
+impl crate::RegisterSpec for CLP0_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [clp0::R](R) reader structure"]
+impl crate::Readable for CLP0_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [clp0::W](W) writer structure"]
+impl crate::Writable for CLP0_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CLP0 to value 0x20"]
+impl crate::Resettable for CLP0_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x20
     }
 }

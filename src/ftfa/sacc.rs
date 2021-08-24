@@ -1,5 +1,18 @@
-#[doc = "Reader of register SACC%s"]
-pub type R = crate::R<u8, super::SACC>;
+#[doc = "Register `SACC%s` reader"]
+pub struct R(crate::R<SACC_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SACC_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SACC_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SACC_SPEC>) -> Self {
+        R(reader)
+    }
+}
 #[doc = "Supervisor-only access control\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
@@ -15,28 +28,37 @@ impl From<SA_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `SA`"]
-pub type SA_R = crate::R<u8, SA_A>;
+#[doc = "Field `SA` reader - Supervisor-only access control"]
+pub struct SA_R(crate::FieldReader<u8, SA_A>);
 impl SA_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        SA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, SA_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<SA_A> {
         match self.bits {
-            0 => Val(SA_A::_0),
-            1 => Val(SA_A::_1),
-            i => Res(i),
+            0 => Some(SA_A::_0),
+            1 => Some(SA_A::_1),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SA_A::_0
+        **self == SA_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SA_A::_1
+        **self == SA_A::_1
+    }
+}
+impl core::ops::Deref for SA_R {
+    type Target = crate::FieldReader<u8, SA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -44,5 +66,21 @@ impl R {
     #[inline(always)]
     pub fn sa(&self) -> SA_R {
         SA_R::new((self.bits & 0xff) as u8)
+    }
+}
+#[doc = "Supervisor-only Access Registers\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sacc](index.html) module"]
+pub struct SACC_SPEC;
+impl crate::RegisterSpec for SACC_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [sacc::R](R) reader structure"]
+impl crate::Readable for SACC_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets SACC%s to value 0"]
+impl crate::Resettable for SACC_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,5 +1,18 @@
-#[doc = "Reader of register FOPT"]
-pub type R = crate::R<u8, super::FOPT>;
+#[doc = "Register `FOPT` reader"]
+pub struct R(crate::R<FOPT_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FOPT_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<FOPT_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<FOPT_SPEC>) -> Self {
+        R(reader)
+    }
+}
 #[doc = "no description available\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LPBOOT_A {
@@ -14,9 +27,12 @@ impl From<LPBOOT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LPBOOT`"]
-pub type LPBOOT_R = crate::R<bool, LPBOOT_A>;
+#[doc = "Field `LPBOOT` reader - no description available"]
+pub struct LPBOOT_R(crate::FieldReader<bool, LPBOOT_A>);
 impl LPBOOT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LPBOOT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LPBOOT_A {
@@ -28,12 +44,19 @@ impl LPBOOT_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == LPBOOT_A::_00
+        **self == LPBOOT_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == LPBOOT_A::_01
+        **self == LPBOOT_A::_01
+    }
+}
+impl core::ops::Deref for LPBOOT_R {
+    type Target = crate::FieldReader<bool, LPBOOT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "no description available\n\nValue on reset: 0"]
@@ -50,9 +73,12 @@ impl From<BOOTPIN_OPT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BOOTPIN_OPT`"]
-pub type BOOTPIN_OPT_R = crate::R<bool, BOOTPIN_OPT_A>;
+#[doc = "Field `BOOTPIN_OPT` reader - no description available"]
+pub struct BOOTPIN_OPT_R(crate::FieldReader<bool, BOOTPIN_OPT_A>);
 impl BOOTPIN_OPT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BOOTPIN_OPT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BOOTPIN_OPT_A {
@@ -64,12 +90,19 @@ impl BOOTPIN_OPT_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == BOOTPIN_OPT_A::_00
+        **self == BOOTPIN_OPT_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == BOOTPIN_OPT_A::_01
+        **self == BOOTPIN_OPT_A::_01
+    }
+}
+impl core::ops::Deref for BOOTPIN_OPT_R {
+    type Target = crate::FieldReader<bool, BOOTPIN_OPT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "no description available\n\nValue on reset: 1"]
@@ -86,9 +119,12 @@ impl From<NMI_DIS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `NMI_DIS`"]
-pub type NMI_DIS_R = crate::R<bool, NMI_DIS_A>;
+#[doc = "Field `NMI_DIS` reader - no description available"]
+pub struct NMI_DIS_R(crate::FieldReader<bool, NMI_DIS_A>);
 impl NMI_DIS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        NMI_DIS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> NMI_DIS_A {
@@ -100,12 +136,19 @@ impl NMI_DIS_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == NMI_DIS_A::_00
+        **self == NMI_DIS_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == NMI_DIS_A::_01
+        **self == NMI_DIS_A::_01
+    }
+}
+impl core::ops::Deref for NMI_DIS_R {
+    type Target = crate::FieldReader<bool, NMI_DIS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "no description available\n\nValue on reset: 1"]
@@ -122,9 +165,12 @@ impl From<FAST_INIT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FAST_INIT`"]
-pub type FAST_INIT_R = crate::R<bool, FAST_INIT_A>;
+#[doc = "Field `FAST_INIT` reader - no description available"]
+pub struct FAST_INIT_R(crate::FieldReader<bool, FAST_INIT_A>);
 impl FAST_INIT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FAST_INIT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FAST_INIT_A {
@@ -136,12 +182,19 @@ impl FAST_INIT_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == FAST_INIT_A::_00
+        **self == FAST_INIT_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == FAST_INIT_A::_01
+        **self == FAST_INIT_A::_01
+    }
+}
+impl core::ops::Deref for FAST_INIT_R {
+    type Target = crate::FieldReader<bool, FAST_INIT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Boot source selection\n\nValue on reset: 0"]
@@ -161,34 +214,43 @@ impl From<BOOTSRC_SEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `BOOTSRC_SEL`"]
-pub type BOOTSRC_SEL_R = crate::R<u8, BOOTSRC_SEL_A>;
+#[doc = "Field `BOOTSRC_SEL` reader - Boot source selection"]
+pub struct BOOTSRC_SEL_R(crate::FieldReader<u8, BOOTSRC_SEL_A>);
 impl BOOTSRC_SEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        BOOTSRC_SEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, BOOTSRC_SEL_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<BOOTSRC_SEL_A> {
         match self.bits {
-            0 => Val(BOOTSRC_SEL_A::_00),
-            2 => Val(BOOTSRC_SEL_A::_10),
-            3 => Val(BOOTSRC_SEL_A::_11),
-            i => Res(i),
+            0 => Some(BOOTSRC_SEL_A::_00),
+            2 => Some(BOOTSRC_SEL_A::_10),
+            3 => Some(BOOTSRC_SEL_A::_11),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == BOOTSRC_SEL_A::_00
+        **self == BOOTSRC_SEL_A::_00
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == BOOTSRC_SEL_A::_10
+        **self == BOOTSRC_SEL_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == BOOTSRC_SEL_A::_11
+        **self == BOOTSRC_SEL_A::_11
+    }
+}
+impl core::ops::Deref for BOOTSRC_SEL_R {
+    type Target = crate::FieldReader<u8, BOOTSRC_SEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -216,5 +278,21 @@ impl R {
     #[inline(always)]
     pub fn bootsrc_sel(&self) -> BOOTSRC_SEL_R {
         BOOTSRC_SEL_R::new(((self.bits >> 6) & 0x03) as u8)
+    }
+}
+#[doc = "Non-volatile Flash Option Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fopt](index.html) module"]
+pub struct FOPT_SPEC;
+impl crate::RegisterSpec for FOPT_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [fopt::R](R) reader structure"]
+impl crate::Readable for FOPT_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets FOPT to value 0x3d"]
+impl crate::Resettable for FOPT_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x3d
     }
 }

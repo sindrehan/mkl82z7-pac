@@ -1,13 +1,37 @@
-#[doc = "Reader of register MUXCR"]
-pub type R = crate::R<u8, super::MUXCR>;
-#[doc = "Writer for register MUXCR"]
-pub type W = crate::W<u8, super::MUXCR>;
-#[doc = "Register MUXCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::MUXCR {
-    type Type = u8;
+#[doc = "Register `MUXCR` reader"]
+pub struct R(crate::R<MUXCR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MUXCR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<MUXCR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<MUXCR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MUXCR` writer"]
+pub struct W(crate::W<MUXCR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MUXCR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<MUXCR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<MUXCR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Minus Input Mux Control\n\nValue on reset: 0"]
@@ -37,9 +61,12 @@ impl From<MSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `MSEL`"]
-pub type MSEL_R = crate::R<u8, MSEL_A>;
+#[doc = "Field `MSEL` reader - Minus Input Mux Control"]
+pub struct MSEL_R(crate::FieldReader<u8, MSEL_A>);
 impl MSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> MSEL_A {
@@ -58,45 +85,52 @@ impl MSEL_R {
     #[doc = "Checks if the value of the field is `_000`"]
     #[inline(always)]
     pub fn is_000(&self) -> bool {
-        *self == MSEL_A::_000
+        **self == MSEL_A::_000
     }
     #[doc = "Checks if the value of the field is `_001`"]
     #[inline(always)]
     pub fn is_001(&self) -> bool {
-        *self == MSEL_A::_001
+        **self == MSEL_A::_001
     }
     #[doc = "Checks if the value of the field is `_010`"]
     #[inline(always)]
     pub fn is_010(&self) -> bool {
-        *self == MSEL_A::_010
+        **self == MSEL_A::_010
     }
     #[doc = "Checks if the value of the field is `_011`"]
     #[inline(always)]
     pub fn is_011(&self) -> bool {
-        *self == MSEL_A::_011
+        **self == MSEL_A::_011
     }
     #[doc = "Checks if the value of the field is `_100`"]
     #[inline(always)]
     pub fn is_100(&self) -> bool {
-        *self == MSEL_A::_100
+        **self == MSEL_A::_100
     }
     #[doc = "Checks if the value of the field is `_101`"]
     #[inline(always)]
     pub fn is_101(&self) -> bool {
-        *self == MSEL_A::_101
+        **self == MSEL_A::_101
     }
     #[doc = "Checks if the value of the field is `_110`"]
     #[inline(always)]
     pub fn is_110(&self) -> bool {
-        *self == MSEL_A::_110
+        **self == MSEL_A::_110
     }
     #[doc = "Checks if the value of the field is `_111`"]
     #[inline(always)]
     pub fn is_111(&self) -> bool {
-        *self == MSEL_A::_111
+        **self == MSEL_A::_111
     }
 }
-#[doc = "Write proxy for field `MSEL`"]
+impl core::ops::Deref for MSEL_R {
+    type Target = crate::FieldReader<u8, MSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MSEL` writer - Minus Input Mux Control"]
 pub struct MSEL_W<'a> {
     w: &'a mut W,
 }
@@ -104,9 +138,7 @@ impl<'a> MSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MSEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "IN0"]
     #[inline(always)]
@@ -151,7 +183,7 @@ impl<'a> MSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u8) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u8 & 0x07);
         self.w
     }
 }
@@ -182,9 +214,12 @@ impl From<PSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `PSEL`"]
-pub type PSEL_R = crate::R<u8, PSEL_A>;
+#[doc = "Field `PSEL` reader - Plus Input Mux Control"]
+pub struct PSEL_R(crate::FieldReader<u8, PSEL_A>);
 impl PSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        PSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PSEL_A {
@@ -203,45 +238,52 @@ impl PSEL_R {
     #[doc = "Checks if the value of the field is `_000`"]
     #[inline(always)]
     pub fn is_000(&self) -> bool {
-        *self == PSEL_A::_000
+        **self == PSEL_A::_000
     }
     #[doc = "Checks if the value of the field is `_001`"]
     #[inline(always)]
     pub fn is_001(&self) -> bool {
-        *self == PSEL_A::_001
+        **self == PSEL_A::_001
     }
     #[doc = "Checks if the value of the field is `_010`"]
     #[inline(always)]
     pub fn is_010(&self) -> bool {
-        *self == PSEL_A::_010
+        **self == PSEL_A::_010
     }
     #[doc = "Checks if the value of the field is `_011`"]
     #[inline(always)]
     pub fn is_011(&self) -> bool {
-        *self == PSEL_A::_011
+        **self == PSEL_A::_011
     }
     #[doc = "Checks if the value of the field is `_100`"]
     #[inline(always)]
     pub fn is_100(&self) -> bool {
-        *self == PSEL_A::_100
+        **self == PSEL_A::_100
     }
     #[doc = "Checks if the value of the field is `_101`"]
     #[inline(always)]
     pub fn is_101(&self) -> bool {
-        *self == PSEL_A::_101
+        **self == PSEL_A::_101
     }
     #[doc = "Checks if the value of the field is `_110`"]
     #[inline(always)]
     pub fn is_110(&self) -> bool {
-        *self == PSEL_A::_110
+        **self == PSEL_A::_110
     }
     #[doc = "Checks if the value of the field is `_111`"]
     #[inline(always)]
     pub fn is_111(&self) -> bool {
-        *self == PSEL_A::_111
+        **self == PSEL_A::_111
     }
 }
-#[doc = "Write proxy for field `PSEL`"]
+impl core::ops::Deref for PSEL_R {
+    type Target = crate::FieldReader<u8, PSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PSEL` writer - Plus Input Mux Control"]
 pub struct PSEL_W<'a> {
     w: &'a mut W,
 }
@@ -249,9 +291,7 @@ impl<'a> PSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PSEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "IN0"]
     #[inline(always)]
@@ -296,7 +336,7 @@ impl<'a> PSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x07 << 3)) | (((value as u8) & 0x07) << 3);
+        self.w.bits = (self.w.bits & !(0x07 << 3)) | ((value as u8 & 0x07) << 3);
         self.w
     }
 }
@@ -322,5 +362,31 @@ impl W {
     #[inline(always)]
     pub fn psel(&mut self) -> PSEL_W {
         PSEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "MUX Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [muxcr](index.html) module"]
+pub struct MUXCR_SPEC;
+impl crate::RegisterSpec for MUXCR_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [muxcr::R](R) reader structure"]
+impl crate::Readable for MUXCR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [muxcr::W](W) writer structure"]
+impl crate::Writable for MUXCR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MUXCR to value 0"]
+impl crate::Resettable for MUXCR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,13 +1,37 @@
-#[doc = "Reader of register TX_STATUS"]
-pub type R = crate::R<u32, super::TX_STATUS>;
-#[doc = "Writer for register TX_STATUS"]
-pub type W = crate::W<u32, super::TX_STATUS>;
-#[doc = "Register TX_STATUS `reset()`'s with value 0xb8"]
-impl crate::ResetValue for super::TX_STATUS {
-    type Type = u32;
+#[doc = "Register `TX_STATUS` reader"]
+pub struct R(crate::R<TX_STATUS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<TX_STATUS_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0xb8
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<TX_STATUS_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<TX_STATUS_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `TX_STATUS` writer"]
+pub struct W(crate::W<TX_STATUS_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<TX_STATUS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<TX_STATUS_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<TX_STATUS_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Transmit NACK Threshold Error Flag\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<TNTE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TNTE`"]
-pub type TNTE_R = crate::R<bool, TNTE_A>;
+#[doc = "Field `TNTE` reader - Transmit NACK Threshold Error Flag"]
+pub struct TNTE_R(crate::FieldReader<bool, TNTE_A>);
 impl TNTE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TNTE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TNTE_A {
@@ -38,15 +65,22 @@ impl TNTE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TNTE_A::_0
+        **self == TNTE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TNTE_A::_1
+        **self == TNTE_A::_1
     }
 }
-#[doc = "Write proxy for field `TNTE`"]
+impl core::ops::Deref for TNTE_R {
+    type Target = crate::FieldReader<bool, TNTE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TNTE` writer - Transmit NACK Threshold Error Flag"]
 pub struct TNTE_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> TNTE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TNTE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Transmit NACK threshold has not been reached (default)"]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> TNTE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<TFE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TFE`"]
-pub type TFE_R = crate::R<bool, TFE_A>;
+#[doc = "Field `TFE` reader - Transmit FIFO Empty Flag"]
+pub struct TFE_R(crate::FieldReader<bool, TFE_A>);
 impl TFE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TFE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TFE_A {
@@ -113,15 +148,22 @@ impl TFE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TFE_A::_0
+        **self == TFE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TFE_A::_1
+        **self == TFE_A::_1
     }
 }
-#[doc = "Write proxy for field `TFE`"]
+impl core::ops::Deref for TFE_R {
+    type Target = crate::FieldReader<bool, TFE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TFE` writer - Transmit FIFO Empty Flag"]
 pub struct TFE_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> TFE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TFE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Transmit FIFO is not empty"]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> TFE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<ETCF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ETCF`"]
-pub type ETCF_R = crate::R<bool, ETCF_A>;
+#[doc = "Field `ETCF` reader - Early Transmit Complete Flag"]
+pub struct ETCF_R(crate::FieldReader<bool, ETCF_A>);
 impl ETCF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ETCF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ETCF_A {
@@ -188,15 +231,22 @@ impl ETCF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == ETCF_A::_0
+        **self == ETCF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == ETCF_A::_1
+        **self == ETCF_A::_1
     }
 }
-#[doc = "Write proxy for field `ETCF`"]
+impl core::ops::Deref for ETCF_R {
+    type Target = crate::FieldReader<bool, ETCF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ETCF` writer - Early Transmit Complete Flag"]
 pub struct ETCF_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> ETCF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ETCF_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Transmit pending or in progress"]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> ETCF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<TCF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TCF`"]
-pub type TCF_R = crate::R<bool, TCF_A>;
+#[doc = "Field `TCF` reader - Transmit Complete Flag"]
+pub struct TCF_R(crate::FieldReader<bool, TCF_A>);
 impl TCF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TCF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TCF_A {
@@ -263,15 +314,22 @@ impl TCF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TCF_A::_0
+        **self == TCF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TCF_A::_1
+        **self == TCF_A::_1
     }
 }
-#[doc = "Write proxy for field `TCF`"]
+impl core::ops::Deref for TCF_R {
+    type Target = crate::FieldReader<bool, TCF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TCF` writer - Transmit Complete Flag"]
 pub struct TCF_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> TCF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TCF_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Transmit pending or in progress"]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> TCF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<TFF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TFF`"]
-pub type TFF_R = crate::R<bool, TFF_A>;
+#[doc = "Field `TFF` reader - Transmit FIFO Full Flag"]
+pub struct TFF_R(crate::FieldReader<bool, TFF_A>);
 impl TFF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TFF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TFF_A {
@@ -338,15 +397,22 @@ impl TFF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TFF_A::_0
+        **self == TFF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TFF_A::_1
+        **self == TFF_A::_1
     }
 }
-#[doc = "Write proxy for field `TFF`"]
+impl core::ops::Deref for TFF_R {
+    type Target = crate::FieldReader<bool, TFF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TFF` writer - Transmit FIFO Full Flag"]
 pub struct TFF_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> TFF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TFF_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Transmit FIFO Full condition has not occurred (default)"]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> TFF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -400,9 +464,12 @@ impl From<TDTF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TDTF`"]
-pub type TDTF_R = crate::R<bool, TDTF_A>;
+#[doc = "Field `TDTF` reader - Transmit Data Threshold Flag"]
+pub struct TDTF_R(crate::FieldReader<bool, TDTF_A>);
 impl TDTF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TDTF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TDTF_A {
@@ -414,12 +481,19 @@ impl TDTF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TDTF_A::_0
+        **self == TDTF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TDTF_A::_1
+        **self == TDTF_A::_1
+    }
+}
+impl core::ops::Deref for TDTF_R {
+    type Target = crate::FieldReader<bool, TDTF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "General Purpose Counter 0 Timeout Flag\n\nValue on reset: 0"]
@@ -436,9 +510,12 @@ impl From<GPCNT0_TO_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `GPCNT0_TO`"]
-pub type GPCNT0_TO_R = crate::R<bool, GPCNT0_TO_A>;
+#[doc = "Field `GPCNT0_TO` reader - General Purpose Counter 0 Timeout Flag"]
+pub struct GPCNT0_TO_R(crate::FieldReader<bool, GPCNT0_TO_A>);
 impl GPCNT0_TO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        GPCNT0_TO_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> GPCNT0_TO_A {
@@ -450,15 +527,22 @@ impl GPCNT0_TO_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == GPCNT0_TO_A::_0
+        **self == GPCNT0_TO_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == GPCNT0_TO_A::_1
+        **self == GPCNT0_TO_A::_1
     }
 }
-#[doc = "Write proxy for field `GPCNT0_TO`"]
+impl core::ops::Deref for GPCNT0_TO_R {
+    type Target = crate::FieldReader<bool, GPCNT0_TO_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPCNT0_TO` writer - General Purpose Counter 0 Timeout Flag"]
 pub struct GPCNT0_TO_W<'a> {
     w: &'a mut W,
 }
@@ -466,9 +550,7 @@ impl<'a> GPCNT0_TO_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GPCNT0_TO_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "GPCNT0_VAL time not reached, or bit has been cleared. (default)"]
     #[inline(always)]
@@ -493,7 +575,7 @@ impl<'a> GPCNT0_TO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -511,9 +593,12 @@ impl From<GPCNT1_TO_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `GPCNT1_TO`"]
-pub type GPCNT1_TO_R = crate::R<bool, GPCNT1_TO_A>;
+#[doc = "Field `GPCNT1_TO` reader - General Purpose Counter 1 Timeout Flag"]
+pub struct GPCNT1_TO_R(crate::FieldReader<bool, GPCNT1_TO_A>);
 impl GPCNT1_TO_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        GPCNT1_TO_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> GPCNT1_TO_A {
@@ -525,15 +610,22 @@ impl GPCNT1_TO_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == GPCNT1_TO_A::_0
+        **self == GPCNT1_TO_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == GPCNT1_TO_A::_1
+        **self == GPCNT1_TO_A::_1
     }
 }
-#[doc = "Write proxy for field `GPCNT1_TO`"]
+impl core::ops::Deref for GPCNT1_TO_R {
+    type Target = crate::FieldReader<bool, GPCNT1_TO_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPCNT1_TO` writer - General Purpose Counter 1 Timeout Flag"]
 pub struct GPCNT1_TO_W<'a> {
     w: &'a mut W,
 }
@@ -541,9 +633,7 @@ impl<'a> GPCNT1_TO_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GPCNT1_TO_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "GPCNT1_VAL time not reached, or bit has been cleared. (default)"]
     #[inline(always)]
@@ -568,12 +658,24 @@ impl<'a> GPCNT1_TO_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
-#[doc = "Reader of field `TX_RPTR`"]
-pub type TX_RPTR_R = crate::R<u8, u8>;
+#[doc = "Field `TX_RPTR` reader - Transmit FIFO Read Pointer"]
+pub struct TX_RPTR_R(crate::FieldReader<u8, u8>);
+impl TX_RPTR_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TX_RPTR_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TX_RPTR_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 #[doc = "Transmit FIFO Byte Count\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
@@ -587,22 +689,31 @@ impl From<TX_CNT_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `TX_CNT`"]
-pub type TX_CNT_R = crate::R<u8, TX_CNT_A>;
+#[doc = "Field `TX_CNT` reader - Transmit FIFO Byte Count"]
+pub struct TX_CNT_R(crate::FieldReader<u8, TX_CNT_A>);
 impl TX_CNT_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        TX_CNT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, TX_CNT_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<TX_CNT_A> {
         match self.bits {
-            0 => Val(TX_CNT_A::_0),
-            i => Res(i),
+            0 => Some(TX_CNT_A::_0),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TX_CNT_A::_0
+        **self == TX_CNT_A::_0
+    }
+}
+impl core::ops::Deref for TX_CNT_R {
+    type Target = crate::FieldReader<u8, TX_CNT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -692,5 +803,31 @@ impl W {
     #[inline(always)]
     pub fn gpcnt1_to(&mut self) -> GPCNT1_TO_W {
         GPCNT1_TO_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Transmitter Status Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tx_status](index.html) module"]
+pub struct TX_STATUS_SPEC;
+impl crate::RegisterSpec for TX_STATUS_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [tx_status::R](R) reader structure"]
+impl crate::Readable for TX_STATUS_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [tx_status::W](W) writer structure"]
+impl crate::Writable for TX_STATUS_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets TX_STATUS to value 0xb8"]
+impl crate::Resettable for TX_STATUS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0xb8
     }
 }

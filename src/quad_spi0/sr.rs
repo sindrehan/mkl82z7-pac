@@ -1,47 +1,312 @@
-#[doc = "Reader of register SR"]
-pub type R = crate::R<u32, super::SR>;
-#[doc = "Reader of field `BUSY`"]
-pub type BUSY_R = crate::R<bool, bool>;
-#[doc = "Reader of field `IP_ACC`"]
-pub type IP_ACC_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB_ACC`"]
-pub type AHB_ACC_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHBGNT`"]
-pub type AHBGNT_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHBTRN`"]
-pub type AHBTRN_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB0NE`"]
-pub type AHB0NE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB1NE`"]
-pub type AHB1NE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB2NE`"]
-pub type AHB2NE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB3NE`"]
-pub type AHB3NE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB0FUL`"]
-pub type AHB0FUL_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB1FUL`"]
-pub type AHB1FUL_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB2FUL`"]
-pub type AHB2FUL_R = crate::R<bool, bool>;
-#[doc = "Reader of field `AHB3FUL`"]
-pub type AHB3FUL_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RXWE`"]
-pub type RXWE_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RXFULL`"]
-pub type RXFULL_R = crate::R<bool, bool>;
-#[doc = "Reader of field `RXDMA`"]
-pub type RXDMA_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TXEDA`"]
-pub type TXEDA_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TXWA`"]
-pub type TXWA_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TXDMA`"]
-pub type TXDMA_R = crate::R<bool, bool>;
-#[doc = "Reader of field `TXFULL`"]
-pub type TXFULL_R = crate::R<bool, bool>;
-#[doc = "Reader of field `DLPSMP`"]
-pub type DLPSMP_R = crate::R<u8, u8>;
+#[doc = "Register `SR` reader"]
+pub struct R(crate::R<SR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `BUSY` reader - Module Busy"]
+pub struct BUSY_R(crate::FieldReader<bool, bool>);
+impl BUSY_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BUSY_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for BUSY_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `IP_ACC` reader - IP Access. Asserted when transaction currently executed was initiated by IP bus."]
+pub struct IP_ACC_R(crate::FieldReader<bool, bool>);
+impl IP_ACC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        IP_ACC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for IP_ACC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB_ACC` reader - AHB Access. Asserted when the transaction currently executed was initiated by AHB bus."]
+pub struct AHB_ACC_R(crate::FieldReader<bool, bool>);
+impl AHB_ACC_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB_ACC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB_ACC_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHBGNT` reader - AHB Command priority Granted: Asserted when another module has been granted priority of AHB Commands against IP Commands"]
+pub struct AHBGNT_R(crate::FieldReader<bool, bool>);
+impl AHBGNT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHBGNT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHBGNT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHBTRN` reader - AHB Access Transaction pending"]
+pub struct AHBTRN_R(crate::FieldReader<bool, bool>);
+impl AHBTRN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHBTRN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHBTRN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB0NE` reader - AHB 0 Buffer Not Empty. Asserted when AHB 0 buffer contains data."]
+pub struct AHB0NE_R(crate::FieldReader<bool, bool>);
+impl AHB0NE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB0NE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB0NE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB1NE` reader - AHB 1 Buffer Not Empty. Asserted when AHB 1 buffer contains data."]
+pub struct AHB1NE_R(crate::FieldReader<bool, bool>);
+impl AHB1NE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB1NE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB1NE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB2NE` reader - AHB 2 Buffer Not Empty. Asserted when AHB 2 buffer contains data."]
+pub struct AHB2NE_R(crate::FieldReader<bool, bool>);
+impl AHB2NE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB2NE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB2NE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB3NE` reader - AHB 3 Buffer Not Empty. Asserted when AHB 3 buffer contains data."]
+pub struct AHB3NE_R(crate::FieldReader<bool, bool>);
+impl AHB3NE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB3NE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB3NE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB0FUL` reader - AHB 0 Buffer Full. Asserted when AHB 0 buffer is full."]
+pub struct AHB0FUL_R(crate::FieldReader<bool, bool>);
+impl AHB0FUL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB0FUL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB0FUL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB1FUL` reader - AHB 1 Buffer Full. Asserted when AHB 1 buffer is full."]
+pub struct AHB1FUL_R(crate::FieldReader<bool, bool>);
+impl AHB1FUL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB1FUL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB1FUL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB2FUL` reader - AHB 2 Buffer Full. Asserted when AHB 2 buffer is full."]
+pub struct AHB2FUL_R(crate::FieldReader<bool, bool>);
+impl AHB2FUL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB2FUL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB2FUL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `AHB3FUL` reader - AHB 3 Buffer Full. Asserted when AHB 3 buffer is full."]
+pub struct AHB3FUL_R(crate::FieldReader<bool, bool>);
+impl AHB3FUL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        AHB3FUL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for AHB3FUL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXWE` reader - RX Buffer Watermark Exceeded"]
+pub struct RXWE_R(crate::FieldReader<bool, bool>);
+impl RXWE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RXWE_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXWE_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXFULL` reader - RX Buffer Full"]
+pub struct RXFULL_R(crate::FieldReader<bool, bool>);
+impl RXFULL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RXFULL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXFULL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RXDMA` reader - RX Buffer DMA. Asserted when RX Buffer read out via DMA is active i.e DMA is requested or running."]
+pub struct RXDMA_R(crate::FieldReader<bool, bool>);
+impl RXDMA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RXDMA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for RXDMA_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXEDA` reader - Tx Buffer Enough Data Available"]
+pub struct TXEDA_R(crate::FieldReader<bool, bool>);
+impl TXEDA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TXEDA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXEDA_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXWA` reader - TX Buffer watermark Available"]
+pub struct TXWA_R(crate::FieldReader<bool, bool>);
+impl TXWA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TXWA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXWA_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXDMA` reader - TXDMA"]
+pub struct TXDMA_R(crate::FieldReader<bool, bool>);
+impl TXDMA_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TXDMA_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXDMA_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TXFULL` reader - TX Buffer Full. Asserted when no more data can be stored."]
+pub struct TXFULL_R(crate::FieldReader<bool, bool>);
+impl TXFULL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TXFULL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for TXFULL_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DLPSMP` reader - Data learning pattern sampling point"]
+pub struct DLPSMP_R(crate::FieldReader<u8, u8>);
+impl DLPSMP_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DLPSMP_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DLPSMP_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 impl R {
     #[doc = "Bit 0 - Module Busy"]
     #[inline(always)]
@@ -147,5 +412,21 @@ impl R {
     #[inline(always)]
     pub fn dlpsmp(&self) -> DLPSMP_R {
         DLPSMP_R::new(((self.bits >> 29) & 0x07) as u8)
+    }
+}
+#[doc = "Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sr](index.html) module"]
+pub struct SR_SPEC;
+impl crate::RegisterSpec for SR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [sr::R](R) reader structure"]
+impl crate::Readable for SR_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets SR to value 0x0200_3800"]
+impl crate::Resettable for SR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0200_3800
     }
 }

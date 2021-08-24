@@ -1,13 +1,37 @@
-#[doc = "Reader of register SSRS1"]
-pub type R = crate::R<u8, super::SSRS1>;
-#[doc = "Writer for register SSRS1"]
-pub type W = crate::W<u8, super::SSRS1>;
-#[doc = "Register SSRS1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::SSRS1 {
-    type Type = u8;
+#[doc = "Register `SSRS1` reader"]
+pub struct R(crate::R<SSRS1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SSRS1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SSRS1_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SSRS1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SSRS1` writer"]
+pub struct W(crate::W<SSRS1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SSRS1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<SSRS1_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<SSRS1_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Sticky Core Lockup\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<SLOCKUP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SLOCKUP`"]
-pub type SLOCKUP_R = crate::R<bool, SLOCKUP_A>;
+#[doc = "Field `SLOCKUP` reader - Sticky Core Lockup"]
+pub struct SLOCKUP_R(crate::FieldReader<bool, SLOCKUP_A>);
 impl SLOCKUP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SLOCKUP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SLOCKUP_A {
@@ -38,15 +65,22 @@ impl SLOCKUP_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SLOCKUP_A::_0
+        **self == SLOCKUP_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SLOCKUP_A::_1
+        **self == SLOCKUP_A::_1
     }
 }
-#[doc = "Write proxy for field `SLOCKUP`"]
+impl core::ops::Deref for SLOCKUP_R {
+    type Target = crate::FieldReader<bool, SLOCKUP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SLOCKUP` writer - Sticky Core Lockup"]
 pub struct SLOCKUP_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> SLOCKUP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLOCKUP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Reset not caused by core LOCKUP event"]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> SLOCKUP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u8) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u8 & 0x01) << 1);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<SSW_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SSW`"]
-pub type SSW_R = crate::R<bool, SSW_A>;
+#[doc = "Field `SSW` reader - Sticky Software"]
+pub struct SSW_R(crate::FieldReader<bool, SSW_A>);
 impl SSW_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SSW_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SSW_A {
@@ -113,15 +148,22 @@ impl SSW_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SSW_A::_0
+        **self == SSW_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SSW_A::_1
+        **self == SSW_A::_1
     }
 }
-#[doc = "Write proxy for field `SSW`"]
+impl core::ops::Deref for SSW_R {
+    type Target = crate::FieldReader<bool, SSW_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSW` writer - Sticky Software"]
 pub struct SSW_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> SSW_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SSW_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Reset not caused by software setting of SYSRESETREQ bit"]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> SSW_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u8) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u8 & 0x01) << 2);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<SMDM_AP_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SMDM_AP`"]
-pub type SMDM_AP_R = crate::R<bool, SMDM_AP_A>;
+#[doc = "Field `SMDM_AP` reader - Sticky MDM-AP System Reset Request"]
+pub struct SMDM_AP_R(crate::FieldReader<bool, SMDM_AP_A>);
 impl SMDM_AP_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SMDM_AP_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SMDM_AP_A {
@@ -188,15 +231,22 @@ impl SMDM_AP_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SMDM_AP_A::_0
+        **self == SMDM_AP_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SMDM_AP_A::_1
+        **self == SMDM_AP_A::_1
     }
 }
-#[doc = "Write proxy for field `SMDM_AP`"]
+impl core::ops::Deref for SMDM_AP_R {
+    type Target = crate::FieldReader<bool, SMDM_AP_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SMDM_AP` writer - Sticky MDM-AP System Reset Request"]
 pub struct SMDM_AP_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> SMDM_AP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SMDM_AP_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Reset not caused by host debugger system setting of the System Reset Request bit"]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> SMDM_AP_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u8) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u8 & 0x01) << 3);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<SSACKERR_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SSACKERR`"]
-pub type SSACKERR_R = crate::R<bool, SSACKERR_A>;
+#[doc = "Field `SSACKERR` reader - Sticky Stop Mode Acknowledge Error Reset"]
+pub struct SSACKERR_R(crate::FieldReader<bool, SSACKERR_A>);
 impl SSACKERR_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SSACKERR_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SSACKERR_A {
@@ -263,15 +314,22 @@ impl SSACKERR_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SSACKERR_A::_0
+        **self == SSACKERR_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SSACKERR_A::_1
+        **self == SSACKERR_A::_1
     }
 }
-#[doc = "Write proxy for field `SSACKERR`"]
+impl core::ops::Deref for SSACKERR_R {
+    type Target = crate::FieldReader<bool, SSACKERR_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `SSACKERR` writer - Sticky Stop Mode Acknowledge Error Reset"]
 pub struct SSACKERR_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> SSACKERR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SSACKERR_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Reset not caused by peripheral failure to acknowledge attempt to enter stop mode"]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> SSACKERR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -352,5 +408,31 @@ impl W {
     #[inline(always)]
     pub fn ssackerr(&mut self) -> SSACKERR_W {
         SSACKERR_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Sticky System Reset Status Register 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ssrs1](index.html) module"]
+pub struct SSRS1_SPEC;
+impl crate::RegisterSpec for SSRS1_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [ssrs1::R](R) reader structure"]
+impl crate::Readable for SSRS1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ssrs1::W](W) writer structure"]
+impl crate::Writable for SSRS1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SSRS1 to value 0"]
+impl crate::Resettable for SSRS1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

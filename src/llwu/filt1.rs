@@ -1,13 +1,37 @@
-#[doc = "Reader of register FILT1"]
-pub type R = crate::R<u8, super::FILT1>;
-#[doc = "Writer for register FILT1"]
-pub type W = crate::W<u8, super::FILT1>;
-#[doc = "Register FILT1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::FILT1 {
-    type Type = u8;
+#[doc = "Register `FILT1` reader"]
+pub struct R(crate::R<FILT1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FILT1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<FILT1_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<FILT1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FILT1` writer"]
+pub struct W(crate::W<FILT1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FILT1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<FILT1_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<FILT1_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Filter Pin Select\n\nValue on reset: 0"]
@@ -25,31 +49,40 @@ impl From<FILTSEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `FILTSEL`"]
-pub type FILTSEL_R = crate::R<u8, FILTSEL_A>;
+#[doc = "Field `FILTSEL` reader - Filter Pin Select"]
+pub struct FILTSEL_R(crate::FieldReader<u8, FILTSEL_A>);
 impl FILTSEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FILTSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, FILTSEL_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<FILTSEL_A> {
         match self.bits {
-            0 => Val(FILTSEL_A::_00000),
-            31 => Val(FILTSEL_A::_11111),
-            i => Res(i),
+            0 => Some(FILTSEL_A::_00000),
+            31 => Some(FILTSEL_A::_11111),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_00000`"]
     #[inline(always)]
     pub fn is_00000(&self) -> bool {
-        *self == FILTSEL_A::_00000
+        **self == FILTSEL_A::_00000
     }
     #[doc = "Checks if the value of the field is `_11111`"]
     #[inline(always)]
     pub fn is_11111(&self) -> bool {
-        *self == FILTSEL_A::_11111
+        **self == FILTSEL_A::_11111
     }
 }
-#[doc = "Write proxy for field `FILTSEL`"]
+impl core::ops::Deref for FILTSEL_R {
+    type Target = crate::FieldReader<u8, FILTSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FILTSEL` writer - Filter Pin Select"]
 pub struct FILTSEL_W<'a> {
     w: &'a mut W,
 }
@@ -72,7 +105,7 @@ impl<'a> FILTSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x1f) | ((value as u8) & 0x1f);
+        self.w.bits = (self.w.bits & !0x1f) | (value as u8 & 0x1f);
         self.w
     }
 }
@@ -95,9 +128,12 @@ impl From<FILTE_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `FILTE`"]
-pub type FILTE_R = crate::R<u8, FILTE_A>;
+#[doc = "Field `FILTE` reader - Digital Filter On External Pin"]
+pub struct FILTE_R(crate::FieldReader<u8, FILTE_A>);
 impl FILTE_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        FILTE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FILTE_A {
@@ -112,25 +148,32 @@ impl FILTE_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == FILTE_A::_00
+        **self == FILTE_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == FILTE_A::_01
+        **self == FILTE_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == FILTE_A::_10
+        **self == FILTE_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == FILTE_A::_11
+        **self == FILTE_A::_11
     }
 }
-#[doc = "Write proxy for field `FILTE`"]
+impl core::ops::Deref for FILTE_R {
+    type Target = crate::FieldReader<u8, FILTE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FILTE` writer - Digital Filter On External Pin"]
 pub struct FILTE_W<'a> {
     w: &'a mut W,
 }
@@ -138,9 +181,7 @@ impl<'a> FILTE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FILTE_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Filter disabled"]
     #[inline(always)]
@@ -165,7 +206,7 @@ impl<'a> FILTE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 5)) | (((value as u8) & 0x03) << 5);
+        self.w.bits = (self.w.bits & !(0x03 << 5)) | ((value as u8 & 0x03) << 5);
         self.w
     }
 }
@@ -183,9 +224,12 @@ impl From<FILTF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `FILTF`"]
-pub type FILTF_R = crate::R<bool, FILTF_A>;
+#[doc = "Field `FILTF` reader - Filter Detect Flag"]
+pub struct FILTF_R(crate::FieldReader<bool, FILTF_A>);
 impl FILTF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        FILTF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> FILTF_A {
@@ -197,15 +241,22 @@ impl FILTF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == FILTF_A::_0
+        **self == FILTF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == FILTF_A::_1
+        **self == FILTF_A::_1
     }
 }
-#[doc = "Write proxy for field `FILTF`"]
+impl core::ops::Deref for FILTF_R {
+    type Target = crate::FieldReader<bool, FILTF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `FILTF` writer - Filter Detect Flag"]
 pub struct FILTF_W<'a> {
     w: &'a mut W,
 }
@@ -213,9 +264,7 @@ impl<'a> FILTF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FILTF_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Pin Filter 1 was not a wakeup source"]
     #[inline(always)]
@@ -240,7 +289,7 @@ impl<'a> FILTF_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -276,5 +325,31 @@ impl W {
     #[inline(always)]
     pub fn filtf(&mut self) -> FILTF_W {
         FILTF_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "LLWU Pin Filter 1 register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [filt1](index.html) module"]
+pub struct FILT1_SPEC;
+impl crate::RegisterSpec for FILT1_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [filt1::R](R) reader structure"]
+impl crate::Readable for FILT1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [filt1::W](W) writer structure"]
+impl crate::Writable for FILT1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FILT1 to value 0"]
+impl crate::Resettable for FILT1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

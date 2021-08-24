@@ -1,13 +1,37 @@
-#[doc = "Reader of register LVDSC2"]
-pub type R = crate::R<u8, super::LVDSC2>;
-#[doc = "Writer for register LVDSC2"]
-pub type W = crate::W<u8, super::LVDSC2>;
-#[doc = "Register LVDSC2 `reset()`'s with value 0"]
-impl crate::ResetValue for super::LVDSC2 {
-    type Type = u8;
+#[doc = "Register `LVDSC2` reader"]
+pub struct R(crate::R<LVDSC2_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<LVDSC2_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<LVDSC2_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<LVDSC2_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `LVDSC2` writer"]
+pub struct W(crate::W<LVDSC2_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<LVDSC2_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<LVDSC2_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<LVDSC2_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Low-Voltage Warning Voltage Select\n\nValue on reset: 0"]
@@ -29,9 +53,12 @@ impl From<LVWV_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `LVWV`"]
-pub type LVWV_R = crate::R<u8, LVWV_A>;
+#[doc = "Field `LVWV` reader - Low-Voltage Warning Voltage Select"]
+pub struct LVWV_R(crate::FieldReader<u8, LVWV_A>);
 impl LVWV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        LVWV_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LVWV_A {
@@ -46,25 +73,32 @@ impl LVWV_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == LVWV_A::_00
+        **self == LVWV_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == LVWV_A::_01
+        **self == LVWV_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == LVWV_A::_10
+        **self == LVWV_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == LVWV_A::_11
+        **self == LVWV_A::_11
     }
 }
-#[doc = "Write proxy for field `LVWV`"]
+impl core::ops::Deref for LVWV_R {
+    type Target = crate::FieldReader<u8, LVWV_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LVWV` writer - Low-Voltage Warning Voltage Select"]
 pub struct LVWV_W<'a> {
     w: &'a mut W,
 }
@@ -72,9 +106,7 @@ impl<'a> LVWV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LVWV_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Low trip point selected (VLVW = VLVW1)"]
     #[inline(always)]
@@ -99,7 +131,7 @@ impl<'a> LVWV_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x03) | ((value as u8) & 0x03);
+        self.w.bits = (self.w.bits & !0x03) | (value as u8 & 0x03);
         self.w
     }
 }
@@ -117,9 +149,12 @@ impl From<LVWIE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LVWIE`"]
-pub type LVWIE_R = crate::R<bool, LVWIE_A>;
+#[doc = "Field `LVWIE` reader - Low-Voltage Warning Interrupt Enable"]
+pub struct LVWIE_R(crate::FieldReader<bool, LVWIE_A>);
 impl LVWIE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LVWIE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LVWIE_A {
@@ -131,15 +166,22 @@ impl LVWIE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == LVWIE_A::_0
+        **self == LVWIE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == LVWIE_A::_1
+        **self == LVWIE_A::_1
     }
 }
-#[doc = "Write proxy for field `LVWIE`"]
+impl core::ops::Deref for LVWIE_R {
+    type Target = crate::FieldReader<bool, LVWIE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LVWIE` writer - Low-Voltage Warning Interrupt Enable"]
 pub struct LVWIE_W<'a> {
     w: &'a mut W,
 }
@@ -147,9 +189,7 @@ impl<'a> LVWIE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LVWIE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Hardware interrupt disabled (use polling)"]
     #[inline(always)]
@@ -174,11 +214,11 @@ impl<'a> LVWIE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
-#[doc = "Write proxy for field `LVWACK`"]
+#[doc = "Field `LVWACK` writer - Low-Voltage Warning Acknowledge"]
 pub struct LVWACK_W<'a> {
     w: &'a mut W,
 }
@@ -196,7 +236,7 @@ impl<'a> LVWACK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -214,9 +254,12 @@ impl From<LVWF_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LVWF`"]
-pub type LVWF_R = crate::R<bool, LVWF_A>;
+#[doc = "Field `LVWF` reader - Low-Voltage Warning Flag"]
+pub struct LVWF_R(crate::FieldReader<bool, LVWF_A>);
 impl LVWF_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LVWF_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LVWF_A {
@@ -228,12 +271,19 @@ impl LVWF_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == LVWF_A::_0
+        **self == LVWF_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == LVWF_A::_1
+        **self == LVWF_A::_1
+    }
+}
+impl core::ops::Deref for LVWF_R {
+    type Target = crate::FieldReader<bool, LVWF_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -268,5 +318,31 @@ impl W {
     #[inline(always)]
     pub fn lvwack(&mut self) -> LVWACK_W {
         LVWACK_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Low Voltage Detect Status And Control 2 register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lvdsc2](index.html) module"]
+pub struct LVDSC2_SPEC;
+impl crate::RegisterSpec for LVDSC2_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [lvdsc2::R](R) reader structure"]
+impl crate::Readable for LVDSC2_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [lvdsc2::W](W) writer structure"]
+impl crate::Writable for LVDSC2_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets LVDSC2 to value 0"]
+impl crate::Resettable for LVDSC2_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

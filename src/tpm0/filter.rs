@@ -1,18 +1,54 @@
-#[doc = "Reader of register FILTER"]
-pub type R = crate::R<u32, super::FILTER>;
-#[doc = "Writer for register FILTER"]
-pub type W = crate::W<u32, super::FILTER>;
-#[doc = "Register FILTER `reset()`'s with value 0"]
-impl crate::ResetValue for super::FILTER {
-    type Type = u32;
+#[doc = "Register `FILTER` reader"]
+pub struct R(crate::R<FILTER_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<FILTER_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CH0FVAL`"]
-pub type CH0FVAL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CH0FVAL`"]
+impl From<crate::R<FILTER_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<FILTER_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `FILTER` writer"]
+pub struct W(crate::W<FILTER_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<FILTER_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<FILTER_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<FILTER_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CH0FVAL` reader - Channel 0 Filter Value"]
+pub struct CH0FVAL_R(crate::FieldReader<u8, u8>);
+impl CH0FVAL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CH0FVAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH0FVAL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH0FVAL` writer - Channel 0 Filter Value"]
 pub struct CH0FVAL_W<'a> {
     w: &'a mut W,
 }
@@ -20,13 +56,25 @@ impl<'a> CH0FVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x0f) | ((value as u32) & 0x0f);
+        self.w.bits = (self.w.bits & !0x0f) | (value as u32 & 0x0f);
         self.w
     }
 }
-#[doc = "Reader of field `CH1FVAL`"]
-pub type CH1FVAL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CH1FVAL`"]
+#[doc = "Field `CH1FVAL` reader - Channel 1 Filter Value"]
+pub struct CH1FVAL_R(crate::FieldReader<u8, u8>);
+impl CH1FVAL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CH1FVAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH1FVAL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH1FVAL` writer - Channel 1 Filter Value"]
 pub struct CH1FVAL_W<'a> {
     w: &'a mut W,
 }
@@ -34,13 +82,25 @@ impl<'a> CH1FVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 4)) | (((value as u32) & 0x0f) << 4);
+        self.w.bits = (self.w.bits & !(0x0f << 4)) | ((value as u32 & 0x0f) << 4);
         self.w
     }
 }
-#[doc = "Reader of field `CH2FVAL`"]
-pub type CH2FVAL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CH2FVAL`"]
+#[doc = "Field `CH2FVAL` reader - Channel 2 Filter Value"]
+pub struct CH2FVAL_R(crate::FieldReader<u8, u8>);
+impl CH2FVAL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CH2FVAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH2FVAL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH2FVAL` writer - Channel 2 Filter Value"]
 pub struct CH2FVAL_W<'a> {
     w: &'a mut W,
 }
@@ -48,13 +108,25 @@ impl<'a> CH2FVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 8)) | (((value as u32) & 0x0f) << 8);
+        self.w.bits = (self.w.bits & !(0x0f << 8)) | ((value as u32 & 0x0f) << 8);
         self.w
     }
 }
-#[doc = "Reader of field `CH3FVAL`"]
-pub type CH3FVAL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CH3FVAL`"]
+#[doc = "Field `CH3FVAL` reader - Channel 3 Filter Value"]
+pub struct CH3FVAL_R(crate::FieldReader<u8, u8>);
+impl CH3FVAL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CH3FVAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH3FVAL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH3FVAL` writer - Channel 3 Filter Value"]
 pub struct CH3FVAL_W<'a> {
     w: &'a mut W,
 }
@@ -62,13 +134,25 @@ impl<'a> CH3FVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 12)) | (((value as u32) & 0x0f) << 12);
+        self.w.bits = (self.w.bits & !(0x0f << 12)) | ((value as u32 & 0x0f) << 12);
         self.w
     }
 }
-#[doc = "Reader of field `CH4FVAL`"]
-pub type CH4FVAL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CH4FVAL`"]
+#[doc = "Field `CH4FVAL` reader - Channel 4 Filter Value"]
+pub struct CH4FVAL_R(crate::FieldReader<u8, u8>);
+impl CH4FVAL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CH4FVAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH4FVAL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH4FVAL` writer - Channel 4 Filter Value"]
 pub struct CH4FVAL_W<'a> {
     w: &'a mut W,
 }
@@ -76,13 +160,25 @@ impl<'a> CH4FVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
+        self.w.bits = (self.w.bits & !(0x0f << 16)) | ((value as u32 & 0x0f) << 16);
         self.w
     }
 }
-#[doc = "Reader of field `CH5FVAL`"]
-pub type CH5FVAL_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CH5FVAL`"]
+#[doc = "Field `CH5FVAL` reader - Channel 5 Filter Value"]
+pub struct CH5FVAL_R(crate::FieldReader<u8, u8>);
+impl CH5FVAL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CH5FVAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CH5FVAL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CH5FVAL` writer - Channel 5 Filter Value"]
 pub struct CH5FVAL_W<'a> {
     w: &'a mut W,
 }
@@ -90,7 +186,7 @@ impl<'a> CH5FVAL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x0f << 20)) | (((value as u32) & 0x0f) << 20);
+        self.w.bits = (self.w.bits & !(0x0f << 20)) | ((value as u32 & 0x0f) << 20);
         self.w
     }
 }
@@ -156,5 +252,31 @@ impl W {
     #[inline(always)]
     pub fn ch5fval(&mut self) -> CH5FVAL_W {
         CH5FVAL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Filter Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [filter](index.html) module"]
+pub struct FILTER_SPEC;
+impl crate::RegisterSpec for FILTER_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [filter::R](R) reader structure"]
+impl crate::Readable for FILTER_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [filter::W](W) writer structure"]
+impl crate::Writable for FILTER_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets FILTER to value 0"]
+impl crate::Resettable for FILTER_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

@@ -1,5 +1,18 @@
-#[doc = "Reader of register HRS"]
-pub type R = crate::R<u32, super::HRS>;
+#[doc = "Register `HRS` reader"]
+pub struct R(crate::R<HRS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<HRS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<HRS_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<HRS_SPEC>) -> Self {
+        R(reader)
+    }
+}
 #[doc = "Hardware Request Status Channel 0\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HRS0_A {
@@ -14,9 +27,12 @@ impl From<HRS0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS0`"]
-pub type HRS0_R = crate::R<bool, HRS0_A>;
+#[doc = "Field `HRS0` reader - Hardware Request Status Channel 0"]
+pub struct HRS0_R(crate::FieldReader<bool, HRS0_A>);
 impl HRS0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS0_A {
@@ -28,12 +44,19 @@ impl HRS0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS0_A::_0
+        **self == HRS0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS0_A::_1
+        **self == HRS0_A::_1
+    }
+}
+impl core::ops::Deref for HRS0_R {
+    type Target = crate::FieldReader<bool, HRS0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Hardware Request Status Channel 1\n\nValue on reset: 0"]
@@ -50,9 +73,12 @@ impl From<HRS1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS1`"]
-pub type HRS1_R = crate::R<bool, HRS1_A>;
+#[doc = "Field `HRS1` reader - Hardware Request Status Channel 1"]
+pub struct HRS1_R(crate::FieldReader<bool, HRS1_A>);
 impl HRS1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS1_A {
@@ -64,12 +90,19 @@ impl HRS1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS1_A::_0
+        **self == HRS1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS1_A::_1
+        **self == HRS1_A::_1
+    }
+}
+impl core::ops::Deref for HRS1_R {
+    type Target = crate::FieldReader<bool, HRS1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Hardware Request Status Channel 2\n\nValue on reset: 0"]
@@ -86,9 +119,12 @@ impl From<HRS2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS2`"]
-pub type HRS2_R = crate::R<bool, HRS2_A>;
+#[doc = "Field `HRS2` reader - Hardware Request Status Channel 2"]
+pub struct HRS2_R(crate::FieldReader<bool, HRS2_A>);
 impl HRS2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS2_A {
@@ -100,12 +136,19 @@ impl HRS2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS2_A::_0
+        **self == HRS2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS2_A::_1
+        **self == HRS2_A::_1
+    }
+}
+impl core::ops::Deref for HRS2_R {
+    type Target = crate::FieldReader<bool, HRS2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Hardware Request Status Channel 3\n\nValue on reset: 0"]
@@ -122,9 +165,12 @@ impl From<HRS3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS3`"]
-pub type HRS3_R = crate::R<bool, HRS3_A>;
+#[doc = "Field `HRS3` reader - Hardware Request Status Channel 3"]
+pub struct HRS3_R(crate::FieldReader<bool, HRS3_A>);
 impl HRS3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS3_A {
@@ -136,12 +182,19 @@ impl HRS3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS3_A::_0
+        **self == HRS3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS3_A::_1
+        **self == HRS3_A::_1
+    }
+}
+impl core::ops::Deref for HRS3_R {
+    type Target = crate::FieldReader<bool, HRS3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Hardware Request Status Channel 4\n\nValue on reset: 0"]
@@ -158,9 +211,12 @@ impl From<HRS4_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS4`"]
-pub type HRS4_R = crate::R<bool, HRS4_A>;
+#[doc = "Field `HRS4` reader - Hardware Request Status Channel 4"]
+pub struct HRS4_R(crate::FieldReader<bool, HRS4_A>);
 impl HRS4_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS4_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS4_A {
@@ -172,12 +228,19 @@ impl HRS4_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS4_A::_0
+        **self == HRS4_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS4_A::_1
+        **self == HRS4_A::_1
+    }
+}
+impl core::ops::Deref for HRS4_R {
+    type Target = crate::FieldReader<bool, HRS4_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Hardware Request Status Channel 5\n\nValue on reset: 0"]
@@ -194,9 +257,12 @@ impl From<HRS5_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS5`"]
-pub type HRS5_R = crate::R<bool, HRS5_A>;
+#[doc = "Field `HRS5` reader - Hardware Request Status Channel 5"]
+pub struct HRS5_R(crate::FieldReader<bool, HRS5_A>);
 impl HRS5_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS5_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS5_A {
@@ -208,12 +274,19 @@ impl HRS5_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS5_A::_0
+        **self == HRS5_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS5_A::_1
+        **self == HRS5_A::_1
+    }
+}
+impl core::ops::Deref for HRS5_R {
+    type Target = crate::FieldReader<bool, HRS5_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Hardware Request Status Channel 6\n\nValue on reset: 0"]
@@ -230,9 +303,12 @@ impl From<HRS6_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS6`"]
-pub type HRS6_R = crate::R<bool, HRS6_A>;
+#[doc = "Field `HRS6` reader - Hardware Request Status Channel 6"]
+pub struct HRS6_R(crate::FieldReader<bool, HRS6_A>);
 impl HRS6_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS6_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS6_A {
@@ -244,12 +320,19 @@ impl HRS6_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS6_A::_0
+        **self == HRS6_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS6_A::_1
+        **self == HRS6_A::_1
+    }
+}
+impl core::ops::Deref for HRS6_R {
+    type Target = crate::FieldReader<bool, HRS6_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Hardware Request Status Channel 7\n\nValue on reset: 0"]
@@ -266,9 +349,12 @@ impl From<HRS7_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `HRS7`"]
-pub type HRS7_R = crate::R<bool, HRS7_A>;
+#[doc = "Field `HRS7` reader - Hardware Request Status Channel 7"]
+pub struct HRS7_R(crate::FieldReader<bool, HRS7_A>);
 impl HRS7_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        HRS7_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> HRS7_A {
@@ -280,12 +366,19 @@ impl HRS7_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == HRS7_A::_0
+        **self == HRS7_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == HRS7_A::_1
+        **self == HRS7_A::_1
+    }
+}
+impl core::ops::Deref for HRS7_R {
+    type Target = crate::FieldReader<bool, HRS7_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -328,5 +421,21 @@ impl R {
     #[inline(always)]
     pub fn hrs7(&self) -> HRS7_R {
         HRS7_R::new(((self.bits >> 7) & 0x01) != 0)
+    }
+}
+#[doc = "Hardware Request Status Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hrs](index.html) module"]
+pub struct HRS_SPEC;
+impl crate::RegisterSpec for HRS_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [hrs::R](R) reader structure"]
+impl crate::Readable for HRS_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets HRS to value 0"]
+impl crate::Resettable for HRS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

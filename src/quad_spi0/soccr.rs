@@ -1,13 +1,37 @@
-#[doc = "Reader of register SOCCR"]
-pub type R = crate::R<u32, super::SOCCR>;
-#[doc = "Writer for register SOCCR"]
-pub type W = crate::W<u32, super::SOCCR>;
-#[doc = "Register SOCCR `reset()`'s with value 0"]
-impl crate::ResetValue for super::SOCCR {
-    type Type = u32;
+#[doc = "Register `SOCCR` reader"]
+pub struct R(crate::R<SOCCR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<SOCCR_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<SOCCR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<SOCCR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `SOCCR` writer"]
+pub struct W(crate::W<SOCCR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<SOCCR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<SOCCR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<SOCCR_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "QSPI clock source select\n\nValue on reset: 0"]
@@ -35,61 +59,70 @@ impl From<QSPISRC_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `QSPISRC`"]
-pub type QSPISRC_R = crate::R<u8, QSPISRC_A>;
+#[doc = "Field `QSPISRC` reader - QSPI clock source select"]
+pub struct QSPISRC_R(crate::FieldReader<u8, QSPISRC_A>);
 impl QSPISRC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        QSPISRC_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> crate::Variant<u8, QSPISRC_A> {
-        use crate::Variant::*;
+    pub fn variant(&self) -> Option<QSPISRC_A> {
         match self.bits {
-            0 => Val(QSPISRC_A::_000),
-            1 => Val(QSPISRC_A::_001),
-            2 => Val(QSPISRC_A::_010),
-            3 => Val(QSPISRC_A::_011),
-            4 => Val(QSPISRC_A::_100),
-            5 => Val(QSPISRC_A::_101),
-            6 => Val(QSPISRC_A::_110),
-            i => Res(i),
+            0 => Some(QSPISRC_A::_000),
+            1 => Some(QSPISRC_A::_001),
+            2 => Some(QSPISRC_A::_010),
+            3 => Some(QSPISRC_A::_011),
+            4 => Some(QSPISRC_A::_100),
+            5 => Some(QSPISRC_A::_101),
+            6 => Some(QSPISRC_A::_110),
+            _ => None,
         }
     }
     #[doc = "Checks if the value of the field is `_000`"]
     #[inline(always)]
     pub fn is_000(&self) -> bool {
-        *self == QSPISRC_A::_000
+        **self == QSPISRC_A::_000
     }
     #[doc = "Checks if the value of the field is `_001`"]
     #[inline(always)]
     pub fn is_001(&self) -> bool {
-        *self == QSPISRC_A::_001
+        **self == QSPISRC_A::_001
     }
     #[doc = "Checks if the value of the field is `_010`"]
     #[inline(always)]
     pub fn is_010(&self) -> bool {
-        *self == QSPISRC_A::_010
+        **self == QSPISRC_A::_010
     }
     #[doc = "Checks if the value of the field is `_011`"]
     #[inline(always)]
     pub fn is_011(&self) -> bool {
-        *self == QSPISRC_A::_011
+        **self == QSPISRC_A::_011
     }
     #[doc = "Checks if the value of the field is `_100`"]
     #[inline(always)]
     pub fn is_100(&self) -> bool {
-        *self == QSPISRC_A::_100
+        **self == QSPISRC_A::_100
     }
     #[doc = "Checks if the value of the field is `_101`"]
     #[inline(always)]
     pub fn is_101(&self) -> bool {
-        *self == QSPISRC_A::_101
+        **self == QSPISRC_A::_101
     }
     #[doc = "Checks if the value of the field is `_110`"]
     #[inline(always)]
     pub fn is_110(&self) -> bool {
-        *self == QSPISRC_A::_110
+        **self == QSPISRC_A::_110
     }
 }
-#[doc = "Write proxy for field `QSPISRC`"]
+impl core::ops::Deref for QSPISRC_R {
+    type Target = crate::FieldReader<u8, QSPISRC_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `QSPISRC` writer - QSPI clock source select"]
 pub struct QSPISRC_W<'a> {
     w: &'a mut W,
 }
@@ -137,7 +170,7 @@ impl<'a> QSPISRC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
+        self.w.bits = (self.w.bits & !0x07) | (value as u32 & 0x07);
         self.w
     }
 }
@@ -155,9 +188,12 @@ impl From<DQSLPEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DQSLPEN`"]
-pub type DQSLPEN_R = crate::R<bool, DQSLPEN_A>;
+#[doc = "Field `DQSLPEN` reader - When this bit is set the internal generated DQS is selected and looped back to QuadSPI, without going to DQS pad. DQSPADLPEN should be cleared when this bit is set."]
+pub struct DQSLPEN_R(crate::FieldReader<bool, DQSLPEN_A>);
 impl DQSLPEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DQSLPEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DQSLPEN_A {
@@ -169,15 +205,22 @@ impl DQSLPEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DQSLPEN_A::_0
+        **self == DQSLPEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DQSLPEN_A::_1
+        **self == DQSLPEN_A::_1
     }
 }
-#[doc = "Write proxy for field `DQSLPEN`"]
+impl core::ops::Deref for DQSLPEN_R {
+    type Target = crate::FieldReader<bool, DQSLPEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DQSLPEN` writer - When this bit is set the internal generated DQS is selected and looped back to QuadSPI, without going to DQS pad. DQSPADLPEN should be cleared when this bit is set."]
 pub struct DQSLPEN_W<'a> {
     w: &'a mut W,
 }
@@ -185,9 +228,7 @@ impl<'a> DQSLPEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DQSLPEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DQS loop back is disabled"]
     #[inline(always)]
@@ -212,7 +253,7 @@ impl<'a> DQSLPEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -230,9 +271,12 @@ impl From<DQSPADLPEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DQSPADLPEN`"]
-pub type DQSPADLPEN_R = crate::R<bool, DQSPADLPEN_A>;
+#[doc = "Field `DQSPADLPEN` reader - When this bit is set the internal generated DQS will be sent to the DQS pad first and then looped back to QuadSPI. DQSLPEN should be cleared when this bit is set."]
+pub struct DQSPADLPEN_R(crate::FieldReader<bool, DQSPADLPEN_A>);
 impl DQSPADLPEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DQSPADLPEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DQSPADLPEN_A {
@@ -244,15 +288,22 @@ impl DQSPADLPEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DQSPADLPEN_A::_0
+        **self == DQSPADLPEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DQSPADLPEN_A::_1
+        **self == DQSPADLPEN_A::_1
     }
 }
-#[doc = "Write proxy for field `DQSPADLPEN`"]
+impl core::ops::Deref for DQSPADLPEN_R {
+    type Target = crate::FieldReader<bool, DQSPADLPEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DQSPADLPEN` writer - When this bit is set the internal generated DQS will be sent to the DQS pad first and then looped back to QuadSPI. DQSLPEN should be cleared when this bit is set."]
 pub struct DQSPADLPEN_W<'a> {
     w: &'a mut W,
 }
@@ -260,9 +311,7 @@ impl<'a> DQSPADLPEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DQSPADLPEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DQS loop back from DQS pad is disabled"]
     #[inline(always)]
@@ -287,7 +336,7 @@ impl<'a> DQSPADLPEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
@@ -310,9 +359,12 @@ impl From<DQSPHASEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DQSPHASEL`"]
-pub type DQSPHASEL_R = crate::R<u8, DQSPHASEL_A>;
+#[doc = "Field `DQSPHASEL` reader - Select phase shift for internal DQS generation. These bits are always zero in SDR mode."]
+pub struct DQSPHASEL_R(crate::FieldReader<u8, DQSPHASEL_A>);
 impl DQSPHASEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DQSPHASEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DQSPHASEL_A {
@@ -327,25 +379,32 @@ impl DQSPHASEL_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == DQSPHASEL_A::_00
+        **self == DQSPHASEL_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == DQSPHASEL_A::_01
+        **self == DQSPHASEL_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == DQSPHASEL_A::_10
+        **self == DQSPHASEL_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == DQSPHASEL_A::_11
+        **self == DQSPHASEL_A::_11
     }
 }
-#[doc = "Write proxy for field `DQSPHASEL`"]
+impl core::ops::Deref for DQSPHASEL_R {
+    type Target = crate::FieldReader<u8, DQSPHASEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DQSPHASEL` writer - Select phase shift for internal DQS generation. These bits are always zero in SDR mode."]
 pub struct DQSPHASEL_W<'a> {
     w: &'a mut W,
 }
@@ -353,9 +412,7 @@ impl<'a> DQSPHASEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DQSPHASEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "No phase shift"]
     #[inline(always)]
@@ -380,7 +437,7 @@ impl<'a> DQSPHASEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | ((value as u32 & 0x03) << 10);
         self.w
     }
 }
@@ -398,9 +455,12 @@ impl From<DQSINVSEL_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DQSINVSEL`"]
-pub type DQSINVSEL_R = crate::R<bool, DQSINVSEL_A>;
+#[doc = "Field `DQSINVSEL` reader - Select clock source for internal DQS generation"]
+pub struct DQSINVSEL_R(crate::FieldReader<bool, DQSINVSEL_A>);
 impl DQSINVSEL_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DQSINVSEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DQSINVSEL_A {
@@ -412,15 +472,22 @@ impl DQSINVSEL_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DQSINVSEL_A::_0
+        **self == DQSINVSEL_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DQSINVSEL_A::_1
+        **self == DQSINVSEL_A::_1
     }
 }
-#[doc = "Write proxy for field `DQSINVSEL`"]
+impl core::ops::Deref for DQSINVSEL_R {
+    type Target = crate::FieldReader<bool, DQSINVSEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DQSINVSEL` writer - Select clock source for internal DQS generation"]
 pub struct DQSINVSEL_W<'a> {
     w: &'a mut W,
 }
@@ -428,9 +495,7 @@ impl<'a> DQSINVSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DQSINVSEL_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Use 1x internal reference clock for the DQS generation"]
     #[inline(always)]
@@ -455,7 +520,7 @@ impl<'a> DQSINVSEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
@@ -473,9 +538,12 @@ impl From<CK2EN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CK2EN`"]
-pub type CK2EN_R = crate::R<bool, CK2EN_A>;
+#[doc = "Field `CK2EN` reader - Flash CK2 clock pin enable"]
+pub struct CK2EN_R(crate::FieldReader<bool, CK2EN_A>);
 impl CK2EN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CK2EN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CK2EN_A {
@@ -487,15 +555,22 @@ impl CK2EN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == CK2EN_A::_0
+        **self == CK2EN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == CK2EN_A::_1
+        **self == CK2EN_A::_1
     }
 }
-#[doc = "Write proxy for field `CK2EN`"]
+impl core::ops::Deref for CK2EN_R {
+    type Target = crate::FieldReader<bool, CK2EN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CK2EN` writer - Flash CK2 clock pin enable"]
 pub struct CK2EN_W<'a> {
     w: &'a mut W,
 }
@@ -503,9 +578,7 @@ impl<'a> CK2EN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CK2EN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "CK2 flash clock is disabled"]
     #[inline(always)]
@@ -530,7 +603,7 @@ impl<'a> CK2EN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
@@ -548,9 +621,12 @@ impl From<DIFFCKEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DIFFCKEN`"]
-pub type DIFFCKEN_R = crate::R<bool, DIFFCKEN_A>;
+#[doc = "Field `DIFFCKEN` reader - Differential flash clock pins enable"]
+pub struct DIFFCKEN_R(crate::FieldReader<bool, DIFFCKEN_A>);
 impl DIFFCKEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DIFFCKEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DIFFCKEN_A {
@@ -562,15 +638,22 @@ impl DIFFCKEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DIFFCKEN_A::_0
+        **self == DIFFCKEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DIFFCKEN_A::_1
+        **self == DIFFCKEN_A::_1
     }
 }
-#[doc = "Write proxy for field `DIFFCKEN`"]
+impl core::ops::Deref for DIFFCKEN_R {
+    type Target = crate::FieldReader<bool, DIFFCKEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DIFFCKEN` writer - Differential flash clock pins enable"]
 pub struct DIFFCKEN_W<'a> {
     w: &'a mut W,
 }
@@ -578,9 +661,7 @@ impl<'a> DIFFCKEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DIFFCKEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Differential flash clock is disabled"]
     #[inline(always)]
@@ -605,7 +686,7 @@ impl<'a> DIFFCKEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
@@ -623,9 +704,12 @@ impl From<OCTEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `OCTEN`"]
-pub type OCTEN_R = crate::R<bool, OCTEN_A>;
+#[doc = "Field `OCTEN` reader - Octal data pins enable"]
+pub struct OCTEN_R(crate::FieldReader<bool, OCTEN_A>);
 impl OCTEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        OCTEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> OCTEN_A {
@@ -637,15 +721,22 @@ impl OCTEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == OCTEN_A::_0
+        **self == OCTEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == OCTEN_A::_1
+        **self == OCTEN_A::_1
     }
 }
-#[doc = "Write proxy for field `OCTEN`"]
+impl core::ops::Deref for OCTEN_R {
+    type Target = crate::FieldReader<bool, OCTEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `OCTEN` writer - Octal data pins enable"]
 pub struct OCTEN_W<'a> {
     w: &'a mut W,
 }
@@ -653,9 +744,7 @@ impl<'a> OCTEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: OCTEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "QSPI0B_DATAx pins are assigned to QSPI Port B"]
     #[inline(always)]
@@ -680,7 +769,7 @@ impl<'a> OCTEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
@@ -823,9 +912,12 @@ impl From<DLYTAPSELA_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DLYTAPSELA`"]
-pub type DLYTAPSELA_R = crate::R<u8, DLYTAPSELA_A>;
+#[doc = "Field `DLYTAPSELA` reader - Delay chain tap number selection for QSPI Port A DQS"]
+pub struct DLYTAPSELA_R(crate::FieldReader<u8, DLYTAPSELA_A>);
 impl DLYTAPSELA_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DLYTAPSELA_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DLYTAPSELA_A {
@@ -900,325 +992,332 @@ impl DLYTAPSELA_R {
     #[doc = "Checks if the value of the field is `_000000`"]
     #[inline(always)]
     pub fn is_000000(&self) -> bool {
-        *self == DLYTAPSELA_A::_000000
+        **self == DLYTAPSELA_A::_000000
     }
     #[doc = "Checks if the value of the field is `_000001`"]
     #[inline(always)]
     pub fn is_000001(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001
+        **self == DLYTAPSELA_A::_000001
     }
     #[doc = "Checks if the value of the field is `_0000010`"]
     #[inline(always)]
     pub fn is_0000010(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010
+        **self == DLYTAPSELA_A::_0000010
     }
     #[doc = "Checks if the value of the field is `_0000011`"]
     #[inline(always)]
     pub fn is_0000011(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011
+        **self == DLYTAPSELA_A::_0000011
     }
     #[doc = "Checks if the value of the field is `_00000100`"]
     #[inline(always)]
     pub fn is_00000100(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100
+        **self == DLYTAPSELA_A::_00000100
     }
     #[doc = "Checks if the value of the field is `_00000101`"]
     #[inline(always)]
     pub fn is_00000101(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101
+        **self == DLYTAPSELA_A::_00000101
     }
     #[doc = "Checks if the value of the field is `_00000110`"]
     #[inline(always)]
     pub fn is_00000110(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110
+        **self == DLYTAPSELA_A::_00000110
     }
     #[doc = "Checks if the value of the field is `_00000111`"]
     #[inline(always)]
     pub fn is_00000111(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111
+        **self == DLYTAPSELA_A::_00000111
     }
     #[doc = "Checks if the value of the field is `_000001000`"]
     #[inline(always)]
     pub fn is_000001000(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001000
+        **self == DLYTAPSELA_A::_000001000
     }
     #[doc = "Checks if the value of the field is `_000001001`"]
     #[inline(always)]
     pub fn is_000001001(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001001
+        **self == DLYTAPSELA_A::_000001001
     }
     #[doc = "Checks if the value of the field is `_000001010`"]
     #[inline(always)]
     pub fn is_000001010(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001010
+        **self == DLYTAPSELA_A::_000001010
     }
     #[doc = "Checks if the value of the field is `_000001011`"]
     #[inline(always)]
     pub fn is_000001011(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001011
+        **self == DLYTAPSELA_A::_000001011
     }
     #[doc = "Checks if the value of the field is `_000001100`"]
     #[inline(always)]
     pub fn is_000001100(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001100
+        **self == DLYTAPSELA_A::_000001100
     }
     #[doc = "Checks if the value of the field is `_000001101`"]
     #[inline(always)]
     pub fn is_000001101(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001101
+        **self == DLYTAPSELA_A::_000001101
     }
     #[doc = "Checks if the value of the field is `_000001110`"]
     #[inline(always)]
     pub fn is_000001110(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001110
+        **self == DLYTAPSELA_A::_000001110
     }
     #[doc = "Checks if the value of the field is `_000001111`"]
     #[inline(always)]
     pub fn is_000001111(&self) -> bool {
-        *self == DLYTAPSELA_A::_000001111
+        **self == DLYTAPSELA_A::_000001111
     }
     #[doc = "Checks if the value of the field is `_0000010000`"]
     #[inline(always)]
     pub fn is_0000010000(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010000
+        **self == DLYTAPSELA_A::_0000010000
     }
     #[doc = "Checks if the value of the field is `_0000010001`"]
     #[inline(always)]
     pub fn is_0000010001(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010001
+        **self == DLYTAPSELA_A::_0000010001
     }
     #[doc = "Checks if the value of the field is `_0000010010`"]
     #[inline(always)]
     pub fn is_0000010010(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010010
+        **self == DLYTAPSELA_A::_0000010010
     }
     #[doc = "Checks if the value of the field is `_0000010011`"]
     #[inline(always)]
     pub fn is_0000010011(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010011
+        **self == DLYTAPSELA_A::_0000010011
     }
     #[doc = "Checks if the value of the field is `_0000010100`"]
     #[inline(always)]
     pub fn is_0000010100(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010100
+        **self == DLYTAPSELA_A::_0000010100
     }
     #[doc = "Checks if the value of the field is `_0000010101`"]
     #[inline(always)]
     pub fn is_0000010101(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010101
+        **self == DLYTAPSELA_A::_0000010101
     }
     #[doc = "Checks if the value of the field is `_0000010110`"]
     #[inline(always)]
     pub fn is_0000010110(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010110
+        **self == DLYTAPSELA_A::_0000010110
     }
     #[doc = "Checks if the value of the field is `_0000010111`"]
     #[inline(always)]
     pub fn is_0000010111(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000010111
+        **self == DLYTAPSELA_A::_0000010111
     }
     #[doc = "Checks if the value of the field is `_0000011000`"]
     #[inline(always)]
     pub fn is_0000011000(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011000
+        **self == DLYTAPSELA_A::_0000011000
     }
     #[doc = "Checks if the value of the field is `_0000011001`"]
     #[inline(always)]
     pub fn is_0000011001(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011001
+        **self == DLYTAPSELA_A::_0000011001
     }
     #[doc = "Checks if the value of the field is `_0000011010`"]
     #[inline(always)]
     pub fn is_0000011010(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011010
+        **self == DLYTAPSELA_A::_0000011010
     }
     #[doc = "Checks if the value of the field is `_0000011011`"]
     #[inline(always)]
     pub fn is_0000011011(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011011
+        **self == DLYTAPSELA_A::_0000011011
     }
     #[doc = "Checks if the value of the field is `_0000011100`"]
     #[inline(always)]
     pub fn is_0000011100(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011100
+        **self == DLYTAPSELA_A::_0000011100
     }
     #[doc = "Checks if the value of the field is `_0000011101`"]
     #[inline(always)]
     pub fn is_0000011101(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011101
+        **self == DLYTAPSELA_A::_0000011101
     }
     #[doc = "Checks if the value of the field is `_0000011110`"]
     #[inline(always)]
     pub fn is_0000011110(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011110
+        **self == DLYTAPSELA_A::_0000011110
     }
     #[doc = "Checks if the value of the field is `_0000011111`"]
     #[inline(always)]
     pub fn is_0000011111(&self) -> bool {
-        *self == DLYTAPSELA_A::_0000011111
+        **self == DLYTAPSELA_A::_0000011111
     }
     #[doc = "Checks if the value of the field is `_00000100000`"]
     #[inline(always)]
     pub fn is_00000100000(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100000
+        **self == DLYTAPSELA_A::_00000100000
     }
     #[doc = "Checks if the value of the field is `_00000100001`"]
     #[inline(always)]
     pub fn is_00000100001(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100001
+        **self == DLYTAPSELA_A::_00000100001
     }
     #[doc = "Checks if the value of the field is `_00000100010`"]
     #[inline(always)]
     pub fn is_00000100010(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100010
+        **self == DLYTAPSELA_A::_00000100010
     }
     #[doc = "Checks if the value of the field is `_00000100011`"]
     #[inline(always)]
     pub fn is_00000100011(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100011
+        **self == DLYTAPSELA_A::_00000100011
     }
     #[doc = "Checks if the value of the field is `_00000100100`"]
     #[inline(always)]
     pub fn is_00000100100(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100100
+        **self == DLYTAPSELA_A::_00000100100
     }
     #[doc = "Checks if the value of the field is `_00000100101`"]
     #[inline(always)]
     pub fn is_00000100101(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100101
+        **self == DLYTAPSELA_A::_00000100101
     }
     #[doc = "Checks if the value of the field is `_00000100110`"]
     #[inline(always)]
     pub fn is_00000100110(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100110
+        **self == DLYTAPSELA_A::_00000100110
     }
     #[doc = "Checks if the value of the field is `_00000100111`"]
     #[inline(always)]
     pub fn is_00000100111(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000100111
+        **self == DLYTAPSELA_A::_00000100111
     }
     #[doc = "Checks if the value of the field is `_00000101000`"]
     #[inline(always)]
     pub fn is_00000101000(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101000
+        **self == DLYTAPSELA_A::_00000101000
     }
     #[doc = "Checks if the value of the field is `_00000101001`"]
     #[inline(always)]
     pub fn is_00000101001(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101001
+        **self == DLYTAPSELA_A::_00000101001
     }
     #[doc = "Checks if the value of the field is `_00000101010`"]
     #[inline(always)]
     pub fn is_00000101010(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101010
+        **self == DLYTAPSELA_A::_00000101010
     }
     #[doc = "Checks if the value of the field is `_00000101011`"]
     #[inline(always)]
     pub fn is_00000101011(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101011
+        **self == DLYTAPSELA_A::_00000101011
     }
     #[doc = "Checks if the value of the field is `_00000101100`"]
     #[inline(always)]
     pub fn is_00000101100(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101100
+        **self == DLYTAPSELA_A::_00000101100
     }
     #[doc = "Checks if the value of the field is `_00000101101`"]
     #[inline(always)]
     pub fn is_00000101101(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101101
+        **self == DLYTAPSELA_A::_00000101101
     }
     #[doc = "Checks if the value of the field is `_00000101110`"]
     #[inline(always)]
     pub fn is_00000101110(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101110
+        **self == DLYTAPSELA_A::_00000101110
     }
     #[doc = "Checks if the value of the field is `_00000101111`"]
     #[inline(always)]
     pub fn is_00000101111(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000101111
+        **self == DLYTAPSELA_A::_00000101111
     }
     #[doc = "Checks if the value of the field is `_00000110000`"]
     #[inline(always)]
     pub fn is_00000110000(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110000
+        **self == DLYTAPSELA_A::_00000110000
     }
     #[doc = "Checks if the value of the field is `_00000110001`"]
     #[inline(always)]
     pub fn is_00000110001(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110001
+        **self == DLYTAPSELA_A::_00000110001
     }
     #[doc = "Checks if the value of the field is `_00000110010`"]
     #[inline(always)]
     pub fn is_00000110010(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110010
+        **self == DLYTAPSELA_A::_00000110010
     }
     #[doc = "Checks if the value of the field is `_00000110011`"]
     #[inline(always)]
     pub fn is_00000110011(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110011
+        **self == DLYTAPSELA_A::_00000110011
     }
     #[doc = "Checks if the value of the field is `_00000110100`"]
     #[inline(always)]
     pub fn is_00000110100(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110100
+        **self == DLYTAPSELA_A::_00000110100
     }
     #[doc = "Checks if the value of the field is `_00000110101`"]
     #[inline(always)]
     pub fn is_00000110101(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110101
+        **self == DLYTAPSELA_A::_00000110101
     }
     #[doc = "Checks if the value of the field is `_00000110110`"]
     #[inline(always)]
     pub fn is_00000110110(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110110
+        **self == DLYTAPSELA_A::_00000110110
     }
     #[doc = "Checks if the value of the field is `_00000110111`"]
     #[inline(always)]
     pub fn is_00000110111(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000110111
+        **self == DLYTAPSELA_A::_00000110111
     }
     #[doc = "Checks if the value of the field is `_00000111000`"]
     #[inline(always)]
     pub fn is_00000111000(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111000
+        **self == DLYTAPSELA_A::_00000111000
     }
     #[doc = "Checks if the value of the field is `_00000111001`"]
     #[inline(always)]
     pub fn is_00000111001(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111001
+        **self == DLYTAPSELA_A::_00000111001
     }
     #[doc = "Checks if the value of the field is `_00000111010`"]
     #[inline(always)]
     pub fn is_00000111010(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111010
+        **self == DLYTAPSELA_A::_00000111010
     }
     #[doc = "Checks if the value of the field is `_00000111011`"]
     #[inline(always)]
     pub fn is_00000111011(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111011
+        **self == DLYTAPSELA_A::_00000111011
     }
     #[doc = "Checks if the value of the field is `_00000111100`"]
     #[inline(always)]
     pub fn is_00000111100(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111100
+        **self == DLYTAPSELA_A::_00000111100
     }
     #[doc = "Checks if the value of the field is `_00000111101`"]
     #[inline(always)]
     pub fn is_00000111101(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111101
+        **self == DLYTAPSELA_A::_00000111101
     }
     #[doc = "Checks if the value of the field is `_00000111110`"]
     #[inline(always)]
     pub fn is_00000111110(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111110
+        **self == DLYTAPSELA_A::_00000111110
     }
     #[doc = "Checks if the value of the field is `_00000111111`"]
     #[inline(always)]
     pub fn is_00000111111(&self) -> bool {
-        *self == DLYTAPSELA_A::_00000111111
+        **self == DLYTAPSELA_A::_00000111111
     }
 }
-#[doc = "Write proxy for field `DLYTAPSELA`"]
+impl core::ops::Deref for DLYTAPSELA_R {
+    type Target = crate::FieldReader<u8, DLYTAPSELA_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DLYTAPSELA` writer - Delay chain tap number selection for QSPI Port A DQS"]
 pub struct DLYTAPSELA_W<'a> {
     w: &'a mut W,
 }
@@ -1226,9 +1325,7 @@ impl<'a> DLYTAPSELA_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DLYTAPSELA_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Select 1 delay chain tap"]
     #[inline(always)]
@@ -1553,7 +1650,7 @@ impl<'a> DLYTAPSELA_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x3f << 16)) | (((value as u32) & 0x3f) << 16);
+        self.w.bits = (self.w.bits & !(0x3f << 16)) | ((value as u32 & 0x3f) << 16);
         self.w
     }
 }
@@ -1696,9 +1793,12 @@ impl From<DLYTAPSELB_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DLYTAPSELB`"]
-pub type DLYTAPSELB_R = crate::R<u8, DLYTAPSELB_A>;
+#[doc = "Field `DLYTAPSELB` reader - Delay chain tap number selection for QSPI Port B DQS"]
+pub struct DLYTAPSELB_R(crate::FieldReader<u8, DLYTAPSELB_A>);
 impl DLYTAPSELB_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DLYTAPSELB_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DLYTAPSELB_A {
@@ -1773,325 +1873,332 @@ impl DLYTAPSELB_R {
     #[doc = "Checks if the value of the field is `_000000`"]
     #[inline(always)]
     pub fn is_000000(&self) -> bool {
-        *self == DLYTAPSELB_A::_000000
+        **self == DLYTAPSELB_A::_000000
     }
     #[doc = "Checks if the value of the field is `_000001`"]
     #[inline(always)]
     pub fn is_000001(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001
+        **self == DLYTAPSELB_A::_000001
     }
     #[doc = "Checks if the value of the field is `_0000010`"]
     #[inline(always)]
     pub fn is_0000010(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010
+        **self == DLYTAPSELB_A::_0000010
     }
     #[doc = "Checks if the value of the field is `_0000011`"]
     #[inline(always)]
     pub fn is_0000011(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011
+        **self == DLYTAPSELB_A::_0000011
     }
     #[doc = "Checks if the value of the field is `_00000100`"]
     #[inline(always)]
     pub fn is_00000100(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100
+        **self == DLYTAPSELB_A::_00000100
     }
     #[doc = "Checks if the value of the field is `_00000101`"]
     #[inline(always)]
     pub fn is_00000101(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101
+        **self == DLYTAPSELB_A::_00000101
     }
     #[doc = "Checks if the value of the field is `_00000110`"]
     #[inline(always)]
     pub fn is_00000110(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110
+        **self == DLYTAPSELB_A::_00000110
     }
     #[doc = "Checks if the value of the field is `_00000111`"]
     #[inline(always)]
     pub fn is_00000111(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111
+        **self == DLYTAPSELB_A::_00000111
     }
     #[doc = "Checks if the value of the field is `_000001000`"]
     #[inline(always)]
     pub fn is_000001000(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001000
+        **self == DLYTAPSELB_A::_000001000
     }
     #[doc = "Checks if the value of the field is `_000001001`"]
     #[inline(always)]
     pub fn is_000001001(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001001
+        **self == DLYTAPSELB_A::_000001001
     }
     #[doc = "Checks if the value of the field is `_000001010`"]
     #[inline(always)]
     pub fn is_000001010(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001010
+        **self == DLYTAPSELB_A::_000001010
     }
     #[doc = "Checks if the value of the field is `_000001011`"]
     #[inline(always)]
     pub fn is_000001011(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001011
+        **self == DLYTAPSELB_A::_000001011
     }
     #[doc = "Checks if the value of the field is `_000001100`"]
     #[inline(always)]
     pub fn is_000001100(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001100
+        **self == DLYTAPSELB_A::_000001100
     }
     #[doc = "Checks if the value of the field is `_000001101`"]
     #[inline(always)]
     pub fn is_000001101(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001101
+        **self == DLYTAPSELB_A::_000001101
     }
     #[doc = "Checks if the value of the field is `_000001110`"]
     #[inline(always)]
     pub fn is_000001110(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001110
+        **self == DLYTAPSELB_A::_000001110
     }
     #[doc = "Checks if the value of the field is `_000001111`"]
     #[inline(always)]
     pub fn is_000001111(&self) -> bool {
-        *self == DLYTAPSELB_A::_000001111
+        **self == DLYTAPSELB_A::_000001111
     }
     #[doc = "Checks if the value of the field is `_0000010000`"]
     #[inline(always)]
     pub fn is_0000010000(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010000
+        **self == DLYTAPSELB_A::_0000010000
     }
     #[doc = "Checks if the value of the field is `_0000010001`"]
     #[inline(always)]
     pub fn is_0000010001(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010001
+        **self == DLYTAPSELB_A::_0000010001
     }
     #[doc = "Checks if the value of the field is `_0000010010`"]
     #[inline(always)]
     pub fn is_0000010010(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010010
+        **self == DLYTAPSELB_A::_0000010010
     }
     #[doc = "Checks if the value of the field is `_0000010011`"]
     #[inline(always)]
     pub fn is_0000010011(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010011
+        **self == DLYTAPSELB_A::_0000010011
     }
     #[doc = "Checks if the value of the field is `_0000010100`"]
     #[inline(always)]
     pub fn is_0000010100(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010100
+        **self == DLYTAPSELB_A::_0000010100
     }
     #[doc = "Checks if the value of the field is `_0000010101`"]
     #[inline(always)]
     pub fn is_0000010101(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010101
+        **self == DLYTAPSELB_A::_0000010101
     }
     #[doc = "Checks if the value of the field is `_0000010110`"]
     #[inline(always)]
     pub fn is_0000010110(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010110
+        **self == DLYTAPSELB_A::_0000010110
     }
     #[doc = "Checks if the value of the field is `_0000010111`"]
     #[inline(always)]
     pub fn is_0000010111(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000010111
+        **self == DLYTAPSELB_A::_0000010111
     }
     #[doc = "Checks if the value of the field is `_0000011000`"]
     #[inline(always)]
     pub fn is_0000011000(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011000
+        **self == DLYTAPSELB_A::_0000011000
     }
     #[doc = "Checks if the value of the field is `_0000011001`"]
     #[inline(always)]
     pub fn is_0000011001(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011001
+        **self == DLYTAPSELB_A::_0000011001
     }
     #[doc = "Checks if the value of the field is `_0000011010`"]
     #[inline(always)]
     pub fn is_0000011010(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011010
+        **self == DLYTAPSELB_A::_0000011010
     }
     #[doc = "Checks if the value of the field is `_0000011011`"]
     #[inline(always)]
     pub fn is_0000011011(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011011
+        **self == DLYTAPSELB_A::_0000011011
     }
     #[doc = "Checks if the value of the field is `_0000011100`"]
     #[inline(always)]
     pub fn is_0000011100(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011100
+        **self == DLYTAPSELB_A::_0000011100
     }
     #[doc = "Checks if the value of the field is `_0000011101`"]
     #[inline(always)]
     pub fn is_0000011101(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011101
+        **self == DLYTAPSELB_A::_0000011101
     }
     #[doc = "Checks if the value of the field is `_0000011110`"]
     #[inline(always)]
     pub fn is_0000011110(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011110
+        **self == DLYTAPSELB_A::_0000011110
     }
     #[doc = "Checks if the value of the field is `_0000011111`"]
     #[inline(always)]
     pub fn is_0000011111(&self) -> bool {
-        *self == DLYTAPSELB_A::_0000011111
+        **self == DLYTAPSELB_A::_0000011111
     }
     #[doc = "Checks if the value of the field is `_00000100000`"]
     #[inline(always)]
     pub fn is_00000100000(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100000
+        **self == DLYTAPSELB_A::_00000100000
     }
     #[doc = "Checks if the value of the field is `_00000100001`"]
     #[inline(always)]
     pub fn is_00000100001(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100001
+        **self == DLYTAPSELB_A::_00000100001
     }
     #[doc = "Checks if the value of the field is `_00000100010`"]
     #[inline(always)]
     pub fn is_00000100010(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100010
+        **self == DLYTAPSELB_A::_00000100010
     }
     #[doc = "Checks if the value of the field is `_00000100011`"]
     #[inline(always)]
     pub fn is_00000100011(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100011
+        **self == DLYTAPSELB_A::_00000100011
     }
     #[doc = "Checks if the value of the field is `_00000100100`"]
     #[inline(always)]
     pub fn is_00000100100(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100100
+        **self == DLYTAPSELB_A::_00000100100
     }
     #[doc = "Checks if the value of the field is `_00000100101`"]
     #[inline(always)]
     pub fn is_00000100101(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100101
+        **self == DLYTAPSELB_A::_00000100101
     }
     #[doc = "Checks if the value of the field is `_00000100110`"]
     #[inline(always)]
     pub fn is_00000100110(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100110
+        **self == DLYTAPSELB_A::_00000100110
     }
     #[doc = "Checks if the value of the field is `_00000100111`"]
     #[inline(always)]
     pub fn is_00000100111(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000100111
+        **self == DLYTAPSELB_A::_00000100111
     }
     #[doc = "Checks if the value of the field is `_00000101000`"]
     #[inline(always)]
     pub fn is_00000101000(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101000
+        **self == DLYTAPSELB_A::_00000101000
     }
     #[doc = "Checks if the value of the field is `_00000101001`"]
     #[inline(always)]
     pub fn is_00000101001(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101001
+        **self == DLYTAPSELB_A::_00000101001
     }
     #[doc = "Checks if the value of the field is `_00000101010`"]
     #[inline(always)]
     pub fn is_00000101010(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101010
+        **self == DLYTAPSELB_A::_00000101010
     }
     #[doc = "Checks if the value of the field is `_00000101011`"]
     #[inline(always)]
     pub fn is_00000101011(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101011
+        **self == DLYTAPSELB_A::_00000101011
     }
     #[doc = "Checks if the value of the field is `_00000101100`"]
     #[inline(always)]
     pub fn is_00000101100(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101100
+        **self == DLYTAPSELB_A::_00000101100
     }
     #[doc = "Checks if the value of the field is `_00000101101`"]
     #[inline(always)]
     pub fn is_00000101101(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101101
+        **self == DLYTAPSELB_A::_00000101101
     }
     #[doc = "Checks if the value of the field is `_00000101110`"]
     #[inline(always)]
     pub fn is_00000101110(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101110
+        **self == DLYTAPSELB_A::_00000101110
     }
     #[doc = "Checks if the value of the field is `_00000101111`"]
     #[inline(always)]
     pub fn is_00000101111(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000101111
+        **self == DLYTAPSELB_A::_00000101111
     }
     #[doc = "Checks if the value of the field is `_00000110000`"]
     #[inline(always)]
     pub fn is_00000110000(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110000
+        **self == DLYTAPSELB_A::_00000110000
     }
     #[doc = "Checks if the value of the field is `_00000110001`"]
     #[inline(always)]
     pub fn is_00000110001(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110001
+        **self == DLYTAPSELB_A::_00000110001
     }
     #[doc = "Checks if the value of the field is `_00000110010`"]
     #[inline(always)]
     pub fn is_00000110010(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110010
+        **self == DLYTAPSELB_A::_00000110010
     }
     #[doc = "Checks if the value of the field is `_00000110011`"]
     #[inline(always)]
     pub fn is_00000110011(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110011
+        **self == DLYTAPSELB_A::_00000110011
     }
     #[doc = "Checks if the value of the field is `_00000110100`"]
     #[inline(always)]
     pub fn is_00000110100(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110100
+        **self == DLYTAPSELB_A::_00000110100
     }
     #[doc = "Checks if the value of the field is `_00000110101`"]
     #[inline(always)]
     pub fn is_00000110101(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110101
+        **self == DLYTAPSELB_A::_00000110101
     }
     #[doc = "Checks if the value of the field is `_00000110110`"]
     #[inline(always)]
     pub fn is_00000110110(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110110
+        **self == DLYTAPSELB_A::_00000110110
     }
     #[doc = "Checks if the value of the field is `_00000110111`"]
     #[inline(always)]
     pub fn is_00000110111(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000110111
+        **self == DLYTAPSELB_A::_00000110111
     }
     #[doc = "Checks if the value of the field is `_00000111000`"]
     #[inline(always)]
     pub fn is_00000111000(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111000
+        **self == DLYTAPSELB_A::_00000111000
     }
     #[doc = "Checks if the value of the field is `_00000111001`"]
     #[inline(always)]
     pub fn is_00000111001(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111001
+        **self == DLYTAPSELB_A::_00000111001
     }
     #[doc = "Checks if the value of the field is `_00000111010`"]
     #[inline(always)]
     pub fn is_00000111010(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111010
+        **self == DLYTAPSELB_A::_00000111010
     }
     #[doc = "Checks if the value of the field is `_00000111011`"]
     #[inline(always)]
     pub fn is_00000111011(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111011
+        **self == DLYTAPSELB_A::_00000111011
     }
     #[doc = "Checks if the value of the field is `_00000111100`"]
     #[inline(always)]
     pub fn is_00000111100(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111100
+        **self == DLYTAPSELB_A::_00000111100
     }
     #[doc = "Checks if the value of the field is `_00000111101`"]
     #[inline(always)]
     pub fn is_00000111101(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111101
+        **self == DLYTAPSELB_A::_00000111101
     }
     #[doc = "Checks if the value of the field is `_00000111110`"]
     #[inline(always)]
     pub fn is_00000111110(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111110
+        **self == DLYTAPSELB_A::_00000111110
     }
     #[doc = "Checks if the value of the field is `_00000111111`"]
     #[inline(always)]
     pub fn is_00000111111(&self) -> bool {
-        *self == DLYTAPSELB_A::_00000111111
+        **self == DLYTAPSELB_A::_00000111111
     }
 }
-#[doc = "Write proxy for field `DLYTAPSELB`"]
+impl core::ops::Deref for DLYTAPSELB_R {
+    type Target = crate::FieldReader<u8, DLYTAPSELB_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DLYTAPSELB` writer - Delay chain tap number selection for QSPI Port B DQS"]
 pub struct DLYTAPSELB_W<'a> {
     w: &'a mut W,
 }
@@ -2099,9 +2206,7 @@ impl<'a> DLYTAPSELB_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DLYTAPSELB_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Select 1 delay chain tap"]
     #[inline(always)]
@@ -2426,7 +2531,7 @@ impl<'a> DLYTAPSELB_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x3f << 24)) | (((value as u32) & 0x3f) << 24);
+        self.w.bits = (self.w.bits & !(0x3f << 24)) | ((value as u32 & 0x3f) << 24);
         self.w
     }
 }
@@ -2532,5 +2637,31 @@ impl W {
     #[inline(always)]
     pub fn dlytapselb(&mut self) -> DLYTAPSELB_W {
         DLYTAPSELB_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "SOC Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [soccr](index.html) module"]
+pub struct SOCCR_SPEC;
+impl crate::RegisterSpec for SOCCR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [soccr::R](R) reader structure"]
+impl crate::Readable for SOCCR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [soccr::W](W) writer structure"]
+impl crate::Writable for SOCCR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets SOCCR to value 0"]
+impl crate::Resettable for SOCCR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

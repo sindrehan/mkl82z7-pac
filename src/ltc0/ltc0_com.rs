@@ -1,13 +1,37 @@
-#[doc = "Reader of register LTC0_COM"]
-pub type R = crate::R<u32, super::LTC0_COM>;
-#[doc = "Writer for register LTC0_COM"]
-pub type W = crate::W<u32, super::LTC0_COM>;
-#[doc = "Register LTC0_COM `reset()`'s with value 0"]
-impl crate::ResetValue for super::LTC0_COM {
-    type Type = u32;
+#[doc = "Register `LTC0_COM` reader"]
+pub struct R(crate::R<LTC0_COM_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<LTC0_COM_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<LTC0_COM_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<LTC0_COM_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `LTC0_COM` writer"]
+pub struct W(crate::W<LTC0_COM_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<LTC0_COM_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<LTC0_COM_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<LTC0_COM_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Reset All Internal Logic\n\nValue on reset: 0"]
@@ -24,7 +48,7 @@ impl From<ALL_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `ALL`"]
+#[doc = "Field `ALL` writer - Reset All Internal Logic"]
 pub struct ALL_W<'a> {
     w: &'a mut W,
 }
@@ -32,9 +56,7 @@ impl<'a> ALL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ALL_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Do Not Reset"]
     #[inline(always)]
@@ -59,7 +81,7 @@ impl<'a> ALL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -77,7 +99,7 @@ impl From<AES_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `AES`"]
+#[doc = "Field `AES` writer - Reset AESA. Writing a 1 to this bit resets the AES Accelerator core engine."]
 pub struct AES_W<'a> {
     w: &'a mut W,
 }
@@ -85,9 +107,7 @@ impl<'a> AES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: AES_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Do Not Reset"]
     #[inline(always)]
@@ -112,7 +132,7 @@ impl<'a> AES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -130,7 +150,7 @@ impl From<DES_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `DES`"]
+#[doc = "Field `DES` writer - Reset DESA. Writing a 1 to this bit resets the DES Accelerator."]
 pub struct DES_W<'a> {
     w: &'a mut W,
 }
@@ -138,9 +158,7 @@ impl<'a> DES_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DES_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Do Not Reset"]
     #[inline(always)]
@@ -165,7 +183,7 @@ impl<'a> DES_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -183,7 +201,7 @@ impl From<PK_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `PK`"]
+#[doc = "Field `PK` writer - Reset PKHA. Writing a 1 to this bit resets the Public Key Hardware Accelerator."]
 pub struct PK_W<'a> {
     w: &'a mut W,
 }
@@ -191,9 +209,7 @@ impl<'a> PK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PK_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Do Not Reset"]
     #[inline(always)]
@@ -218,7 +234,7 @@ impl<'a> PK_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -236,7 +252,7 @@ impl From<MD_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `MD`"]
+#[doc = "Field `MD` writer - Reset MDHA. Writing a 1 to this bit resets the Message Digest Hardware Accelerator."]
 pub struct MD_W<'a> {
     w: &'a mut W,
 }
@@ -244,9 +260,7 @@ impl<'a> MD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MD_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Do Not Reset"]
     #[inline(always)]
@@ -271,11 +285,10 @@ impl<'a> MD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
-impl R {}
 impl W {
     #[doc = "Bit 0 - Reset All Internal Logic"]
     #[inline(always)]
@@ -301,5 +314,31 @@ impl W {
     #[inline(always)]
     pub fn md(&mut self) -> MD_W {
         MD_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "LTC Command Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ltc0_com](index.html) module"]
+pub struct LTC0_COM_SPEC;
+impl crate::RegisterSpec for LTC0_COM_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [ltc0_com::R](R) reader structure"]
+impl crate::Readable for LTC0_COM_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [ltc0_com::W](W) writer structure"]
+impl crate::Writable for LTC0_COM_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets LTC0_COM to value 0"]
+impl crate::Resettable for LTC0_COM_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

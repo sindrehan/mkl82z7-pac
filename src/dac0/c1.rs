@@ -1,13 +1,37 @@
-#[doc = "Reader of register C1"]
-pub type R = crate::R<u8, super::C1>;
-#[doc = "Writer for register C1"]
-pub type W = crate::W<u8, super::C1>;
-#[doc = "Register C1 `reset()`'s with value 0"]
-impl crate::ResetValue for super::C1 {
-    type Type = u8;
+#[doc = "Register `C1` reader"]
+pub struct R(crate::R<C1_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<C1_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<C1_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<C1_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `C1` writer"]
+pub struct W(crate::W<C1_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<C1_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<C1_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<C1_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "DAC Buffer Enable\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<DACBFEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DACBFEN`"]
-pub type DACBFEN_R = crate::R<bool, DACBFEN_A>;
+#[doc = "Field `DACBFEN` reader - DAC Buffer Enable"]
+pub struct DACBFEN_R(crate::FieldReader<bool, DACBFEN_A>);
 impl DACBFEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DACBFEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DACBFEN_A {
@@ -38,15 +65,22 @@ impl DACBFEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DACBFEN_A::_0
+        **self == DACBFEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DACBFEN_A::_1
+        **self == DACBFEN_A::_1
     }
 }
-#[doc = "Write proxy for field `DACBFEN`"]
+impl core::ops::Deref for DACBFEN_R {
+    type Target = crate::FieldReader<bool, DACBFEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DACBFEN` writer - DAC Buffer Enable"]
 pub struct DACBFEN_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> DACBFEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DACBFEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Buffer read pointer is disabled. The converted data is always the first word of the buffer."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> DACBFEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u8) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u8 & 0x01);
         self.w
     }
 }
@@ -104,9 +136,12 @@ impl From<DACBFMD_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DACBFMD`"]
-pub type DACBFMD_R = crate::R<u8, DACBFMD_A>;
+#[doc = "Field `DACBFMD` reader - DAC Buffer Work Mode Select"]
+pub struct DACBFMD_R(crate::FieldReader<u8, DACBFMD_A>);
 impl DACBFMD_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DACBFMD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DACBFMD_A {
@@ -121,25 +156,32 @@ impl DACBFMD_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == DACBFMD_A::_00
+        **self == DACBFMD_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == DACBFMD_A::_01
+        **self == DACBFMD_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == DACBFMD_A::_10
+        **self == DACBFMD_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == DACBFMD_A::_11
+        **self == DACBFMD_A::_11
     }
 }
-#[doc = "Write proxy for field `DACBFMD`"]
+impl core::ops::Deref for DACBFMD_R {
+    type Target = crate::FieldReader<u8, DACBFMD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DACBFMD` writer - DAC Buffer Work Mode Select"]
 pub struct DACBFMD_W<'a> {
     w: &'a mut W,
 }
@@ -147,9 +189,7 @@ impl<'a> DACBFMD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DACBFMD_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Normal mode"]
     #[inline(always)]
@@ -174,7 +214,7 @@ impl<'a> DACBFMD_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 1)) | (((value as u8) & 0x03) << 1);
+        self.w.bits = (self.w.bits & !(0x03 << 1)) | ((value as u8 & 0x03) << 1);
         self.w
     }
 }
@@ -197,9 +237,12 @@ impl From<DACBFWM_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `DACBFWM`"]
-pub type DACBFWM_R = crate::R<u8, DACBFWM_A>;
+#[doc = "Field `DACBFWM` reader - DAC Buffer Watermark Select"]
+pub struct DACBFWM_R(crate::FieldReader<u8, DACBFWM_A>);
 impl DACBFWM_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        DACBFWM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DACBFWM_A {
@@ -214,25 +257,32 @@ impl DACBFWM_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == DACBFWM_A::_00
+        **self == DACBFWM_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == DACBFWM_A::_01
+        **self == DACBFWM_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == DACBFWM_A::_10
+        **self == DACBFWM_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == DACBFWM_A::_11
+        **self == DACBFWM_A::_11
     }
 }
-#[doc = "Write proxy for field `DACBFWM`"]
+impl core::ops::Deref for DACBFWM_R {
+    type Target = crate::FieldReader<u8, DACBFWM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DACBFWM` writer - DAC Buffer Watermark Select"]
 pub struct DACBFWM_W<'a> {
     w: &'a mut W,
 }
@@ -240,9 +290,7 @@ impl<'a> DACBFWM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DACBFWM_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "In normal mode, 1 word . In FIFO mode, 2 or less than 2 data remaining in FIFO will set watermark status bit."]
     #[inline(always)]
@@ -267,7 +315,7 @@ impl<'a> DACBFWM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 3)) | (((value as u8) & 0x03) << 3);
+        self.w.bits = (self.w.bits & !(0x03 << 3)) | ((value as u8 & 0x03) << 3);
         self.w
     }
 }
@@ -285,9 +333,12 @@ impl From<DMAEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMAEN`"]
-pub type DMAEN_R = crate::R<bool, DMAEN_A>;
+#[doc = "Field `DMAEN` reader - DMA Enable Select"]
+pub struct DMAEN_R(crate::FieldReader<bool, DMAEN_A>);
 impl DMAEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMAEN_A {
@@ -299,15 +350,22 @@ impl DMAEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMAEN_A::_0
+        **self == DMAEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMAEN_A::_1
+        **self == DMAEN_A::_1
     }
 }
-#[doc = "Write proxy for field `DMAEN`"]
+impl core::ops::Deref for DMAEN_R {
+    type Target = crate::FieldReader<bool, DMAEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAEN` writer - DMA Enable Select"]
 pub struct DMAEN_W<'a> {
     w: &'a mut W,
 }
@@ -315,9 +373,7 @@ impl<'a> DMAEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMAEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA is disabled."]
     #[inline(always)]
@@ -342,7 +398,7 @@ impl<'a> DMAEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -388,5 +444,31 @@ impl W {
     #[inline(always)]
     pub fn dmaen(&mut self) -> DMAEN_W {
         DMAEN_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "DAC Control Register 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [c1](index.html) module"]
+pub struct C1_SPEC;
+impl crate::RegisterSpec for C1_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [c1::R](R) reader structure"]
+impl crate::Readable for C1_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [c1::W](W) writer structure"]
+impl crate::Writable for C1_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets C1 to value 0"]
+impl crate::Resettable for C1_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

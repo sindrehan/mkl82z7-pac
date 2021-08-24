@@ -1,13 +1,37 @@
-#[doc = "Reader of register MISCCTRL"]
-pub type R = crate::R<u32, super::MISCCTRL>;
-#[doc = "Writer for register MISCCTRL"]
-pub type W = crate::W<u32, super::MISCCTRL>;
-#[doc = "Register MISCCTRL `reset()`'s with value 0x0001_0000"]
-impl crate::ResetValue for super::MISCCTRL {
-    type Type = u32;
+#[doc = "Register `MISCCTRL` reader"]
+pub struct R(crate::R<MISCCTRL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<MISCCTRL_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0x0001_0000
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<MISCCTRL_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<MISCCTRL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `MISCCTRL` writer"]
+pub struct W(crate::W<MISCCTRL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<MISCCTRL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<MISCCTRL_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<MISCCTRL_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "DMA Channel Interrupts Select 0\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<DMAINTSEL0_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMAINTSEL0`"]
-pub type DMAINTSEL0_R = crate::R<bool, DMAINTSEL0_A>;
+#[doc = "Field `DMAINTSEL0` reader - DMA Channel Interrupts Select 0"]
+pub struct DMAINTSEL0_R(crate::FieldReader<bool, DMAINTSEL0_A>);
 impl DMAINTSEL0_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAINTSEL0_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMAINTSEL0_A {
@@ -38,15 +65,22 @@ impl DMAINTSEL0_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMAINTSEL0_A::_0
+        **self == DMAINTSEL0_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMAINTSEL0_A::_1
+        **self == DMAINTSEL0_A::_1
     }
 }
-#[doc = "Write proxy for field `DMAINTSEL0`"]
+impl core::ops::Deref for DMAINTSEL0_R {
+    type Target = crate::FieldReader<bool, DMAINTSEL0_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAINTSEL0` writer - DMA Channel Interrupts Select 0"]
 pub struct DMAINTSEL0_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> DMAINTSEL0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMAINTSEL0_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA0 channel 4 is not available in vector 16."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> DMAINTSEL0_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<DMAINTSEL1_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMAINTSEL1`"]
-pub type DMAINTSEL1_R = crate::R<bool, DMAINTSEL1_A>;
+#[doc = "Field `DMAINTSEL1` reader - DMA Channel Interrupts Select 1"]
+pub struct DMAINTSEL1_R(crate::FieldReader<bool, DMAINTSEL1_A>);
 impl DMAINTSEL1_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAINTSEL1_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMAINTSEL1_A {
@@ -113,15 +148,22 @@ impl DMAINTSEL1_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMAINTSEL1_A::_0
+        **self == DMAINTSEL1_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMAINTSEL1_A::_1
+        **self == DMAINTSEL1_A::_1
     }
 }
-#[doc = "Write proxy for field `DMAINTSEL1`"]
+impl core::ops::Deref for DMAINTSEL1_R {
+    type Target = crate::FieldReader<bool, DMAINTSEL1_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAINTSEL1` writer - DMA Channel Interrupts Select 1"]
 pub struct DMAINTSEL1_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> DMAINTSEL1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMAINTSEL1_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA0 channel 5 is not available in vector 17."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> DMAINTSEL1_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<DMAINTSEL2_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMAINTSEL2`"]
-pub type DMAINTSEL2_R = crate::R<bool, DMAINTSEL2_A>;
+#[doc = "Field `DMAINTSEL2` reader - DMA Channel Interrupts Select 2"]
+pub struct DMAINTSEL2_R(crate::FieldReader<bool, DMAINTSEL2_A>);
 impl DMAINTSEL2_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAINTSEL2_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMAINTSEL2_A {
@@ -188,15 +231,22 @@ impl DMAINTSEL2_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMAINTSEL2_A::_0
+        **self == DMAINTSEL2_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMAINTSEL2_A::_1
+        **self == DMAINTSEL2_A::_1
     }
 }
-#[doc = "Write proxy for field `DMAINTSEL2`"]
+impl core::ops::Deref for DMAINTSEL2_R {
+    type Target = crate::FieldReader<bool, DMAINTSEL2_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAINTSEL2` writer - DMA Channel Interrupts Select 2"]
 pub struct DMAINTSEL2_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> DMAINTSEL2_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMAINTSEL2_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA0 channel 6 is not available in vector 18."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> DMAINTSEL2_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<DMAINTSEL3_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMAINTSEL3`"]
-pub type DMAINTSEL3_R = crate::R<bool, DMAINTSEL3_A>;
+#[doc = "Field `DMAINTSEL3` reader - DMA Channel Interrupts Select 3"]
+pub struct DMAINTSEL3_R(crate::FieldReader<bool, DMAINTSEL3_A>);
 impl DMAINTSEL3_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMAINTSEL3_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMAINTSEL3_A {
@@ -263,15 +314,22 @@ impl DMAINTSEL3_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMAINTSEL3_A::_0
+        **self == DMAINTSEL3_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMAINTSEL3_A::_1
+        **self == DMAINTSEL3_A::_1
     }
 }
-#[doc = "Write proxy for field `DMAINTSEL3`"]
+impl core::ops::Deref for DMAINTSEL3_R {
+    type Target = crate::FieldReader<bool, DMAINTSEL3_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `DMAINTSEL3` writer - DMA Channel Interrupts Select 3"]
 pub struct DMAINTSEL3_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> DMAINTSEL3_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DMAINTSEL3_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "DMA0 channel 7 is not available in vector 19."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> DMAINTSEL3_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<LTCEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `LTCEN`"]
-pub type LTCEN_R = crate::R<bool, LTCEN_A>;
+#[doc = "Field `LTCEN` reader - LTC Status"]
+pub struct LTCEN_R(crate::FieldReader<bool, LTCEN_A>);
 impl LTCEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        LTCEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> LTCEN_A {
@@ -338,12 +397,19 @@ impl LTCEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == LTCEN_A::_0
+        **self == LTCEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == LTCEN_A::_1
+        **self == LTCEN_A::_1
+    }
+}
+impl core::ops::Deref for LTCEN_R {
+    type Target = crate::FieldReader<bool, LTCEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -393,5 +459,31 @@ impl W {
     #[inline(always)]
     pub fn dmaintsel3(&mut self) -> DMAINTSEL3_W {
         DMAINTSEL3_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Misc Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [miscctrl](index.html) module"]
+pub struct MISCCTRL_SPEC;
+impl crate::RegisterSpec for MISCCTRL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [miscctrl::R](R) reader structure"]
+impl crate::Readable for MISCCTRL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [miscctrl::W](W) writer structure"]
+impl crate::Writable for MISCCTRL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets MISCCTRL to value 0x0001_0000"]
+impl crate::Resettable for MISCCTRL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0001_0000
     }
 }

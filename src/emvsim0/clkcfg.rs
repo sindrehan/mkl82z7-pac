@@ -1,18 +1,54 @@
-#[doc = "Reader of register CLKCFG"]
-pub type R = crate::R<u32, super::CLKCFG>;
-#[doc = "Writer for register CLKCFG"]
-pub type W = crate::W<u32, super::CLKCFG>;
-#[doc = "Register CLKCFG `reset()`'s with value 0"]
-impl crate::ResetValue for super::CLKCFG {
-    type Type = u32;
+#[doc = "Register `CLKCFG` reader"]
+pub struct R(crate::R<CLKCFG_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CLKCFG_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
-#[doc = "Reader of field `CLK_PRSC`"]
-pub type CLK_PRSC_R = crate::R<u8, u8>;
-#[doc = "Write proxy for field `CLK_PRSC`"]
+impl From<crate::R<CLKCFG_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<CLKCFG_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CLKCFG` writer"]
+pub struct W(crate::W<CLKCFG_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CLKCFG_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CLKCFG_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CLKCFG_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CLK_PRSC` reader - Clock Prescaler Value"]
+pub struct CLK_PRSC_R(crate::FieldReader<u8, u8>);
+impl CLK_PRSC_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CLK_PRSC_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CLK_PRSC_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CLK_PRSC` writer - Clock Prescaler Value"]
 pub struct CLK_PRSC_W<'a> {
     w: &'a mut W,
 }
@@ -20,7 +56,7 @@ impl<'a> CLK_PRSC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
+        self.w.bits = (self.w.bits & !0xff) | (value as u32 & 0xff);
         self.w
     }
 }
@@ -43,9 +79,12 @@ impl From<GPCNT1_CLK_SEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `GPCNT1_CLK_SEL`"]
-pub type GPCNT1_CLK_SEL_R = crate::R<u8, GPCNT1_CLK_SEL_A>;
+#[doc = "Field `GPCNT1_CLK_SEL` reader - General Purpose Counter 1 Clock Select"]
+pub struct GPCNT1_CLK_SEL_R(crate::FieldReader<u8, GPCNT1_CLK_SEL_A>);
 impl GPCNT1_CLK_SEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        GPCNT1_CLK_SEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> GPCNT1_CLK_SEL_A {
@@ -60,25 +99,32 @@ impl GPCNT1_CLK_SEL_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == GPCNT1_CLK_SEL_A::_00
+        **self == GPCNT1_CLK_SEL_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == GPCNT1_CLK_SEL_A::_01
+        **self == GPCNT1_CLK_SEL_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == GPCNT1_CLK_SEL_A::_10
+        **self == GPCNT1_CLK_SEL_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == GPCNT1_CLK_SEL_A::_11
+        **self == GPCNT1_CLK_SEL_A::_11
     }
 }
-#[doc = "Write proxy for field `GPCNT1_CLK_SEL`"]
+impl core::ops::Deref for GPCNT1_CLK_SEL_R {
+    type Target = crate::FieldReader<u8, GPCNT1_CLK_SEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPCNT1_CLK_SEL` writer - General Purpose Counter 1 Clock Select"]
 pub struct GPCNT1_CLK_SEL_W<'a> {
     w: &'a mut W,
 }
@@ -86,9 +132,7 @@ impl<'a> GPCNT1_CLK_SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GPCNT1_CLK_SEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Disabled / Reset (default)"]
     #[inline(always)]
@@ -113,7 +157,7 @@ impl<'a> GPCNT1_CLK_SEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 8)) | (((value as u32) & 0x03) << 8);
+        self.w.bits = (self.w.bits & !(0x03 << 8)) | ((value as u32 & 0x03) << 8);
         self.w
     }
 }
@@ -136,9 +180,12 @@ impl From<GPCNT0_CLK_SEL_A> for u8 {
         variant as _
     }
 }
-#[doc = "Reader of field `GPCNT0_CLK_SEL`"]
-pub type GPCNT0_CLK_SEL_R = crate::R<u8, GPCNT0_CLK_SEL_A>;
+#[doc = "Field `GPCNT0_CLK_SEL` reader - General Purpose Counter 0 Clock Select"]
+pub struct GPCNT0_CLK_SEL_R(crate::FieldReader<u8, GPCNT0_CLK_SEL_A>);
 impl GPCNT0_CLK_SEL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        GPCNT0_CLK_SEL_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> GPCNT0_CLK_SEL_A {
@@ -153,25 +200,32 @@ impl GPCNT0_CLK_SEL_R {
     #[doc = "Checks if the value of the field is `_00`"]
     #[inline(always)]
     pub fn is_00(&self) -> bool {
-        *self == GPCNT0_CLK_SEL_A::_00
+        **self == GPCNT0_CLK_SEL_A::_00
     }
     #[doc = "Checks if the value of the field is `_01`"]
     #[inline(always)]
     pub fn is_01(&self) -> bool {
-        *self == GPCNT0_CLK_SEL_A::_01
+        **self == GPCNT0_CLK_SEL_A::_01
     }
     #[doc = "Checks if the value of the field is `_10`"]
     #[inline(always)]
     pub fn is_10(&self) -> bool {
-        *self == GPCNT0_CLK_SEL_A::_10
+        **self == GPCNT0_CLK_SEL_A::_10
     }
     #[doc = "Checks if the value of the field is `_11`"]
     #[inline(always)]
     pub fn is_11(&self) -> bool {
-        *self == GPCNT0_CLK_SEL_A::_11
+        **self == GPCNT0_CLK_SEL_A::_11
     }
 }
-#[doc = "Write proxy for field `GPCNT0_CLK_SEL`"]
+impl core::ops::Deref for GPCNT0_CLK_SEL_R {
+    type Target = crate::FieldReader<u8, GPCNT0_CLK_SEL_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPCNT0_CLK_SEL` writer - General Purpose Counter 0 Clock Select"]
 pub struct GPCNT0_CLK_SEL_W<'a> {
     w: &'a mut W,
 }
@@ -179,9 +233,7 @@ impl<'a> GPCNT0_CLK_SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GPCNT0_CLK_SEL_A) -> &'a mut W {
-        {
-            self.bits(variant.into())
-        }
+        self.bits(variant.into())
     }
     #[doc = "Disabled / Reset (default)"]
     #[inline(always)]
@@ -206,7 +258,7 @@ impl<'a> GPCNT0_CLK_SEL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x03 << 10)) | (((value as u32) & 0x03) << 10);
+        self.w.bits = (self.w.bits & !(0x03 << 10)) | ((value as u32 & 0x03) << 10);
         self.w
     }
 }
@@ -242,5 +294,31 @@ impl W {
     #[inline(always)]
     pub fn gpcnt0_clk_sel(&mut self) -> GPCNT0_CLK_SEL_W {
         GPCNT0_CLK_SEL_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Clock Configuration Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [clkcfg](index.html) module"]
+pub struct CLKCFG_SPEC;
+impl crate::RegisterSpec for CLKCFG_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [clkcfg::R](R) reader structure"]
+impl crate::Readable for CLKCFG_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [clkcfg::W](W) writer structure"]
+impl crate::Writable for CLKCFG_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CLKCFG to value 0"]
+impl crate::Resettable for CLKCFG_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

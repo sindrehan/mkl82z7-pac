@@ -1,13 +1,37 @@
-#[doc = "Reader of register RSER"]
-pub type R = crate::R<u32, super::RSER>;
-#[doc = "Writer for register RSER"]
-pub type W = crate::W<u32, super::RSER>;
-#[doc = "Register RSER `reset()`'s with value 0"]
-impl crate::ResetValue for super::RSER {
-    type Type = u32;
+#[doc = "Register `RSER` reader"]
+pub struct R(crate::R<RSER_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<RSER_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<RSER_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<RSER_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `RSER` writer"]
+pub struct W(crate::W<RSER_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<RSER_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<RSER_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<RSER_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Receive FIFO Drain DMA or Interrupt Request Select\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<RFDF_DIRS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RFDF_DIRS`"]
-pub type RFDF_DIRS_R = crate::R<bool, RFDF_DIRS_A>;
+#[doc = "Field `RFDF_DIRS` reader - Receive FIFO Drain DMA or Interrupt Request Select"]
+pub struct RFDF_DIRS_R(crate::FieldReader<bool, RFDF_DIRS_A>);
 impl RFDF_DIRS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RFDF_DIRS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RFDF_DIRS_A {
@@ -38,15 +65,22 @@ impl RFDF_DIRS_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RFDF_DIRS_A::_0
+        **self == RFDF_DIRS_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RFDF_DIRS_A::_1
+        **self == RFDF_DIRS_A::_1
     }
 }
-#[doc = "Write proxy for field `RFDF_DIRS`"]
+impl core::ops::Deref for RFDF_DIRS_R {
+    type Target = crate::FieldReader<bool, RFDF_DIRS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RFDF_DIRS` writer - Receive FIFO Drain DMA or Interrupt Request Select"]
 pub struct RFDF_DIRS_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> RFDF_DIRS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RFDF_DIRS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Interrupt request."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> RFDF_DIRS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 16)) | (((value as u32) & 0x01) << 16);
+        self.w.bits = (self.w.bits & !(0x01 << 16)) | ((value as u32 & 0x01) << 16);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<RFDF_RE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RFDF_RE`"]
-pub type RFDF_RE_R = crate::R<bool, RFDF_RE_A>;
+#[doc = "Field `RFDF_RE` reader - Receive FIFO Drain Request Enable"]
+pub struct RFDF_RE_R(crate::FieldReader<bool, RFDF_RE_A>);
 impl RFDF_RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RFDF_RE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RFDF_RE_A {
@@ -113,15 +148,22 @@ impl RFDF_RE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RFDF_RE_A::_0
+        **self == RFDF_RE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RFDF_RE_A::_1
+        **self == RFDF_RE_A::_1
     }
 }
-#[doc = "Write proxy for field `RFDF_RE`"]
+impl core::ops::Deref for RFDF_RE_R {
+    type Target = crate::FieldReader<bool, RFDF_RE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RFDF_RE` writer - Receive FIFO Drain Request Enable"]
 pub struct RFDF_RE_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> RFDF_RE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RFDF_RE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "RFDF interrupt or DMA requests are disabled."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> RFDF_RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | ((value as u32 & 0x01) << 17);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<RFOF_RE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RFOF_RE`"]
-pub type RFOF_RE_R = crate::R<bool, RFOF_RE_A>;
+#[doc = "Field `RFOF_RE` reader - Receive FIFO Overflow Request Enable"]
+pub struct RFOF_RE_R(crate::FieldReader<bool, RFOF_RE_A>);
 impl RFOF_RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RFOF_RE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RFOF_RE_A {
@@ -188,15 +231,22 @@ impl RFOF_RE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RFOF_RE_A::_0
+        **self == RFOF_RE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RFOF_RE_A::_1
+        **self == RFOF_RE_A::_1
     }
 }
-#[doc = "Write proxy for field `RFOF_RE`"]
+impl core::ops::Deref for RFOF_RE_R {
+    type Target = crate::FieldReader<bool, RFOF_RE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RFOF_RE` writer - Receive FIFO Overflow Request Enable"]
 pub struct RFOF_RE_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> RFOF_RE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RFOF_RE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "RFOF interrupt requests are disabled."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> RFOF_RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | ((value as u32 & 0x01) << 19);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<TFFF_DIRS_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TFFF_DIRS`"]
-pub type TFFF_DIRS_R = crate::R<bool, TFFF_DIRS_A>;
+#[doc = "Field `TFFF_DIRS` reader - Transmit FIFO Fill DMA or Interrupt Request Select"]
+pub struct TFFF_DIRS_R(crate::FieldReader<bool, TFFF_DIRS_A>);
 impl TFFF_DIRS_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TFFF_DIRS_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TFFF_DIRS_A {
@@ -263,15 +314,22 @@ impl TFFF_DIRS_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TFFF_DIRS_A::_0
+        **self == TFFF_DIRS_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TFFF_DIRS_A::_1
+        **self == TFFF_DIRS_A::_1
     }
 }
-#[doc = "Write proxy for field `TFFF_DIRS`"]
+impl core::ops::Deref for TFFF_DIRS_R {
+    type Target = crate::FieldReader<bool, TFFF_DIRS_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TFFF_DIRS` writer - Transmit FIFO Fill DMA or Interrupt Request Select"]
 pub struct TFFF_DIRS_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> TFFF_DIRS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TFFF_DIRS_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TFFF flag generates interrupt requests."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> TFFF_DIRS_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 24)) | (((value as u32) & 0x01) << 24);
+        self.w.bits = (self.w.bits & !(0x01 << 24)) | ((value as u32 & 0x01) << 24);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<TFFF_RE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TFFF_RE`"]
-pub type TFFF_RE_R = crate::R<bool, TFFF_RE_A>;
+#[doc = "Field `TFFF_RE` reader - Transmit FIFO Fill Request Enable"]
+pub struct TFFF_RE_R(crate::FieldReader<bool, TFFF_RE_A>);
 impl TFFF_RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TFFF_RE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TFFF_RE_A {
@@ -338,15 +397,22 @@ impl TFFF_RE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TFFF_RE_A::_0
+        **self == TFFF_RE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TFFF_RE_A::_1
+        **self == TFFF_RE_A::_1
     }
 }
-#[doc = "Write proxy for field `TFFF_RE`"]
+impl core::ops::Deref for TFFF_RE_R {
+    type Target = crate::FieldReader<bool, TFFF_RE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TFFF_RE` writer - Transmit FIFO Fill Request Enable"]
 pub struct TFFF_RE_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> TFFF_RE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TFFF_RE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TFFF interrupts or DMA requests are disabled."]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> TFFF_RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 25)) | (((value as u32) & 0x01) << 25);
+        self.w.bits = (self.w.bits & !(0x01 << 25)) | ((value as u32 & 0x01) << 25);
         self.w
     }
 }
@@ -399,9 +463,12 @@ impl From<TFUF_RE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TFUF_RE`"]
-pub type TFUF_RE_R = crate::R<bool, TFUF_RE_A>;
+#[doc = "Field `TFUF_RE` reader - Transmit FIFO Underflow Request Enable"]
+pub struct TFUF_RE_R(crate::FieldReader<bool, TFUF_RE_A>);
 impl TFUF_RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TFUF_RE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TFUF_RE_A {
@@ -413,15 +480,22 @@ impl TFUF_RE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TFUF_RE_A::_0
+        **self == TFUF_RE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TFUF_RE_A::_1
+        **self == TFUF_RE_A::_1
     }
 }
-#[doc = "Write proxy for field `TFUF_RE`"]
+impl core::ops::Deref for TFUF_RE_R {
+    type Target = crate::FieldReader<bool, TFUF_RE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TFUF_RE` writer - Transmit FIFO Underflow Request Enable"]
 pub struct TFUF_RE_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +503,7 @@ impl<'a> TFUF_RE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TFUF_RE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TFUF interrupt requests are disabled."]
     #[inline(always)]
@@ -456,7 +528,7 @@ impl<'a> TFUF_RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 27)) | (((value as u32) & 0x01) << 27);
+        self.w.bits = (self.w.bits & !(0x01 << 27)) | ((value as u32 & 0x01) << 27);
         self.w
     }
 }
@@ -474,9 +546,12 @@ impl From<EOQF_RE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `EOQF_RE`"]
-pub type EOQF_RE_R = crate::R<bool, EOQF_RE_A>;
+#[doc = "Field `EOQF_RE` reader - Finished Request Enable"]
+pub struct EOQF_RE_R(crate::FieldReader<bool, EOQF_RE_A>);
 impl EOQF_RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        EOQF_RE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> EOQF_RE_A {
@@ -488,15 +563,22 @@ impl EOQF_RE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == EOQF_RE_A::_0
+        **self == EOQF_RE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == EOQF_RE_A::_1
+        **self == EOQF_RE_A::_1
     }
 }
-#[doc = "Write proxy for field `EOQF_RE`"]
+impl core::ops::Deref for EOQF_RE_R {
+    type Target = crate::FieldReader<bool, EOQF_RE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `EOQF_RE` writer - Finished Request Enable"]
 pub struct EOQF_RE_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +586,7 @@ impl<'a> EOQF_RE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EOQF_RE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "EOQF interrupt requests are disabled."]
     #[inline(always)]
@@ -531,7 +611,7 @@ impl<'a> EOQF_RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 28)) | (((value as u32) & 0x01) << 28);
+        self.w.bits = (self.w.bits & !(0x01 << 28)) | ((value as u32 & 0x01) << 28);
         self.w
     }
 }
@@ -549,9 +629,12 @@ impl From<TCF_RE_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TCF_RE`"]
-pub type TCF_RE_R = crate::R<bool, TCF_RE_A>;
+#[doc = "Field `TCF_RE` reader - Transmission Complete Request Enable"]
+pub struct TCF_RE_R(crate::FieldReader<bool, TCF_RE_A>);
 impl TCF_RE_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TCF_RE_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TCF_RE_A {
@@ -563,15 +646,22 @@ impl TCF_RE_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TCF_RE_A::_0
+        **self == TCF_RE_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TCF_RE_A::_1
+        **self == TCF_RE_A::_1
     }
 }
-#[doc = "Write proxy for field `TCF_RE`"]
+impl core::ops::Deref for TCF_RE_R {
+    type Target = crate::FieldReader<bool, TCF_RE_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TCF_RE` writer - Transmission Complete Request Enable"]
 pub struct TCF_RE_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +669,7 @@ impl<'a> TCF_RE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TCF_RE_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TCF interrupt requests are disabled."]
     #[inline(always)]
@@ -606,7 +694,7 @@ impl<'a> TCF_RE_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 31)) | (((value as u32) & 0x01) << 31);
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
         self.w
     }
 }
@@ -692,5 +780,31 @@ impl W {
     #[inline(always)]
     pub fn tcf_re(&mut self) -> TCF_RE_W {
         TCF_RE_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "DMA/Interrupt Request Select and Enable Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rser](index.html) module"]
+pub struct RSER_SPEC;
+impl crate::RegisterSpec for RSER_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [rser::R](R) reader structure"]
+impl crate::Readable for RSER_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [rser::W](W) writer structure"]
+impl crate::Writable for RSER_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets RSER to value 0"]
+impl crate::Resettable for RSER_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

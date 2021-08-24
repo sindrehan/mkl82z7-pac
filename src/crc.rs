@@ -1,345 +1,201 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved_0_crch: [u8; 4usize],
-    _reserved_1_gpoly: [u8; 4usize],
-    _reserved_2_ctrl: [u8; 4usize],
+    _reserved_0_crchu: [u8; 0x04],
+    _reserved_1_gpolyhu: [u8; 0x04],
+    _reserved_2_ctrl: [u8; 0x04],
 }
 impl RegisterBlock {
     #[doc = "0x00 - CRC_CRCLL register."]
     #[inline(always)]
-    pub fn crcll(&self) -> &CRCLL {
-        unsafe { &*(((self as *const Self) as *const u8).add(0usize) as *const CRCLL) }
-    }
-    #[doc = "0x00 - CRC_CRCLL register."]
-    #[inline(always)]
-    pub fn crcll_mut(&self) -> &mut CRCLL {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(0usize) as *mut CRCLL) }
+    pub fn crc_crcll(&self) -> &crate::Reg<crc_crcll::CRC_CRCLL_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(0usize)
+                as *const crate::Reg<crc_crcll::CRC_CRCLL_SPEC>)
+        }
     }
     #[doc = "0x00 - CRC_CRCL register."]
     #[inline(always)]
-    pub fn crcl(&self) -> &CRCL {
-        unsafe { &*(((self as *const Self) as *const u8).add(0usize) as *const CRCL) }
-    }
-    #[doc = "0x00 - CRC_CRCL register."]
-    #[inline(always)]
-    pub fn crcl_mut(&self) -> &mut CRCL {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(0usize) as *mut CRCL) }
+    pub fn crc_crcl(&self) -> &crate::Reg<crc_crcl::CRC_CRCL_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(0usize)
+                as *const crate::Reg<crc_crcl::CRC_CRCL_SPEC>)
+        }
     }
     #[doc = "0x00 - CRC Data register"]
     #[inline(always)]
-    pub fn data(&self) -> &DATA {
-        unsafe { &*(((self as *const Self) as *const u8).add(0usize) as *const DATA) }
-    }
-    #[doc = "0x00 - CRC Data register"]
-    #[inline(always)]
-    pub fn data_mut(&self) -> &mut DATA {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(0usize) as *mut DATA) }
+    pub fn crc_data(&self) -> &crate::Reg<crc_data::CRC_DATA_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(0usize)
+                as *const crate::Reg<crc_data::CRC_DATA_SPEC>)
+        }
     }
     #[doc = "0x01 - CRC_CRCLU register."]
     #[inline(always)]
-    pub fn crclu(&self) -> &CRCLU {
-        unsafe { &*(((self as *const Self) as *const u8).add(1usize) as *const CRCLU) }
-    }
-    #[doc = "0x01 - CRC_CRCLU register."]
-    #[inline(always)]
-    pub fn crclu_mut(&self) -> &mut CRCLU {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(1usize) as *mut CRCLU) }
+    pub fn crclu(&self) -> &crate::Reg<crclu::CRCLU_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(1usize)
+                as *const crate::Reg<crclu::CRCLU_SPEC>)
+        }
     }
     #[doc = "0x02 - CRC_CRCHL register."]
     #[inline(always)]
-    pub fn crchl(&self) -> &CRCHL {
-        unsafe { &*(((self as *const Self) as *const u8).add(2usize) as *const CRCHL) }
-    }
-    #[doc = "0x02 - CRC_CRCHL register."]
-    #[inline(always)]
-    pub fn crchl_mut(&self) -> &mut CRCHL {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(2usize) as *mut CRCHL) }
+    pub fn crc_crchl(&self) -> &crate::Reg<crc_crchl::CRC_CRCHL_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(2usize)
+                as *const crate::Reg<crc_crchl::CRC_CRCHL_SPEC>)
+        }
     }
     #[doc = "0x02 - CRC_CRCH register."]
     #[inline(always)]
-    pub fn crch(&self) -> &CRCH {
-        unsafe { &*(((self as *const Self) as *const u8).add(2usize) as *const CRCH) }
-    }
-    #[doc = "0x02 - CRC_CRCH register."]
-    #[inline(always)]
-    pub fn crch_mut(&self) -> &mut CRCH {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(2usize) as *mut CRCH) }
+    pub fn crc_crch(&self) -> &crate::Reg<crc_crch::CRC_CRCH_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(2usize)
+                as *const crate::Reg<crc_crch::CRC_CRCH_SPEC>)
+        }
     }
     #[doc = "0x03 - CRC_CRCHU register."]
     #[inline(always)]
-    pub fn crchu(&self) -> &CRCHU {
-        unsafe { &*(((self as *const Self) as *const u8).add(3usize) as *const CRCHU) }
-    }
-    #[doc = "0x03 - CRC_CRCHU register."]
-    #[inline(always)]
-    pub fn crchu_mut(&self) -> &mut CRCHU {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(3usize) as *mut CRCHU) }
+    pub fn crchu(&self) -> &crate::Reg<crchu::CRCHU_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(3usize)
+                as *const crate::Reg<crchu::CRCHU_SPEC>)
+        }
     }
     #[doc = "0x04 - CRC_GPOLYLL register."]
     #[inline(always)]
-    pub fn gpolyll(&self) -> &GPOLYLL {
-        unsafe { &*(((self as *const Self) as *const u8).add(4usize) as *const GPOLYLL) }
-    }
-    #[doc = "0x04 - CRC_GPOLYLL register."]
-    #[inline(always)]
-    pub fn gpolyll_mut(&self) -> &mut GPOLYLL {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(4usize) as *mut GPOLYLL) }
+    pub fn crc_gpolyll(&self) -> &crate::Reg<crc_gpolyll::CRC_GPOLYLL_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(4usize)
+                as *const crate::Reg<crc_gpolyll::CRC_GPOLYLL_SPEC>)
+        }
     }
     #[doc = "0x04 - CRC_GPOLYL register."]
     #[inline(always)]
-    pub fn gpolyl(&self) -> &GPOLYL {
-        unsafe { &*(((self as *const Self) as *const u8).add(4usize) as *const GPOLYL) }
-    }
-    #[doc = "0x04 - CRC_GPOLYL register."]
-    #[inline(always)]
-    pub fn gpolyl_mut(&self) -> &mut GPOLYL {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(4usize) as *mut GPOLYL) }
+    pub fn crc_gpolyl(&self) -> &crate::Reg<crc_gpolyl::CRC_GPOLYL_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(4usize)
+                as *const crate::Reg<crc_gpolyl::CRC_GPOLYL_SPEC>)
+        }
     }
     #[doc = "0x04 - CRC Polynomial register"]
     #[inline(always)]
-    pub fn gpoly(&self) -> &GPOLY {
-        unsafe { &*(((self as *const Self) as *const u8).add(4usize) as *const GPOLY) }
-    }
-    #[doc = "0x04 - CRC Polynomial register"]
-    #[inline(always)]
-    pub fn gpoly_mut(&self) -> &mut GPOLY {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(4usize) as *mut GPOLY) }
+    pub fn crc_gpoly(&self) -> &crate::Reg<crc_gpoly::CRC_GPOLY_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(4usize)
+                as *const crate::Reg<crc_gpoly::CRC_GPOLY_SPEC>)
+        }
     }
     #[doc = "0x05 - CRC_GPOLYLU register."]
     #[inline(always)]
-    pub fn gpolylu(&self) -> &GPOLYLU {
-        unsafe { &*(((self as *const Self) as *const u8).add(5usize) as *const GPOLYLU) }
-    }
-    #[doc = "0x05 - CRC_GPOLYLU register."]
-    #[inline(always)]
-    pub fn gpolylu_mut(&self) -> &mut GPOLYLU {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(5usize) as *mut GPOLYLU) }
+    pub fn gpolylu(&self) -> &crate::Reg<gpolylu::GPOLYLU_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(5usize)
+                as *const crate::Reg<gpolylu::GPOLYLU_SPEC>)
+        }
     }
     #[doc = "0x06 - CRC_GPOLYHL register."]
     #[inline(always)]
-    pub fn gpolyhl(&self) -> &GPOLYHL {
-        unsafe { &*(((self as *const Self) as *const u8).add(6usize) as *const GPOLYHL) }
-    }
-    #[doc = "0x06 - CRC_GPOLYHL register."]
-    #[inline(always)]
-    pub fn gpolyhl_mut(&self) -> &mut GPOLYHL {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(6usize) as *mut GPOLYHL) }
+    pub fn crc_gpolyhl(&self) -> &crate::Reg<crc_gpolyhl::CRC_GPOLYHL_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(6usize)
+                as *const crate::Reg<crc_gpolyhl::CRC_GPOLYHL_SPEC>)
+        }
     }
     #[doc = "0x06 - CRC_GPOLYH register."]
     #[inline(always)]
-    pub fn gpolyh(&self) -> &GPOLYH {
-        unsafe { &*(((self as *const Self) as *const u8).add(6usize) as *const GPOLYH) }
-    }
-    #[doc = "0x06 - CRC_GPOLYH register."]
-    #[inline(always)]
-    pub fn gpolyh_mut(&self) -> &mut GPOLYH {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(6usize) as *mut GPOLYH) }
+    pub fn crc_gpolyh(&self) -> &crate::Reg<crc_gpolyh::CRC_GPOLYH_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(6usize)
+                as *const crate::Reg<crc_gpolyh::CRC_GPOLYH_SPEC>)
+        }
     }
     #[doc = "0x07 - CRC_GPOLYHU register."]
     #[inline(always)]
-    pub fn gpolyhu(&self) -> &GPOLYHU {
-        unsafe { &*(((self as *const Self) as *const u8).add(7usize) as *const GPOLYHU) }
-    }
-    #[doc = "0x07 - CRC_GPOLYHU register."]
-    #[inline(always)]
-    pub fn gpolyhu_mut(&self) -> &mut GPOLYHU {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(7usize) as *mut GPOLYHU) }
+    pub fn gpolyhu(&self) -> &crate::Reg<gpolyhu::GPOLYHU_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(7usize)
+                as *const crate::Reg<gpolyhu::GPOLYHU_SPEC>)
+        }
     }
     #[doc = "0x08 - CRC Control register"]
     #[inline(always)]
-    pub fn ctrl(&self) -> &CTRL {
-        unsafe { &*(((self as *const Self) as *const u8).add(8usize) as *const CTRL) }
-    }
-    #[doc = "0x08 - CRC Control register"]
-    #[inline(always)]
-    pub fn ctrl_mut(&self) -> &mut CTRL {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(8usize) as *mut CTRL) }
+    pub fn ctrl(&self) -> &crate::Reg<ctrl::CTRL_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(8usize)
+                as *const crate::Reg<ctrl::CTRL_SPEC>)
+        }
     }
     #[doc = "0x0b - CRC_CTRLHU register."]
     #[inline(always)]
-    pub fn ctrlhu(&self) -> &CTRLHU {
-        unsafe { &*(((self as *const Self) as *const u8).add(11usize) as *const CTRLHU) }
-    }
-    #[doc = "0x0b - CRC_CTRLHU register."]
-    #[inline(always)]
-    pub fn ctrlhu_mut(&self) -> &mut CTRLHU {
-        unsafe { &mut *(((self as *const Self) as *mut u8).add(11usize) as *mut CTRLHU) }
+    pub fn ctrlhu(&self) -> &crate::Reg<ctrlhu::CTRLHU_SPEC> {
+        unsafe {
+            &*(((self as *const Self) as *const u8).add(11usize)
+                as *const crate::Reg<ctrlhu::CTRLHU_SPEC>)
+        }
     }
 }
-#[doc = "CRC Data register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [data](data) module"]
-pub type DATA = crate::Reg<u32, _DATA>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _DATA;
-#[doc = "`read()` method returns [data::R](data::R) reader structure"]
-impl crate::Readable for DATA {}
-#[doc = "`write(|w| ..)` method takes [data::W](data::W) writer structure"]
-impl crate::Writable for DATA {}
+#[doc = "CRC_DATA register accessor: an alias for `Reg<CRC_DATA_SPEC>`"]
+pub type CRC_DATA = crate::Reg<crc_data::CRC_DATA_SPEC>;
 #[doc = "CRC Data register"]
-pub mod data;
-#[doc = "CRC_CRCL register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [crcl](crcl) module"]
-pub type CRCL = crate::Reg<u16, _CRCL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CRCL;
-#[doc = "`read()` method returns [crcl::R](crcl::R) reader structure"]
-impl crate::Readable for CRCL {}
-#[doc = "`write(|w| ..)` method takes [crcl::W](crcl::W) writer structure"]
-impl crate::Writable for CRCL {}
+pub mod crc_data;
+#[doc = "CRC_CRCL register accessor: an alias for `Reg<CRC_CRCL_SPEC>`"]
+pub type CRC_CRCL = crate::Reg<crc_crcl::CRC_CRCL_SPEC>;
 #[doc = "CRC_CRCL register."]
-pub mod crcl;
-#[doc = "CRC_CRCLL register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [crcll](crcll) module"]
-pub type CRCLL = crate::Reg<u8, _CRCLL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CRCLL;
-#[doc = "`read()` method returns [crcll::R](crcll::R) reader structure"]
-impl crate::Readable for CRCLL {}
-#[doc = "`write(|w| ..)` method takes [crcll::W](crcll::W) writer structure"]
-impl crate::Writable for CRCLL {}
+pub mod crc_crcl;
+#[doc = "CRC_CRCLL register accessor: an alias for `Reg<CRC_CRCLL_SPEC>`"]
+pub type CRC_CRCLL = crate::Reg<crc_crcll::CRC_CRCLL_SPEC>;
 #[doc = "CRC_CRCLL register."]
-pub mod crcll;
-#[doc = "CRC_CRCLU register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [crclu](crclu) module"]
-pub type CRCLU = crate::Reg<u8, _CRCLU>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CRCLU;
-#[doc = "`read()` method returns [crclu::R](crclu::R) reader structure"]
-impl crate::Readable for CRCLU {}
-#[doc = "`write(|w| ..)` method takes [crclu::W](crclu::W) writer structure"]
-impl crate::Writable for CRCLU {}
+pub mod crc_crcll;
+#[doc = "CRCLU register accessor: an alias for `Reg<CRCLU_SPEC>`"]
+pub type CRCLU = crate::Reg<crclu::CRCLU_SPEC>;
 #[doc = "CRC_CRCLU register."]
 pub mod crclu;
-#[doc = "CRC_CRCH register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [crch](crch) module"]
-pub type CRCH = crate::Reg<u16, _CRCH>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CRCH;
-#[doc = "`read()` method returns [crch::R](crch::R) reader structure"]
-impl crate::Readable for CRCH {}
-#[doc = "`write(|w| ..)` method takes [crch::W](crch::W) writer structure"]
-impl crate::Writable for CRCH {}
+#[doc = "CRC_CRCH register accessor: an alias for `Reg<CRC_CRCH_SPEC>`"]
+pub type CRC_CRCH = crate::Reg<crc_crch::CRC_CRCH_SPEC>;
 #[doc = "CRC_CRCH register."]
-pub mod crch;
-#[doc = "CRC_CRCHL register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [crchl](crchl) module"]
-pub type CRCHL = crate::Reg<u8, _CRCHL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CRCHL;
-#[doc = "`read()` method returns [crchl::R](crchl::R) reader structure"]
-impl crate::Readable for CRCHL {}
-#[doc = "`write(|w| ..)` method takes [crchl::W](crchl::W) writer structure"]
-impl crate::Writable for CRCHL {}
+pub mod crc_crch;
+#[doc = "CRC_CRCHL register accessor: an alias for `Reg<CRC_CRCHL_SPEC>`"]
+pub type CRC_CRCHL = crate::Reg<crc_crchl::CRC_CRCHL_SPEC>;
 #[doc = "CRC_CRCHL register."]
-pub mod crchl;
-#[doc = "CRC_CRCHU register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [crchu](crchu) module"]
-pub type CRCHU = crate::Reg<u8, _CRCHU>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CRCHU;
-#[doc = "`read()` method returns [crchu::R](crchu::R) reader structure"]
-impl crate::Readable for CRCHU {}
-#[doc = "`write(|w| ..)` method takes [crchu::W](crchu::W) writer structure"]
-impl crate::Writable for CRCHU {}
+pub mod crc_crchl;
+#[doc = "CRCHU register accessor: an alias for `Reg<CRCHU_SPEC>`"]
+pub type CRCHU = crate::Reg<crchu::CRCHU_SPEC>;
 #[doc = "CRC_CRCHU register."]
 pub mod crchu;
-#[doc = "CRC Polynomial register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gpoly](gpoly) module"]
-pub type GPOLY = crate::Reg<u32, _GPOLY>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _GPOLY;
-#[doc = "`read()` method returns [gpoly::R](gpoly::R) reader structure"]
-impl crate::Readable for GPOLY {}
-#[doc = "`write(|w| ..)` method takes [gpoly::W](gpoly::W) writer structure"]
-impl crate::Writable for GPOLY {}
+#[doc = "CRC_GPOLY register accessor: an alias for `Reg<CRC_GPOLY_SPEC>`"]
+pub type CRC_GPOLY = crate::Reg<crc_gpoly::CRC_GPOLY_SPEC>;
 #[doc = "CRC Polynomial register"]
-pub mod gpoly;
-#[doc = "CRC_GPOLYL register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gpolyl](gpolyl) module"]
-pub type GPOLYL = crate::Reg<u16, _GPOLYL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _GPOLYL;
-#[doc = "`read()` method returns [gpolyl::R](gpolyl::R) reader structure"]
-impl crate::Readable for GPOLYL {}
-#[doc = "`write(|w| ..)` method takes [gpolyl::W](gpolyl::W) writer structure"]
-impl crate::Writable for GPOLYL {}
+pub mod crc_gpoly;
+#[doc = "CRC_GPOLYL register accessor: an alias for `Reg<CRC_GPOLYL_SPEC>`"]
+pub type CRC_GPOLYL = crate::Reg<crc_gpolyl::CRC_GPOLYL_SPEC>;
 #[doc = "CRC_GPOLYL register."]
-pub mod gpolyl;
-#[doc = "CRC_GPOLYLL register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gpolyll](gpolyll) module"]
-pub type GPOLYLL = crate::Reg<u8, _GPOLYLL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _GPOLYLL;
-#[doc = "`read()` method returns [gpolyll::R](gpolyll::R) reader structure"]
-impl crate::Readable for GPOLYLL {}
-#[doc = "`write(|w| ..)` method takes [gpolyll::W](gpolyll::W) writer structure"]
-impl crate::Writable for GPOLYLL {}
+pub mod crc_gpolyl;
+#[doc = "CRC_GPOLYLL register accessor: an alias for `Reg<CRC_GPOLYLL_SPEC>`"]
+pub type CRC_GPOLYLL = crate::Reg<crc_gpolyll::CRC_GPOLYLL_SPEC>;
 #[doc = "CRC_GPOLYLL register."]
-pub mod gpolyll;
-#[doc = "CRC_GPOLYLU register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gpolylu](gpolylu) module"]
-pub type GPOLYLU = crate::Reg<u8, _GPOLYLU>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _GPOLYLU;
-#[doc = "`read()` method returns [gpolylu::R](gpolylu::R) reader structure"]
-impl crate::Readable for GPOLYLU {}
-#[doc = "`write(|w| ..)` method takes [gpolylu::W](gpolylu::W) writer structure"]
-impl crate::Writable for GPOLYLU {}
+pub mod crc_gpolyll;
+#[doc = "GPOLYLU register accessor: an alias for `Reg<GPOLYLU_SPEC>`"]
+pub type GPOLYLU = crate::Reg<gpolylu::GPOLYLU_SPEC>;
 #[doc = "CRC_GPOLYLU register."]
 pub mod gpolylu;
-#[doc = "CRC_GPOLYH register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gpolyh](gpolyh) module"]
-pub type GPOLYH = crate::Reg<u16, _GPOLYH>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _GPOLYH;
-#[doc = "`read()` method returns [gpolyh::R](gpolyh::R) reader structure"]
-impl crate::Readable for GPOLYH {}
-#[doc = "`write(|w| ..)` method takes [gpolyh::W](gpolyh::W) writer structure"]
-impl crate::Writable for GPOLYH {}
+#[doc = "CRC_GPOLYH register accessor: an alias for `Reg<CRC_GPOLYH_SPEC>`"]
+pub type CRC_GPOLYH = crate::Reg<crc_gpolyh::CRC_GPOLYH_SPEC>;
 #[doc = "CRC_GPOLYH register."]
-pub mod gpolyh;
-#[doc = "CRC_GPOLYHL register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gpolyhl](gpolyhl) module"]
-pub type GPOLYHL = crate::Reg<u8, _GPOLYHL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _GPOLYHL;
-#[doc = "`read()` method returns [gpolyhl::R](gpolyhl::R) reader structure"]
-impl crate::Readable for GPOLYHL {}
-#[doc = "`write(|w| ..)` method takes [gpolyhl::W](gpolyhl::W) writer structure"]
-impl crate::Writable for GPOLYHL {}
+pub mod crc_gpolyh;
+#[doc = "CRC_GPOLYHL register accessor: an alias for `Reg<CRC_GPOLYHL_SPEC>`"]
+pub type CRC_GPOLYHL = crate::Reg<crc_gpolyhl::CRC_GPOLYHL_SPEC>;
 #[doc = "CRC_GPOLYHL register."]
-pub mod gpolyhl;
-#[doc = "CRC_GPOLYHU register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gpolyhu](gpolyhu) module"]
-pub type GPOLYHU = crate::Reg<u8, _GPOLYHU>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _GPOLYHU;
-#[doc = "`read()` method returns [gpolyhu::R](gpolyhu::R) reader structure"]
-impl crate::Readable for GPOLYHU {}
-#[doc = "`write(|w| ..)` method takes [gpolyhu::W](gpolyhu::W) writer structure"]
-impl crate::Writable for GPOLYHU {}
+pub mod crc_gpolyhl;
+#[doc = "GPOLYHU register accessor: an alias for `Reg<GPOLYHU_SPEC>`"]
+pub type GPOLYHU = crate::Reg<gpolyhu::GPOLYHU_SPEC>;
 #[doc = "CRC_GPOLYHU register."]
 pub mod gpolyhu;
-#[doc = "CRC Control register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrl](ctrl) module"]
-pub type CTRL = crate::Reg<u32, _CTRL>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CTRL;
-#[doc = "`read()` method returns [ctrl::R](ctrl::R) reader structure"]
-impl crate::Readable for CTRL {}
-#[doc = "`write(|w| ..)` method takes [ctrl::W](ctrl::W) writer structure"]
-impl crate::Writable for CTRL {}
+#[doc = "CTRL register accessor: an alias for `Reg<CTRL_SPEC>`"]
+pub type CTRL = crate::Reg<ctrl::CTRL_SPEC>;
 #[doc = "CRC Control register"]
 pub mod ctrl;
-#[doc = "CRC_CTRLHU register.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrlhu](ctrlhu) module"]
-pub type CTRLHU = crate::Reg<u8, _CTRLHU>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _CTRLHU;
-#[doc = "`read()` method returns [ctrlhu::R](ctrlhu::R) reader structure"]
-impl crate::Readable for CTRLHU {}
-#[doc = "`write(|w| ..)` method takes [ctrlhu::W](ctrlhu::W) writer structure"]
-impl crate::Writable for CTRLHU {}
+#[doc = "CTRLHU register accessor: an alias for `Reg<CTRLHU_SPEC>`"]
+pub type CTRLHU = crate::Reg<ctrlhu::CTRLHU_SPEC>;
 #[doc = "CRC_CTRLHU register."]
 pub mod ctrlhu;

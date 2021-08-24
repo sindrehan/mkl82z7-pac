@@ -1,13 +1,37 @@
-#[doc = "Reader of register INT_MASK"]
-pub type R = crate::R<u32, super::INT_MASK>;
-#[doc = "Writer for register INT_MASK"]
-pub type W = crate::W<u32, super::INT_MASK>;
-#[doc = "Register INT_MASK `reset()`'s with value 0xffff"]
-impl crate::ResetValue for super::INT_MASK {
-    type Type = u32;
+#[doc = "Register `INT_MASK` reader"]
+pub struct R(crate::R<INT_MASK_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<INT_MASK_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0xffff
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<INT_MASK_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<INT_MASK_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `INT_MASK` writer"]
+pub struct W(crate::W<INT_MASK_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<INT_MASK_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<INT_MASK_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<INT_MASK_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Receive Data Threshold Interrupt Mask\n\nValue on reset: 1"]
@@ -24,9 +48,12 @@ impl From<RDT_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RDT_IM`"]
-pub type RDT_IM_R = crate::R<bool, RDT_IM_A>;
+#[doc = "Field `RDT_IM` reader - Receive Data Threshold Interrupt Mask"]
+pub struct RDT_IM_R(crate::FieldReader<bool, RDT_IM_A>);
 impl RDT_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RDT_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RDT_IM_A {
@@ -38,15 +65,22 @@ impl RDT_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RDT_IM_A::_0
+        **self == RDT_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RDT_IM_A::_1
+        **self == RDT_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `RDT_IM`"]
+impl core::ops::Deref for RDT_IM_R {
+    type Target = crate::FieldReader<bool, RDT_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RDT_IM` writer - Receive Data Threshold Interrupt Mask"]
 pub struct RDT_IM_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> RDT_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RDT_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "RDTF interrupt enabled"]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> RDT_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u32 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<TC_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TC_IM`"]
-pub type TC_IM_R = crate::R<bool, TC_IM_A>;
+#[doc = "Field `TC_IM` reader - Transmit Complete Interrupt Mask"]
+pub struct TC_IM_R(crate::FieldReader<bool, TC_IM_A>);
 impl TC_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TC_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TC_IM_A {
@@ -113,15 +148,22 @@ impl TC_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TC_IM_A::_0
+        **self == TC_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TC_IM_A::_1
+        **self == TC_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `TC_IM`"]
+impl core::ops::Deref for TC_IM_R {
+    type Target = crate::FieldReader<bool, TC_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TC_IM` writer - Transmit Complete Interrupt Mask"]
 pub struct TC_IM_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> TC_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TC_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TCF interrupt enabled"]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> TC_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u32 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<RFO_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RFO_IM`"]
-pub type RFO_IM_R = crate::R<bool, RFO_IM_A>;
+#[doc = "Field `RFO_IM` reader - Receive FIFO Overflow Interrupt Mask"]
+pub struct RFO_IM_R(crate::FieldReader<bool, RFO_IM_A>);
 impl RFO_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RFO_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RFO_IM_A {
@@ -188,15 +231,22 @@ impl RFO_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RFO_IM_A::_0
+        **self == RFO_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RFO_IM_A::_1
+        **self == RFO_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `RFO_IM`"]
+impl core::ops::Deref for RFO_IM_R {
+    type Target = crate::FieldReader<bool, RFO_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RFO_IM` writer - Receive FIFO Overflow Interrupt Mask"]
 pub struct RFO_IM_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> RFO_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RFO_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "RFO interrupt enabled"]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> RFO_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u32 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<ETC_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `ETC_IM`"]
-pub type ETC_IM_R = crate::R<bool, ETC_IM_A>;
+#[doc = "Field `ETC_IM` reader - Early Transmit Complete Interrupt Mask"]
+pub struct ETC_IM_R(crate::FieldReader<bool, ETC_IM_A>);
 impl ETC_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        ETC_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> ETC_IM_A {
@@ -263,15 +314,22 @@ impl ETC_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == ETC_IM_A::_0
+        **self == ETC_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == ETC_IM_A::_1
+        **self == ETC_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `ETC_IM`"]
+impl core::ops::Deref for ETC_IM_R {
+    type Target = crate::FieldReader<bool, ETC_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `ETC_IM` writer - Early Transmit Complete Interrupt Mask"]
 pub struct ETC_IM_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> ETC_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ETC_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "ETC interrupt enabled"]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> ETC_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<TFE_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TFE_IM`"]
-pub type TFE_IM_R = crate::R<bool, TFE_IM_A>;
+#[doc = "Field `TFE_IM` reader - Transmit FIFO Empty Interrupt Mask"]
+pub struct TFE_IM_R(crate::FieldReader<bool, TFE_IM_A>);
 impl TFE_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TFE_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TFE_IM_A {
@@ -338,15 +397,22 @@ impl TFE_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TFE_IM_A::_0
+        **self == TFE_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TFE_IM_A::_1
+        **self == TFE_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `TFE_IM`"]
+impl core::ops::Deref for TFE_IM_R {
+    type Target = crate::FieldReader<bool, TFE_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TFE_IM` writer - Transmit FIFO Empty Interrupt Mask"]
 pub struct TFE_IM_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> TFE_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TFE_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TFE interrupt enabled"]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> TFE_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u32 & 0x01) << 4);
         self.w
     }
 }
@@ -399,9 +463,12 @@ impl From<TNACK_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TNACK_IM`"]
-pub type TNACK_IM_R = crate::R<bool, TNACK_IM_A>;
+#[doc = "Field `TNACK_IM` reader - Transmit NACK Threshold Interrupt Mask"]
+pub struct TNACK_IM_R(crate::FieldReader<bool, TNACK_IM_A>);
 impl TNACK_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TNACK_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TNACK_IM_A {
@@ -413,15 +480,22 @@ impl TNACK_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TNACK_IM_A::_0
+        **self == TNACK_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TNACK_IM_A::_1
+        **self == TNACK_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `TNACK_IM`"]
+impl core::ops::Deref for TNACK_IM_R {
+    type Target = crate::FieldReader<bool, TNACK_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TNACK_IM` writer - Transmit NACK Threshold Interrupt Mask"]
 pub struct TNACK_IM_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +503,7 @@ impl<'a> TNACK_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TNACK_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TNTE interrupt enabled"]
     #[inline(always)]
@@ -456,7 +528,7 @@ impl<'a> TNACK_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u32 & 0x01) << 5);
         self.w
     }
 }
@@ -474,9 +546,12 @@ impl From<TFF_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TFF_IM`"]
-pub type TFF_IM_R = crate::R<bool, TFF_IM_A>;
+#[doc = "Field `TFF_IM` reader - Transmit FIFO Full Interrupt Mask"]
+pub struct TFF_IM_R(crate::FieldReader<bool, TFF_IM_A>);
 impl TFF_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TFF_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TFF_IM_A {
@@ -488,15 +563,22 @@ impl TFF_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TFF_IM_A::_0
+        **self == TFF_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TFF_IM_A::_1
+        **self == TFF_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `TFF_IM`"]
+impl core::ops::Deref for TFF_IM_R {
+    type Target = crate::FieldReader<bool, TFF_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TFF_IM` writer - Transmit FIFO Full Interrupt Mask"]
 pub struct TFF_IM_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +586,7 @@ impl<'a> TFF_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TFF_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TFF interrupt enabled"]
     #[inline(always)]
@@ -531,7 +611,7 @@ impl<'a> TFF_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
         self.w
     }
 }
@@ -549,9 +629,12 @@ impl From<TDT_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `TDT_IM`"]
-pub type TDT_IM_R = crate::R<bool, TDT_IM_A>;
+#[doc = "Field `TDT_IM` reader - Transmit Data Threshold Interrupt Mask"]
+pub struct TDT_IM_R(crate::FieldReader<bool, TDT_IM_A>);
 impl TDT_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        TDT_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> TDT_IM_A {
@@ -563,15 +646,22 @@ impl TDT_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == TDT_IM_A::_0
+        **self == TDT_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == TDT_IM_A::_1
+        **self == TDT_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `TDT_IM`"]
+impl core::ops::Deref for TDT_IM_R {
+    type Target = crate::FieldReader<bool, TDT_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `TDT_IM` writer - Transmit Data Threshold Interrupt Mask"]
 pub struct TDT_IM_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +669,7 @@ impl<'a> TDT_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TDT_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "TDTF interrupt enabled"]
     #[inline(always)]
@@ -606,7 +694,7 @@ impl<'a> TDT_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u32 & 0x01) << 7);
         self.w
     }
 }
@@ -624,9 +712,12 @@ impl From<GPCNT0_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `GPCNT0_IM`"]
-pub type GPCNT0_IM_R = crate::R<bool, GPCNT0_IM_A>;
+#[doc = "Field `GPCNT0_IM` reader - General Purpose Timer 0 Timeout Interrupt Mask"]
+pub struct GPCNT0_IM_R(crate::FieldReader<bool, GPCNT0_IM_A>);
 impl GPCNT0_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        GPCNT0_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> GPCNT0_IM_A {
@@ -638,15 +729,22 @@ impl GPCNT0_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == GPCNT0_IM_A::_0
+        **self == GPCNT0_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == GPCNT0_IM_A::_1
+        **self == GPCNT0_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `GPCNT0_IM`"]
+impl core::ops::Deref for GPCNT0_IM_R {
+    type Target = crate::FieldReader<bool, GPCNT0_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPCNT0_IM` writer - General Purpose Timer 0 Timeout Interrupt Mask"]
 pub struct GPCNT0_IM_W<'a> {
     w: &'a mut W,
 }
@@ -654,9 +752,7 @@ impl<'a> GPCNT0_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GPCNT0_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "GPCNT0_TO interrupt enabled"]
     #[inline(always)]
@@ -681,7 +777,7 @@ impl<'a> GPCNT0_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | ((value as u32 & 0x01) << 8);
         self.w
     }
 }
@@ -699,9 +795,12 @@ impl From<CWT_ERR_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `CWT_ERR_IM`"]
-pub type CWT_ERR_IM_R = crate::R<bool, CWT_ERR_IM_A>;
+#[doc = "Field `CWT_ERR_IM` reader - Character Wait Time Error Interrupt Mask"]
+pub struct CWT_ERR_IM_R(crate::FieldReader<bool, CWT_ERR_IM_A>);
 impl CWT_ERR_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CWT_ERR_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> CWT_ERR_IM_A {
@@ -713,15 +812,22 @@ impl CWT_ERR_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == CWT_ERR_IM_A::_0
+        **self == CWT_ERR_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == CWT_ERR_IM_A::_1
+        **self == CWT_ERR_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `CWT_ERR_IM`"]
+impl core::ops::Deref for CWT_ERR_IM_R {
+    type Target = crate::FieldReader<bool, CWT_ERR_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CWT_ERR_IM` writer - Character Wait Time Error Interrupt Mask"]
 pub struct CWT_ERR_IM_W<'a> {
     w: &'a mut W,
 }
@@ -729,9 +835,7 @@ impl<'a> CWT_ERR_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CWT_ERR_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "CWT_ERR interrupt enabled"]
     #[inline(always)]
@@ -756,7 +860,7 @@ impl<'a> CWT_ERR_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 9)) | (((value as u32) & 0x01) << 9);
+        self.w.bits = (self.w.bits & !(0x01 << 9)) | ((value as u32 & 0x01) << 9);
         self.w
     }
 }
@@ -774,9 +878,12 @@ impl From<RNACK_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RNACK_IM`"]
-pub type RNACK_IM_R = crate::R<bool, RNACK_IM_A>;
+#[doc = "Field `RNACK_IM` reader - Receiver NACK Threshold Interrupt Mask"]
+pub struct RNACK_IM_R(crate::FieldReader<bool, RNACK_IM_A>);
 impl RNACK_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RNACK_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RNACK_IM_A {
@@ -788,15 +895,22 @@ impl RNACK_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RNACK_IM_A::_0
+        **self == RNACK_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RNACK_IM_A::_1
+        **self == RNACK_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `RNACK_IM`"]
+impl core::ops::Deref for RNACK_IM_R {
+    type Target = crate::FieldReader<bool, RNACK_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RNACK_IM` writer - Receiver NACK Threshold Interrupt Mask"]
 pub struct RNACK_IM_W<'a> {
     w: &'a mut W,
 }
@@ -804,9 +918,7 @@ impl<'a> RNACK_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RNACK_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "RTE interrupt enabled"]
     #[inline(always)]
@@ -831,7 +943,7 @@ impl<'a> RNACK_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 10)) | (((value as u32) & 0x01) << 10);
+        self.w.bits = (self.w.bits & !(0x01 << 10)) | ((value as u32 & 0x01) << 10);
         self.w
     }
 }
@@ -849,9 +961,12 @@ impl From<BWT_ERR_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BWT_ERR_IM`"]
-pub type BWT_ERR_IM_R = crate::R<bool, BWT_ERR_IM_A>;
+#[doc = "Field `BWT_ERR_IM` reader - Block Wait Time Error Interrupt Mask"]
+pub struct BWT_ERR_IM_R(crate::FieldReader<bool, BWT_ERR_IM_A>);
 impl BWT_ERR_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BWT_ERR_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BWT_ERR_IM_A {
@@ -863,15 +978,22 @@ impl BWT_ERR_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == BWT_ERR_IM_A::_0
+        **self == BWT_ERR_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == BWT_ERR_IM_A::_1
+        **self == BWT_ERR_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `BWT_ERR_IM`"]
+impl core::ops::Deref for BWT_ERR_IM_R {
+    type Target = crate::FieldReader<bool, BWT_ERR_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BWT_ERR_IM` writer - Block Wait Time Error Interrupt Mask"]
 pub struct BWT_ERR_IM_W<'a> {
     w: &'a mut W,
 }
@@ -879,9 +1001,7 @@ impl<'a> BWT_ERR_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BWT_ERR_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "BWT_ERR interrupt enabled"]
     #[inline(always)]
@@ -906,7 +1026,7 @@ impl<'a> BWT_ERR_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 11)) | (((value as u32) & 0x01) << 11);
+        self.w.bits = (self.w.bits & !(0x01 << 11)) | ((value as u32 & 0x01) << 11);
         self.w
     }
 }
@@ -924,9 +1044,12 @@ impl From<BGT_ERR_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `BGT_ERR_IM`"]
-pub type BGT_ERR_IM_R = crate::R<bool, BGT_ERR_IM_A>;
+#[doc = "Field `BGT_ERR_IM` reader - Block Guard Time Error Interrupt"]
+pub struct BGT_ERR_IM_R(crate::FieldReader<bool, BGT_ERR_IM_A>);
 impl BGT_ERR_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        BGT_ERR_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> BGT_ERR_IM_A {
@@ -938,15 +1061,22 @@ impl BGT_ERR_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == BGT_ERR_IM_A::_0
+        **self == BGT_ERR_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == BGT_ERR_IM_A::_1
+        **self == BGT_ERR_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `BGT_ERR_IM`"]
+impl core::ops::Deref for BGT_ERR_IM_R {
+    type Target = crate::FieldReader<bool, BGT_ERR_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `BGT_ERR_IM` writer - Block Guard Time Error Interrupt"]
 pub struct BGT_ERR_IM_W<'a> {
     w: &'a mut W,
 }
@@ -954,9 +1084,7 @@ impl<'a> BGT_ERR_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: BGT_ERR_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "BGT_ERR interrupt enabled"]
     #[inline(always)]
@@ -981,7 +1109,7 @@ impl<'a> BGT_ERR_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 12)) | (((value as u32) & 0x01) << 12);
+        self.w.bits = (self.w.bits & !(0x01 << 12)) | ((value as u32 & 0x01) << 12);
         self.w
     }
 }
@@ -999,9 +1127,12 @@ impl From<GPCNT1_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `GPCNT1_IM`"]
-pub type GPCNT1_IM_R = crate::R<bool, GPCNT1_IM_A>;
+#[doc = "Field `GPCNT1_IM` reader - General Purpose Counter 1 Timeout Interrupt Mask"]
+pub struct GPCNT1_IM_R(crate::FieldReader<bool, GPCNT1_IM_A>);
 impl GPCNT1_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        GPCNT1_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> GPCNT1_IM_A {
@@ -1013,15 +1144,22 @@ impl GPCNT1_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == GPCNT1_IM_A::_0
+        **self == GPCNT1_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == GPCNT1_IM_A::_1
+        **self == GPCNT1_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `GPCNT1_IM`"]
+impl core::ops::Deref for GPCNT1_IM_R {
+    type Target = crate::FieldReader<bool, GPCNT1_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `GPCNT1_IM` writer - General Purpose Counter 1 Timeout Interrupt Mask"]
 pub struct GPCNT1_IM_W<'a> {
     w: &'a mut W,
 }
@@ -1029,9 +1167,7 @@ impl<'a> GPCNT1_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GPCNT1_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "GPCNT1_TO interrupt enabled"]
     #[inline(always)]
@@ -1056,7 +1192,7 @@ impl<'a> GPCNT1_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 13)) | (((value as u32) & 0x01) << 13);
+        self.w.bits = (self.w.bits & !(0x01 << 13)) | ((value as u32 & 0x01) << 13);
         self.w
     }
 }
@@ -1074,9 +1210,12 @@ impl From<RX_DATA_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `RX_DATA_IM`"]
-pub type RX_DATA_IM_R = crate::R<bool, RX_DATA_IM_A>;
+#[doc = "Field `RX_DATA_IM` reader - Receive Data Interrupt Mask"]
+pub struct RX_DATA_IM_R(crate::FieldReader<bool, RX_DATA_IM_A>);
 impl RX_DATA_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        RX_DATA_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> RX_DATA_IM_A {
@@ -1088,15 +1227,22 @@ impl RX_DATA_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == RX_DATA_IM_A::_0
+        **self == RX_DATA_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == RX_DATA_IM_A::_1
+        **self == RX_DATA_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `RX_DATA_IM`"]
+impl core::ops::Deref for RX_DATA_IM_R {
+    type Target = crate::FieldReader<bool, RX_DATA_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `RX_DATA_IM` writer - Receive Data Interrupt Mask"]
 pub struct RX_DATA_IM_W<'a> {
     w: &'a mut W,
 }
@@ -1104,9 +1250,7 @@ impl<'a> RX_DATA_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RX_DATA_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "RX_DATA interrupt enabled"]
     #[inline(always)]
@@ -1131,7 +1275,7 @@ impl<'a> RX_DATA_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 14)) | (((value as u32) & 0x01) << 14);
+        self.w.bits = (self.w.bits & !(0x01 << 14)) | ((value as u32 & 0x01) << 14);
         self.w
     }
 }
@@ -1149,9 +1293,12 @@ impl From<PEF_IM_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `PEF_IM`"]
-pub type PEF_IM_R = crate::R<bool, PEF_IM_A>;
+#[doc = "Field `PEF_IM` reader - Parity Error Interrupt Mask"]
+pub struct PEF_IM_R(crate::FieldReader<bool, PEF_IM_A>);
 impl PEF_IM_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        PEF_IM_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> PEF_IM_A {
@@ -1163,15 +1310,22 @@ impl PEF_IM_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == PEF_IM_A::_0
+        **self == PEF_IM_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == PEF_IM_A::_1
+        **self == PEF_IM_A::_1
     }
 }
-#[doc = "Write proxy for field `PEF_IM`"]
+impl core::ops::Deref for PEF_IM_R {
+    type Target = crate::FieldReader<bool, PEF_IM_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `PEF_IM` writer - Parity Error Interrupt Mask"]
 pub struct PEF_IM_W<'a> {
     w: &'a mut W,
 }
@@ -1179,9 +1333,7 @@ impl<'a> PEF_IM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PEF_IM_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "PEF interrupt enabled"]
     #[inline(always)]
@@ -1206,7 +1358,7 @@ impl<'a> PEF_IM_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 15)) | (((value as u32) & 0x01) << 15);
+        self.w.bits = (self.w.bits & !(0x01 << 15)) | ((value as u32 & 0x01) << 15);
         self.w
     }
 }
@@ -1372,5 +1524,31 @@ impl W {
     #[inline(always)]
     pub fn pef_im(&mut self) -> PEF_IM_W {
         PEF_IM_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Interrupt Mask Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [int_mask](index.html) module"]
+pub struct INT_MASK_SPEC;
+impl crate::RegisterSpec for INT_MASK_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [int_mask::R](R) reader structure"]
+impl crate::Readable for INT_MASK_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [int_mask::W](W) writer structure"]
+impl crate::Writable for INT_MASK_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets INT_MASK to value 0xffff"]
+impl crate::Resettable for INT_MASK_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0xffff
     }
 }

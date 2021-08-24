@@ -1,13 +1,37 @@
-#[doc = "Reader of register USBTRC0"]
-pub type R = crate::R<u8, super::USBTRC0>;
-#[doc = "Writer for register USBTRC0"]
-pub type W = crate::W<u8, super::USBTRC0>;
-#[doc = "Register USBTRC0 `reset()`'s with value 0"]
-impl crate::ResetValue for super::USBTRC0 {
-    type Type = u8;
+#[doc = "Register `USBTRC0` reader"]
+pub struct R(crate::R<USBTRC0_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<USBTRC0_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<USBTRC0_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<USBTRC0_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `USBTRC0` writer"]
+pub struct W(crate::W<USBTRC0_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<USBTRC0_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<USBTRC0_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<USBTRC0_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "USB Asynchronous Interrupt\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<USB_RESUME_INT_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `USB_RESUME_INT`"]
-pub type USB_RESUME_INT_R = crate::R<bool, USB_RESUME_INT_A>;
+#[doc = "Field `USB_RESUME_INT` reader - USB Asynchronous Interrupt"]
+pub struct USB_RESUME_INT_R(crate::FieldReader<bool, USB_RESUME_INT_A>);
 impl USB_RESUME_INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        USB_RESUME_INT_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> USB_RESUME_INT_A {
@@ -38,12 +65,19 @@ impl USB_RESUME_INT_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == USB_RESUME_INT_A::_0
+        **self == USB_RESUME_INT_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == USB_RESUME_INT_A::_1
+        **self == USB_RESUME_INT_A::_1
+    }
+}
+impl core::ops::Deref for USB_RESUME_INT_R {
+    type Target = crate::FieldReader<bool, USB_RESUME_INT_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Synchronous USB Interrupt Detect\n\nValue on reset: 0"]
@@ -60,9 +94,12 @@ impl From<SYNC_DET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `SYNC_DET`"]
-pub type SYNC_DET_R = crate::R<bool, SYNC_DET_A>;
+#[doc = "Field `SYNC_DET` reader - Synchronous USB Interrupt Detect"]
+pub struct SYNC_DET_R(crate::FieldReader<bool, SYNC_DET_A>);
 impl SYNC_DET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        SYNC_DET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> SYNC_DET_A {
@@ -74,16 +111,35 @@ impl SYNC_DET_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == SYNC_DET_A::_0
+        **self == SYNC_DET_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == SYNC_DET_A::_1
+        **self == SYNC_DET_A::_1
     }
 }
-#[doc = "Reader of field `USB_CLK_RECOVERY_INT`"]
-pub type USB_CLK_RECOVERY_INT_R = crate::R<bool, bool>;
+impl core::ops::Deref for SYNC_DET_R {
+    type Target = crate::FieldReader<bool, SYNC_DET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `USB_CLK_RECOVERY_INT` reader - Combined USB Clock Recovery interrupt status"]
+pub struct USB_CLK_RECOVERY_INT_R(crate::FieldReader<bool, bool>);
+impl USB_CLK_RECOVERY_INT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        USB_CLK_RECOVERY_INT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for USB_CLK_RECOVERY_INT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 #[doc = "VREGIN Rising Edge Interrupt Detect\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VREDG_DET_A {
@@ -98,9 +154,12 @@ impl From<VREDG_DET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `VREDG_DET`"]
-pub type VREDG_DET_R = crate::R<bool, VREDG_DET_A>;
+#[doc = "Field `VREDG_DET` reader - VREGIN Rising Edge Interrupt Detect"]
+pub struct VREDG_DET_R(crate::FieldReader<bool, VREDG_DET_A>);
 impl VREDG_DET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        VREDG_DET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> VREDG_DET_A {
@@ -112,12 +171,19 @@ impl VREDG_DET_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == VREDG_DET_A::_0
+        **self == VREDG_DET_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == VREDG_DET_A::_1
+        **self == VREDG_DET_A::_1
+    }
+}
+impl core::ops::Deref for VREDG_DET_R {
+    type Target = crate::FieldReader<bool, VREDG_DET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "VREGIN Falling Edge Interrupt Detect\n\nValue on reset: 0"]
@@ -134,9 +200,12 @@ impl From<VFEDG_DET_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `VFEDG_DET`"]
-pub type VFEDG_DET_R = crate::R<bool, VFEDG_DET_A>;
+#[doc = "Field `VFEDG_DET` reader - VREGIN Falling Edge Interrupt Detect"]
+pub struct VFEDG_DET_R(crate::FieldReader<bool, VFEDG_DET_A>);
 impl VFEDG_DET_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        VFEDG_DET_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> VFEDG_DET_A {
@@ -148,12 +217,19 @@ impl VFEDG_DET_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == VFEDG_DET_A::_0
+        **self == VFEDG_DET_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == VFEDG_DET_A::_1
+        **self == VFEDG_DET_A::_1
+    }
+}
+impl core::ops::Deref for VFEDG_DET_R {
+    type Target = crate::FieldReader<bool, VFEDG_DET_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Asynchronous Resume Interrupt Enable\n\nValue on reset: 0"]
@@ -170,9 +246,12 @@ impl From<USBRESMEN_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `USBRESMEN`"]
-pub type USBRESMEN_R = crate::R<bool, USBRESMEN_A>;
+#[doc = "Field `USBRESMEN` reader - Asynchronous Resume Interrupt Enable"]
+pub struct USBRESMEN_R(crate::FieldReader<bool, USBRESMEN_A>);
 impl USBRESMEN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        USBRESMEN_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> USBRESMEN_A {
@@ -184,15 +263,22 @@ impl USBRESMEN_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == USBRESMEN_A::_0
+        **self == USBRESMEN_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == USBRESMEN_A::_1
+        **self == USBRESMEN_A::_1
     }
 }
-#[doc = "Write proxy for field `USBRESMEN`"]
+impl core::ops::Deref for USBRESMEN_R {
+    type Target = crate::FieldReader<bool, USBRESMEN_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `USBRESMEN` writer - Asynchronous Resume Interrupt Enable"]
 pub struct USBRESMEN_W<'a> {
     w: &'a mut W,
 }
@@ -200,9 +286,7 @@ impl<'a> USBRESMEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: USBRESMEN_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "USB asynchronous wakeup from suspend mode disabled."]
     #[inline(always)]
@@ -227,7 +311,7 @@ impl<'a> USBRESMEN_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -245,7 +329,7 @@ impl From<USBRESET_AW> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Write proxy for field `USBRESET`"]
+#[doc = "Field `USBRESET` writer - USB Reset"]
 pub struct USBRESET_W<'a> {
     w: &'a mut W,
 }
@@ -253,9 +337,7 @@ impl<'a> USBRESET_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: USBRESET_AW) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Normal USB module operation."]
     #[inline(always)]
@@ -280,7 +362,7 @@ impl<'a> USBRESET_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -326,5 +408,31 @@ impl W {
     #[inline(always)]
     pub fn usbreset(&mut self) -> USBRESET_W {
         USBRESET_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "USB Transceiver Control register 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [usbtrc0](index.html) module"]
+pub struct USBTRC0_SPEC;
+impl crate::RegisterSpec for USBTRC0_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [usbtrc0::R](R) reader structure"]
+impl crate::Readable for USBTRC0_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [usbtrc0::W](W) writer structure"]
+impl crate::Writable for USBTRC0_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets USBTRC0 to value 0"]
+impl crate::Resettable for USBTRC0_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

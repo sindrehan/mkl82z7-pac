@@ -1,13 +1,37 @@
-#[doc = "Reader of register STALL_OH_DIS"]
-pub type R = crate::R<u8, super::STALL_OH_DIS>;
-#[doc = "Writer for register STALL_OH_DIS"]
-pub type W = crate::W<u8, super::STALL_OH_DIS>;
-#[doc = "Register STALL_OH_DIS `reset()`'s with value 0"]
-impl crate::ResetValue for super::STALL_OH_DIS {
-    type Type = u8;
+#[doc = "Register `STALL_OH_DIS` reader"]
+pub struct R(crate::R<STALL_OH_DIS_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<STALL_OH_DIS_SPEC>;
     #[inline(always)]
-    fn reset_value() -> Self::Type {
-        0
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<STALL_OH_DIS_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<STALL_OH_DIS_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `STALL_OH_DIS` writer"]
+pub struct W(crate::W<STALL_OH_DIS_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<STALL_OH_DIS_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<STALL_OH_DIS_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<STALL_OH_DIS_SPEC>) -> Self {
+        W(writer)
     }
 }
 #[doc = "Disable endpoint 8 OUT direction.\n\nValue on reset: 0"]
@@ -24,9 +48,12 @@ impl From<STALL_O_DIS8_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS8`"]
-pub type STALL_O_DIS8_R = crate::R<bool, STALL_O_DIS8_A>;
+#[doc = "Field `STALL_O_DIS8` reader - Disable endpoint 8 OUT direction."]
+pub struct STALL_O_DIS8_R(crate::FieldReader<bool, STALL_O_DIS8_A>);
 impl STALL_O_DIS8_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS8_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS8_A {
@@ -38,15 +65,22 @@ impl STALL_O_DIS8_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS8_A::_0
+        **self == STALL_O_DIS8_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS8_A::_1
+        **self == STALL_O_DIS8_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS8`"]
+impl core::ops::Deref for STALL_O_DIS8_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS8_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS8` writer - Disable endpoint 8 OUT direction."]
 pub struct STALL_O_DIS8_W<'a> {
     w: &'a mut W,
 }
@@ -54,9 +88,7 @@ impl<'a> STALL_O_DIS8_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS8_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 8 OUT direction stall is enabled."]
     #[inline(always)]
@@ -81,7 +113,7 @@ impl<'a> STALL_O_DIS8_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !0x01) | ((value as u8) & 0x01);
+        self.w.bits = (self.w.bits & !0x01) | (value as u8 & 0x01);
         self.w
     }
 }
@@ -99,9 +131,12 @@ impl From<STALL_O_DIS9_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS9`"]
-pub type STALL_O_DIS9_R = crate::R<bool, STALL_O_DIS9_A>;
+#[doc = "Field `STALL_O_DIS9` reader - Disable endpoint 9 OUT direction."]
+pub struct STALL_O_DIS9_R(crate::FieldReader<bool, STALL_O_DIS9_A>);
 impl STALL_O_DIS9_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS9_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS9_A {
@@ -113,15 +148,22 @@ impl STALL_O_DIS9_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS9_A::_0
+        **self == STALL_O_DIS9_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS9_A::_1
+        **self == STALL_O_DIS9_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS9`"]
+impl core::ops::Deref for STALL_O_DIS9_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS9_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS9` writer - Disable endpoint 9 OUT direction."]
 pub struct STALL_O_DIS9_W<'a> {
     w: &'a mut W,
 }
@@ -129,9 +171,7 @@ impl<'a> STALL_O_DIS9_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS9_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 9 OUT direction stall is enabled."]
     #[inline(always)]
@@ -156,7 +196,7 @@ impl<'a> STALL_O_DIS9_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u8) & 0x01) << 1);
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | ((value as u8 & 0x01) << 1);
         self.w
     }
 }
@@ -174,9 +214,12 @@ impl From<STALL_O_DIS10_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS10`"]
-pub type STALL_O_DIS10_R = crate::R<bool, STALL_O_DIS10_A>;
+#[doc = "Field `STALL_O_DIS10` reader - Disable endpoint 10 OUT direction."]
+pub struct STALL_O_DIS10_R(crate::FieldReader<bool, STALL_O_DIS10_A>);
 impl STALL_O_DIS10_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS10_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS10_A {
@@ -188,15 +231,22 @@ impl STALL_O_DIS10_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS10_A::_0
+        **self == STALL_O_DIS10_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS10_A::_1
+        **self == STALL_O_DIS10_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS10`"]
+impl core::ops::Deref for STALL_O_DIS10_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS10_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS10` writer - Disable endpoint 10 OUT direction."]
 pub struct STALL_O_DIS10_W<'a> {
     w: &'a mut W,
 }
@@ -204,9 +254,7 @@ impl<'a> STALL_O_DIS10_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS10_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 10 OUT direction stall is enabled."]
     #[inline(always)]
@@ -231,7 +279,7 @@ impl<'a> STALL_O_DIS10_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u8) & 0x01) << 2);
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | ((value as u8 & 0x01) << 2);
         self.w
     }
 }
@@ -249,9 +297,12 @@ impl From<STALL_O_DIS11_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS11`"]
-pub type STALL_O_DIS11_R = crate::R<bool, STALL_O_DIS11_A>;
+#[doc = "Field `STALL_O_DIS11` reader - Disable endpoint 11 OUT direction."]
+pub struct STALL_O_DIS11_R(crate::FieldReader<bool, STALL_O_DIS11_A>);
 impl STALL_O_DIS11_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS11_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS11_A {
@@ -263,15 +314,22 @@ impl STALL_O_DIS11_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS11_A::_0
+        **self == STALL_O_DIS11_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS11_A::_1
+        **self == STALL_O_DIS11_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS11`"]
+impl core::ops::Deref for STALL_O_DIS11_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS11_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS11` writer - Disable endpoint 11 OUT direction."]
 pub struct STALL_O_DIS11_W<'a> {
     w: &'a mut W,
 }
@@ -279,9 +337,7 @@ impl<'a> STALL_O_DIS11_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS11_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 11 OUT direction stall is enabled."]
     #[inline(always)]
@@ -306,7 +362,7 @@ impl<'a> STALL_O_DIS11_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u8) & 0x01) << 3);
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u8 & 0x01) << 3);
         self.w
     }
 }
@@ -324,9 +380,12 @@ impl From<STALL_O_DIS12_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS12`"]
-pub type STALL_O_DIS12_R = crate::R<bool, STALL_O_DIS12_A>;
+#[doc = "Field `STALL_O_DIS12` reader - Disable endpoint 12 OUT direction."]
+pub struct STALL_O_DIS12_R(crate::FieldReader<bool, STALL_O_DIS12_A>);
 impl STALL_O_DIS12_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS12_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS12_A {
@@ -338,15 +397,22 @@ impl STALL_O_DIS12_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS12_A::_0
+        **self == STALL_O_DIS12_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS12_A::_1
+        **self == STALL_O_DIS12_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS12`"]
+impl core::ops::Deref for STALL_O_DIS12_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS12_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS12` writer - Disable endpoint 12 OUT direction."]
 pub struct STALL_O_DIS12_W<'a> {
     w: &'a mut W,
 }
@@ -354,9 +420,7 @@ impl<'a> STALL_O_DIS12_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS12_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 12 OUT direction stall is enabled."]
     #[inline(always)]
@@ -381,7 +445,7 @@ impl<'a> STALL_O_DIS12_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u8) & 0x01) << 4);
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | ((value as u8 & 0x01) << 4);
         self.w
     }
 }
@@ -399,9 +463,12 @@ impl From<STALL_O_DIS13_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS13`"]
-pub type STALL_O_DIS13_R = crate::R<bool, STALL_O_DIS13_A>;
+#[doc = "Field `STALL_O_DIS13` reader - Disable endpoint 13 OUT direction."]
+pub struct STALL_O_DIS13_R(crate::FieldReader<bool, STALL_O_DIS13_A>);
 impl STALL_O_DIS13_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS13_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS13_A {
@@ -413,15 +480,22 @@ impl STALL_O_DIS13_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS13_A::_0
+        **self == STALL_O_DIS13_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS13_A::_1
+        **self == STALL_O_DIS13_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS13`"]
+impl core::ops::Deref for STALL_O_DIS13_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS13_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS13` writer - Disable endpoint 13 OUT direction."]
 pub struct STALL_O_DIS13_W<'a> {
     w: &'a mut W,
 }
@@ -429,9 +503,7 @@ impl<'a> STALL_O_DIS13_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS13_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 13 OUT direction stall is enabled."]
     #[inline(always)]
@@ -456,7 +528,7 @@ impl<'a> STALL_O_DIS13_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u8) & 0x01) << 5);
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | ((value as u8 & 0x01) << 5);
         self.w
     }
 }
@@ -474,9 +546,12 @@ impl From<STALL_O_DIS14_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS14`"]
-pub type STALL_O_DIS14_R = crate::R<bool, STALL_O_DIS14_A>;
+#[doc = "Field `STALL_O_DIS14` reader - Disable endpoint 14 OUT direction."]
+pub struct STALL_O_DIS14_R(crate::FieldReader<bool, STALL_O_DIS14_A>);
 impl STALL_O_DIS14_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS14_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS14_A {
@@ -488,15 +563,22 @@ impl STALL_O_DIS14_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS14_A::_0
+        **self == STALL_O_DIS14_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS14_A::_1
+        **self == STALL_O_DIS14_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS14`"]
+impl core::ops::Deref for STALL_O_DIS14_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS14_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS14` writer - Disable endpoint 14 OUT direction."]
 pub struct STALL_O_DIS14_W<'a> {
     w: &'a mut W,
 }
@@ -504,9 +586,7 @@ impl<'a> STALL_O_DIS14_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS14_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 14 OUT direction stall is enabled."]
     #[inline(always)]
@@ -531,7 +611,7 @@ impl<'a> STALL_O_DIS14_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u8) & 0x01) << 6);
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u8 & 0x01) << 6);
         self.w
     }
 }
@@ -549,9 +629,12 @@ impl From<STALL_O_DIS15_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `STALL_O_DIS15`"]
-pub type STALL_O_DIS15_R = crate::R<bool, STALL_O_DIS15_A>;
+#[doc = "Field `STALL_O_DIS15` reader - Disable endpoint 15 OUT direction."]
+pub struct STALL_O_DIS15_R(crate::FieldReader<bool, STALL_O_DIS15_A>);
 impl STALL_O_DIS15_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        STALL_O_DIS15_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> STALL_O_DIS15_A {
@@ -563,15 +646,22 @@ impl STALL_O_DIS15_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == STALL_O_DIS15_A::_0
+        **self == STALL_O_DIS15_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == STALL_O_DIS15_A::_1
+        **self == STALL_O_DIS15_A::_1
     }
 }
-#[doc = "Write proxy for field `STALL_O_DIS15`"]
+impl core::ops::Deref for STALL_O_DIS15_R {
+    type Target = crate::FieldReader<bool, STALL_O_DIS15_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `STALL_O_DIS15` writer - Disable endpoint 15 OUT direction."]
 pub struct STALL_O_DIS15_W<'a> {
     w: &'a mut W,
 }
@@ -579,9 +669,7 @@ impl<'a> STALL_O_DIS15_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STALL_O_DIS15_A) -> &'a mut W {
-        {
-            self.bit(variant.into())
-        }
+        self.bit(variant.into())
     }
     #[doc = "Endpoint 15 OUT direction stall is enabled."]
     #[inline(always)]
@@ -606,7 +694,7 @@ impl<'a> STALL_O_DIS15_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u8) & 0x01) << 7);
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | ((value as u8 & 0x01) << 7);
         self.w
     }
 }
@@ -692,5 +780,31 @@ impl W {
     #[inline(always)]
     pub fn stall_o_dis15(&mut self) -> STALL_O_DIS15_W {
         STALL_O_DIS15_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Peripheral mode stall disable for endpoints 15 to 8 in OUT direction\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stall_oh_dis](index.html) module"]
+pub struct STALL_OH_DIS_SPEC;
+impl crate::RegisterSpec for STALL_OH_DIS_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [stall_oh_dis::R](R) reader structure"]
+impl crate::Readable for STALL_OH_DIS_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [stall_oh_dis::W](W) writer structure"]
+impl crate::Writable for STALL_OH_DIS_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets STALL_OH_DIS to value 0"]
+impl crate::Resettable for STALL_OH_DIS_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
     }
 }

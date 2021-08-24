@@ -1,5 +1,18 @@
-#[doc = "Reader of register OBSERVE"]
-pub type R = crate::R<u8, super::OBSERVE>;
+#[doc = "Register `OBSERVE` reader"]
+pub struct R(crate::R<OBSERVE_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<OBSERVE_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<OBSERVE_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<OBSERVE_SPEC>) -> Self {
+        R(reader)
+    }
+}
 #[doc = "Provides observability of the D- Pulldown enable at the USB transceiver.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DMPD_A {
@@ -14,9 +27,12 @@ impl From<DMPD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DMPD`"]
-pub type DMPD_R = crate::R<bool, DMPD_A>;
+#[doc = "Field `DMPD` reader - Provides observability of the D- Pulldown enable at the USB transceiver."]
+pub struct DMPD_R(crate::FieldReader<bool, DMPD_A>);
 impl DMPD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DMPD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DMPD_A {
@@ -28,12 +44,19 @@ impl DMPD_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DMPD_A::_0
+        **self == DMPD_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DMPD_A::_1
+        **self == DMPD_A::_1
+    }
+}
+impl core::ops::Deref for DMPD_R {
+    type Target = crate::FieldReader<bool, DMPD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Provides observability of the D+ Pulldown enable at the USB transceiver.\n\nValue on reset: 1"]
@@ -50,9 +73,12 @@ impl From<DPPD_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DPPD`"]
-pub type DPPD_R = crate::R<bool, DPPD_A>;
+#[doc = "Field `DPPD` reader - Provides observability of the D+ Pulldown enable at the USB transceiver."]
+pub struct DPPD_R(crate::FieldReader<bool, DPPD_A>);
 impl DPPD_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DPPD_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DPPD_A {
@@ -64,12 +90,19 @@ impl DPPD_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DPPD_A::_0
+        **self == DPPD_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DPPD_A::_1
+        **self == DPPD_A::_1
+    }
+}
+impl core::ops::Deref for DPPD_R {
+    type Target = crate::FieldReader<bool, DPPD_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 #[doc = "Provides observability of the D+ Pullup enable at the USB transceiver.\n\nValue on reset: 0"]
@@ -86,9 +119,12 @@ impl From<DPPU_A> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Reader of field `DPPU`"]
-pub type DPPU_R = crate::R<bool, DPPU_A>;
+#[doc = "Field `DPPU` reader - Provides observability of the D+ Pullup enable at the USB transceiver."]
+pub struct DPPU_R(crate::FieldReader<bool, DPPU_A>);
 impl DPPU_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        DPPU_R(crate::FieldReader::new(bits))
+    }
     #[doc = r"Get enumerated values variant"]
     #[inline(always)]
     pub fn variant(&self) -> DPPU_A {
@@ -100,12 +136,19 @@ impl DPPU_R {
     #[doc = "Checks if the value of the field is `_0`"]
     #[inline(always)]
     pub fn is_0(&self) -> bool {
-        *self == DPPU_A::_0
+        **self == DPPU_A::_0
     }
     #[doc = "Checks if the value of the field is `_1`"]
     #[inline(always)]
     pub fn is_1(&self) -> bool {
-        *self == DPPU_A::_1
+        **self == DPPU_A::_1
+    }
+}
+impl core::ops::Deref for DPPU_R {
+    type Target = crate::FieldReader<bool, DPPU_A>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 impl R {
@@ -123,5 +166,21 @@ impl R {
     #[inline(always)]
     pub fn dppu(&self) -> DPPU_R {
         DPPU_R::new(((self.bits >> 7) & 0x01) != 0)
+    }
+}
+#[doc = "USB OTG Observe register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [observe](index.html) module"]
+pub struct OBSERVE_SPEC;
+impl crate::RegisterSpec for OBSERVE_SPEC {
+    type Ux = u8;
+}
+#[doc = "`read()` method returns [observe::R](R) reader structure"]
+impl crate::Readable for OBSERVE_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets OBSERVE to value 0x50"]
+impl crate::Resettable for OBSERVE_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x50
     }
 }
